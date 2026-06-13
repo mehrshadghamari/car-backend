@@ -37,6 +37,8 @@ read_cfg() {
 export DEPLOY_ROOT="$ROOT"
 # shellcheck disable=SC1091
 source "$ROOT/scripts/deploy/lib/common.sh"
+# shellcheck disable=SC1091
+source "$ROOT/scripts/deploy/lib/nginx.sh"
 
 DOMAIN="${DOMAIN:-$(read_cfg DOMAIN car-alert.ir)}"
 APP_DIR="${APP_DIR:-$(read_cfg APP_DIR /opt/car-backend)}"
@@ -86,8 +88,12 @@ certbot --nginx \
   --redirect \
   --no-eff-email
 
-# shellcheck disable=SC1091
-source "$ROOT/scripts/deploy/lib/nginx.sh"
+SITE="/etc/nginx/sites-available/car-backend"
+SOCKET_PATH="/run/car-backend/car-backend.sock"
+echo "==> Applying car-backend nginx site (HTTPS + /css /js /static)..."
+nginx_write_car_backend_site "$SITE" "$DOMAIN" "$APP_DIR" "$SOCKET_PATH" || true
+ln -sf "$SITE" /etc/nginx/sites-enabled/car-backend
+
 nginx_test_and_start reload
 
 patch_app_env_https

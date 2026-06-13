@@ -16,6 +16,127 @@ nginx_listen_http() {
   fi
 }
 
+nginx_listen_https() {
+  echo "    listen 443 ssl;"
+  if nginx_has_working_ipv6; then
+    echo "    listen [::]:443 ssl;"
+  fi
+}
+
+nginx_has_letsencrypt_cert() {
+  local domain="$1"
+  [[ -f "/etc/letsencrypt/live/${domain}/fullchain.pem" && -f "/etc/letsencrypt/live/${domain}/privkey.pem" ]]
+}
+
+nginx_ssl_directives() {
+  local domain="$1"
+  local cert="/etc/letsencrypt/live/${domain}/fullchain.pem"
+  local key="/etc/letsencrypt/live/${domain}/privkey.pem"
+  echo "    ssl_certificate ${cert};"
+  echo "    ssl_certificate_key ${key};"
+  if [[ -f /etc/letsencrypt/options-ssl-nginx.conf ]]; then
+    echo "    include /etc/letsencrypt/options-ssl-nginx.conf;"
+  else
+    echo "    ssl_protocols TLSv1.2 TLSv1.3;"
+    echo "    ssl_prefer_server_ciphers off;"
+  fi
+  if [[ -f /etc/letsencrypt/ssl-dhparams.pem ]]; then
+    echo "    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;"
+  fi
+}
+
+nginx_write_car_backend_locations() {
+  local app_dir="$1"
+  cat <<EOF
+    location /css/ {
+        alias ${app_dir}/user-portal/css/;
+        expires 7d;
+        add_header Cache-Control "public, immutable";
+    }
+
+    location /js/ {
+        alias ${app_dir}/user-portal/js/;
+        expires 7d;
+        add_header Cache-Control "public, immutable";
+    }
+
+    location /static/ {
+        alias ${app_dir}/static/;
+        expires 7d;
+        add_header Cache-Control "public, immutable";
+    }
+
+    location / {
+        proxy_set_header Host \$host;
+        proxy_set_header X-Real-IP \$remote_addr;
+        proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto \$scheme;
+        proxy_set_header X-Forwarded-Host \$host;
+        proxy_redirect off;
+        proxy_http_version 1.1;
+        proxy_set_header Connection "";
+        proxy_pass http://car_backend_app;
+        proxy_read_timeout 120s;
+    }
+EOF
+}
+
+# Write /etc/nginx/sites-available/car-backend (HTTP-only or HTTPS + HTTP redirect).
+nginx_write_car_backend_site() {
+  local site="$1"
+  local domain="$2"
+  local app_dir="$3"
+  local socket_path="${4:-/run/car-backend/car-backend.sock}"
+
+  if nginx_has_letsencrypt_cert "$domain"; then
+    cat >"$site" <<EOF
+upstream car_backend_app {
+    server unix:${socket_path};
+}
+
+server {
+$(nginx_listen_https)
+    server_name ${domain} www.${domain};
+
+$(nginx_ssl_directives "$domain")
+
+    client_max_body_size 20M;
+
+    access_log /var/log/nginx/car-backend.access.log;
+    error_log  /var/log/nginx/car-backend.error.log;
+
+$(nginx_write_car_backend_locations "$app_dir")
+}
+
+server {
+$(nginx_listen_http)
+    server_name ${domain} www.${domain};
+    return 301 https://\$host\$request_uri;
+}
+EOF
+    return 0
+  fi
+
+  cat >"$site" <<EOF
+upstream car_backend_app {
+    server unix:${socket_path};
+}
+
+server {
+$(nginx_listen_http)
+    server_name ${domain} www.${domain};
+
+    client_max_body_size 20M;
+
+    access_log /var/log/nginx/car-backend.access.log;
+    error_log  /var/log/nginx/car-backend.error.log;
+
+$(nginx_write_car_backend_locations "$app_dir")
+}
+EOF
+  return 1
+}
+
 nginx_free_port_80() {
   if systemctl is-active --quiet apache2 2>/dev/null; then
     echo "==> Stopping Apache (conflicts with nginx on port 80)..."
