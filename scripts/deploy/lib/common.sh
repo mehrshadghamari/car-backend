@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 # Shared helpers for VPS deploy scripts.
 
+# Resolve project root when this file is sourced (BASH_SOURCE[0] = common.sh).
+if [[ -z "${DEPLOY_ROOT:-}" ]]; then
+  _DEPLOY_LIB_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+  DEPLOY_ROOT="$(cd "$_DEPLOY_LIB_DIR/../.." && pwd)"
+fi
+
 load_deploy_config() {
-  local root
-  root="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
+  local root="${DEPLOY_ROOT}"
   APP_DIR="${APP_DIR:-/opt/car-backend}"
   APP_USER="${APP_USER:-deploy}"
   DOMAIN="${DOMAIN:-car-alert.ir}"
@@ -12,12 +17,7 @@ load_deploy_config() {
   USE_POSTGRES="${USE_POSTGRES:-true}"
   GUNICORN_WORKERS="${GUNICORN_WORKERS:-1}"
 
-  if [[ -f "$root/scripts/deploy/config.env" ]]; then
-    # shellcheck disable=SC1091
-    set -a
-    source "$root/scripts/deploy/config.env"
-    set +a
-  fi
+  _source_deploy_config "$root"
 
   APP_DIR="${APP_DIR:-/opt/car-backend}"
   APP_USER="${APP_USER:-deploy}"
@@ -27,9 +27,37 @@ load_deploy_config() {
   USE_POSTGRES="${USE_POSTGRES:-true}"
   GUNICORN_WORKERS="${GUNICORN_WORKERS:-1}"
   ENABLE_SSL="${ENABLE_SSL:-true}"
-  CERTBOT_EMAIL="${CERTBOT_EMAIL:-}"
+  CERTBOT_EMAIL="${CERTBOT_EMAIL:-$(_read_deploy_config_var "$root" CERTBOT_EMAIL)}"
   METABASE_HOST="${METABASE_HOST:-meta.${DOMAIN}}"
   PYTHON="${PYTHON:-python3}"
+}
+
+_source_deploy_config() {
+  local root="$1"
+  local file="$root/scripts/deploy/config.env"
+  if [[ ! -f "$file" ]]; then
+    return 0
+  fi
+  # shellcheck disable=SC1090
+  set -a
+  source "$file"
+  set +a
+}
+
+_read_deploy_config_var() {
+  local root="$1"
+  local key="$2"
+  local file="$root/scripts/deploy/config.env"
+  local line
+  if [[ ! -f "$file" ]]; then
+    return 0
+  fi
+  line="$(grep -E "^${key}=" "$file" | tail -1 || true)"
+  line="${line#${key}=}"
+  line="${line%\"}"
+  line="${line#\"}"
+  line="${line//$'\r'/}"
+  printf '%s' "$line"
 }
 
 ensure_python310_debian() {
