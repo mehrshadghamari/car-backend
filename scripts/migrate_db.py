@@ -45,7 +45,7 @@ async def migrate() -> None:
                     sync_conn.execute(
                         text(
                             "ALTER TABLE crawl_targets ADD COLUMN is_shared_pool "
-                            "BOOLEAN DEFAULT 0 NOT NULL"
+                            "BOOLEAN DEFAULT false NOT NULL"
                         )
                     )
 
@@ -61,7 +61,7 @@ async def migrate() -> None:
                     sync_conn.execute(
                         text(
                             "ALTER TABLE listings ADD COLUMN is_active "
-                            "BOOLEAN DEFAULT 1 NOT NULL"
+                            "BOOLEAN DEFAULT true NOT NULL"
                         )
                     )
 
@@ -106,13 +106,13 @@ async def migrate() -> None:
                 sync_conn.execute(
                     text(
                         "UPDATE opportunities SET deal_tag = 'good' "
-                        "WHERE price_basis = 'mid' AND is_below_floor = 1"
+                        "WHERE price_basis = 'mid' AND is_below_floor = true"
                     )
                 )
                 sync_conn.execute(
                     text(
                         "UPDATE opportunities SET deal_tag = 'fair' "
-                        "WHERE price_basis = 'mid' AND is_below_floor = 0"
+                        "WHERE price_basis = 'mid' AND is_below_floor = false"
                     )
                 )
 
@@ -153,8 +153,8 @@ async def migrate() -> None:
                             city,
                             'tehran'
                         ),
-                        is_shared_pool = 1
-                        WHERE is_shared_pool = 0
+                        is_shared_pool = true
+                        WHERE is_shared_pool = false
                           AND car_model_id IS NULL
                           AND id IN (SELECT crawl_target_id FROM purchase_requests)
                         """
@@ -204,7 +204,7 @@ async def migrate() -> None:
                             source,
                             COALESCE(pool_production_year, -1)
                         )
-                        WHERE is_shared_pool = 1 AND listing_mapping_id IS NOT NULL
+                        WHERE is_shared_pool = true AND listing_mapping_id IS NOT NULL
                         """
                     )
                 )
@@ -217,7 +217,7 @@ async def migrate() -> None:
                             id CHAR(36) PRIMARY KEY,
                             slug VARCHAR(80) NOT NULL UNIQUE,
                             display VARCHAR(200) NOT NULL,
-                            is_active BOOLEAN DEFAULT 1
+                            is_active BOOLEAN DEFAULT true
                         )
                         """
                     )
@@ -234,7 +234,7 @@ async def migrate() -> None:
                             id CHAR(36) PRIMARY KEY,
                             slug VARCHAR(200) NOT NULL UNIQUE,
                             display VARCHAR(300) NOT NULL,
-                            is_active BOOLEAN DEFAULT 1
+                            is_active BOOLEAN DEFAULT true
                         )
                         """
                     )
@@ -274,7 +274,7 @@ async def migrate() -> None:
                             sync_conn.execute(
                                 text(
                                     "INSERT INTO divar_car_models (id, slug, display, is_active) "
-                                    "VALUES (:id, :slug, :display, 1)"
+                                    "VALUES (:id, :slug, :display, true)"
                                 ),
                                 {
                                     "id": divar_model_id,
