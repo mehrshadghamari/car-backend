@@ -1,4 +1,5 @@
 import logging
+import re
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
@@ -35,11 +36,14 @@ from src.presentation.routing_paths import (
     portal_results_path,
     portal_secret_prefix,
     portal_trim_mapping_path,
-    portal_user_prefix,
 )
 
 settings = get_settings()
 _secret_prefix = portal_secret_prefix()
+_uuid_segment = re.compile(
+    r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+    re.IGNORECASE,
+)
 logging.basicConfig(level=settings.log_level)
 
 app = FastAPI(
@@ -51,13 +55,11 @@ app = FastAPI(
     openapi_url=f"{_secret_prefix}/openapi.json",
 )
 
-# Trust X-Forwarded-* from nginx so /admin static assets use https:// URLs.
 app.add_middleware(ProxyHeadersMiddleware, trusted_hosts="*")
 
 
 @app.middleware("http")
 async def block_guessed_portal_secret_paths(request: Request, call_next) -> Response:
-    """Return 404 for /portal/{uuid}/{uuid}/… when UUIDs are not the configured pair."""
     if is_wrong_portal_secret_path(request.url.path):
         return JSONResponse(status_code=404, content={"detail": "Not found"})
     return await call_next(request)
@@ -104,13 +106,8 @@ portal_dir = Path(__file__).resolve().parent.parent / "user-portal"
 if static_dir.exists():
     app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
 
-# Staff routes (secret UUID prefix) must register before the public /portal static mount.
+# Staff routes under /portal/{uuid1}/{uuid2}/… — register before the public site mount.
 setup_admin(app, admin_base_url=portal_admin_path())
-
-
-@app.get("/")
-async def root_redirect():
-    return RedirectResponse(url=f"{portal_user_prefix()}/", status_code=302)
 
 
 @app.get(portal_results_path())
@@ -140,12 +137,31 @@ async def legacy_staff_paths_blocked():
     raise HTTPException(status_code=404, detail="Not found")
 
 
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
+
+
+@app.get("/portal")
+@app.get("/portal/")
+async def legacy_portal_root():
+    return RedirectResponse("/", status_code=302)
+
+
+@app.get("/portal/{rest:path}")
+async def legacy_portal_paths(rest: str):
+    parts = rest.split("/")
+    if (
+        len(parts) >= 2
+        and _uuid_segment.match(parts[0])
+        and _uuid_segment.match(parts[1])
+    ):
+        raise HTTPException(status_code=404, detail="Not found")
+    return RedirectResponse(f"/{rest}", status_code=302)
+
+
 if portal_dir.exists():
-    app.mount(
-        portal_user_prefix(),
-        StaticFiles(directory=str(portal_dir), html=True),
-        name="user-portal",
-    )
+    app.mount("/", StaticFiles(directory=str(portal_dir), html=True), name="user-portal")
 
 
 @app.exception_handler(EntityNotFoundError)
@@ -161,8 +177,3 @@ async def validation_handler(_: Request, exc: ValidationError):
 @app.exception_handler(DomainError)
 async def domain_handler(_: Request, exc: DomainError):
     return JSONResponse(status_code=400, content={"detail": str(exc)})
-
-
-@app.get("/health")
-async def health():
-    return {"status": "ok"}

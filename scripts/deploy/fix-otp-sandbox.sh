@@ -40,4 +40,4 @@ systemctl restart car-backend.service 2>/dev/null || systemctl restart car-backe
 echo ""
 echo "OTP sandbox enabled."
 echo "  Portal login test code: 11111"
-echo "  User portal: https://${DOMAIN}/portal/"
+echo "  User portal: https://${DOMAIN}/"

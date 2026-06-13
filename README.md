@@ -38,7 +38,7 @@ bash scripts/local-down.sh
 
 | Page | URL |
 |------|-----|
-| Register / login (users) | http://127.0.0.1:8000/portal/ |
+| Register / login (users) | http://127.0.0.1:8000/ |
 | Staff admin (secret UUID path) | see `.env` `PORTAL_PATH_UUID_1/2` or local-first-run output |
 | Crawl results (staff) | `/portal/{uuid1}/{uuid2}/results` |
 

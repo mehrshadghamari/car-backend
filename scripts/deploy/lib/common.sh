@@ -252,7 +252,7 @@ Domain: ${DOMAIN}
 App dir: ${APP_DIR}
 
 User portal (public):
-  https://${DOMAIN}/portal/
+  https://${DOMAIN}/
 
 Staff URLs (private UUID path):
   Admin:         https://${DOMAIN}${staff_base}/admin/

@@ -25,7 +25,7 @@ window.APP_CONFIG = {
 bash scripts/local-up.sh
 ```
 
-باز کنید: http://127.0.0.1:8000/portal/
+باز کنید: http://127.0.0.1:8000/
 
 ### روش ۲ — سرور استاتیک
 

@@ -9,7 +9,7 @@ from starlette.requests import Request
 from starlette.responses import Response
 
 from src.infrastructure.config import get_settings
-from src.presentation.routing_paths import portal_results_path, portal_user_prefix
+from src.presentation.routing_paths import portal_results_path, user_site_path
 from src.infrastructure.persistence.models import (
     CarBrandModel,
     CarModelModel,
@@ -195,7 +195,7 @@ def setup_admin(app, admin_base_url: str = "/admin") -> Admin:
         templates_dir=templates_dir,
     )
 
-    admin.add_view(Link(label="User Portal", icon="fa fa-home", url=f"{portal_user_prefix()}/"))
+    admin.add_view(Link(label="User Portal", icon="fa fa-home", url=user_site_path()))
     admin.add_view(Link(label="Crawl Results", icon="fa fa-table", url=portal_results_path()))
     admin.add_view(
         DropDown(

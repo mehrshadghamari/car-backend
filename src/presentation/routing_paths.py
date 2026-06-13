@@ -13,8 +13,9 @@ _UUID_PATH_RE = re.compile(
 )
 
 
-def portal_user_prefix() -> str:
-    return "/portal"
+def user_site_path() -> str:
+    """Public client UI (login, dashboard) at domain root."""
+    return "/"
 
 
 def portal_secret_prefix() -> str:

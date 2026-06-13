@@ -14,11 +14,11 @@
   }
 
   window.APP_PATHS = {
-    portal: '/portal/',
-    results: secretBase ? `${secretBase}/results` : '/portal/',
-    admin: secretBase ? `${secretBase}/admin/` : '/portal/',
-    docs: secretBase ? `${secretBase}/docs` : '/portal/',
-    trimMapping: secretBase ? `${secretBase}/trim-mapping` : '/portal/',
+    portal: '/',
+    results: secretBase ? `${secretBase}/results` : '/',
+    admin: secretBase ? `${secretBase}/admin/` : '/',
+    docs: secretBase ? `${secretBase}/docs` : '/',
+    trimMapping: secretBase ? `${secretBase}/trim-mapping` : '/',
   };
 
   document.querySelectorAll('[data-nav]').forEach((el) => {

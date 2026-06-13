@@ -135,7 +135,7 @@ class SendOpportunitySmsUseCase:
             opportunity_ids=[str(o.id) for o in opportunities],
             expires_at=expires_at,
         )
-        share_url = f"{self._settings.app_host}/portal/shared-opportunities.html?token={token}"
+        share_url = f"{self._settings.app_host}/shared-opportunities.html?token={token}"
         message = f"فرصت‌های خرید خودرو برای شما:\n{share_url}"
 
         sent = 0

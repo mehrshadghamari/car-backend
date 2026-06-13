@@ -56,7 +56,7 @@ systemctl restart car-backend.service 2>/dev/null || systemctl restart car-backe
   echo "Portal routing — $(date -Iseconds)"
   echo ""
   echo "Public (users only):"
-  echo "  https://${DOMAIN}/portal/"
+  echo "  https://${DOMAIN}/"
   echo ""
   echo "Staff (keep private — two UUID path segments):"
   echo "  Admin:         https://${DOMAIN}${staff_base}/admin/"
