@@ -51,8 +51,6 @@ ExecStart=${VENV}/bin/gunicorn src.main:app \\
   --access-logfile - \\
   --error-logfile - \\
   --timeout 120
-ExecStartPost=/bin/chgrp www-data ${SOCKET_PATH}
-ExecStartPost=/bin/chmod 660 ${SOCKET_PATH}
 ExecReload=/bin/kill -s HUP \$MAINPID
 KillMode=mixed
 Restart=always
