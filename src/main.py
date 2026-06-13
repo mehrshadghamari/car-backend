@@ -1,5 +1,4 @@
 import logging
-import re
 from pathlib import Path
 
 from fastapi import FastAPI, HTTPException, Request
@@ -32,6 +31,7 @@ from src.presentation.api.routers import (
 )
 from src.presentation.routing_paths import (
     is_wrong_portal_secret_path,
+    legacy_portal_redirect_target,
     portal_admin_path,
     portal_results_path,
     portal_secret_prefix,
@@ -40,10 +40,6 @@ from src.presentation.routing_paths import (
 
 settings = get_settings()
 _secret_prefix = portal_secret_prefix()
-_uuid_segment = re.compile(
-    r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
-    re.IGNORECASE,
-)
 logging.basicConfig(level=settings.log_level)
 
 app = FastAPI(
@@ -106,7 +102,7 @@ portal_dir = Path(__file__).resolve().parent.parent / "user-portal"
 if static_dir.exists():
     app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
 
-# Staff routes under /portal/{uuid1}/{uuid2}/… — register before the public site mount.
+# Staff routes under /portal/{uuid1}/{uuid2}/…
 setup_admin(app, admin_base_url=portal_admin_path())
 
 
@@ -142,6 +138,30 @@ async def health():
     return {"status": "ok"}
 
 
+def _portal_page(filename: str) -> FileResponse:
+    path = portal_dir / filename
+    if not path.is_file():
+        raise HTTPException(status_code=404, detail="Not found")
+    return FileResponse(path)
+
+
+if portal_dir.exists():
+    app.mount("/css", StaticFiles(directory=str(portal_dir / "css")), name="portal-css")
+    app.mount("/js", StaticFiles(directory=str(portal_dir / "js")), name="portal-js")
+
+    @app.get("/")
+    async def user_portal_home():
+        return _portal_page("index.html")
+
+    @app.get("/dashboard.html")
+    async def user_portal_dashboard():
+        return _portal_page("dashboard.html")
+
+    @app.get("/shared-opportunities.html")
+    async def user_portal_shared_opportunities():
+        return _portal_page("shared-opportunities.html")
+
+
 @app.get("/portal")
 @app.get("/portal/")
 async def legacy_portal_root():
@@ -150,18 +170,10 @@ async def legacy_portal_root():
 
 @app.get("/portal/{rest:path}")
 async def legacy_portal_paths(rest: str):
-    parts = rest.split("/")
-    if (
-        len(parts) >= 2
-        and _uuid_segment.match(parts[0])
-        and _uuid_segment.match(parts[1])
-    ):
+    target = legacy_portal_redirect_target(rest)
+    if target is None:
         raise HTTPException(status_code=404, detail="Not found")
-    return RedirectResponse(f"/{rest}", status_code=302)
-
-
-if portal_dir.exists():
-    app.mount("/", StaticFiles(directory=str(portal_dir), html=True), name="user-portal")
+    return RedirectResponse(target, status_code=302)
 
 
 @app.exception_handler(EntityNotFoundError)

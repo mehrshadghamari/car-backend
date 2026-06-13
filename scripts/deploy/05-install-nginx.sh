@@ -36,6 +36,18 @@ ${LISTEN_LINES}
     access_log /var/log/nginx/car-backend.access.log;
     error_log  /var/log/nginx/car-backend.error.log;
 
+    location /css/ {
+        alias ${APP_DIR}/user-portal/css/;
+        expires 7d;
+        add_header Cache-Control "public, immutable";
+    }
+
+    location /js/ {
+        alias ${APP_DIR}/user-portal/js/;
+        expires 7d;
+        add_header Cache-Control "public, immutable";
+    }
+
     location /static/ {
         alias ${APP_DIR}/static/;
         expires 7d;

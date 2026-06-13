@@ -4,6 +4,10 @@ import re
 
 from src.infrastructure.config import get_settings
 
+_UUID_SEGMENT = re.compile(
+    r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+    re.IGNORECASE,
+)
 _UUID_PATH_RE = re.compile(
     r"^/portal/"
     r"([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})"
@@ -47,6 +51,11 @@ def portal_trim_mapping_path() -> str:
     return f"{portal_secret_prefix()}/trim-mapping"
 
 
+def is_portal_uuid_shaped_path(path: str) -> bool:
+    """True for /portal/{uuid}/{uuid}/… (staff area shape)."""
+    return _UUID_PATH_RE.match(path) is not None
+
+
 def is_wrong_portal_secret_path(path: str) -> bool:
     """True when path looks like /portal/{uuid}/{uuid}/… but UUIDs do not match config."""
     match = _UUID_PATH_RE.match(path)
@@ -55,3 +64,17 @@ def is_wrong_portal_secret_path(path: str) -> bool:
     settings = get_settings()
     u1, u2 = match.group(1).lower(), match.group(2).lower()
     return u1 != settings.portal_path_uuid_1 or u2 != settings.portal_path_uuid_2
+
+
+def legacy_portal_redirect_target(rest: str) -> str | None:
+    """Map old /portal/… user paths to /…; return None for staff UUID paths."""
+    if not rest:
+        return "/"
+    parts = rest.split("/")
+    if (
+        len(parts) >= 2
+        and _UUID_SEGMENT.match(parts[0])
+        and _UUID_SEGMENT.match(parts[1])
+    ):
+        return None
+    return f"/{rest}"
