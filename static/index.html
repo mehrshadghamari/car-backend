@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Opportunity — Register Purchase</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="/" class="active">Register Purchase</a>
+    <a href="/results">Crawl Results</a>
+    <a href="/trim-mapping">Trim Mapping</a>
+    <a href="/admin/">Admin</a>
+    <a href="/docs">API Docs</a>
+  </nav>
+
+  <header>
+    <h1>Car Opportunity Platform</h1>
+    <p>Register a purchase request: Divar listings + Khodro45 / Hamrah Mechanic pricing</p>
+  </header>
+
+  <main class="grid">
+    <section class="card">
+      <h2>1. Car &amp; pricing platform</h2>
+      <label>Brand</label>
+      <select id="brandSelect" data-search-placeholder="Search brand…"><option value="">Loading...</option></select>
+      <label>Model</label>
+      <select id="modelSelect" data-search-placeholder="Search model…"><option value="">Select a brand first</option></select>
+      <label>Year</label>
+      <select id="yearSelect" data-search-placeholder="Search year…"><option value="">Select a model first</option></select>
+      <label>Trim</label>
+      <select id="trimSelect" data-search-placeholder="Search trim…"><option value="">Select year first</option></select>
+      <label>Pricing platform</label>
+      <select id="pricingPlatform">
+        <option value="khodro45">Khodro45</option>
+        <option value="hamrah_mechanic">Hamrah Mechanic</option>
+      </select>
+      <label>City (Divar filter)</label>
+      <select id="citySelect" data-search-placeholder="Search city…"><option value="tehran">Loading cities…</option></select>
+      <label>Color (optional)</label>
+      <input id="color" placeholder="e.g. black">
+      <label>Min production year</label>
+      <select id="yearMinSelect"><option value="">Select model first</option></select>
+      <label>Max production year</label>
+      <select id="yearMaxSelect"><option value="">Select model first</option></select>
+      <label>Max usage (km)</label>
+      <input id="usageMax" type="number" value="80000">
+      <button id="previewBtn">Preview URLs</button>
+    </section>
+
+    <section class="card">
+      <h2>2. Generated URLs</h2>
+      <div class="url-box">
+        <strong>Divar (listing):</strong>
+        <a id="divarUrl" href="#" target="_blank">—</a>
+      </div>
+      <div class="url-box">
+        <strong>Pricing:</strong>
+        <a id="pricingUrl" href="#" target="_blank">—</a>
+      </div>
+      <pre id="urlMeta"></pre>
+    </section>
+
+    <section class="card">
+      <h2>3. User &amp; purchase (48h TTL)</h2>
+      <label>Phone</label>
+      <input id="phone" value="09121234567">
+      <label>First name</label>
+      <input id="firstName" value="Test">
+      <label>Channel</label>
+      <input id="channel" value="landing">
+      <label>
+        <input type="checkbox" id="runCrawl"> Run crawl immediately (first 10 listings)
+      </label>
+      <button id="runScenarioBtn" class="primary">Register purchase</button>
+    </section>
+
+    <section class="card full">
+      <h2>4. Response</h2>
+      <pre id="output">Ready...</pre>
+      <p class="hint">After registering, view all crawl activity on the <a href="/results">Results page</a>.</p>
+    </section>
+  </main>
+
+  <script src="/static/searchable-select.js"></script>
+  <script src="/static/app.js"></script>
+</body>
+</html>

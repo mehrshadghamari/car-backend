@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فرصت خودرو — ورود</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div class="brand">
+      <div class="brand-icon">خ</div>
+      <div>
+        <h1>فرصت خودرو</h1>
+        <p>بهترین آگهی‌ها را زودتر پیدا کنید</p>
+      </div>
+    </div>
+
+    <div class="card login-card">
+      <h2>ورود با شماره موبایل</h2>
+      <p class="sub">کد یک‌بارمصرف به شماره موبایل شما پیامک می‌شود.</p>
+
+      <div id="stepPhone" class="step active">
+        <label for="phone">شماره موبایل</label>
+        <input id="phone" class="ltr" type="tel" inputmode="numeric" placeholder="09121234567" autocomplete="tel">
+        <button id="sendOtpBtn" class="btn btn-primary" type="button">دریافت کد تأیید</button>
+      </div>
+
+      <div id="stepOtp" class="step">
+        <label for="otp">کد تأیید (۵ رقمی)</label>
+        <input id="otp" class="ltr" type="text" inputmode="numeric" maxlength="5" placeholder="۱۱۱۱۱" autocomplete="one-time-code">
+        <label for="firstName">نام (اختیاری)</label>
+        <input id="firstName" type="text" placeholder="مثلاً علی">
+        <button id="verifyOtpBtn" class="btn btn-primary" type="button">تأیید و ورود</button>
+        <button id="backBtn" class="btn btn-ghost" type="button">تغییر شماره موبایل</button>
+      </div>
+
+      <div id="sandboxBanner" class="sandbox-banner hidden">
+        <strong>حالت آزمایشی</strong> — پیامک ارسال نمی‌شود. کد ورود: <strong dir="ltr">11111</strong>
+      </div>
+      <p id="loginError" class="error-msg"></p>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/api.js"></script>
+  <script>
+    const phoneInput = document.getElementById('phone');
+    const otpInput = document.getElementById('otp');
+    const loginError = document.getElementById('loginError');
+    const sandboxBanner = document.getElementById('sandboxBanner');
+
+    if (getToken()) {
+      window.location.href = 'dashboard.html';
+    }
+
+    function showStep(name) {
+      document.querySelectorAll('.step').forEach((el) => el.classList.remove('active'));
+      document.getElementById(name === 'phone' ? 'stepPhone' : 'stepOtp').classList.add('active');
+    }
+
+    document.getElementById('sendOtpBtn').addEventListener('click', async () => {
+      loginError.textContent = '';
+      const phone = phoneInput.value.trim();
+      if (!phone) {
+        loginError.textContent = FA.errors.phoneRequired;
+        return;
+      }
+      const btn = document.getElementById('sendOtpBtn');
+      btn.disabled = true;
+      btn.textContent = 'در حال ارسال…';
+      try {
+        const r = await api('/auth/otp/create', {
+          method: 'POST',
+          body: JSON.stringify({ phone }),
+        });
+        if (r.sandbox) sandboxBanner.classList.remove('hidden');
+        showStep('otp');
+        otpInput.focus();
+      } catch (e) {
+        loginError.textContent = e.message;
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'دریافت کد تأیید';
+      }
+    });
+
+    document.getElementById('verifyOtpBtn').addEventListener('click', async () => {
+      loginError.textContent = '';
+      const btn = document.getElementById('verifyOtpBtn');
+      btn.disabled = true;
+      btn.textContent = 'در حال بررسی…';
+      try {
+        const r = await api('/auth/otp/verify', {
+          method: 'POST',
+          body: JSON.stringify({
+            phone: phoneInput.value.trim(),
+            code: otpInput.value.trim(),
+            first_name: document.getElementById('firstName').value.trim() || null,
+          }),
+        });
+        setSession(r.access_token, r.user);
+        window.location.href = 'dashboard.html';
+      } catch (e) {
+        loginError.textContent = e.message;
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'تأیید و ورود';
+      }
+    });
+
+    document.getElementById('backBtn').addEventListener('click', () => {
+      showStep('phone');
+      loginError.textContent = '';
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,148 @@
+# Clean Architecture / Hexagonal Backend Skill for Python + FastAPI
+
+## Skill Metadata
+Name: clean-architecture-backend
+Description: Production-grade Python backend skill implementing Clean/Hexagonal Architecture with FastAPI, SQLAlchemy 2.0, PostgreSQL, Dependency Injection (injector), SOLID principles, Ports & Adapters, Domain-Driven Design, Mappers, fully async code, unit/integration tests, and async queues (Celery/Redis/RabbitMQ).
+
+## When to Trigger This Skill
+- Requests for "Clean Architecture", "Hexagonal Architecture", "User Service", "backend with ports and adapters"
+- Mentions of domain layer, use cases, repositories, mappers (domain ↔ entity), presentation layer, dependency injection
+- Full backend scaffolding in Python/FastAPI/SQLAlchemy/PostgreSQL
+- Emphasis on SOLID, async, testing, senior-level code quality
+
+## Core Architecture Rules (Enforce Strictly)
+
+1. **Dependency Rule**: Domain and Application layers NEVER depend on Infrastructure or Presentation. Outer layers depend on inner via abstractions (Ports).
+2. **SOLID Principles**:
+   - Single Responsibility: One reason to change per class.
+   - Open/Closed: Extend behavior without modifying existing code (new adapters).
+   - Liskov Substitution: Ports must be substitutable.
+   - Interface Segregation: Small, client-specific ports.
+   - Dependency Inversion: Depend on abstractions, not concretions.
+3. **Hexagonal / Clean Architecture**:
+   - Core: Domain Entities + Use Cases (business rules).
+   - Ports: Interfaces for repositories, external services.
+   - Adapters: Concrete implementations (DB, API, Queue).
+4. **Fully Asynchronous**: All database, HTTP, queue operations must be `async def` / `await`.
+5. **No Business Logic** in controllers, routers, or repositories.
+
+## Recommended Project Structure
+```
+src/
+├── domain/
+│   ├── entities/          # Pure domain models (dataclasses)
+│   ├── value_objects/
+│   ├── exceptions.py
+│   └── services/          # Domain services if needed
+├── application/
+│   ├── ports/             # Abstract repositories, external ports
+│   ├── use_cases/         # Input DTOs + UseCase classes
+│   └── mappers/           # Domain <-> ORM / DTO mappers
+├── infrastructure/
+│   ├── persistence/       # SQLAlchemy models + concrete repositories
+│   ├── config.py
+│   └── adapters/          # Queue, external API adapters
+├── presentation/
+│   ├── api/               # FastAPI routers + Pydantic schemas
+│   └── dependencies.py
+├── di/                    # Dependency Injection container (injector)
+└── main.py
+
+tests/
+├── unit/                  # Domain + Use Cases (mocks)
+├── integration/           # DB tests
+```
+
+## Key Implementation Guidelines
+
+### Domain Entities
+```python
+from dataclasses import dataclass
+from datetime import datetime
+from uuid import UUID
+
+@dataclass(frozen=True)
+class User:
+    id: UUID
+    email: str
+    name: str
+    is_active: bool = True
+    created_at: datetime | None = None
+
+    def activate(self) -> 'User':
+        # Business rule example
+        return User(**{**self.__dict__, 'is_active': True})
+```
+
+### Application Ports
+```python
+from abc import ABC, abstractmethod
+from typing import Optional
+from uuid import UUID
+from domain.entities.user import User
+
+class UserRepository(ABC):
+    @abstractmethod
+    async def get_by_id(self, user_id: UUID) -> Optional[User]: ...
+    @abstractmethod
+    async def save(self, user: User) -> User: ...
+```
+
+### Mappers
+Always provide bidirectional mapping between Domain and Persistence/DTO layers.
+
+### Use Cases
+```python
+from dataclasses import dataclass
+from application.ports.repositories import UserRepository
+
+@dataclass
+class CreateUserInput:
+    email: str
+    name: str
+
+class CreateUserUseCase:
+    def __init__(self, repo: UserRepository):
+        self.repo = repo
+
+    async def execute(self, input_dto: CreateUserInput) -> User:
+        # Domain logic / validation
+        user = User(id=uuid.uuid4(), email=input_dto.email, name=input_dto.name)
+        return await self.repo.save(user)
+```
+
+### Infrastructure (Adapters)
+- SQLAlchemy 2.0 Async + asyncpg + PostgreSQL
+- Concrete Repository implementing Port
+- Proper session management
+
+### Presentation (FastAPI)
+- Pydantic v2 schemas for request/response
+- Routers call Use Cases
+- Use dependency injection for wiring
+
+### Dependency Injection
+Use `injector` library for automated DI. Bind ports to concrete adapters in container.
+
+### Database
+- Async engine + AsyncSession
+- Alembic for migrations
+
+### Testing
+- pytest + pytest-asyncio
+- Mock ports in unit tests
+- Testcontainers or test DB for integration
+
+### Async Processing
+- Celery + Redis/RabbitMQ for background tasks
+- Or aioredis for lighter needs
+
+## Senior Engineer Best Practices
+- Comprehensive type hints
+- Custom exceptions with proper HTTP mapping
+- Logging and monitoring
+- Configuration with Pydantic Settings
+- Rate limiting, security, OpenAPI docs
+- Keep core pure (no framework imports in domain/application)
+
+This skill ensures high-quality, maintainable, testable, and scalable backend code following industry best practices.

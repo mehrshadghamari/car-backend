@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Opportunity — Crawl Results</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <nav class="top-nav">
+    <a href="/">Register Purchase</a>
+    <a href="/results" class="active">Crawl Results</a>
+    <a href="/trim-mapping">Trim Mapping</a>
+    <a href="/admin/">Admin</a>
+    <a href="/docs">API Docs</a>
+  </nav>
+
+  <header>
+    <h1>Crawl Results</h1>
+    <p>All purchase requests and crawl activity across users</p>
+  </header>
+
+  <main class="page-main">
+    <section class="card full">
+      <div id="taskStatusPanel" class="task-status-panel hidden"></div>
+      <div class="toolbar">
+        <button id="refreshBtn" class="primary">Refresh</button>
+        <span id="statusText" class="status-text">Loading...</span>
+      </div>
+      <div class="table-wrap">
+        <table id="resultsTable">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Car</th>
+              <th>City</th>
+              <th>Pricing</th>
+              <th>Status</th>
+              <th>Last crawl</th>
+              <th>Posts</th>
+              <th>Opps</th>
+              <th>SMS</th>
+              <th>Created</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody">
+            <tr><td colspan="11" class="empty">Loading...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <div id="detailModal" class="modal hidden">
+    <div class="modal-backdrop" id="modalBackdrop"></div>
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h2>Purchase detail</h2>
+        <button id="closeModalBtn" class="icon-btn" aria-label="Close">&times;</button>
+      </div>
+      <div id="detailContent" class="modal-body">Loading...</div>
+    </div>
+  </div>
+
+  <script src="/static/results.js"></script>
+</body>
+</html>

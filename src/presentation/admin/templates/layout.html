@@ -1,0 +1,25 @@
+{% extends "@starlette-admin/layout.html" %}
+
+{% block head_css %}
+    {{ super() }}
+    <style>
+        .navbar-vertical .nav-item.dropdown .dropdown-toggle {
+            font-weight: 600;
+            letter-spacing: 0.02em;
+        }
+        .navbar-vertical .dropdown-menu .nav-link {
+            padding-left: 2.25rem;
+            font-size: 0.92rem;
+        }
+        .navbar-vertical .nav-link[href="/"],
+        .navbar-vertical .nav-link[href="/results"] {
+            font-weight: 600;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 0.35rem;
+        }
+        .page-wrapper .card-table .table thead th {
+            white-space: nowrap;
+            font-size: 0.85rem;
+        }
+    </style>
+{% endblock %}

@@ -1,0 +1,7516 @@
+[
+  {
+    "id": 947,
+    "brand_id": 152,
+    "title": "Q5",
+    "title_en": "Q5",
+    "image": {
+      "uuid": "a9fa0f28-9c01-4c27-a099-5e2acf94f8bd",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/a9fa0f289c014c27a0995e2acf94f8bd"
+    },
+    "seo_slug": "audi-q5",
+    "order": 4
+  },
+  {
+    "id": 950,
+    "brand_id": 152,
+    "title": "TT کوپه",
+    "title_en": "TT-Coupe",
+    "image": null,
+    "seo_slug": "audi-ttcoupe",
+    "order": 3
+  },
+  {
+    "id": 1332,
+    "brand_id": 152,
+    "title": "Q4 e-tron",
+    "title_en": "Q4 e-tron",
+    "image": {
+      "uuid": "4083c36d-392d-4e6e-94c4-a9a9e8d3321c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/4083c36d392d4e6e94c4a9a9e8d3321c"
+    },
+    "seo_slug": "audi-q4etron",
+    "order": 0
+  },
+  {
+    "id": 1342,
+    "brand_id": 152,
+    "title": "A3L",
+    "title_en": "A3L",
+    "image": {
+      "uuid": "c2327d67-1e49-4a81-a586-a4641aafc93a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/c2327d671e494a81a586a4641aafc93a"
+    },
+    "seo_slug": "audi-a3l",
+    "order": 0
+  },
+  {
+    "id": 1352,
+    "brand_id": 152,
+    "title": "Q5 e-tron 40",
+    "title_en": "Q5 e-tron 40",
+    "image": {
+      "uuid": "0867ca81-ed83-439e-a9b5-73efb821e57a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/0867ca81ed83439ea9b573efb821e57a"
+    },
+    "seo_slug": "audi-q5etron40",
+    "order": 0
+  },
+  {
+    "id": 1386,
+    "brand_id": 260,
+    "title": "توکا",
+    "title_en": "Tooca",
+    "image": {
+      "uuid": "ce4536d8-66b9-42d0-ab62-5e294bfde438",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/ce4536d866b942d0ab625e294bfde438"
+    },
+    "seo_slug": "amg-tooca",
+    "order": 0
+  },
+  {
+    "id": 1089,
+    "brand_id": 178,
+    "title": "2",
+    "title_en": "Arisun",
+    "image": {
+      "uuid": "f2ab70e2-9c5e-424d-8722-980b5fc9406e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/f2ab70e29c5e424d8722980b5fc9406e"
+    },
+    "seo_slug": "pickup-arisun",
+    "order": 5
+  },
+  {
+    "id": 481,
+    "brand_id": 89,
+    "title": "جولیتا",
+    "title_en": "Giulietta",
+    "image": null,
+    "seo_slug": "alfaromeo-giulietta",
+    "order": 3
+  },
+  {
+    "id": 482,
+    "brand_id": 89,
+    "title": "میتو",
+    "title_en": "MiTo",
+    "image": null,
+    "seo_slug": "alfaromeo-mito",
+    "order": 2
+  },
+  {
+    "id": 913,
+    "brand_id": 89,
+    "title": "4C",
+    "title_en": "4C",
+    "image": null,
+    "seo_slug": "alfaromeo-4c",
+    "order": 1
+  },
+  {
+    "id": 945,
+    "brand_id": 151,
+    "title": "دوکابین آسنا",
+    "title_en": "Asna-4D",
+    "image": {
+      "uuid": "3cb3f435-12cd-4975-9854-fb0a2bc8725f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/3cb3f43512cd49759854fb0a2bc8725f"
+    },
+    "seo_slug": "amico-asna4d",
+    "order": 2
+  },
+  {
+    "id": 1264,
+    "brand_id": 244,
+    "title": "11EV",
+    "title_en": "11EV",
+    "image": {
+      "uuid": "1a161705-8f8f-4d42-80fb-44579b39b009",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/1a1617058f8f4d4280fb44579b39b009"
+    },
+    "seo_slug": "avatr-11ev",
+    "order": 1
+  },
+  {
+    "id": 1417,
+    "brand_id": 244,
+    "title": "12",
+    "title_en": "12",
+    "image": {
+      "uuid": "adef8b19-7539-4708-8b46-b1089744a770",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/adef8b19753947088b46b1089744a770"
+    },
+    "seo_slug": "avatr-12",
+    "order": 0
+  },
+  {
+    "id": 1276,
+    "brand_id": 246,
+    "title": "کورسا",
+    "title_en": "corsa",
+    "image": {
+      "uuid": "b66ba477-22dc-48ee-aa73-92c9893f8db2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/b66ba47722dc48eeaa7392c9893f8db2"
+    },
+    "seo_slug": "opel-corsa",
+    "order": 2
+  },
+  {
+    "id": 1288,
+    "brand_id": 246,
+    "title": "اینسیگنیا",
+    "title_en": "insignia",
+    "image": null,
+    "seo_slug": "opel-insignia",
+    "order": 1
+  },
+  {
+    "id": 1087,
+    "brand_id": 177,
+    "title": "G01",
+    "title_en": "G01",
+    "image": null,
+    "seo_slug": "swm-g01",
+    "order": 2
+  },
+  {
+    "id": 1088,
+    "brand_id": 177,
+    "title": "G01F",
+    "title_en": "G01F",
+    "image": null,
+    "seo_slug": "swm-g01f",
+    "order": 1
+  },
+  {
+    "id": 1267,
+    "brand_id": 245,
+    "title": "ET5",
+    "title_en": "ET5",
+    "image": {
+      "uuid": "7de2c314-07ed-4545-a103-f90a5e15c725",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/7de2c31407ed4545a103f90a5e15c725"
+    },
+    "seo_slug": "skywell-et5",
+    "order": 1
+  },
+  {
+    "id": 1361,
+    "brand_id": 245,
+    "title": "نبکا هیبرید (HTi)",
+    "title_en": "HTi",
+    "image": {
+      "uuid": "6040042d-62d5-44a0-9687-b80aea917d1f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/6040042d62d544a09687b80aea917d1f"
+    },
+    "seo_slug": "skywell-hti",
+    "order": 0
+  },
+  {
+    "id": 1239,
+    "brand_id": 237,
+    "title": "سوپرب",
+    "title_en": "Super b",
+    "image": {
+      "uuid": "43e68a11-9811-449c-9fda-8df8aa8ae0a7",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/43e68a119811449c9fda8df8aa8ae0a7"
+    },
+    "seo_slug": "skoda-superb",
+    "order": 3
+  },
+  {
+    "id": 1270,
+    "brand_id": 237,
+    "title": "اکتاویا پرو",
+    "title_en": "Octavia pro",
+    "image": {
+      "uuid": "63f041e7-b07a-4ddf-9aaf-d55d80eb94fa",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/63f041e7b07a4ddf9aafd55d80eb94fa"
+    },
+    "seo_slug": "skoda-octaviapro",
+    "order": 2
+  },
+  {
+    "id": 1273,
+    "brand_id": 237,
+    "title": "کاروک",
+    "title_en": "karoq",
+    "image": {
+      "uuid": "ed3f6251-2883-4278-bcc0-766b4717f62e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/ed3f625128834278bcc0766b4717f62e"
+    },
+    "seo_slug": "skoda-karoq",
+    "order": 1
+  },
+  {
+    "id": 1151,
+    "brand_id": 191,
+    "title": "G",
+    "title_en": "G",
+    "image": {
+      "uuid": "2bfbdf0d-57ce-4da8-ab65-8ea22fdbd08c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/2bfbdf0d57ce4da8ab658ea22fdbd08c"
+    },
+    "seo_slug": "atlas-g",
+    "order": 2
+  },
+  {
+    "id": 1203,
+    "brand_id": 191,
+    "title": "GL",
+    "title_en": "GL",
+    "image": {
+      "uuid": "5a8d0e56-c152-4991-80af-acad37b0ba00",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/5a8d0e56c152499180afacad37b0ba00"
+    },
+    "seo_slug": "atlas-gl",
+    "order": 1
+  },
+  {
+    "id": 1350,
+    "brand_id": 191,
+    "title": "اتوماتیک",
+    "title_en": "Automatic",
+    "image": {
+      "uuid": "687f5413-1c44-4059-849f-0116532bd541",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/687f54131c444059849f0116532bd541"
+    },
+    "seo_slug": "atlas-at",
+    "order": 0
+  },
+  {
+    "id": 1367,
+    "brand_id": 191,
+    "title": "S",
+    "title_en": "S",
+    "image": {
+      "uuid": "007ba30e-a5fd-4670-80d8-05cdaf08186a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/007ba30ea5fd467080d805cdaf08186a"
+    },
+    "seo_slug": "atlas-s",
+    "order": 0
+  },
+  {
+    "id": 1181,
+    "brand_id": 199,
+    "title": "VX (QX)",
+    "title_en": "VX (QX)",
+    "image": {
+      "uuid": "8b178b2d-320b-4d76-b6a9-917bbc637b0d",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/8b178b2d320b4d76b6a9917bbc637b0d"
+    },
+    "seo_slug": "xtrim-vx",
+    "order": 3
+  },
+  {
+    "id": 1182,
+    "brand_id": 199,
+    "title": "TXL (TX)",
+    "title_en": "TXL (TX)",
+    "image": {
+      "uuid": "8867440f-ef18-42f7-8691-7028d0d09048",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/8867440fef1842f786917028d0d09048"
+    },
+    "seo_slug": "xtrim-txl",
+    "order": 2
+  },
+  {
+    "id": 1183,
+    "brand_id": 199,
+    "title": "LX (SX)",
+    "title_en": "LX (SX)",
+    "image": {
+      "uuid": "06912a60-99b7-4f1e-a92a-dc0bf99ced52",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/06912a6099b74f1ea92adc0bf99ced52"
+    },
+    "seo_slug": "xtrim-lx",
+    "order": 1
+  },
+  {
+    "id": 490,
+    "brand_id": 91,
+    "title": "6",
+    "title_en": "6",
+    "image": null,
+    "seo_slug": "mg-6",
+    "order": 10
+  },
+  {
+    "id": 489,
+    "brand_id": 91,
+    "title": "550",
+    "title_en": "550",
+    "image": null,
+    "seo_slug": "mg-550",
+    "order": 9
+  },
+  {
+    "id": 488,
+    "brand_id": 91,
+    "title": "360",
+    "title_en": "360",
+    "image": null,
+    "seo_slug": "mg-360",
+    "order": 8
+  },
+  {
+    "id": 1266,
+    "brand_id": 91,
+    "title": "5",
+    "title_en": "5",
+    "image": {
+      "uuid": "5c3893d0-4a09-406d-b9f3-9c9c7e3329bc",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/5c3893d04a09406db9f39c9c7e3329bc"
+    },
+    "seo_slug": "mg-5",
+    "order": 7
+  },
+  {
+    "id": 493,
+    "brand_id": 91,
+    "title": "GT",
+    "title_en": "GT",
+    "image": {
+      "uuid": "946b4ff3-867b-4b93-a47b-4fb4011e5525",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/946b4ff3867b4b93a47b4fb4011e5525"
+    },
+    "seo_slug": "mg-gt",
+    "order": 6
+  },
+  {
+    "id": 492,
+    "brand_id": 91,
+    "title": "GS",
+    "title_en": "GS",
+    "image": null,
+    "seo_slug": "mg-gs",
+    "order": 5
+  },
+  {
+    "id": 486,
+    "brand_id": 91,
+    "title": "3",
+    "title_en": "3",
+    "image": null,
+    "seo_slug": "mg-3",
+    "order": 4
+  },
+  {
+    "id": 487,
+    "brand_id": 91,
+    "title": "350",
+    "title_en": "350",
+    "image": null,
+    "seo_slug": "mg-350",
+    "order": 3
+  },
+  {
+    "id": 912,
+    "brand_id": 91,
+    "title": "RX5",
+    "title_en": "RX5",
+    "image": null,
+    "seo_slug": "mg-rx5",
+    "order": 2
+  },
+  {
+    "id": 1265,
+    "brand_id": 91,
+    "title": "4EV",
+    "title_en": "4EV",
+    "image": {
+      "uuid": "0668c18c-99d1-40bf-bdbb-815383572631",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/0668c18c99d140bfbdbb815383572631"
+    },
+    "seo_slug": "mg-4ev",
+    "order": 1
+  },
+  {
+    "id": 798,
+    "brand_id": 134,
+    "title": "X22",
+    "title_en": "X22",
+    "image": {
+      "uuid": "54e6cfb3-1656-4f72-8b45-56eca9882168",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/54e6cfb316564f728b4556eca9882168"
+    },
+    "seo_slug": "mvm-x22",
+    "order": 12
+  },
+  {
+    "id": 793,
+    "brand_id": 134,
+    "title": "315 هاچ‌بک",
+    "title_en": "Hatchback-315",
+    "image": {
+      "uuid": "4d79cf0c-07bf-4aa8-bbba-50023c568edd",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/4d79cf0c07bf4aa8bbba50023c568edd"
+    },
+    "seo_slug": "mvm-hatchback315",
+    "order": 11
+  },
+  {
+    "id": 791,
+    "brand_id": 134,
+    "title": "315 صندوق‌دار",
+    "title_en": "315-Sedan",
+    "image": null,
+    "seo_slug": "mvm-315sedan",
+    "order": 10
+  },
+  {
+    "id": 1138,
+    "brand_id": 134,
+    "title": "X33 کراس",
+    "title_en": "X33 Cross",
+    "image": {
+      "uuid": "01fe6f18-4a3a-48aa-9b9c-16389364571e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/01fe6f184a3a48aa9b9c16389364571e"
+    },
+    "seo_slug": "mvm-x33cross",
+    "order": 9
+  },
+  {
+    "id": 800,
+    "brand_id": 134,
+    "title": "X33",
+    "title_en": "X33",
+    "image": {
+      "uuid": "7c859623-4966-415c-98fc-9cbb12a9bde6",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/7c8596234966415c98fc9cbb12a9bde6"
+    },
+    "seo_slug": "mvm-x33",
+    "order": 8
+  },
+  {
+    "id": 787,
+    "brand_id": 134,
+    "title": "X33s",
+    "title_en": "X33s",
+    "image": {
+      "uuid": "c9eea111-d090-4077-a498-74ce26c42560",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/c9eea111d0904077a49874ce26c42560"
+    },
+    "seo_slug": "mvm-x33s",
+    "order": 7
+  },
+  {
+    "id": 796,
+    "brand_id": 134,
+    "title": "530",
+    "title_en": "530",
+    "image": {
+      "uuid": "8c13b979-c2af-4e89-b447-b529dc48b176",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/8c13b979c2af4e89b447b529dc48b176"
+    },
+    "seo_slug": "mvm-530",
+    "order": 6
+  },
+  {
+    "id": 797,
+    "brand_id": 134,
+    "title": "550",
+    "title_en": "550",
+    "image": {
+      "uuid": "a5c7903e-d96d-418b-846e-bda62d9b9802",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/a5c7903ed96d418b846ebda62d9b9802"
+    },
+    "seo_slug": "mvm-550",
+    "order": 5
+  },
+  {
+    "id": 944,
+    "brand_id": 134,
+    "title": "X55",
+    "title_en": "X55",
+    "image": {
+      "uuid": "348a2275-a2ac-4875-968b-3b644616737e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/348a2275a2ac4875968b3b644616737e"
+    },
+    "seo_slug": "mvm-x55",
+    "order": 4
+  },
+  {
+    "id": 790,
+    "brand_id": 134,
+    "title": "110S",
+    "title_en": "110S",
+    "image": {
+      "uuid": "faef1968-514c-478c-9f9f-c3220a07bfbc",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/faef1968514c478c9f9fc3220a07bfbc"
+    },
+    "seo_slug": "mvm-110s",
+    "order": 3
+  },
+  {
+    "id": 1274,
+    "brand_id": 134,
+    "title": "آریزو 5ev",
+    "title_en": "arrizo5ev",
+    "image": {
+      "uuid": "623bd084-1bdc-4092-a98f-4fa9038c3b1e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/623bd0841bdc4092a98f4fa9038c3b1e"
+    },
+    "seo_slug": "mvm-arrizo5ev",
+    "order": 2
+  },
+  {
+    "id": 789,
+    "brand_id": 134,
+    "title": "110",
+    "title_en": "110",
+    "image": {
+      "uuid": "b2ef798b-819f-4bb8-a375-d3ca8003ac5d",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/b2ef798b819f4bb8a375d3ca8003ac5d"
+    },
+    "seo_slug": "mvm-110",
+    "order": 1
+  },
+  {
+    "id": 1402,
+    "brand_id": 134,
+    "title": "X77",
+    "title_en": "X77",
+    "image": {
+      "uuid": "1f5176ed-5c94-4755-9c5d-cc2e89424f37",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/1f5176ed5c9447559c5dcc2e89424f37"
+    },
+    "seo_slug": "mvm-x77",
+    "order": 0
+  },
+  {
+    "id": 1404,
+    "brand_id": 264,
+    "title": "UNI-Z",
+    "title_en": "UNI-Z",
+    "image": {
+      "uuid": "50be22a9-45d3-4a68-afb2-89aedb4ad4cb",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/50be22a945d34a68afb289aedb4ad4cb"
+    },
+    "seo_slug": "oshan-uni-z",
+    "order": 0
+  },
+  {
+    "id": 1298,
+    "brand_id": 247,
+    "title": "HM5",
+    "title_en": "HM5",
+    "image": {
+      "uuid": "c4396f21-8bd3-4249-921b-6124db1eed69",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/c4396f218bd34249921b6124db1eed69"
+    },
+    "seo_slug": "eres-hm5",
+    "order": 1
+  },
+  {
+    "id": 1314,
+    "brand_id": 251,
+    "title": "اکسپلورر",
+    "title_en": "explorer",
+    "image": {
+      "uuid": "41b0f7a9-3967-452f-9476-817c510b3b63",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/41b0f7a93967452f9476817c510b3b63"
+    },
+    "seo_slug": "infinite-explorer",
+    "order": 0
+  },
+  {
+    "id": 959,
+    "brand_id": 153,
+    "title": "سابرینا هاچ‌بک",
+    "title_en": "Sabrina-Hatchback",
+    "image": null,
+    "seo_slug": "baic-sabrinahatchback",
+    "order": 4
+  },
+  {
+    "id": 956,
+    "brand_id": 153,
+    "title": "سابرینا هاچ‌بک (مونتاژ)",
+    "title_en": "Sabrina-Hatchback (Assembled)",
+    "image": null,
+    "seo_slug": "baic-sabrinahatchbackassembled",
+    "order": 3
+  },
+  {
+    "id": 957,
+    "brand_id": 153,
+    "title": "X25",
+    "title_en": "X25",
+    "image": null,
+    "seo_slug": "baic-x25",
+    "order": 2
+  },
+  {
+    "id": 958,
+    "brand_id": 153,
+    "title": "سنوا",
+    "title_en": "Senova",
+    "image": null,
+    "seo_slug": "baic-senova",
+    "order": 1
+  },
+  {
+    "id": 1385,
+    "brand_id": 153,
+    "title": "BJ30",
+    "title_en": "bJ30",
+    "image": null,
+    "seo_slug": "baic-bj30",
+    "order": 0
+  },
+  {
+    "id": 527,
+    "brand_id": 94,
+    "title": "H330",
+    "title_en": "H330",
+    "image": {
+      "uuid": "6642189e-662c-4172-8be1-287af88e5907",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/6642189e662c41728be1287af88e5907"
+    },
+    "seo_slug": "brilliance-h330",
+    "order": 7
+  },
+  {
+    "id": 524,
+    "brand_id": 94,
+    "title": "H230",
+    "title_en": "H230",
+    "image": {
+      "uuid": "ff9b5aa9-3fd4-4323-be18-124d6212d94f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/ff9b5aa93fd44323be18124d6212d94f"
+    },
+    "seo_slug": "brilliance-h230",
+    "order": 6
+  },
+  {
+    "id": 526,
+    "brand_id": 94,
+    "title": "H320",
+    "title_en": "H320",
+    "image": {
+      "uuid": "1eae25ff-e815-4395-9a5c-5b1fc75d36b5",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/1eae25ffe81543959a5c5b1fc75d36b5"
+    },
+    "seo_slug": "brilliance-h320",
+    "order": 5
+  },
+  {
+    "id": 525,
+    "brand_id": 94,
+    "title": "H220",
+    "title_en": "H220",
+    "image": {
+      "uuid": "61c40f95-d010-4e3a-9d16-465d3352dfad",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/61c40f95d0104e3a9d16465d3352dfad"
+    },
+    "seo_slug": "brilliance-h220",
+    "order": 4
+  },
+  {
+    "id": 523,
+    "brand_id": 94,
+    "title": "C3 کراس",
+    "title_en": "C3-Cross",
+    "image": {
+      "uuid": "0983a792-2d35-4dd7-b97a-93a74048a69b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/0983a7922d354dd7b97a93a74048a69b"
+    },
+    "seo_slug": "brilliance-c3cross",
+    "order": 3
+  },
+  {
+    "id": 528,
+    "brand_id": 94,
+    "title": "V5",
+    "title_en": "V5",
+    "image": null,
+    "seo_slug": "brilliance-v5",
+    "order": 2
+  },
+  {
+    "id": 960,
+    "brand_id": 154,
+    "title": "B30",
+    "title_en": "B30",
+    "image": {
+      "uuid": "c83aead7-698a-475d-b210-72ca29b9f75b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/c83aead7698a475db21072ca29b9f75b"
+    },
+    "seo_slug": "besturn-b30",
+    "order": 3
+  },
+  {
+    "id": 961,
+    "brand_id": 154,
+    "title": "B50F",
+    "title_en": "B50F",
+    "image": null,
+    "seo_slug": "besturn-b50f",
+    "order": 2
+  },
+  {
+    "id": 962,
+    "brand_id": 154,
+    "title": "B50",
+    "title_en": "B50",
+    "image": null,
+    "seo_slug": "besturn-b50",
+    "order": 1
+  },
+  {
+    "id": 1262,
+    "brand_id": 243,
+    "title": "T77",
+    "title_en": "T77",
+    "image": {
+      "uuid": "01762691-6f81-4196-8598-4fc3d81c83e3",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/017626916f81419685984fc3d81c83e3"
+    },
+    "seo_slug": "bestune-t77",
+    "order": 2
+  },
+  {
+    "id": 1263,
+    "brand_id": 243,
+    "title": "نات",
+    "title_en": "Nat",
+    "image": {
+      "uuid": "877ac5e4-00e0-4a70-b6a4-68a237284fec",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/877ac5e400e04a70b6a468a237284fec"
+    },
+    "seo_slug": "bestune-nat",
+    "order": 1
+  },
+  {
+    "id": 1180,
+    "brand_id": 198,
+    "title": "X3 Pro",
+    "title_en": "X3 Pro",
+    "image": {
+      "uuid": "d4a9e7c8-0ddc-4ee2-aeff-1ed391533d85",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/d4a9e7c80ddc4ee2aeff1ed391533d85"
+    },
+    "seo_slug": "bac-x3pro",
+    "order": 1
+  },
+  {
+    "id": 967,
+    "brand_id": 155,
+    "title": "BX7",
+    "title_en": "BX7",
+    "image": null,
+    "seo_slug": "borgward-bx7",
+    "order": 2
+  },
+  {
+    "id": 966,
+    "brand_id": 155,
+    "title": "BX5",
+    "title_en": "BX5",
+    "image": null,
+    "seo_slug": "borgward-bx5",
+    "order": 1
+  },
+  {
+    "id": 547,
+    "brand_id": 96,
+    "title": "X3",
+    "title_en": "X3",
+    "image": null,
+    "seo_slug": "bmw-x3",
+    "order": 26
+  },
+  {
+    "id": 562,
+    "brand_id": 96,
+    "title": "سری 5 سدان",
+    "title_en": "5 Series-Sedan",
+    "image": {
+      "uuid": "3c0a6628-1363-437e-b9bb-3cae1bd5aec4",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/3c0a66281363437eb9bb3cae1bd5aec4"
+    },
+    "seo_slug": "bmw-5seriessedan",
+    "order": 25
+  },
+  {
+    "id": 566,
+    "brand_id": 96,
+    "title": "سری 7",
+    "title_en": "7 Series",
+    "image": {
+      "uuid": "5a153741-fa4a-46ee-940e-be382567c282",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/5a153741fa4a46ee940ebe382567c282"
+    },
+    "seo_slug": "bmw-7",
+    "order": 24
+  },
+  {
+    "id": 548,
+    "brand_id": 96,
+    "title": "X4",
+    "title_en": "X4",
+    "image": {
+      "uuid": "9c89704a-3dc9-4fc5-b596-4a14cc000ad7",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/9c89704a3dc94fc5b5964a14cc000ad7"
+    },
+    "seo_slug": "bmw-x4",
+    "order": 23
+  },
+  {
+    "id": 872,
+    "brand_id": 96,
+    "title": "سری 3 سدان",
+    "title_en": "3 Series-Sedan",
+    "image": {
+      "uuid": "2089a068-0b35-4686-b8f6-51f129db5bf4",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/2089a0680b354686b8f651f129db5bf4"
+    },
+    "seo_slug": "bmw-3sedan",
+    "order": 22
+  },
+  {
+    "id": 550,
+    "brand_id": 96,
+    "title": "X6",
+    "title_en": "X6",
+    "image": null,
+    "seo_slug": "bmw-x6",
+    "order": 21
+  },
+  {
+    "id": 546,
+    "brand_id": 96,
+    "title": "X1",
+    "title_en": "X1",
+    "image": {
+      "uuid": "11d4efa9-aa07-4fe4-b9a7-f5a5576b9c3e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/11d4efa9aa074fe4b9a7f5a5576b9c3e"
+    },
+    "seo_slug": "bmw-x1",
+    "order": 20
+  },
+  {
+    "id": 952,
+    "brand_id": 96,
+    "title": "سری i",
+    "title_en": "i Series",
+    "image": null,
+    "seo_slug": "bmw-iseries",
+    "order": 19
+  },
+  {
+    "id": 560,
+    "brand_id": 96,
+    "title": "سری 4 کروک",
+    "title_en": "4 Series-Convertible",
+    "image": null,
+    "seo_slug": "bmw-4seriesconvertible",
+    "order": 18
+  },
+  {
+    "id": 552,
+    "brand_id": 96,
+    "title": "سری 1 هاچ‌بک",
+    "title_en": "1 Series-Hatchback",
+    "image": {
+      "uuid": "265d32c2-5ab7-4fd7-9644-96eb3402dcad",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/265d32c25ab74fd7964496eb3402dcad"
+    },
+    "seo_slug": "bmw-1serieshatchback",
+    "order": 17
+  },
+  {
+    "id": 559,
+    "brand_id": 96,
+    "title": "سری 4 گرن کوپه",
+    "title_en": "4 Series-Gran Coupe",
+    "image": null,
+    "seo_slug": "bmw-4seriesgrancoupe",
+    "order": 16
+  },
+  {
+    "id": 549,
+    "brand_id": 96,
+    "title": "X5",
+    "title_en": "X5",
+    "image": null,
+    "seo_slug": "bmw-x5",
+    "order": 15
+  },
+  {
+    "id": 557,
+    "brand_id": 96,
+    "title": "سری 3 کروک",
+    "title_en": "3 Series-Convertible",
+    "image": null,
+    "seo_slug": "bmw-3seriesconvertible",
+    "order": 13
+  },
+  {
+    "id": 555,
+    "brand_id": 96,
+    "title": "سری 2 کوپه",
+    "title_en": "2 Series-Coupe",
+    "image": null,
+    "seo_slug": "bmw-2seriescoupe",
+    "order": 12
+  },
+  {
+    "id": 953,
+    "brand_id": 96,
+    "title": "سری 2 کروک",
+    "title_en": "2 Series-Convertible",
+    "image": null,
+    "seo_slug": "bmw-2seriesconvertible",
+    "order": 11
+  },
+  {
+    "id": 871,
+    "brand_id": 96,
+    "title": "سری 2 اکتیوتورر",
+    "title_en": "2 Series Active tourer",
+    "image": {
+      "uuid": "09b2b9a7-96b2-495f-9fc1-e0f3114cd459",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/09b2b9a796b2495f9fc1e0f3114cd459"
+    },
+    "seo_slug": "bmw-2seriesactivetourer",
+    "order": 10
+  },
+  {
+    "id": 554,
+    "brand_id": 96,
+    "title": "سری 1 کوپه",
+    "title_en": "1 Series-Coupe",
+    "image": {
+      "uuid": "44baf560-a116-4950-b68a-b5b5c8da8846",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/44baf560a1164950b68ab5b5c8da8846"
+    },
+    "seo_slug": "bmw-1seriescoupe",
+    "order": 9
+  },
+  {
+    "id": 553,
+    "brand_id": 96,
+    "title": "سری 1 کروک",
+    "title_en": "1 Series-Convertible",
+    "image": null,
+    "seo_slug": "bmw-1seriesconvertible",
+    "order": 8
+  },
+  {
+    "id": 561,
+    "brand_id": 96,
+    "title": "سری 4 کوپه",
+    "title_en": "4 Series-Coupe",
+    "image": null,
+    "seo_slug": "bmw-4seriescoupe",
+    "order": 7
+  },
+  {
+    "id": 564,
+    "brand_id": 96,
+    "title": "سری 6 کروک",
+    "title_en": "6 Series-Convertible",
+    "image": null,
+    "seo_slug": "bmw-6seriesconvertible",
+    "order": 6
+  },
+  {
+    "id": 551,
+    "brand_id": 96,
+    "title": "Z4",
+    "title_en": "Z4",
+    "image": null,
+    "seo_slug": "bmw-z4",
+    "order": 5
+  },
+  {
+    "id": 954,
+    "brand_id": 96,
+    "title": "سری 3 GT",
+    "title_en": "3 Series GT",
+    "image": null,
+    "seo_slug": "bmw-3seriesgt",
+    "order": 4
+  },
+  {
+    "id": 556,
+    "brand_id": 96,
+    "title": "سری 5 GT",
+    "title_en": "5 Series GT",
+    "image": null,
+    "seo_slug": "bmw-5seriesgt",
+    "order": 3
+  },
+  {
+    "id": 563,
+    "brand_id": 96,
+    "title": "سری 6 گرن کوپه",
+    "title_en": "6 Series-Gran Coupe",
+    "image": null,
+    "seo_slug": "bmw-6seriesgrancoupe",
+    "order": 2
+  },
+  {
+    "id": 565,
+    "brand_id": 96,
+    "title": "سری 6 کوپه",
+    "title_en": "6 Series-Coupe",
+    "image": null,
+    "seo_slug": "bmw-6seriescoupe",
+    "order": 1
+  },
+  {
+    "id": 1368,
+    "brand_id": 96,
+    "title": "iX1",
+    "title_en": "iX1",
+    "image": null,
+    "seo_slug": "bmw-ix1",
+    "order": 0
+  },
+  {
+    "id": 1369,
+    "brand_id": 96,
+    "title": "iX3",
+    "title_en": "iX3",
+    "image": null,
+    "seo_slug": "bmw-ix3",
+    "order": 0
+  },
+  {
+    "id": 1370,
+    "brand_id": 96,
+    "title": "X2",
+    "title_en": "X2",
+    "image": null,
+    "seo_slug": "bmw-x2",
+    "order": 0
+  },
+  {
+    "id": 1371,
+    "brand_id": 96,
+    "title": "سری 2 گرن کوپه",
+    "title_en": "2Series GranCoupe",
+    "image": null,
+    "seo_slug": "bmw-2seriesgrancoupe",
+    "order": 0
+  },
+  {
+    "id": 1199,
+    "brand_id": 203,
+    "title": "X55",
+    "title_en": "X55",
+    "image": {
+      "uuid": "6185e5e0-92be-4ccc-bb5d-29e240121f25",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/6185e5e092be4cccbb5d29e240121f25"
+    },
+    "seo_slug": "beijing-x55",
+    "order": 3
+  },
+  {
+    "id": 1199,
+    "brand_id": 203,
+    "title": "X55",
+    "title_en": "X55",
+    "image": {
+      "uuid": "6185e5e0-92be-4ccc-bb5d-29e240121f25",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/6185e5e092be4cccbb5d29e240121f25"
+    },
+    "seo_slug": "beijing-x55",
+    "order": 3
+  },
+  {
+    "id": 1197,
+    "brand_id": 203,
+    "title": "X7",
+    "title_en": "X7",
+    "image": {
+      "uuid": "f1cd3220-bcac-498b-bff6-0a43c89f6eb1",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/f1cd3220bcac498bbff60a43c89f6eb1"
+    },
+    "seo_slug": "beijing-x7",
+    "order": 2
+  },
+  {
+    "id": 1285,
+    "brand_id": 203,
+    "title": "U5 پلاس",
+    "title_en": "U5 plus",
+    "image": {
+      "uuid": "05a46f43-85e2-494a-801f-08a1c4e3925f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/05a46f4385e2494a801f08a1c4e3925f"
+    },
+    "seo_slug": "beijing-u5",
+    "order": 1
+  },
+  {
+    "id": 969,
+    "brand_id": 156,
+    "title": "T3",
+    "title_en": "T3",
+    "image": null,
+    "seo_slug": "bisu-t3",
+    "order": 1
+  },
+  {
+    "id": 545,
+    "brand_id": 97,
+    "title": "S6",
+    "title_en": "S6",
+    "image": null,
+    "seo_slug": "byd-s6",
+    "order": 4
+  },
+  {
+    "id": 1261,
+    "brand_id": 97,
+    "title": "سانگ پلاس DMi",
+    "title_en": "Song plus DMi",
+    "image": {
+      "uuid": "b5068d10-254b-42b0-99ea-4f1a4779409c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/b5068d10254b42b099ea4f1a4779409c"
+    },
+    "seo_slug": "byd-songplusdmi",
+    "order": 3
+  },
+  {
+    "id": 1281,
+    "brand_id": 97,
+    "title": "چین ال DMi",
+    "title_en": "Qin L DMi",
+    "image": {
+      "uuid": "164e4412-1ea9-42ae-a55c-16de5fb245bd",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/164e44121ea942aea55c16de5fb245bd"
+    },
+    "seo_slug": "byd-qinl",
+    "order": 2
+  },
+  {
+    "id": 941,
+    "brand_id": 97,
+    "title": "F3",
+    "title_en": "F3",
+    "image": null,
+    "seo_slug": "byd-f3",
+    "order": 1
+  },
+  {
+    "id": 1411,
+    "brand_id": 97,
+    "title": "چین پلاس DMi",
+    "title_en": "Qin Plus DMi",
+    "image": null,
+    "seo_slug": "byd-qinplus",
+    "order": 0
+  },
+  {
+    "id": 1414,
+    "brand_id": 97,
+    "title": "سیگال",
+    "title_en": "Seagull",
+    "image": null,
+    "seo_slug": "byd-seagull",
+    "order": 0
+  },
+  {
+    "id": 1318,
+    "brand_id": 255,
+    "title": "N335 (تیپ 3)",
+    "title_en": "N335",
+    "image": null,
+    "seo_slug": "parsnoa-n335",
+    "order": 0
+  },
+  {
+    "id": 676,
+    "brand_id": 135,
+    "title": "131",
+    "title_en": "131",
+    "image": {
+      "uuid": "6d7edef0-d03a-4de6-936f-faa07843dd47",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/6d7edef0d03a4de6936ffaa07843dd47"
+    },
+    "seo_slug": "pride-131",
+    "order": 7
+  },
+  {
+    "id": 877,
+    "brand_id": 135,
+    "title": "صندوق‌دار",
+    "title_en": "Sedan",
+    "image": null,
+    "seo_slug": "pride-sedan",
+    "order": 6
+  },
+  {
+    "id": 677,
+    "brand_id": 135,
+    "title": "132",
+    "title_en": "132",
+    "image": null,
+    "seo_slug": "pride-132",
+    "order": 5
+  },
+  {
+    "id": 675,
+    "brand_id": 135,
+    "title": "111",
+    "title_en": "111",
+    "image": {
+      "uuid": "79686f9b-d3f5-409f-a884-3f09d4e487b6",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/79686f9bd3f5409fa8843f09d4e487b6"
+    },
+    "seo_slug": "pride-111",
+    "order": 4
+  },
+  {
+    "id": 678,
+    "brand_id": 135,
+    "title": "141",
+    "title_en": "141",
+    "image": null,
+    "seo_slug": "pride-141",
+    "order": 3
+  },
+  {
+    "id": 679,
+    "brand_id": 135,
+    "title": "151",
+    "title_en": "151",
+    "image": {
+      "uuid": "0e504cc4-76ca-4464-84be-4f3357587566",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/0e504cc476ca446484be4f3357587566"
+    },
+    "seo_slug": "pride-151",
+    "order": 2
+  },
+  {
+    "id": 878,
+    "brand_id": 135,
+    "title": "هاچ‌بک",
+    "title_en": "Hatchback",
+    "image": null,
+    "seo_slug": "pride-hatchback",
+    "order": 1
+  },
+  {
+    "id": 972,
+    "brand_id": 157,
+    "title": "ویرا",
+    "title_en": "Wira",
+    "image": null,
+    "seo_slug": "proton-wira",
+    "order": 2
+  },
+  {
+    "id": 971,
+    "brand_id": 157,
+    "title": "جن 2",
+    "title_en": "Gen-2",
+    "image": null,
+    "seo_slug": "proton-gen2",
+    "order": 1
+  },
+  {
+    "id": 599,
+    "brand_id": 100,
+    "title": "پارس",
+    "title_en": "Pars",
+    "image": {
+      "uuid": "37c5d959-84ad-48eb-966a-0b6a17410e92",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/37c5d95984ad48eb966a0b6a17410e92"
+    },
+    "seo_slug": "peugeot-pars",
+    "order": 10
+  },
+  {
+    "id": 598,
+    "brand_id": 100,
+    "title": "405",
+    "title_en": "405",
+    "image": {
+      "uuid": "a5d20b1f-e88c-4a94-a563-1c4b07910944",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/a5d20b1fe88c4a94a5631c4b07910944"
+    },
+    "seo_slug": "peugeot-405",
+    "order": 9
+  },
+  {
+    "id": 595,
+    "brand_id": 100,
+    "title": "206",
+    "title_en": "206",
+    "image": {
+      "uuid": "ebd787df-a6f2-4120-8439-1ee59743cf63",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/ebd787dfa6f2412084391ee59743cf63"
+    },
+    "seo_slug": "peugeot-206",
+    "order": 8
+  },
+  {
+    "id": 597,
+    "brand_id": 100,
+    "title": "207",
+    "title_en": "207",
+    "image": {
+      "uuid": "6da5ea5b-55de-41be-949d-1cd137698278",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/6da5ea5b55de41be949d1cd137698278"
+    },
+    "seo_slug": "peugeot-207",
+    "order": 7
+  },
+  {
+    "id": 503,
+    "brand_id": 100,
+    "title": "206 SD",
+    "title_en": "206-SD",
+    "image": {
+      "uuid": "c09f8407-5e25-400f-89b3-90c4ee44cf3a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/c09f84075e25400f89b390c4ee44cf3a"
+    },
+    "seo_slug": "peugeot-206sd",
+    "order": 6
+  },
+  {
+    "id": 908,
+    "brand_id": 100,
+    "title": "2008",
+    "title_en": "2008",
+    "image": {
+      "uuid": "34d6f476-7044-4ca2-9c11-bb79f6e619e2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/34d6f47670444ca29c11bb79f6e619e2"
+    },
+    "seo_slug": "peugeot-2008",
+    "order": 5
+  },
+  {
+    "id": 910,
+    "brand_id": 100,
+    "title": "207 SD",
+    "title_en": "207 SD",
+    "image": {
+      "uuid": "4d3542ae-aacc-4401-916f-fab562000f0f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/4d3542aeaacc4401916ffab562000f0f"
+    },
+    "seo_slug": "peugeot-207sd",
+    "order": 4
+  },
+  {
+    "id": 593,
+    "brand_id": 100,
+    "title": "508",
+    "title_en": "508",
+    "image": {
+      "uuid": "f88587b5-4d1b-43e9-987a-e1a1c58d1262",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/f88587b54d1b43e9987ae1a1c58d1262"
+    },
+    "seo_slug": "peugeot-508",
+    "order": 3
+  },
+  {
+    "id": 590,
+    "brand_id": 100,
+    "title": "301",
+    "title_en": "301",
+    "image": null,
+    "seo_slug": "peugeot-301",
+    "order": 2
+  },
+  {
+    "id": 592,
+    "brand_id": 100,
+    "title": "407",
+    "title_en": "407",
+    "image": null,
+    "seo_slug": "peugeot-407",
+    "order": 1
+  },
+  {
+    "id": 602,
+    "brand_id": 101,
+    "title": "پانامرا",
+    "title_en": "Panamera",
+    "image": null,
+    "seo_slug": "porsche-panamera",
+    "order": 6
+  },
+  {
+    "id": 604,
+    "brand_id": 101,
+    "title": "کاین",
+    "title_en": "Cayenne",
+    "image": null,
+    "seo_slug": "porsche-cayenne",
+    "order": 5
+  },
+  {
+    "id": 603,
+    "brand_id": 101,
+    "title": "ماکان",
+    "title_en": "Macan",
+    "image": null,
+    "seo_slug": "porsche-macan",
+    "order": 4
+  },
+  {
+    "id": 600,
+    "brand_id": 101,
+    "title": "911",
+    "title_en": "911",
+    "image": null,
+    "seo_slug": "porsche-911",
+    "order": 3
+  },
+  {
+    "id": 605,
+    "brand_id": 101,
+    "title": "کیمن S",
+    "title_en": "Cayman-S",
+    "image": null,
+    "seo_slug": "porsche-caymans",
+    "order": 2
+  },
+  {
+    "id": 601,
+    "brand_id": 101,
+    "title": "باکستر",
+    "title_en": "Boxster",
+    "image": {
+      "uuid": "0fed406e-fc22-45e5-9919-377aec60d9fc",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/0fed406efc2245e59919377aec60d9fc"
+    },
+    "seo_slug": "porsche-boxster",
+    "order": 1
+  },
+  {
+    "id": 1280,
+    "brand_id": 175,
+    "title": "V4 اتوماتیک",
+    "title_en": "V4 Automatic",
+    "image": {
+      "uuid": "a79d16c3-5f00-4a9a-9461-646db7371f25",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/a79d16c35f004a9a9461646db7371f25"
+    },
+    "seo_slug": "tara-v4",
+    "order": 5
+  },
+  {
+    "id": 1279,
+    "brand_id": 175,
+    "title": "V2",
+    "title_en": "V2",
+    "image": {
+      "uuid": "27bc846f-9264-42ab-93f1-697123662906",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/27bc846f926442ab93f1697123662906"
+    },
+    "seo_slug": "tara-v2",
+    "order": 4
+  },
+  {
+    "id": 1278,
+    "brand_id": 175,
+    "title": "V1 پلاس",
+    "title_en": "V1plus",
+    "image": {
+      "uuid": "e322cd98-8ec2-442d-a186-776d1204defa",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/e322cd988ec2442da186776d1204defa"
+    },
+    "seo_slug": "tara-v1plus",
+    "order": 3
+  },
+  {
+    "id": 1277,
+    "brand_id": 175,
+    "title": "V1",
+    "title_en": "V1",
+    "image": {
+      "uuid": "7866b3d0-76eb-4fcf-8957-4df139647762",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/7866b3d076eb4fcf89574df139647762"
+    },
+    "seo_slug": "tara-v1",
+    "order": 2
+  },
+  {
+    "id": 1189,
+    "brand_id": 201,
+    "title": "300",
+    "title_en": "Tank 300",
+    "image": {
+      "uuid": "c1aff093-28be-4d7f-a8a3-b7b2cc58b0b0",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/c1aff09328be4d7fa8a3b7b2cc58b0b0"
+    },
+    "seo_slug": "tank-300",
+    "order": 2
+  },
+  {
+    "id": 1268,
+    "brand_id": 201,
+    "title": "500",
+    "title_en": "500",
+    "image": null,
+    "seo_slug": "tank-500",
+    "order": 1
+  },
+  {
+    "id": 1382,
+    "brand_id": 201,
+    "title": "300 (مونتاژ)",
+    "title_en": "300assembled",
+    "image": {
+      "uuid": "f6f4dcae-d931-4d6d-a33e-2c7fcbb6450f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/f6f4dcaed9314d6da33e2c7fcbb6450f"
+    },
+    "seo_slug": "tank-300assembled",
+    "order": 0
+  },
+  {
+    "id": 619,
+    "brand_id": 102,
+    "title": "کرولا",
+    "title_en": "Corolla",
+    "image": {
+      "uuid": "17f614a1-f373-46bb-90f1-de88ccd553cc",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/17f614a1f37346bb90f1de88ccd553cc"
+    },
+    "seo_slug": "toyota-corolla",
+    "order": 28
+  },
+  {
+    "id": 1167,
+    "brand_id": 102,
+    "title": "لوین",
+    "title_en": "Levin",
+    "image": {
+      "uuid": "cf39d369-9222-4830-b920-772bab6a8664",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/cf39d36992224830b920772bab6a8664"
+    },
+    "seo_slug": "toyota-levin",
+    "order": 27
+  },
+  {
+    "id": 613,
+    "brand_id": 102,
+    "title": "راوفور",
+    "title_en": "RAV4",
+    "image": {
+      "uuid": "b56cf651-ff49-4944-919b-81a325bcf53d",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/b56cf651ff494944919b81a325bcf53d"
+    },
+    "seo_slug": "toyota-rav4",
+    "order": 26
+  },
+  {
+    "id": 1309,
+    "brand_id": 102,
+    "title": "راوفور هیبرید",
+    "title_en": "Rav4 Hybrid",
+    "image": {
+      "uuid": "6f2fabf8-0636-4a61-94b7-3aa6ce7e9894",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/6f2fabf806364a6194b73aa6ce7e9894"
+    },
+    "seo_slug": "toyota-rav4hev",
+    "order": 25
+  },
+  {
+    "id": 620,
+    "brand_id": 102,
+    "title": "کمری",
+    "title_en": "Camry",
+    "image": {
+      "uuid": "e87b6338-c219-455e-b285-3c51f884e637",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/e87b6338c219455eb2853c51f884e637"
+    },
+    "seo_slug": "toyota-camry",
+    "order": 24
+  },
+  {
+    "id": 880,
+    "brand_id": 102,
+    "title": "کمری هیبرید",
+    "title_en": "Camry-Hybrid",
+    "image": {
+      "uuid": "3ead3947-e927-488c-b380-fd8b017106a2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/3ead3947e927488cb380fd8b017106a2"
+    },
+    "seo_slug": "toyota-camryhybrid",
+    "order": 23
+  },
+  {
+    "id": 898,
+    "brand_id": 102,
+    "title": "لندکروز چهار در",
+    "title_en": "Land Cruiser-4door",
+    "image": {
+      "uuid": "56def059-a05b-40e0-afde-3b54fe1c4fc2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/56def059a05b40e0afde3b54fe1c4fc2"
+    },
+    "seo_slug": "toyota-landcruiser4door",
+    "order": 21
+  },
+  {
+    "id": 883,
+    "brand_id": 102,
+    "title": "هایلوکس دو کابین بلند",
+    "title_en": "Hilux-Extra Cab",
+    "image": null,
+    "seo_slug": "toyota-hiluxextracab",
+    "order": 20
+  },
+  {
+    "id": 618,
+    "brand_id": 102,
+    "title": "هایلوکس دو کابین",
+    "title_en": "Hilux-Double Cab",
+    "image": {
+      "uuid": "d4ae1c9e-593f-4582-aab7-fcd5099771f9",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/d4ae1c9e593f4582aab7fcd5099771f9"
+    },
+    "seo_slug": "toyota-hiluxdoublecab",
+    "order": 19
+  },
+  {
+    "id": 610,
+    "brand_id": 102,
+    "title": "پرادو چهار در",
+    "title_en": "Prado-4door",
+    "image": {
+      "uuid": "c5d47fa8-a7b8-4644-9899-812f4b4fa11e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/c5d47fa8a7b846449899812f4b4fa11e"
+    },
+    "seo_slug": "toyota-prado4door",
+    "order": 18
+  },
+  {
+    "id": 611,
+    "brand_id": 102,
+    "title": "پرادو دو در",
+    "title_en": "Prado-2door",
+    "image": null,
+    "seo_slug": "toyota-prado2door",
+    "order": 17
+  },
+  {
+    "id": 622,
+    "brand_id": 102,
+    "title": "یاریس صندوق‌دار",
+    "title_en": "Yaris-Sedan",
+    "image": {
+      "uuid": "8496240c-949f-404d-93e7-f299056319fc",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/8496240c949f404d93e7f299056319fc"
+    },
+    "seo_slug": "toyota-yarissedan",
+    "order": 16
+  },
+  {
+    "id": 978,
+    "brand_id": 102,
+    "title": "یاریس هاچ‌بک",
+    "title_en": "Yaris-Hatchback",
+    "image": null,
+    "seo_slug": "toyota-yarishatchback",
+    "order": 15
+  },
+  {
+    "id": 608,
+    "brand_id": 102,
+    "title": "آریون",
+    "title_en": "Aurion",
+    "image": {
+      "uuid": "8744d84f-713b-4c4d-a8af-850ba62d0718",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/8744d84f713b4c4da8af850ba62d0718"
+    },
+    "seo_slug": "toyota-aurion",
+    "order": 13
+  },
+  {
+    "id": 612,
+    "brand_id": 102,
+    "title": "پریوس",
+    "title_en": "Prius",
+    "image": {
+      "uuid": "176c28e0-6051-471d-abb9-2895cd7213bb",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/176c28e06051471dabb92895cd7213bb"
+    },
+    "seo_slug": "toyota-prius",
+    "order": 12
+  },
+  {
+    "id": 606,
+    "brand_id": 102,
+    "title": "C-HR",
+    "title_en": "C-HR",
+    "image": {
+      "uuid": "3aa8373c-b813-4fd6-bd22-9a2a2c6d67ba",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/3aa8373cb8134fd6bd229a2a2c6d67ba"
+    },
+    "seo_slug": "toyota-chr",
+    "order": 11
+  },
+  {
+    "id": 881,
+    "brand_id": 102,
+    "title": "C-HR هیبرید",
+    "title_en": "C-HR (Hybrid)",
+    "image": {
+      "uuid": "641b147d-385b-4799-9fc6-1f5d454a6aad",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/641b147d385b47999fc61f5d454a6aad"
+    },
+    "seo_slug": "toyota-chrhybrid",
+    "order": 10
+  },
+  {
+    "id": 609,
+    "brand_id": 102,
+    "title": "FJ کروزر",
+    "title_en": "FJ Cruiser",
+    "image": null,
+    "seo_slug": "toyota-fjcruiser",
+    "order": 9
+  },
+  {
+    "id": 1310,
+    "brand_id": 102,
+    "title": "کرولا کراس",
+    "title_en": "corolla cross",
+    "image": {
+      "uuid": "b85c1c6d-91c2-4b36-9880-fe75338c5790",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/b85c1c6d91c24b369880fe75338c5790"
+    },
+    "seo_slug": "toyota-corollacross",
+    "order": 8
+  },
+  {
+    "id": 1307,
+    "brand_id": 102,
+    "title": "آوالون هیبرید",
+    "title_en": "Avalon",
+    "image": {
+      "uuid": "57ac4173-fb73-441e-a325-00e75d411743",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/57ac4173fb73441ea32500e75d411743"
+    },
+    "seo_slug": "toyota-avalon",
+    "order": 7
+  },
+  {
+    "id": 607,
+    "brand_id": 102,
+    "title": "GT86",
+    "title_en": "GT86",
+    "image": null,
+    "seo_slug": "toyota-gt86",
+    "order": 4
+  },
+  {
+    "id": 882,
+    "brand_id": 102,
+    "title": "هایس",
+    "title_en": "HIACE",
+    "image": null,
+    "seo_slug": "toyota-hiace",
+    "order": 2
+  },
+  {
+    "id": 1190,
+    "brand_id": 102,
+    "title": "bZ4X",
+    "title_en": "bZ4X",
+    "image": {
+      "uuid": "5a55a131-8033-468b-96c8-743e180f9f54",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/5a55a1318033468b96c8743e180f9f54"
+    },
+    "seo_slug": "toyota-bz4x",
+    "order": 1
+  },
+  {
+    "id": 1321,
+    "brand_id": 102,
+    "title": "کرولا هیبرید",
+    "title_en": "Corolla hybrid",
+    "image": {
+      "uuid": "976bbdda-82fa-4deb-a908-bb2785027445",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/976bbdda82fa4deba908bb2785027445"
+    },
+    "seo_slug": "toyota-corollahybrid",
+    "order": 0
+  },
+  {
+    "id": 1323,
+    "brand_id": 102,
+    "title": "لوین هیبرید",
+    "title_en": "Levin hybrid",
+    "image": {
+      "uuid": "3060baff-4a6d-4f50-a550-3055b62316f3",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/3060baff4a6d4f50a5503055b62316f3"
+    },
+    "seo_slug": "toyota-levinhybrid",
+    "order": 0
+  },
+  {
+    "id": 1324,
+    "brand_id": 102,
+    "title": "ونزا",
+    "title_en": "Venza",
+    "image": {
+      "uuid": "0e0c9f91-cfc2-47a9-becb-ca776a307fa2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/0e0c9f91cfc247a9becbca776a307fa2"
+    },
+    "seo_slug": "toyota-venza",
+    "order": 0
+  },
+  {
+    "id": 1325,
+    "brand_id": 102,
+    "title": "bZ3",
+    "title_en": "bZ3",
+    "image": {
+      "uuid": "7754553e-02b1-4baf-85bf-0eff6a0abec3",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/7754553e02b14baf85bf0eff6a0abec3"
+    },
+    "seo_slug": "toyota-bz3",
+    "order": 0
+  },
+  {
+    "id": 1326,
+    "brand_id": 102,
+    "title": "وایلدلندر",
+    "title_en": "Wildlander",
+    "image": {
+      "uuid": "236f89bf-f867-49b7-bd2a-b5b0bf81b50d",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/236f89bff86749b7bd2ab5b0bf81b50d"
+    },
+    "seo_slug": "toyota-wildlander",
+    "order": 0
+  },
+  {
+    "id": 1327,
+    "brand_id": 102,
+    "title": "فرانت لندر",
+    "title_en": "frontlander",
+    "image": {
+      "uuid": "60c6d3f8-d293-411d-a767-c859e6ce187b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/60c6d3f8d293411da767c859e6ce187b"
+    },
+    "seo_slug": "toyota-frontlander",
+    "order": 0
+  },
+  {
+    "id": 1328,
+    "brand_id": 102,
+    "title": "هایلندر هیبرید",
+    "title_en": "highlander hybrid",
+    "image": {
+      "uuid": "e234b35a-9ebd-4b7b-9a8f-bf3aece26aa4",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/e234b35a9ebd4b7b9a8fbf3aece26aa4"
+    },
+    "seo_slug": "toyota-highlanderhybrid",
+    "order": 0
+  },
+  {
+    "id": 1341,
+    "brand_id": 102,
+    "title": "کرولا کراس هیبرید",
+    "title_en": "Corolla Cross Hybrid",
+    "image": {
+      "uuid": "e723e96d-c6c6-41e0-b529-a6a30f020e84",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/e723e96dc6c641e0b529a6a30f020e84"
+    },
+    "seo_slug": "toyota-corollacrosshybrid",
+    "order": 0
+  },
+  {
+    "id": 1420,
+    "brand_id": 102,
+    "title": "bZ3X",
+    "title_en": "bZ3X",
+    "image": null,
+    "seo_slug": "toyota-bz3x",
+    "order": 0
+  },
+  {
+    "id": 682,
+    "brand_id": 136,
+    "title": "صندوق‌دار",
+    "title_en": "Sedan",
+    "image": {
+      "uuid": "f0afc268-9d95-420f-a1cb-95560079d43d",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/f0afc2689d95420fa1cb95560079d43d"
+    },
+    "seo_slug": "tiba-sedan",
+    "order": 3
+  },
+  {
+    "id": 683,
+    "brand_id": 136,
+    "title": "هاچ‌بک",
+    "title_en": "Hatchback",
+    "image": {
+      "uuid": "bcf48578-5dfd-4082-b6f1-a8aaf273588e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/bcf485785dfd4082b6f1a8aaf273588e"
+    },
+    "seo_slug": "tiba-hatchback",
+    "order": 2
+  },
+  {
+    "id": 1082,
+    "brand_id": 136,
+    "title": "صندوق‌دار پلاس",
+    "title_en": "PLUS",
+    "image": null,
+    "seo_slug": "tiba-plus",
+    "order": 1
+  },
+  {
+    "id": 1135,
+    "brand_id": 189,
+    "title": "X35",
+    "title_en": "X35",
+    "image": {
+      "uuid": "ac1136b1-2dba-4857-a46c-c81175ae020b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/ac1136b12dba4857a46cc81175ae020b"
+    },
+    "seo_slug": "tigard-x35",
+    "order": 1
+  },
+  {
+    "id": 1372,
+    "brand_id": 189,
+    "title": "L7 پلاس",
+    "title_en": "L7 plus",
+    "image": null,
+    "seo_slug": "tigard-l7plus",
+    "order": 0
+  },
+  {
+    "id": 1381,
+    "brand_id": 189,
+    "title": "تیسان S05",
+    "title_en": "Tissan S05",
+    "image": null,
+    "seo_slug": "tigard-tissans05",
+    "order": 0
+  },
+  {
+    "id": 1145,
+    "brand_id": 190,
+    "title": "VS7",
+    "title_en": "VS7",
+    "image": {
+      "uuid": "61d1005e-3c3f-491b-8637-96336281aedf",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/61d1005e3c3f491b863796336281aedf"
+    },
+    "seo_slug": "jetta-vs7",
+    "order": 2
+  },
+  {
+    "id": 1144,
+    "brand_id": 190,
+    "title": "VS5",
+    "title_en": "VS5",
+    "image": {
+      "uuid": "51ae7368-42d9-481d-b170-4cf3115d6929",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/51ae736842d9481db1704cf3115d6929"
+    },
+    "seo_slug": "jetta-vs5",
+    "order": 1
+  },
+  {
+    "id": 627,
+    "brand_id": 103,
+    "title": "S5",
+    "title_en": "S5",
+    "image": {
+      "uuid": "e918c2be-c68e-4b81-a49a-abe95c568c81",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/e918c2bec68e4b81a49aabe95c568c81"
+    },
+    "seo_slug": "jac-s5",
+    "order": 8
+  },
+  {
+    "id": 988,
+    "brand_id": 103,
+    "title": "J4",
+    "title_en": "J4",
+    "image": {
+      "uuid": "6b6b98ec-9261-4e99-b8e7-11e4218a272b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/6b6b98ec92614e99b8e711e4218a272b"
+    },
+    "seo_slug": "jac-j4",
+    "order": 7
+  },
+  {
+    "id": 625,
+    "brand_id": 103,
+    "title": "J5",
+    "title_en": "J5",
+    "image": {
+      "uuid": "1250abd0-a7c4-4fb9-9af8-c632807da4e2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/1250abd0a7c44fb99af8c632807da4e2"
+    },
+    "seo_slug": "jac-j5",
+    "order": 6
+  },
+  {
+    "id": 626,
+    "brand_id": 103,
+    "title": "S3",
+    "title_en": "S3",
+    "image": {
+      "uuid": "760c0f99-9447-42f3-8140-66f51b4eec6d",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/760c0f99944742f3814066f51b4eec6d"
+    },
+    "seo_slug": "jac-s3",
+    "order": 5
+  },
+  {
+    "id": 916,
+    "brand_id": 103,
+    "title": "J3 سدان",
+    "title_en": "J3-Sedan",
+    "image": null,
+    "seo_slug": "jac-j3sedan",
+    "order": 3
+  },
+  {
+    "id": 624,
+    "brand_id": 103,
+    "title": "J3 هاچ‌بک",
+    "title_en": "J3-Hatchback",
+    "image": null,
+    "seo_slug": "jac-j3hatchback",
+    "order": 2
+  },
+  {
+    "id": 629,
+    "brand_id": 104,
+    "title": "امگرند 7",
+    "title_en": "Emgrand 7",
+    "image": null,
+    "seo_slug": "geely-emgrand7",
+    "order": 5
+  },
+  {
+    "id": 628,
+    "brand_id": 104,
+    "title": "GC6",
+    "title_en": "GC6",
+    "image": {
+      "uuid": "aafa2106-a07f-4a3e-88ce-340a88074aee",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/aafa2106a07f4a3e88ce340a88074aee"
+    },
+    "seo_slug": "geely-gc6",
+    "order": 4
+  },
+  {
+    "id": 631,
+    "brand_id": 104,
+    "title": "امگرند X7",
+    "title_en": "Emgrand X7",
+    "image": null,
+    "seo_slug": "geely-emgrandx7",
+    "order": 3
+  },
+  {
+    "id": 630,
+    "brand_id": 104,
+    "title": "امگرند RV-7",
+    "title_en": "Emgrand RV-7",
+    "image": null,
+    "seo_slug": "geely-emgrandrv7",
+    "order": 2
+  },
+  {
+    "id": 1149,
+    "brand_id": 104,
+    "title": "آزکارا",
+    "title_en": "Azkarra",
+    "image": {
+      "uuid": "ea5603de-cd6a-4d68-b914-2e2fd3dc2afe",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/ea5603decd6a4d68b9142e2fd3dc2afe"
+    },
+    "seo_slug": "geely-azkarra",
+    "order": 1
+  },
+  {
+    "id": 1158,
+    "brand_id": 105,
+    "title": "CS55 پلاس",
+    "title_en": "CS-55-plus",
+    "image": {
+      "uuid": "4539206b-5fdd-4811-bcda-8f5064e55479",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/4539206b5fdd4811bcda8f5064e55479"
+    },
+    "seo_slug": "changan-cs55plus",
+    "order": 7
+  },
+  {
+    "id": 632,
+    "brand_id": 105,
+    "title": "CS35 (مونتاژ)",
+    "title_en": "CS35-Assembled",
+    "image": {
+      "uuid": "25f01c7d-b16a-4a3e-b7a6-0282dd15f717",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/25f01c7db16a4a3eb7a60282dd15f717"
+    },
+    "seo_slug": "changan-cs35assembled",
+    "order": 6
+  },
+  {
+    "id": 1132,
+    "brand_id": 105,
+    "title": "CS35 پلاس",
+    "title_en": "CS-35-plus",
+    "image": {
+      "uuid": "a72d7cc0-6963-4443-b152-845d61d4daa2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/a72d7cc069634443b152845d61d4daa2"
+    },
+    "seo_slug": "changan-cs35plus",
+    "order": 5
+  },
+  {
+    "id": 942,
+    "brand_id": 105,
+    "title": "CS35",
+    "title_en": "CS 35",
+    "image": null,
+    "seo_slug": "changan-cs35",
+    "order": 4
+  },
+  {
+    "id": 1050,
+    "brand_id": 105,
+    "title": "ایدو",
+    "title_en": "Eado",
+    "image": null,
+    "seo_slug": "changan-eado",
+    "order": 3
+  },
+  {
+    "id": 1130,
+    "brand_id": 105,
+    "title": "UNI-T",
+    "title_en": "UNI-T",
+    "image": null,
+    "seo_slug": "changan-uni-t",
+    "order": 1
+  },
+  {
+    "id": 1338,
+    "brand_id": 105,
+    "title": "CS55 پلاس (مونتاژ)",
+    "title_en": "cs55 assembled",
+    "image": null,
+    "seo_slug": "changan-cs55assembled",
+    "order": 0
+  },
+  {
+    "id": 1355,
+    "brand_id": 105,
+    "title": "CS35 پلاس (مونتاژ)",
+    "title_en": "cs35 plus assembled",
+    "image": {
+      "uuid": "fb7dce39-4a73-429c-88f0-a47edfdf36b6",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/fb7dce394a73429c88f0a47edfdf36b6"
+    },
+    "seo_slug": "changan-cs35plusassembled",
+    "order": 0
+  },
+  {
+    "id": 1356,
+    "brand_id": 105,
+    "title": "ایدو EV460",
+    "title_en": "Eado EV460",
+    "image": {
+      "uuid": "73ab80ae-b13a-4763-98e0-d47e62d14904",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/73ab80aeb13a476398e0d47e62d14904"
+    },
+    "seo_slug": "changan-eadoev460",
+    "order": 0
+  },
+  {
+    "id": 803,
+    "brand_id": 137,
+    "title": "آریزو 5",
+    "title_en": "Arrizo 5",
+    "image": {
+      "uuid": "5dba709d-b0d1-48f8-8cd3-51c9532f4aed",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/5dba709db0d148f88cd351c9532f4aed"
+    },
+    "seo_slug": "chery-arrizo5",
+    "order": 7
+  },
+  {
+    "id": 805,
+    "brand_id": 137,
+    "title": "آریزو 5T",
+    "title_en": "Arrizo 5T",
+    "image": {
+      "uuid": "ae74146e-b090-45a1-9627-902135f27d59",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/ae74146eb09045a19627902135f27d59"
+    },
+    "seo_slug": "chery-arrizo5t",
+    "order": 6
+  },
+  {
+    "id": 899,
+    "brand_id": 137,
+    "title": "تیگو 7",
+    "title_en": "Tiggo 7",
+    "image": {
+      "uuid": "de516eb1-a0ef-40b1-a45d-cc956cf9d2a5",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/de516eb1a0ef40b1a45dcc956cf9d2a5"
+    },
+    "seo_slug": "chery-tiggo7",
+    "order": 5
+  },
+  {
+    "id": 806,
+    "brand_id": 137,
+    "title": "تیگو 5",
+    "title_en": "Tiggo 5",
+    "image": {
+      "uuid": "d8068906-b432-4fb9-8e85-8b1196c36057",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/d8068906b4324fb98e858b1196c36057"
+    },
+    "seo_slug": "chery-tiggo5",
+    "order": 4
+  },
+  {
+    "id": 1053,
+    "brand_id": 137,
+    "title": "آریزو 6",
+    "title_en": "Arrizo 6",
+    "image": {
+      "uuid": "51786a29-3359-4288-8e00-111ca3bbd56f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/51786a29335942888e00111ca3bbd56f"
+    },
+    "seo_slug": "chery-arrizo6",
+    "order": 3
+  },
+  {
+    "id": 990,
+    "brand_id": 158,
+    "title": "X7",
+    "title_en": "X7",
+    "image": null,
+    "seo_slug": "domy-x7",
+    "order": 1
+  },
+  {
+    "id": 635,
+    "brand_id": 106,
+    "title": "H30 کراس",
+    "title_en": "H30 Cross",
+    "image": null,
+    "seo_slug": "dongfeng-h30cross",
+    "order": 5
+  },
+  {
+    "id": 1150,
+    "brand_id": 106,
+    "title": "شاین مکس",
+    "title_en": "Shine max",
+    "image": {
+      "uuid": "633d3bf1-6e67-49ca-94b6-ac6575cee697",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/633d3bf16e6749ca94b6ac6575cee697"
+    },
+    "seo_slug": "dongfeng-shinemax",
+    "order": 4
+  },
+  {
+    "id": 1282,
+    "brand_id": 106,
+    "title": "E70",
+    "title_en": "E70",
+    "image": {
+      "uuid": "6a066f9d-8738-407e-97ce-58b205aca5dd",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/6a066f9d8738407e97ce58b205aca5dd"
+    },
+    "seo_slug": "dongfeng-e70",
+    "order": 3
+  },
+  {
+    "id": 918,
+    "brand_id": 106,
+    "title": "S30",
+    "title_en": "S30",
+    "image": null,
+    "seo_slug": "dongfeng-s30",
+    "order": 2
+  },
+  {
+    "id": 1140,
+    "brand_id": 186,
+    "title": "Y7",
+    "title_en": "y7",
+    "image": {
+      "uuid": "cf45ac27-c174-45b2-9617-12aaac3ac861",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/cf45ac27c17445b2961712aaac3ac861"
+    },
+    "seo_slug": "dayun-y7",
+    "order": 3
+  },
+  {
+    "id": 1104,
+    "brand_id": 186,
+    "title": "Y5",
+    "title_en": "Y5",
+    "image": {
+      "uuid": "99eb6275-4cdf-42b2-9d58-4c1ff1a69291",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/99eb62754cdf42b29d584c1ff1a69291"
+    },
+    "seo_slug": "dayun-y5",
+    "order": 2
+  },
+  {
+    "id": 1117,
+    "brand_id": 186,
+    "title": "Y5 Plus",
+    "title_en": "Y5 Plus",
+    "image": {
+      "uuid": "276a10b7-f472-478c-9839-362745907747",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/276a10b7f472478c9839362745907747"
+    },
+    "seo_slug": "dayun-y5plus",
+    "order": 1
+  },
+  {
+    "id": 513,
+    "brand_id": 138,
+    "title": "پلاس",
+    "title_en": "Plus EF7",
+    "image": {
+      "uuid": "79e3ebd7-1b7e-4c14-bb87-4c5dddb92a16",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/79e3ebd71b7e4c14bb874c5dddb92a16"
+    },
+    "seo_slug": "dena-plus",
+    "order": 3
+  },
+  {
+    "id": 512,
+    "brand_id": 138,
+    "title": "معمولی",
+    "title_en": "Basic",
+    "image": {
+      "uuid": "0e9ed619-5001-415b-8e1d-9003e5109425",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/0e9ed6195001415b8e1d9003e5109425"
+    },
+    "seo_slug": "dena-basic",
+    "order": 2
+  },
+  {
+    "id": 1302,
+    "brand_id": 138,
+    "title": "پلاس EF7P",
+    "title_en": "Plus EF7P",
+    "image": {
+      "uuid": "d885e111-cef8-4518-9135-d069be7766e1",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/d885e111cef845189135d069be7766e1"
+    },
+    "seo_slug": "dena-plusef7p",
+    "order": 1
+  },
+  {
+    "id": 995,
+    "brand_id": 108,
+    "title": "6",
+    "title_en": "6",
+    "image": {
+      "uuid": "174543d2-1626-4b55-aa5c-e67a02cb2dbb",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/174543d216264b55aa5ce67a02cb2dbb"
+    },
+    "seo_slug": "ds-6",
+    "order": 6
+  },
+  {
+    "id": 998,
+    "brand_id": 108,
+    "title": "5LS",
+    "title_en": "۵LS",
+    "image": null,
+    "seo_slug": "ds-5ls",
+    "order": 5
+  },
+  {
+    "id": 638,
+    "brand_id": 108,
+    "title": "3",
+    "title_en": "3",
+    "image": {
+      "uuid": "3753824c-94ce-4a3b-a0b0-be0e3dc99c1e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/3753824c94ce4a3ba0b0be0e3dc99c1e"
+    },
+    "seo_slug": "ds-3",
+    "order": 4
+  },
+  {
+    "id": 1081,
+    "brand_id": 108,
+    "title": "7 کراس‌بک",
+    "title_en": "7 Crossback",
+    "image": null,
+    "seo_slug": "ds-7crossback",
+    "order": 3
+  },
+  {
+    "id": 1289,
+    "brand_id": 108,
+    "title": "5",
+    "title_en": "5",
+    "image": null,
+    "seo_slug": "ds-5",
+    "order": 1
+  },
+  {
+    "id": 1063,
+    "brand_id": 168,
+    "title": "پرایم",
+    "title_en": "Prime",
+    "image": {
+      "uuid": "dfe5dc55-b00c-4ff4-9659-6a6c28f629df",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/dfe5dc55b00c4ff496596a6c28f629df"
+    },
+    "seo_slug": "dignity-prime",
+    "order": 2
+  },
+  {
+    "id": 1119,
+    "brand_id": 168,
+    "title": "پرستیژ",
+    "title_en": "Prestige",
+    "image": {
+      "uuid": "f3ec93b9-5fb3-478c-89d8-e91a6291c14f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/f3ec93b95fb3478c89d8e91a6291c14f"
+    },
+    "seo_slug": "dignity-prestige",
+    "order": 1
+  },
+  {
+    "id": 1062,
+    "brand_id": 139,
+    "title": "پلاس",
+    "title_en": "Plus",
+    "image": {
+      "uuid": "2144c842-2062-4bfc-b94e-47e962c5f817",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/2144c84220624bfcb94e47e962c5f817"
+    },
+    "seo_slug": "runna-plus",
+    "order": 3
+  },
+  {
+    "id": 884,
+    "brand_id": 139,
+    "title": "LX",
+    "title_en": "LX",
+    "image": {
+      "uuid": "2fe98b56-a3ba-4e99-ba03-653d4cd85f29",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/2fe98b56a3ba4e99ba03653d4cd85f29"
+    },
+    "seo_slug": "runna-lx",
+    "order": 2
+  },
+  {
+    "id": 514,
+    "brand_id": 139,
+    "title": "EL",
+    "title_en": "EL",
+    "image": null,
+    "seo_slug": "runna-el",
+    "order": 1
+  },
+  {
+    "id": 999,
+    "brand_id": 160,
+    "title": "ولا V5",
+    "title_en": "Vela V5",
+    "image": null,
+    "seo_slug": "rayen-v5",
+    "order": 2
+  },
+  {
+    "id": 1291,
+    "brand_id": 160,
+    "title": "R3",
+    "title_en": "R3",
+    "image": null,
+    "seo_slug": "rayen-r3",
+    "order": 1
+  },
+  {
+    "id": 646,
+    "brand_id": 109,
+    "title": "تندر90",
+    "title_en": "Tondar 90",
+    "image": {
+      "uuid": "95e3a30f-1085-40f7-8b8d-27be35f10f68",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/95e3a30f108540f78b8d27be35f10f68"
+    },
+    "seo_slug": "renault-tondar90",
+    "order": 21
+  },
+  {
+    "id": 643,
+    "brand_id": 109,
+    "title": "پارس تندر",
+    "title_en": "Pars Tondar",
+    "image": {
+      "uuid": "e95a7de6-2ca7-4386-8987-bbfb8f8f138f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/e95a7de62ca743868987bbfb8f8f138f"
+    },
+    "seo_slug": "renault-parstondar",
+    "order": 20
+  },
+  {
+    "id": 651,
+    "brand_id": 109,
+    "title": "ساندرو",
+    "title_en": "Sandero",
+    "image": {
+      "uuid": "71447fb1-75e8-4cfb-afe3-0437c846e64e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/71447fb175e84cfbafe30437c846e64e"
+    },
+    "seo_slug": "renault-sandero",
+    "order": 19
+  },
+  {
+    "id": 652,
+    "brand_id": 109,
+    "title": "ساندرو استپ وی",
+    "title_en": "Sandero-Stepway",
+    "image": {
+      "uuid": "2315c3cd-6130-4e5c-857b-6f8804ec92e7",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/2315c3cd61304e5c857b6f8804ec92e7"
+    },
+    "seo_slug": "renault-sanderostepway",
+    "order": 18
+  },
+  {
+    "id": 900,
+    "brand_id": 109,
+    "title": "مگان (مونتاژ)",
+    "title_en": "Megane-Assembled",
+    "image": null,
+    "seo_slug": "renault-meganeassembled",
+    "order": 17
+  },
+  {
+    "id": 1169,
+    "brand_id": 109,
+    "title": "مگان (وارداتی)",
+    "title_en": "megane",
+    "image": null,
+    "seo_slug": "renault-megane",
+    "order": 16
+  },
+  {
+    "id": 661,
+    "brand_id": 109,
+    "title": "کولیوس",
+    "title_en": "Koleos",
+    "image": {
+      "uuid": "d818db88-d114-4401-9507-4246506b70ee",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/d818db88d114440195074246506b70ee"
+    },
+    "seo_slug": "renault-koleos",
+    "order": 15
+  },
+  {
+    "id": 660,
+    "brand_id": 109,
+    "title": "کپچر",
+    "title_en": "Captur",
+    "image": {
+      "uuid": "ea51380b-8b61-48a7-b6c9-edc5818af038",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/ea51380b8b6148a7b6c9edc5818af038"
+    },
+    "seo_slug": "renault-captur",
+    "order": 14
+  },
+  {
+    "id": 650,
+    "brand_id": 109,
+    "title": "داستر",
+    "title_en": "Duster",
+    "image": {
+      "uuid": "fe6403c2-1522-44a4-8b03-9ad1b6b5d626",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/fe6403c2152244a48b039ad1b6b5d626"
+    },
+    "seo_slug": "renault-duster",
+    "order": 13
+  },
+  {
+    "id": 904,
+    "brand_id": 109,
+    "title": "تلیسمان",
+    "title_en": "Talisman",
+    "image": {
+      "uuid": "18c79b28-de3a-48fc-b0e4-dd181d092e03",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/18c79b28de3a48fcb0e4dd181d092e03"
+    },
+    "seo_slug": "renault-talisman",
+    "order": 12
+  },
+  {
+    "id": 655,
+    "brand_id": 109,
+    "title": "فلوئنس",
+    "title_en": "Fluence",
+    "image": null,
+    "seo_slug": "renault-fluence",
+    "order": 11
+  },
+  {
+    "id": 1260,
+    "brand_id": 109,
+    "title": "آرکانا XM3",
+    "title_en": "Arkana XM3",
+    "image": {
+      "uuid": "cdec12df-2316-4374-bffd-2655f10b0eff",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/cdec12df23164374bffd2655f10b0eff"
+    },
+    "seo_slug": "renault-arkanaxm3",
+    "order": 10
+  },
+  {
+    "id": 654,
+    "brand_id": 109,
+    "title": "سیمبل",
+    "title_en": "Symbol",
+    "image": null,
+    "seo_slug": "renault-symbol",
+    "order": 9
+  },
+  {
+    "id": 641,
+    "brand_id": 109,
+    "title": "اسکالا",
+    "title_en": "Scala",
+    "image": null,
+    "seo_slug": "renault-scala",
+    "order": 8
+  },
+  {
+    "id": 653,
+    "brand_id": 109,
+    "title": "سفران",
+    "title_en": "Safrane",
+    "image": null,
+    "seo_slug": "renault-safrane",
+    "order": 7
+  },
+  {
+    "id": 656,
+    "brand_id": 109,
+    "title": "لتیتود",
+    "title_en": "Latitude",
+    "image": null,
+    "seo_slug": "renault-latitude",
+    "order": 5
+  },
+  {
+    "id": 649,
+    "brand_id": 109,
+    "title": "تندر وانت",
+    "title_en": "Tondar Pickup",
+    "image": null,
+    "seo_slug": "renault-tondarpickup",
+    "order": 4
+  },
+  {
+    "id": 1003,
+    "brand_id": 109,
+    "title": "اسکالا کروک",
+    "title_en": "Scala-Convertible",
+    "image": null,
+    "seo_slug": "renault-scalaconvertible",
+    "order": 3
+  },
+  {
+    "id": 1163,
+    "brand_id": 109,
+    "title": "ترافیک (ون)",
+    "title_en": "traffic van",
+    "image": null,
+    "seo_slug": "renault-trafficvan",
+    "order": 1
+  },
+  {
+    "id": 1430,
+    "brand_id": 109,
+    "title": "گرند کولیوس",
+    "title_en": "Grand Koleos",
+    "image": null,
+    "seo_slug": "renault-grandkoleos",
+    "order": 0
+  },
+  {
+    "id": 1313,
+    "brand_id": 250,
+    "title": "eRX5",
+    "title_en": "eRX5",
+    "image": null,
+    "seo_slug": "roewe-erx5",
+    "order": 0
+  },
+  {
+    "id": 1179,
+    "brand_id": 197,
+    "title": "EF7P",
+    "title_en": "EF7P",
+    "image": {
+      "uuid": "621445c4-b312-4d8d-b799-409a1385df29",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/621445c4b3124d8db799409a1385df29"
+    },
+    "seo_slug": "reera-ef7p",
+    "order": 1
+  },
+  {
+    "id": 1120,
+    "brand_id": 188,
+    "title": "پرایم",
+    "title_en": "Prime",
+    "image": {
+      "uuid": "b2d0f2ca-0282-4eb6-8721-3d9d7f3745df",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/b2d0f2ca02824eb687213d9d7f3745df"
+    },
+    "seo_slug": "respect-prime",
+    "order": 1
+  },
+  {
+    "id": 1080,
+    "brand_id": 174,
+    "title": "کوپا",
+    "title_en": "Coupa",
+    "image": null,
+    "seo_slug": "rigan-coupa",
+    "order": 1
+  },
+  {
+    "id": 1166,
+    "brand_id": 195,
+    "title": "G9",
+    "title_en": "g9",
+    "image": {
+      "uuid": "9a6c0c20-3a56-4558-ac49-a4a01570d439",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/9a6c0c203a564558ac49a4a01570d439"
+    },
+    "seo_slug": "bahman-g9",
+    "order": 1
+  },
+  {
+    "id": 1005,
+    "brand_id": 161,
+    "title": "آریو",
+    "title_en": "Ario",
+    "image": {
+      "uuid": "e05f316b-fee4-4d29-9898-3c713b6261a7",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/e05f316bfee44d2998983c713b6261a7"
+    },
+    "seo_slug": "zotye-ario",
+    "order": 3
+  },
+  {
+    "id": 1006,
+    "brand_id": 161,
+    "title": "Z300",
+    "title_en": "Z300",
+    "image": {
+      "uuid": "60319272-22fc-4a5d-ad83-c09887e53712",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/6031927222fc4a5dad83c09887e53712"
+    },
+    "seo_slug": "zotye-z300",
+    "order": 2
+  },
+  {
+    "id": 1141,
+    "brand_id": 161,
+    "title": "DL5",
+    "title_en": "DL5",
+    "image": {
+      "uuid": "a7d20e49-f9b7-4c5f-ad86-3253b26f54cb",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/a7d20e49f9b74c5fad863253b26f54cb"
+    },
+    "seo_slug": "zotye-dl5",
+    "order": 1
+  },
+  {
+    "id": 1383,
+    "brand_id": 253,
+    "title": "آتکا (مونتاژ)",
+    "title_en": "ateca",
+    "image": null,
+    "seo_slug": "seat-atecaassembled",
+    "order": 0
+  },
+  {
+    "id": 665,
+    "brand_id": 111,
+    "title": "تیوولی",
+    "title_en": "Tivoli",
+    "image": {
+      "uuid": "e20cc041-2609-421d-aba8-5f6d202968e8",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/e20cc0412609421daba85f6d202968e8"
+    },
+    "seo_slug": "ssangyong-tivoli",
+    "order": 9
+  },
+  {
+    "id": 1066,
+    "brand_id": 111,
+    "title": "تیوولی (مونتاژ)",
+    "title_en": "Tivoli-Assembled",
+    "image": {
+      "uuid": "e1ebf065-08ad-43a8-8d04-4af8303ed16e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/e1ebf06508ad43a88d044af8303ed16e"
+    },
+    "seo_slug": "ssangyong-tivoliassembled",
+    "order": 8
+  },
+  {
+    "id": 1079,
+    "brand_id": 111,
+    "title": "رکستون (مونتاژ)",
+    "title_en": "Rexton (asembly)",
+    "image": null,
+    "seo_slug": "ssangyong-rextonassembly",
+    "order": 6
+  },
+  {
+    "id": 901,
+    "brand_id": 111,
+    "title": "رکستون",
+    "title_en": "Rexton",
+    "image": {
+      "uuid": "09b73797-35b3-4e9c-9a5b-a2e05482cbf7",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/09b7379735b34e9c9a5ba2e05482cbf7"
+    },
+    "seo_slug": "ssangyong-rexton",
+    "order": 5
+  },
+  {
+    "id": 672,
+    "brand_id": 111,
+    "title": "نیو اکتیون",
+    "title_en": "New Actyon",
+    "image": null,
+    "seo_slug": "ssangyong-newactyon",
+    "order": 4
+  },
+  {
+    "id": 671,
+    "brand_id": 111,
+    "title": "کایرون",
+    "title_en": "Kyron",
+    "image": null,
+    "seo_slug": "ssangyong-kyron",
+    "order": 3
+  },
+  {
+    "id": 664,
+    "brand_id": 111,
+    "title": "اکتیون",
+    "title_en": "Actyon",
+    "image": null,
+    "seo_slug": "ssangyong-actyon",
+    "order": 2
+  },
+  {
+    "id": 1286,
+    "brand_id": 111,
+    "title": "موسو گرند خان",
+    "title_en": "mussograndkhan",
+    "image": null,
+    "seo_slug": "ssangyong-mussograndkhan",
+    "order": 1
+  },
+  {
+    "id": 1373,
+    "brand_id": 111,
+    "title": "کوراندو",
+    "title_en": "korando",
+    "image": null,
+    "seo_slug": "ssangyong-korando",
+    "order": 0
+  },
+  {
+    "id": 1065,
+    "brand_id": 140,
+    "title": "S",
+    "title_en": "S",
+    "image": {
+      "uuid": "a9ebe979-8a18-4590-ab7c-ff378712f728",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/a9ebe9798a184590ab7cff378712f728"
+    },
+    "seo_slug": "saina-s",
+    "order": 6
+  },
+  {
+    "id": 685,
+    "brand_id": 140,
+    "title": "EX",
+    "title_en": "EX",
+    "image": {
+      "uuid": "01932637-344f-4512-adba-0025a0629660",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/01932637344f4512adba0025a0629660"
+    },
+    "seo_slug": "saina-ex",
+    "order": 5
+  },
+  {
+    "id": 1184,
+    "brand_id": 140,
+    "title": "GX",
+    "title_en": "GX",
+    "image": {
+      "uuid": "bca5f0cc-8a10-428b-a070-45d982285d0a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/bca5f0cc8a10428ba07045d982285d0a"
+    },
+    "seo_slug": "saina-gx",
+    "order": 4
+  },
+  {
+    "id": 1078,
+    "brand_id": 140,
+    "title": "پلاس",
+    "title_en": "Plus",
+    "image": null,
+    "seo_slug": "saina-plus",
+    "order": 3
+  },
+  {
+    "id": 1008,
+    "brand_id": 140,
+    "title": "اتوماتیک",
+    "title_en": "Automatic",
+    "image": null,
+    "seo_slug": "saina-automatic",
+    "order": 2
+  },
+  {
+    "id": 1009,
+    "brand_id": 140,
+    "title": "SX",
+    "title_en": "SX",
+    "image": {
+      "uuid": "fd036d71-8c51-42f5-b704-a49ab8d8f7fd",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/fd036d718c5142f5b704a49ab8d8f7fd"
+    },
+    "seo_slug": "saina-sx",
+    "order": 1
+  },
+  {
+    "id": 517,
+    "brand_id": 141,
+    "title": "LX",
+    "title_en": "EF7_lx",
+    "image": {
+      "uuid": "8a2dfb54-1102-406e-bdc6-3368694d7a6e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/8a2dfb541102406ebdc63368694d7a6e"
+    },
+    "seo_slug": "samand-ef7",
+    "order": 5
+  },
+  {
+    "id": 887,
+    "brand_id": 141,
+    "title": "سورن",
+    "title_en": "Soren",
+    "image": {
+      "uuid": "8bbeaa8e-dedf-4c72-883e-b2a03cfb85f7",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/8bbeaa8ededf4c72883eb2a03cfb85f7"
+    },
+    "seo_slug": "samand-soren",
+    "order": 4
+  },
+  {
+    "id": 516,
+    "brand_id": 141,
+    "title": "SE",
+    "title_en": "SE",
+    "image": null,
+    "seo_slug": "samand-se",
+    "order": 3
+  },
+  {
+    "id": 1010,
+    "brand_id": 141,
+    "title": "X7",
+    "title_en": "X7",
+    "image": null,
+    "seo_slug": "samand-x7",
+    "order": 1
+  },
+  {
+    "id": 1165,
+    "brand_id": 193,
+    "title": "S",
+    "title_en": "s",
+    "image": {
+      "uuid": "ff756951-7b6e-446c-9add-0b5febed0885",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/ff7569517b6e446c9add0b5febed0885"
+    },
+    "seo_slug": "sahand-s",
+    "order": 2
+  },
+  {
+    "id": 1186,
+    "brand_id": 193,
+    "title": "G",
+    "title_en": "G",
+    "image": {
+      "uuid": "663533a6-6b66-410d-8d1f-3b408ca5e1dd",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/663533a66b66410d8d1f3b408ca5e1dd"
+    },
+    "seo_slug": "sahand-g",
+    "order": 1
+  },
+  {
+    "id": 1374,
+    "brand_id": 193,
+    "title": "پلاس اتوماتیک E",
+    "title_en": "plus automatic E",
+    "image": null,
+    "seo_slug": "sahand-plusat",
+    "order": 0
+  },
+  {
+    "id": 1095,
+    "brand_id": 180,
+    "title": "DX 3",
+    "title_en": "DX 3",
+    "image": null,
+    "seo_slug": "soueast-dx3",
+    "order": 1
+  },
+  {
+    "id": 1012,
+    "brand_id": 162,
+    "title": "لگاسی",
+    "title_en": "Legacy",
+    "image": null,
+    "seo_slug": "subaru-legacy",
+    "order": 1
+  },
+  {
+    "id": 692,
+    "brand_id": 114,
+    "title": "گراند ویتارا (مونتاژ)",
+    "title_en": "Grand Vitara-Assembled",
+    "image": null,
+    "seo_slug": "suzuki-grandvitaraassembled",
+    "order": 8
+  },
+  {
+    "id": 1191,
+    "brand_id": 114,
+    "title": "بالنو",
+    "title_en": "baleno",
+    "image": {
+      "uuid": "b72fb1dc-b0e9-4f3a-a0ea-cb17c41882f1",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/b72fb1dcb0e94f3aa0eacb17c41882f1"
+    },
+    "seo_slug": "suzuki-baleno",
+    "order": 7
+  },
+  {
+    "id": 691,
+    "brand_id": 114,
+    "title": "گراند ویتارا (وارداتی)",
+    "title_en": "Grand Vitara",
+    "image": {
+      "uuid": "a0a7a63b-ff56-4db2-aaab-b565bd7363f1",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/a0a7a63bff564db2aaabb565bd7363f1"
+    },
+    "seo_slug": "suzuki-grandvitara",
+    "order": 6
+  },
+  {
+    "id": 1170,
+    "brand_id": 114,
+    "title": "سیاز",
+    "title_en": "ciaz",
+    "image": {
+      "uuid": "35606343-00a8-41c6-81f5-895f4b3638b7",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/3560634300a841c681f5895f4b3638b7"
+    },
+    "seo_slug": "suzuki-ciaz",
+    "order": 5
+  },
+  {
+    "id": 1297,
+    "brand_id": 114,
+    "title": "جیمنی ۳ در",
+    "title_en": "jimny 3door",
+    "image": null,
+    "seo_slug": "suzuki-jimny3door",
+    "order": 3
+  },
+  {
+    "id": 1193,
+    "brand_id": 114,
+    "title": "فرانکس هیبرید",
+    "title_en": "fronxhybrid",
+    "image": {
+      "uuid": "6bd3756a-8c1b-4f74-ba5b-67e046172b6b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/6bd3756a8c1b4f74ba5b67e046172b6b"
+    },
+    "seo_slug": "suzuki-fronxhybrid",
+    "order": 2
+  },
+  {
+    "id": 693,
+    "brand_id": 114,
+    "title": "کیزاشی",
+    "title_en": "Kizashi",
+    "image": null,
+    "seo_slug": "suzuki-kizashi",
+    "order": 1
+  },
+  {
+    "id": 1359,
+    "brand_id": 114,
+    "title": "جیمنی 5 در",
+    "title_en": "jimny 5door",
+    "image": {
+      "uuid": "bc604132-6eab-4ac8-b6ce-b1d7ded60531",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/bc6041326eab4ac8b6ceb1d7ded60531"
+    },
+    "seo_slug": "suzuki-jimny5door",
+    "order": 0
+  },
+  {
+    "id": 1384,
+    "brand_id": 114,
+    "title": "سوییفت",
+    "title_en": "swift",
+    "image": null,
+    "seo_slug": "suzuki-swift",
+    "order": 0
+  },
+  {
+    "id": 1013,
+    "brand_id": 115,
+    "title": "C3",
+    "title_en": "C3",
+    "image": null,
+    "seo_slug": "citroen-c3",
+    "order": 2
+  },
+  {
+    "id": 694,
+    "brand_id": 115,
+    "title": "C5",
+    "title_en": "C5",
+    "image": null,
+    "seo_slug": "citroen-c5",
+    "order": 1
+  },
+  {
+    "id": 1403,
+    "brand_id": 115,
+    "title": "C3-XR",
+    "title_en": "C3-XR",
+    "image": null,
+    "seo_slug": "citroen-c3xr",
+    "order": 0
+  },
+  {
+    "id": 1064,
+    "brand_id": 169,
+    "title": "G",
+    "title_en": "G",
+    "image": {
+      "uuid": "6dd54315-7f9d-4eb9-a2bd-e550b8e529f8",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/6dd543157f9d4eb9a2bde550b8e529f8"
+    },
+    "seo_slug": "shahin-g",
+    "order": 4
+  },
+  {
+    "id": 1178,
+    "brand_id": 169,
+    "title": "پلاس اتوماتیک",
+    "title_en": "automatic plus",
+    "image": {
+      "uuid": "0d02d30b-55af-4e1e-8cf9-6bd71d8a2c89",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/0d02d30b55af4e1e8cf96bd71d8a2c89"
+    },
+    "seo_slug": "shahin-plus",
+    "order": 3
+  },
+  {
+    "id": 1159,
+    "brand_id": 169,
+    "title": "GL",
+    "title_en": "gl",
+    "image": {
+      "uuid": "bb34c90d-a02d-4b22-a26a-cc87ba21b889",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/bb34c90da02d4b22a26acc87ba21b889"
+    },
+    "seo_slug": "shahin-gl",
+    "order": 2
+  },
+  {
+    "id": 1076,
+    "brand_id": 173,
+    "title": "SX5",
+    "title_en": "SX5",
+    "image": {
+      "uuid": "3ee5a659-a3dc-49ae-a5b3-199588c2a9e4",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/3ee5a659a3dc49aea5b3199588c2a9e4"
+    },
+    "seo_slug": "farda-sx5",
+    "order": 5
+  },
+  {
+    "id": 1116,
+    "brand_id": 173,
+    "title": "T5",
+    "title_en": "T5",
+    "image": {
+      "uuid": "db49ba8a-2dce-4d16-be0c-5b1e47dadc81",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/db49ba8a2dce4d16be0c5b1e47dadc81"
+    },
+    "seo_slug": "farda-t5",
+    "order": 4
+  },
+  {
+    "id": 1075,
+    "brand_id": 173,
+    "title": "511",
+    "title_en": "511",
+    "image": {
+      "uuid": "25b2693a-f9d4-4427-b819-07006a75c68e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/25b2693af9d44427b81907006a75c68e"
+    },
+    "seo_slug": "farda-511",
+    "order": 3
+  },
+  {
+    "id": 1126,
+    "brand_id": 173,
+    "title": "سوبا M4",
+    "title_en": "Suba M4",
+    "image": {
+      "uuid": "34e3a0a9-7a34-4096-91db-f2401c466dfc",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/34e3a0a97a34409691dbf2401c466dfc"
+    },
+    "seo_slug": "farda-m4",
+    "order": 2
+  },
+  {
+    "id": 1077,
+    "brand_id": 173,
+    "title": "SX6",
+    "title_en": "SX6",
+    "image": null,
+    "seo_slug": "farda-sx6",
+    "order": 1
+  },
+  {
+    "id": 1375,
+    "brand_id": 173,
+    "title": "T5 پلاس",
+    "title_en": "T5 plus",
+    "image": {
+      "uuid": "0d117fef-c9e3-4ab0-98cd-40abe15d3e61",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/0d117fefc9e34ab098cd40abe15d3e61"
+    },
+    "seo_slug": "farda-t5plus",
+    "order": 0
+  },
+  {
+    "id": 1014,
+    "brand_id": 163,
+    "title": "تونلند",
+    "title_en": "Tunland",
+    "image": {
+      "uuid": "1f2d6308-0390-496a-b979-c202fea3c31b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/1f2d63080390496ab979c202fea3c31b"
+    },
+    "seo_slug": "foton-tunland",
+    "order": 3
+  },
+  {
+    "id": 1015,
+    "brand_id": 163,
+    "title": "ساوانا (مونتاژ)",
+    "title_en": "Sauvana-Assembled",
+    "image": {
+      "uuid": "b3529297-a330-434b-ac12-82745f4b118c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/b3529297a330434bac1282745f4b118c"
+    },
+    "seo_slug": "foton-sauvanaassembled",
+    "order": 1
+  },
+  {
+    "id": 907,
+    "brand_id": 117,
+    "title": "گلف",
+    "title_en": "Golf",
+    "image": {
+      "uuid": "082b0ffb-9085-4f01-89b9-c77038e51315",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/082b0ffb90854f0189b9c77038e51315"
+    },
+    "seo_slug": "volkswagen-golf",
+    "order": 10
+  },
+  {
+    "id": 1202,
+    "brand_id": 117,
+    "title": "ID.4 Crozz",
+    "title_en": "ID.4 Crozz",
+    "image": {
+      "uuid": "7eb37ec2-dd22-4d29-b045-128557103873",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/7eb37ec2dd224d29b045128557103873"
+    },
+    "seo_slug": "volkswagen-id4crozz",
+    "order": 9
+  },
+  {
+    "id": 1188,
+    "brand_id": 117,
+    "title": "تی راک",
+    "title_en": "Troc",
+    "image": {
+      "uuid": "e1da937c-4046-4aeb-a657-0428b4d103f4",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/e1da937c40464aeba6570428b4d103f4"
+    },
+    "seo_slug": "volkswagen-troc",
+    "order": 8
+  },
+  {
+    "id": 701,
+    "brand_id": 117,
+    "title": "تیگوان",
+    "title_en": "Tiguan",
+    "image": {
+      "uuid": "40c2079d-984c-45f8-bffe-eff25d71be64",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/40c2079d984c45f8bffeeff25d71be64"
+    },
+    "seo_slug": "volkswagen-tiguan",
+    "order": 7
+  },
+  {
+    "id": 699,
+    "brand_id": 117,
+    "title": "پاسات",
+    "title_en": "Passat",
+    "image": {
+      "uuid": "7672b42f-6e37-4341-9042-021c59545f00",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/7672b42f6e3743419042021c59545f00"
+    },
+    "seo_slug": "volkswagen-passat",
+    "order": 6
+  },
+  {
+    "id": 1295,
+    "brand_id": 117,
+    "title": "تیگوان PRO L",
+    "title_en": "Tiguan Pro L",
+    "image": {
+      "uuid": "aaf266bb-43f8-4aef-a28e-d7eb1f4580a8",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/aaf266bb43f84aefa28ed7eb1f4580a8"
+    },
+    "seo_slug": "volkswagen-tiguanprol",
+    "order": 5
+  },
+  {
+    "id": 1294,
+    "brand_id": 117,
+    "title": "آی دی یونیکس",
+    "title_en": "idunyx",
+    "image": {
+      "uuid": "829105da-84e3-42b2-a5dc-5da289068453",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/829105da84e342b2a5dc5da289068453"
+    },
+    "seo_slug": "volkswagen-idunyx",
+    "order": 4
+  },
+  {
+    "id": 1195,
+    "brand_id": 117,
+    "title": "گل",
+    "title_en": "Gol",
+    "image": null,
+    "seo_slug": "volkswagen-gol",
+    "order": 3
+  },
+  {
+    "id": 698,
+    "brand_id": 117,
+    "title": "بیتل کروک",
+    "title_en": "beetle-Convertible",
+    "image": null,
+    "seo_slug": "volkswagen-beetleconvertible",
+    "order": 2
+  },
+  {
+    "id": 697,
+    "brand_id": 117,
+    "title": "بیتل",
+    "title_en": "beetle",
+    "image": null,
+    "seo_slug": "volkswagen-beetle",
+    "order": 1
+  },
+  {
+    "id": 1376,
+    "brand_id": 117,
+    "title": "ترامونت",
+    "title_en": "Teramont",
+    "image": {
+      "uuid": "03634c02-a1e5-4dea-a16e-95a7e85d8738",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/03634c02a1e54deaa16e95a7e85d8738"
+    },
+    "seo_slug": "volkswagen-teramont",
+    "order": 0
+  },
+  {
+    "id": 1387,
+    "brand_id": 117,
+    "title": "تایرون L",
+    "title_en": "Tayron L",
+    "image": null,
+    "seo_slug": "volkswagen-tayronl",
+    "order": 0
+  },
+  {
+    "id": 1106,
+    "brand_id": 187,
+    "title": "تیگو 7 پرو",
+    "title_en": "Tiggo7pro",
+    "image": {
+      "uuid": "87f212f7-098e-445c-8e03-8f98f2ea3c99",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/87f212f7098e445c8e038f98f2ea3c99"
+    },
+    "seo_slug": "fownix-tiggo7pro",
+    "order": 9
+  },
+  {
+    "id": 1121,
+    "brand_id": 187,
+    "title": "FX",
+    "title_en": "FX",
+    "image": {
+      "uuid": "f35ea2ab-dd3a-442a-a15b-cbb1c676d5b4",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/f35ea2abdd3a442aa15bcbb1c676d5b4"
+    },
+    "seo_slug": "fownix-fx",
+    "order": 8
+  },
+  {
+    "id": 1114,
+    "brand_id": 187,
+    "title": "آریزو 6 پرو",
+    "title_en": "Arrizo6pro",
+    "image": {
+      "uuid": "09d08719-39c1-4b2d-b41b-581290f5518e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/09d0871939c14b2db41b581290f5518e"
+    },
+    "seo_slug": "fownix-arrizo6pro",
+    "order": 7
+  },
+  {
+    "id": 1155,
+    "brand_id": 187,
+    "title": "آریزو 6 جی تی (Z6)",
+    "title_en": "Arrizo 6 GT (Z6)",
+    "image": {
+      "uuid": "be75be6c-34c0-466e-a7af-74192b99284b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/be75be6c34c0466ea7af74192b99284b"
+    },
+    "seo_slug": "fownix-arrizo6gt",
+    "order": 6
+  },
+  {
+    "id": 1122,
+    "brand_id": 187,
+    "title": "تیگو 8 پرو مکس (F8 Max)",
+    "title_en": "tiggo8 PRO MAX (F8 Max)",
+    "image": {
+      "uuid": "ecc544f3-774c-4092-89fb-e7962d458376",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/ecc544f3774c409289fbe7962d458376"
+    },
+    "seo_slug": "fownix-f8promax",
+    "order": 5
+  },
+  {
+    "id": 1107,
+    "brand_id": 187,
+    "title": "تیگو 8 پرو",
+    "title_en": "Tiggo8pro",
+    "image": {
+      "uuid": "4edafc87-5952-4216-987c-51844f0da6c7",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/4edafc8759524216987c51844f0da6c7"
+    },
+    "seo_slug": "fownix-tiggo8pro",
+    "order": 4
+  },
+  {
+    "id": 1152,
+    "brand_id": 187,
+    "title": "تیگو 8 پرو هیبرید (F8 Hybrid)",
+    "title_en": "tiggo8prohybrid (F8 hybrid)",
+    "image": {
+      "uuid": "afe1ad57-f33c-422c-9547-83b25de4d6c5",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/afe1ad57f33c422c954783b25de4d6c5"
+    },
+    "seo_slug": "fownix-f8pro",
+    "order": 3
+  },
+  {
+    "id": 1113,
+    "brand_id": 187,
+    "title": "تیگو 8",
+    "title_en": "Tiggo8",
+    "image": {
+      "uuid": "fca0ecca-5cef-48f1-b634-d554504a3766",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/fca0ecca5cef48f1b634d554504a3766"
+    },
+    "seo_slug": "fownix-tiggo8",
+    "order": 2
+  },
+  {
+    "id": 1172,
+    "brand_id": 187,
+    "title": "آریزو 8 (Z8)",
+    "title_en": "Arizo 8 (Z8)",
+    "image": {
+      "uuid": "75afa77f-8661-421c-a284-80c9cdb66e94",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/75afa77f8661421ca28480c9cdb66e94"
+    },
+    "seo_slug": "fownix-arizo8",
+    "order": 1
+  },
+  {
+    "id": 1333,
+    "brand_id": 187,
+    "title": "FX EV",
+    "title_en": "FX EV",
+    "image": null,
+    "seo_slug": "fownix-fxev",
+    "order": 0
+  },
+  {
+    "id": 1358,
+    "brand_id": 187,
+    "title": "آریزو 8 هیبرید (Z8)",
+    "title_en": "arrizo8hybrid",
+    "image": {
+      "uuid": "127fcb52-5d48-4cea-8745-1992406a9411",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/127fcb525d484cea87451992406a9411"
+    },
+    "seo_slug": "fownix-arrizo8hybrid",
+    "order": 0
+  },
+  {
+    "id": 1020,
+    "brand_id": 164,
+    "title": "500",
+    "title_en": "500",
+    "image": {
+      "uuid": "6bff164b-6688-4160-bd41-d62bf97a651b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/6bff164b66884160bd41d62bf97a651b"
+    },
+    "seo_slug": "fiat-500",
+    "order": 2
+  },
+  {
+    "id": 1074,
+    "brand_id": 172,
+    "title": "پرایم",
+    "title_en": "Prime",
+    "image": {
+      "uuid": "765e30de-a97b-40aa-97a1-84080632c5fc",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/765e30dea97b40aa97a184080632c5fc"
+    },
+    "seo_slug": "fidelity-prime",
+    "order": 3
+  },
+  {
+    "id": 1153,
+    "brand_id": 172,
+    "title": "پرستیژ",
+    "title_en": "prestige",
+    "image": {
+      "uuid": "a5043a80-b728-4695-ab50-d0e0371591f1",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/a5043a80b7284695ab50d0e0371591f1"
+    },
+    "seo_slug": "fidelity-prestige",
+    "order": 2
+  },
+  {
+    "id": 1194,
+    "brand_id": 172,
+    "title": "الیت",
+    "title_en": "elite",
+    "image": {
+      "uuid": "0de0c3e4-8e6b-4a08-9208-87a46e69695c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/0de0c3e48e6b4a08920887a46e69695c"
+    },
+    "seo_slug": "fidelity-elite",
+    "order": 1
+  },
+  {
+    "id": 1022,
+    "brand_id": 165,
+    "title": "دو کابین",
+    "title_en": "Double Cab",
+    "image": null,
+    "seo_slug": "capra-doublecab",
+    "order": 4
+  },
+  {
+    "id": 1023,
+    "brand_id": 165,
+    "title": "2",
+    "title_en": "2",
+    "image": null,
+    "seo_slug": "capra-2",
+    "order": 1
+  },
+  {
+    "id": 1026,
+    "brand_id": 143,
+    "title": "R",
+    "title_en": "R",
+    "image": {
+      "uuid": "87da964d-7a6f-4963-b97b-d66ed0ed87f6",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/87da964d7a6f4963b97bd66ed0ed87f6"
+    },
+    "seo_slug": "quick-r",
+    "order": 8
+  },
+  {
+    "id": 1025,
+    "brand_id": 143,
+    "title": "ساده",
+    "title_en": "Basic",
+    "image": {
+      "uuid": "7e661fa9-d899-4dd1-9a46-1ff82b7d644f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/7e661fa9d8994dd19a461ff82b7d644f"
+    },
+    "seo_slug": "quick-basic",
+    "order": 7
+  },
+  {
+    "id": 1096,
+    "brand_id": 143,
+    "title": "S",
+    "title_en": "S",
+    "image": {
+      "uuid": "84cfec6c-4690-4e4e-8642-e9cccd882ab0",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/84cfec6c46904e4e8642e9cccd882ab0"
+    },
+    "seo_slug": "quick-s",
+    "order": 6
+  },
+  {
+    "id": 1148,
+    "brand_id": 143,
+    "title": "GXR",
+    "title_en": "GXR",
+    "image": {
+      "uuid": "06ae754a-a8b4-485c-a861-fc79b81333b0",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/06ae754aa8b4485ca861fc79b81333b0"
+    },
+    "seo_slug": "quick-gxr",
+    "order": 5
+  },
+  {
+    "id": 1139,
+    "brand_id": 143,
+    "title": "GX",
+    "title_en": "GX",
+    "image": {
+      "uuid": "f919e0c8-5b9a-46cf-ab4a-458c26018445",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/f919e0c85b9a46cfab4a458c26018445"
+    },
+    "seo_slug": "quick-gx",
+    "order": 4
+  },
+  {
+    "id": 1128,
+    "brand_id": 143,
+    "title": "SR",
+    "title_en": "SR",
+    "image": {
+      "uuid": "051c64d3-f7ec-4715-959d-ae98d20aea6e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/051c64d3f7ec4715959dae98d20aea6e"
+    },
+    "seo_slug": "quick-sr",
+    "order": 3
+  },
+  {
+    "id": 1027,
+    "brand_id": 143,
+    "title": "اتوماتیک فول پلاس",
+    "title_en": "Plus-Full Option",
+    "image": {
+      "uuid": "98a2580e-2bb5-4d95-842a-f2ea6c84d73a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/98a2580e2bb54d95842af2ea6c84d73a"
+    },
+    "seo_slug": "quick-plus",
+    "order": 2
+  },
+  {
+    "id": 902,
+    "brand_id": 120,
+    "title": "سراتو (مونتاژ)",
+    "title_en": "Cerato-Assembled",
+    "image": {
+      "uuid": "90b613aa-2621-46dc-9723-d2374a713e56",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/90b613aa262146dc9723d2374a713e56"
+    },
+    "seo_slug": "kia-ceratoassembled",
+    "order": 20
+  },
+  {
+    "id": 731,
+    "brand_id": 120,
+    "title": "سراتو",
+    "title_en": "Cerato",
+    "image": {
+      "uuid": "8c2a5925-f682-4b87-aa83-53a9566eb150",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/8c2a5925f6824b87aa8353a9566eb150"
+    },
+    "seo_slug": "kia-cerato",
+    "order": 19
+  },
+  {
+    "id": 733,
+    "brand_id": 120,
+    "title": "سراتو کوپه",
+    "title_en": "Cerato-Coupe",
+    "image": null,
+    "seo_slug": "kia-ceratocoupe",
+    "order": 18
+  },
+  {
+    "id": 727,
+    "brand_id": 120,
+    "title": "اسپورتیج",
+    "title_en": "Sportage",
+    "image": {
+      "uuid": "10ff874e-66f1-44e7-8097-e310b5d1c6ed",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/10ff874e66f144e78097e310b5d1c6ed"
+    },
+    "seo_slug": "kia-sportage",
+    "order": 17
+  },
+  {
+    "id": 725,
+    "brand_id": 120,
+    "title": "اپتیما",
+    "title_en": "Optima",
+    "image": {
+      "uuid": "5d5148a8-da6a-484c-a7a4-4022f628b6d4",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/5d5148a8da6a484ca7a44022f628b6d4"
+    },
+    "seo_slug": "kia-optima",
+    "order": 16
+  },
+  {
+    "id": 734,
+    "brand_id": 120,
+    "title": "سورنتو",
+    "title_en": "Sorento",
+    "image": {
+      "uuid": "b9b8303b-5b79-4723-abdb-af7c4074b05b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/b9b8303b5b794723abdbaf7c4074b05b"
+    },
+    "seo_slug": "kia-sorento",
+    "order": 15
+  },
+  {
+    "id": 893,
+    "brand_id": 120,
+    "title": "ریو سدان",
+    "title_en": "kia_riosedan",
+    "image": null,
+    "seo_slug": "kia-riosedan",
+    "order": 14
+  },
+  {
+    "id": 730,
+    "brand_id": 120,
+    "title": "ریو هاچ‌بک",
+    "title_en": "Rio-Hatchback",
+    "image": null,
+    "seo_slug": "kia-riohatchback",
+    "order": 13
+  },
+  {
+    "id": 1160,
+    "brand_id": 120,
+    "title": "K5",
+    "title_en": "K5",
+    "image": {
+      "uuid": "38393973-e0e5-4c94-8a22-9314c68c16ed",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/38393973e0e54c948a229314c68c16ed"
+    },
+    "seo_slug": "kia-k5",
+    "order": 12
+  },
+  {
+    "id": 1254,
+    "brand_id": 120,
+    "title": "K3",
+    "title_en": "K3",
+    "image": {
+      "uuid": "8d387316-f36b-4c2e-b99a-4216b0a472b8",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/8d387316f36b4c2eb99a4216b0a472b8"
+    },
+    "seo_slug": "kia-k3",
+    "order": 11
+  },
+  {
+    "id": 728,
+    "brand_id": 120,
+    "title": "پیکانتو",
+    "title_en": "Picanto",
+    "image": null,
+    "seo_slug": "kia-picanto",
+    "order": 10
+  },
+  {
+    "id": 737,
+    "brand_id": 120,
+    "title": "کادنزا",
+    "title_en": "Cadenza",
+    "image": null,
+    "seo_slug": "kia-cadenza",
+    "order": 9
+  },
+  {
+    "id": 891,
+    "brand_id": 120,
+    "title": "اپتیما هیبرید",
+    "title_en": "Optima-Hybrid",
+    "image": {
+      "uuid": "d2b6bb7b-0664-483b-aa1e-d3c5c1863ee6",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/d2b6bb7b0664483baa1ed3c5c1863ee6"
+    },
+    "seo_slug": "kia-optimahybrid",
+    "order": 8
+  },
+  {
+    "id": 1142,
+    "brand_id": 120,
+    "title": "سلتوس",
+    "title_en": "seltos",
+    "image": {
+      "uuid": "a62e1f4a-3789-42d2-8bd0-674fab24445a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/a62e1f4a378942d28bd0674fab24445a"
+    },
+    "seo_slug": "kia-seltos",
+    "order": 7
+  },
+  {
+    "id": 1255,
+    "brand_id": 120,
+    "title": "پگاس",
+    "title_en": "pegas",
+    "image": {
+      "uuid": "896bd9f7-64a7-421b-8343-d80b5b47f972",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/896bd9f764a7421b8343d80b5b47f972"
+    },
+    "seo_slug": "kia-pegas",
+    "order": 6
+  },
+  {
+    "id": 1143,
+    "brand_id": 120,
+    "title": "سونت",
+    "title_en": "sonet",
+    "image": {
+      "uuid": "e62928e3-8461-492b-abe6-6b516394c0f7",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/e62928e38461492babe66b516394c0f7"
+    },
+    "seo_slug": "kia-sonet",
+    "order": 5
+  },
+  {
+    "id": 735,
+    "brand_id": 120,
+    "title": "سول",
+    "title_en": "Soul",
+    "image": null,
+    "seo_slug": "kia-soul",
+    "order": 4
+  },
+  {
+    "id": 892,
+    "brand_id": 120,
+    "title": "ریو (مونتاژ)",
+    "title_en": "Rio-Assembled",
+    "image": null,
+    "seo_slug": "kia-rioassembled",
+    "order": 3
+  },
+  {
+    "id": 1137,
+    "brand_id": 120,
+    "title": "اپیروس",
+    "title_en": "Opirus",
+    "image": {
+      "uuid": "472b9729-633e-437d-a969-0f52f19e6f3a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/472b9729633e437da9690f52f19e6f3a"
+    },
+    "seo_slug": "kia-opirus",
+    "order": 2
+  },
+  {
+    "id": 736,
+    "brand_id": 120,
+    "title": "موهاوی",
+    "title_en": "Mohave",
+    "image": null,
+    "seo_slug": "kia-mohave",
+    "order": 1
+  },
+  {
+    "id": 1330,
+    "brand_id": 120,
+    "title": "کارناوال",
+    "title_en": "carnival",
+    "image": null,
+    "seo_slug": "kia-carnival",
+    "order": 0
+  },
+  {
+    "id": 1331,
+    "brand_id": 120,
+    "title": "کارنز",
+    "title_en": "Carens",
+    "image": null,
+    "seo_slug": "kia-carens",
+    "order": 0
+  },
+  {
+    "id": 1343,
+    "brand_id": 120,
+    "title": "استونیک",
+    "title_en": "Stonic",
+    "image": {
+      "uuid": "ddf239a7-68ec-4d3a-9146-ed70228667a3",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/ddf239a768ec4d3a9146ed70228667a3"
+    },
+    "seo_slug": "kia-stonic",
+    "order": 0
+  },
+  {
+    "id": 1377,
+    "brand_id": 120,
+    "title": "EV5",
+    "title_en": "EV5",
+    "image": null,
+    "seo_slug": "kia-ev5",
+    "order": 0
+  },
+  {
+    "id": 1118,
+    "brand_id": 171,
+    "title": "J7",
+    "title_en": "j7",
+    "image": {
+      "uuid": "e13da88b-0709-4230-95a6-1d19d8439dbf",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/e13da88b0709423095a61d19d8439dbf"
+    },
+    "seo_slug": "kmc-j7",
+    "order": 9
+  },
+  {
+    "id": 1147,
+    "brand_id": 171,
+    "title": "X5",
+    "title_en": "X5",
+    "image": {
+      "uuid": "358cc23e-21e1-43c9-9909-11f7acd4261c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/358cc23e21e143c9990911f7acd4261c"
+    },
+    "seo_slug": "kmc-x5",
+    "order": 8
+  },
+  {
+    "id": 1072,
+    "brand_id": 171,
+    "title": "T8",
+    "title_en": "T8",
+    "image": {
+      "uuid": "b099bd3a-8aed-4d5e-86b3-b0ad664def77",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/b099bd3a8aed4d5e86b3b0ad664def77"
+    },
+    "seo_slug": "kmc-t8",
+    "order": 7
+  },
+  {
+    "id": 1073,
+    "brand_id": 171,
+    "title": "K7",
+    "title_en": "K7",
+    "image": {
+      "uuid": "7b05b642-537f-4882-938b-c39495bc48f2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/7b05b642537f4882938bc39495bc48f2"
+    },
+    "seo_slug": "kmc-k7",
+    "order": 6
+  },
+  {
+    "id": 1171,
+    "brand_id": 171,
+    "title": "A5",
+    "title_en": "a5",
+    "image": {
+      "uuid": "dfb98e94-7129-46b8-8ce5-99f57a7b6cf8",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/dfb98e94712946b88ce599f57a7b6cf8"
+    },
+    "seo_slug": "kmc-a5",
+    "order": 5
+  },
+  {
+    "id": 1154,
+    "brand_id": 171,
+    "title": "T9",
+    "title_en": "t9",
+    "image": {
+      "uuid": "b830338e-962a-427e-89c9-4dffc5f94ec5",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/b830338e962a427e89c94dffc5f94ec5"
+    },
+    "seo_slug": "kmc-t9",
+    "order": 4
+  },
+  {
+    "id": 1256,
+    "brand_id": 171,
+    "title": "ایگل",
+    "title_en": "Eagle",
+    "image": {
+      "uuid": "57782ae6-7eff-4284-9db8-31c2fbc0ed41",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/57782ae67eff42849db831c2fbc0ed41"
+    },
+    "seo_slug": "kmc-eagle",
+    "order": 3
+  },
+  {
+    "id": 1272,
+    "brand_id": 171,
+    "title": "SR3",
+    "title_en": "SR3",
+    "image": {
+      "uuid": "927c2d0d-6447-48dc-945f-17f063a42661",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/927c2d0d644748dc945f17f063a42661"
+    },
+    "seo_slug": "kmc-sr3",
+    "order": 2
+  },
+  {
+    "id": 1168,
+    "brand_id": 171,
+    "title": "EJ7",
+    "title_en": "EJ7",
+    "image": {
+      "uuid": "b0d4b74a-be13-4866-827a-0581c85878ef",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/b0d4b74abe134866827a0581c85878ef"
+    },
+    "seo_slug": "kmc-ej7",
+    "order": 1
+  },
+  {
+    "id": 1391,
+    "brand_id": 171,
+    "title": "SR6",
+    "title_en": "SR6",
+    "image": {
+      "uuid": "ba0c33fa-98cb-4b61-95ee-f5076cfbbf0a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/ba0c33fa98cb4b6195eef5076cfbbf0a"
+    },
+    "seo_slug": "kmc-sr6",
+    "order": 0
+  },
+  {
+    "id": 1028,
+    "brand_id": 144,
+    "title": "ولکس C30",
+    "title_en": "Voleex C30",
+    "image": null,
+    "seo_slug": "greatwall-c30",
+    "order": 6
+  },
+  {
+    "id": 1071,
+    "brand_id": 144,
+    "title": "وینگل 5 دو کابین",
+    "title_en": "Wingle 5 double cabin",
+    "image": null,
+    "seo_slug": "greatwall-wingle52cab",
+    "order": 5
+  },
+  {
+    "id": 1030,
+    "brand_id": 144,
+    "title": "4M هاوال (مونتاژ)",
+    "title_en": "4M Haval (Assembled)",
+    "image": null,
+    "seo_slug": "greatwall-4mhavalassembled",
+    "order": 3
+  },
+  {
+    "id": 909,
+    "brand_id": 144,
+    "title": "4M هاوال",
+    "title_en": "4M Haval",
+    "image": null,
+    "seo_slug": "greatwall-4mhaval",
+    "order": 2
+  },
+  {
+    "id": 1175,
+    "brand_id": 196,
+    "title": "امپو",
+    "title_en": "Empow",
+    "image": {
+      "uuid": "c7a131a1-4c4a-4df4-afd4-163790cdccd0",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/c7a131a14c4a4df4afd4163790cdccd0"
+    },
+    "seo_slug": "gac-empow",
+    "order": 5
+  },
+  {
+    "id": 1174,
+    "brand_id": 196,
+    "title": "Emzoom",
+    "title_en": "Emzoom",
+    "image": {
+      "uuid": "cb6b662d-6f71-4801-97e7-c26edf4096d0",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/cb6b662d6f71480197e7c26edf4096d0"
+    },
+    "seo_slug": "gac-emzoom",
+    "order": 4
+  },
+  {
+    "id": 1176,
+    "brand_id": 196,
+    "title": "امکو",
+    "title_en": "Emkoo",
+    "image": {
+      "uuid": "a104785e-fa9b-420f-a5c6-6955078f577f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/a104785efa9b420fa5c66955078f577f"
+    },
+    "seo_slug": "gac-emkoo",
+    "order": 3
+  },
+  {
+    "id": 1177,
+    "brand_id": 196,
+    "title": "ترامپچی GS5",
+    "title_en": "Trumpchi GS5",
+    "image": {
+      "uuid": "7ea88296-dcf0-4a37-aae8-7ffd3c930749",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/7ea88296dcf04a37aae87ffd3c930749"
+    },
+    "seo_slug": "gac-gs5",
+    "order": 2
+  },
+  {
+    "id": 1329,
+    "brand_id": 196,
+    "title": "ترامپچی GA3S",
+    "title_en": "Trumpchi GA3S",
+    "image": null,
+    "seo_slug": "gac-ga3s",
+    "order": 0
+  },
+  {
+    "id": 1353,
+    "brand_id": 196,
+    "title": "امپو هیبرید",
+    "title_en": "Empow hybrid",
+    "image": null,
+    "seo_slug": "gac_empowhybrid",
+    "order": 0
+  },
+  {
+    "id": 1354,
+    "brand_id": 196,
+    "title": "امکو هیبرید",
+    "title_en": "Emkoo hybrid",
+    "image": null,
+    "seo_slug": "gac-emkoohybrid",
+    "order": 0
+  },
+  {
+    "id": 1103,
+    "brand_id": 185,
+    "title": "ایما",
+    "title_en": "Eama",
+    "image": {
+      "uuid": "37fbf9e3-15fe-4566-bbc8-a7d2e4ab762e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/37fbf9e315fe4566bbc8a7d2e4ab762e"
+    },
+    "seo_slug": "lamari-eama",
+    "order": 1
+  },
+  {
+    "id": 1366,
+    "brand_id": 185,
+    "title": "اکو",
+    "title_en": "Echo",
+    "image": null,
+    "seo_slug": "lamari-echo",
+    "order": 0
+  },
+  {
+    "id": 1395,
+    "brand_id": 185,
+    "title": "نئو",
+    "title_en": "NEO",
+    "image": null,
+    "seo_slug": "lamari-neo",
+    "order": 0
+  },
+  {
+    "id": 1317,
+    "brand_id": 254,
+    "title": "فلو",
+    "title_en": "flo",
+    "image": {
+      "uuid": "75de823a-acaf-41df-a749-7d0bde7faf54",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/75de823aacaf41dfa7497d0bde7faf54"
+    },
+    "seo_slug": "lamaco-flo",
+    "order": 0
+  },
+  {
+    "id": 776,
+    "brand_id": 123,
+    "title": "RX",
+    "title_en": "RX",
+    "image": {
+      "uuid": "57cea3a7-198c-4c32-bade-ded239add31b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/57cea3a7198c4c32badeded239add31b"
+    },
+    "seo_slug": "lexus-rx",
+    "order": 11
+  },
+  {
+    "id": 774,
+    "brand_id": 123,
+    "title": "NX",
+    "title_en": "NX",
+    "image": {
+      "uuid": "7d4f9eef-09f3-4a22-b0ba-549cffc32476",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/7d4f9eef09f34a22b0ba549cffc32476"
+    },
+    "seo_slug": "lexus-nx",
+    "order": 9
+  },
+  {
+    "id": 775,
+    "brand_id": 123,
+    "title": "NX هیبرید",
+    "title_en": "NX-Hybrid",
+    "image": {
+      "uuid": "40ab7fcb-595f-404b-9c0d-ddba82db424a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/40ab7fcb595f404b9c0dddba82db424a"
+    },
+    "seo_slug": "lexus-nxhybrid",
+    "order": 8
+  },
+  {
+    "id": 766,
+    "brand_id": 123,
+    "title": "ES",
+    "title_en": "ES",
+    "image": null,
+    "seo_slug": "lexus-es",
+    "order": 7
+  },
+  {
+    "id": 769,
+    "brand_id": 123,
+    "title": "IS",
+    "title_en": "IS",
+    "image": null,
+    "seo_slug": "lexus-is",
+    "order": 6
+  },
+  {
+    "id": 773,
+    "brand_id": 123,
+    "title": "LX",
+    "title_en": "LX",
+    "image": null,
+    "seo_slug": "lexus-lx",
+    "order": 5
+  },
+  {
+    "id": 772,
+    "brand_id": 123,
+    "title": "LS",
+    "title_en": "LS",
+    "image": null,
+    "seo_slug": "lexus-ls",
+    "order": 4
+  },
+  {
+    "id": 764,
+    "brand_id": 123,
+    "title": "CT",
+    "title_en": "CT",
+    "image": null,
+    "seo_slug": "lexus-ct",
+    "order": 2
+  },
+  {
+    "id": 767,
+    "brand_id": 123,
+    "title": "GS",
+    "title_en": "GS",
+    "image": null,
+    "seo_slug": "lexus-gs",
+    "order": 1
+  },
+  {
+    "id": 1034,
+    "brand_id": 166,
+    "title": "رنجرور ایووک",
+    "title_en": "Range Rover-Evoque",
+    "image": null,
+    "seo_slug": "landrover-rangeroverevoque",
+    "order": 2
+  },
+  {
+    "id": 1312,
+    "brand_id": 249,
+    "title": "V7",
+    "title_en": "V7",
+    "image": null,
+    "seo_slug": "landmark-v7",
+    "order": 0
+  },
+  {
+    "id": 1098,
+    "brand_id": 181,
+    "title": "الیزه",
+    "title_en": "Elize",
+    "image": null,
+    "seo_slug": "lotus-elize",
+    "order": 1
+  },
+  {
+    "id": 1198,
+    "brand_id": 204,
+    "title": "L7",
+    "title_en": "lucano L7",
+    "image": {
+      "uuid": "7d9aa561-1ef1-4d29-8e83-6a4138607639",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/7d9aa5611ef14d298e836a4138607639"
+    },
+    "seo_slug": "lucano-l7",
+    "order": 2
+  },
+  {
+    "id": 1275,
+    "brand_id": 204,
+    "title": "L8",
+    "title_en": "L8",
+    "image": {
+      "uuid": "d467a9b4-b1a3-4e5d-b3c7-195e6b7370ef",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/d467a9b4b1a34e5db3c7195e6b7370ef"
+    },
+    "seo_slug": "lucano-l8",
+    "order": 1
+  },
+  {
+    "id": 1094,
+    "brand_id": 179,
+    "title": "U6",
+    "title_en": "U6",
+    "image": null,
+    "seo_slug": "luxgen-u6",
+    "order": 1
+  },
+  {
+    "id": 1253,
+    "brand_id": 241,
+    "title": "GRE",
+    "title_en": "GRE",
+    "image": {
+      "uuid": "703393fc-8411-4c32-b6c7-5b9674c9e539",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/703393fc84114c32b6c75b9674c9e539"
+    },
+    "seo_slug": "luna-gre",
+    "order": 1
+  },
+  {
+    "id": 1251,
+    "brand_id": 240,
+    "title": "C01 EV",
+    "title_en": "C01 EV",
+    "image": {
+      "uuid": "0f5543c7-c7a6-4163-96df-a0addbaf041b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/0f5543c7c7a6416396dfa0addbaf041b"
+    },
+    "seo_slug": "leapmotor-c01ev",
+    "order": 2
+  },
+  {
+    "id": 1252,
+    "brand_id": 240,
+    "title": "T03",
+    "title_en": "T03",
+    "image": {
+      "uuid": "078de561-5cd8-4761-b6b0-73b60ad22f8f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/078de5615cd84761b6b073b60ad22f8f"
+    },
+    "seo_slug": "leapmotor-t03",
+    "order": 1
+  },
+  {
+    "id": 782,
+    "brand_id": 124,
+    "title": "X60",
+    "title_en": "X60",
+    "image": {
+      "uuid": "cec0f13a-f30f-4b06-8486-005e349d9080",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/cec0f13af30f4b068486005e349d9080"
+    },
+    "seo_slug": "lifan-x60",
+    "order": 7
+  },
+  {
+    "id": 779,
+    "brand_id": 124,
+    "title": "620",
+    "title_en": "620",
+    "image": {
+      "uuid": "db2996d2-f9ed-4772-97a0-2b53eace8b6e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/db2996d2f9ed477297a02b53eace8b6e"
+    },
+    "seo_slug": "lifan-620",
+    "order": 6
+  },
+  {
+    "id": 781,
+    "brand_id": 124,
+    "title": "X50",
+    "title_en": "X50",
+    "image": {
+      "uuid": "4987309e-bb1b-4b7f-8bb6-deae97f1ccf3",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/4987309ebb1b4b7f8bb6deae97f1ccf3"
+    },
+    "seo_slug": "lifan-x50",
+    "order": 5
+  },
+  {
+    "id": 780,
+    "brand_id": 124,
+    "title": "820",
+    "title_en": "820",
+    "image": {
+      "uuid": "a93310c2-a93e-408b-837d-6407a8fe68b7",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/a93310c2a93e408b837d6407a8fe68b7"
+    },
+    "seo_slug": "lifan-820",
+    "order": 4
+  },
+  {
+    "id": 778,
+    "brand_id": 124,
+    "title": "520i",
+    "title_en": "520i",
+    "image": null,
+    "seo_slug": "lifan-520i",
+    "order": 3
+  },
+  {
+    "id": 1070,
+    "brand_id": 124,
+    "title": "X70",
+    "title_en": "X70",
+    "image": null,
+    "seo_slug": "lifan-x70",
+    "order": 2
+  },
+  {
+    "id": 786,
+    "brand_id": 125,
+    "title": "کواتروپورته",
+    "title_en": "Quattroporte",
+    "image": {
+      "uuid": "afe9b831-8251-49d6-bd33-fab57df8e484",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/afe9b831825149d6bd33fab57df8e484"
+    },
+    "seo_slug": "maserati-quattroporte",
+    "order": 4
+  },
+  {
+    "id": 783,
+    "brand_id": 125,
+    "title": "گرن توریسمو",
+    "title_en": "GranTurismo",
+    "image": null,
+    "seo_slug": "maserati-granturismo",
+    "order": 3
+  },
+  {
+    "id": 784,
+    "brand_id": 125,
+    "title": "گرن کبریو",
+    "title_en": "GranCabrio",
+    "image": null,
+    "seo_slug": "maserati-grancabrio",
+    "order": 2
+  },
+  {
+    "id": 1057,
+    "brand_id": 125,
+    "title": "گیبلی‏",
+    "title_en": "Ghibli",
+    "image": null,
+    "seo_slug": "maserati-ghibli",
+    "order": 1
+  },
+  {
+    "id": 531,
+    "brand_id": 95,
+    "title": "کلاس C",
+    "title_en": "C-Class",
+    "image": {
+      "uuid": "e3d6f93d-d723-4e36-a747-363ca0aaa607",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/e3d6f93dd7234e36a747363ca0aaa607"
+    },
+    "seo_slug": "mercedesbenz-cclass",
+    "order": 16
+  },
+  {
+    "id": 537,
+    "brand_id": 95,
+    "title": "کلاس E",
+    "title_en": "E-Class",
+    "image": {
+      "uuid": "a08a581c-8162-4bda-a5b8-8e3242ecc65d",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/a08a581c81624bdaa5b88e3242ecc65d"
+    },
+    "seo_slug": "mercedesbenz-eclass",
+    "order": 15
+  },
+  {
+    "id": 542,
+    "brand_id": 95,
+    "title": "کلاس S",
+    "title_en": "S-Class",
+    "image": null,
+    "seo_slug": "mercedesbenz-sclass",
+    "order": 14
+  },
+  {
+    "id": 536,
+    "brand_id": 95,
+    "title": "کلاس CLS",
+    "title_en": "CLS-Class",
+    "image": null,
+    "seo_slug": "mercedesbenz-clsclass",
+    "order": 13
+  },
+  {
+    "id": 539,
+    "brand_id": 95,
+    "title": "کلاس E کروک",
+    "title_en": "E-Class (Convertible)",
+    "image": null,
+    "seo_slug": "mercedesbenz-eclassconvertible",
+    "order": 12
+  },
+  {
+    "id": 540,
+    "brand_id": 95,
+    "title": "کلاس E کوپه",
+    "title_en": "E-Class (Coupe)",
+    "image": null,
+    "seo_slug": "mercedesbenz-eclasscoupe",
+    "order": 11
+  },
+  {
+    "id": 876,
+    "brand_id": 95,
+    "title": "کلاس GLA",
+    "title_en": "GLA-Class",
+    "image": null,
+    "seo_slug": "mercedesbenz-glaclass",
+    "order": 10
+  },
+  {
+    "id": 532,
+    "brand_id": 95,
+    "title": "کلاس CL",
+    "title_en": "CL-Class",
+    "image": {
+      "uuid": "f6c614b0-5a2b-4ed6-8956-1bdcd94a3343",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/f6c614b05a2b4ed689561bdcd94a3343"
+    },
+    "seo_slug": "mercedesbenz-clclass",
+    "order": 9
+  },
+  {
+    "id": 1134,
+    "brand_id": 95,
+    "title": "کلاس B",
+    "title_en": "B",
+    "image": null,
+    "seo_slug": "mercedesbenz-bclass",
+    "order": 8
+  },
+  {
+    "id": 543,
+    "brand_id": 95,
+    "title": "کلاس SL",
+    "title_en": "SL-Class",
+    "image": null,
+    "seo_slug": "mercedesbenz-slclass",
+    "order": 7
+  },
+  {
+    "id": 541,
+    "brand_id": 95,
+    "title": "کلاس ML",
+    "title_en": "ML-Class",
+    "image": null,
+    "seo_slug": "mercedesbenz-mlclass",
+    "order": 6
+  },
+  {
+    "id": 875,
+    "brand_id": 95,
+    "title": "کلاس GLK",
+    "title_en": "GLK-Class",
+    "image": null,
+    "seo_slug": "mercedesbenz-glkclass",
+    "order": 5
+  },
+  {
+    "id": 535,
+    "brand_id": 95,
+    "title": "CLK کوپه",
+    "title_en": "CLK-Coupe",
+    "image": null,
+    "seo_slug": "mercedesbenz-clkcoupe",
+    "order": 4
+  },
+  {
+    "id": 534,
+    "brand_id": 95,
+    "title": "کلاس CLK کروک",
+    "title_en": "CLK-Class (Convertible)",
+    "image": null,
+    "seo_slug": "mercedesbenz-clkclassconvertible",
+    "order": 3
+  },
+  {
+    "id": 533,
+    "brand_id": 95,
+    "title": "کلاس CLA",
+    "title_en": "CLA-Class",
+    "image": null,
+    "seo_slug": "mercedesbenz-claclass",
+    "order": 2
+  },
+  {
+    "id": 1344,
+    "brand_id": 95,
+    "title": "EQE Sedan",
+    "title_en": "EQE Sedan",
+    "image": {
+      "uuid": "9746e29d-1b7c-4e14-9a80-984c6ba7e057",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/9746e29d1b7c4e149a80984c6ba7e057"
+    },
+    "seo_slug": "mercedesbenz-eqesedan",
+    "order": 0
+  },
+  {
+    "id": 1345,
+    "brand_id": 95,
+    "title": "EQE SUV",
+    "title_en": "EQE SUV",
+    "image": {
+      "uuid": "a7978849-7791-43eb-bd83-8b50f6829899",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/a7978849779143ebbd838b50f6829899"
+    },
+    "seo_slug": "mercedesbenz-eqesuv",
+    "order": 0
+  },
+  {
+    "id": 1346,
+    "brand_id": 95,
+    "title": "کلاس A سدان",
+    "title_en": "A class Sedan",
+    "image": {
+      "uuid": "5555dc33-fc58-4a47-9b2c-0c2c7d6d32cb",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/5555dc33fc584a479b2c0c2c7d6d32cb"
+    },
+    "seo_slug": "mercedesbenz-aclasssedan",
+    "order": 0
+  },
+  {
+    "id": 1347,
+    "brand_id": 95,
+    "title": "کلاس EQA",
+    "title_en": "EQA-class",
+    "image": {
+      "uuid": "7b2e257c-1249-46be-b02b-526a9a82fe5a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/7b2e257c124946beb02b526a9a82fe5a"
+    },
+    "seo_slug": "mercedesbenz-eqaclass",
+    "order": 0
+  },
+  {
+    "id": 1348,
+    "brand_id": 95,
+    "title": "کلاس EQB",
+    "title_en": "EQB-Class",
+    "image": {
+      "uuid": "a8a50b0f-de35-468e-b014-5985673263db",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/a8a50b0fde35468eb0145985673263db"
+    },
+    "seo_slug": "mercedesbenz-eqbclass",
+    "order": 0
+  },
+  {
+    "id": 1349,
+    "brand_id": 95,
+    "title": "کلاس GLB",
+    "title_en": "GLB class",
+    "image": {
+      "uuid": "c80753c4-1cf8-4683-961f-a519c53c576e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/c80753c41cf84683961fa519c53c576e"
+    },
+    "seo_slug": "mercedesbenz-glbclass",
+    "order": 0
+  },
+  {
+    "id": 1393,
+    "brand_id": 95,
+    "title": "کلاس GLC",
+    "title_en": "GLC class",
+    "image": null,
+    "seo_slug": "mercedesbenz-glc",
+    "order": 0
+  },
+  {
+    "id": 810,
+    "brand_id": 127,
+    "title": "3 جدید صندوق‌دار (مونتاژ)",
+    "title_en": "3 Sedan-Assembled (New)",
+    "image": null,
+    "seo_slug": "mazda-3sedanassemblednew",
+    "order": 10
+  },
+  {
+    "id": 1249,
+    "brand_id": 127,
+    "title": "3 وارداتی",
+    "title_en": "3 Import",
+    "image": {
+      "uuid": "f602a8e9-0068-4193-b6cd-78564e182c00",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/f602a8e900684193b6cd78564e182c00"
+    },
+    "seo_slug": "mazda-3",
+    "order": 9
+  },
+  {
+    "id": 811,
+    "brand_id": 127,
+    "title": "3 جدید هاچ‌بک",
+    "title_en": "3-Hatchback (New)",
+    "image": null,
+    "seo_slug": "mazda-3hatchbacknew",
+    "order": 8
+  },
+  {
+    "id": 809,
+    "brand_id": 127,
+    "title": "3 (مونتاژ)",
+    "title_en": "3-Assembled",
+    "image": {
+      "uuid": "8a8995f8-7dab-4af9-857d-c4f31eb9d641",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/8a8995f87dab4af9857dc4f31eb9d641"
+    },
+    "seo_slug": "mazda-3assembled",
+    "order": 7
+  },
+  {
+    "id": 924,
+    "brand_id": 127,
+    "title": "2 (مونتاژ)",
+    "title_en": "2-Assembled",
+    "image": null,
+    "seo_slug": "mazda-2",
+    "order": 6
+  },
+  {
+    "id": 1250,
+    "brand_id": 127,
+    "title": "CX-30",
+    "title_en": "CX-30",
+    "image": {
+      "uuid": "586a1d0a-4013-473e-a3df-2d81eecdf98a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/586a1d0a4013473ea3df2d81eecdf98a"
+    },
+    "seo_slug": "mazda-cx30",
+    "order": 5
+  },
+  {
+    "id": 1304,
+    "brand_id": 127,
+    "title": "CX-50",
+    "title_en": "CX-50",
+    "image": {
+      "uuid": "4b460376-b6ba-436d-988e-d2b170d6d046",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/4b460376b6ba436d988ed2b170d6d046"
+    },
+    "seo_slug": "mazda-cx50",
+    "order": 4
+  },
+  {
+    "id": 1392,
+    "brand_id": 127,
+    "title": "EZ6",
+    "title_en": "EZ6",
+    "image": null,
+    "seo_slug": "mazda-ez6",
+    "order": 0
+  },
+  {
+    "id": 1101,
+    "brand_id": 183,
+    "title": "کلوت",
+    "title_en": "kalut",
+    "image": {
+      "uuid": "effd072e-e641-4956-a0df-076e545ad3e4",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/effd072ee6414956a0df076e545ad3e4"
+    },
+    "seo_slug": "maxmotor-kalut",
+    "order": 3
+  },
+  {
+    "id": 1125,
+    "brand_id": 183,
+    "title": "تیارا",
+    "title_en": "tiara",
+    "image": {
+      "uuid": "35ee79ce-2d25-417e-be1f-dfb67f8d4db7",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/35ee79ce2d25417ebe1fdfb67f8d4db7"
+    },
+    "seo_slug": "maxmotor-tiara",
+    "order": 2
+  },
+  {
+    "id": 1389,
+    "brand_id": 183,
+    "title": "تیام",
+    "title_en": "tiam",
+    "image": null,
+    "seo_slug": "maxmotor-tiam",
+    "order": 0
+  },
+  {
+    "id": 1248,
+    "brand_id": 239,
+    "title": "استار H",
+    "title_en": "Star H",
+    "image": {
+      "uuid": "dc3909c7-3dbe-4ec2-b88b-a509db2fd9fb",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/dc3909c73dbe4ec2b88ba509db2fd9fb"
+    },
+    "seo_slug": "maxus-starh",
+    "order": 1
+  },
+  {
+    "id": 816,
+    "brand_id": 128,
+    "title": "اوتلندر",
+    "title_en": "Outlander",
+    "image": {
+      "uuid": "4fca9b57-d14b-425d-aa37-2fdab5bc21f5",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/4fca9b57d14b425daa372fdab5bc21f5"
+    },
+    "seo_slug": "mitsubishi-outlander",
+    "order": 8
+  },
+  {
+    "id": 820,
+    "brand_id": 128,
+    "title": "لنسر",
+    "title_en": "Lancer",
+    "image": {
+      "uuid": "24197c56-76e9-4398-9aed-40f20889124a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/24197c5676e943989aed40f20889124a"
+    },
+    "seo_slug": "mitsubishi-lancer",
+    "order": 7
+  },
+  {
+    "id": 815,
+    "brand_id": 128,
+    "title": "ASX",
+    "title_en": "ASX",
+    "image": {
+      "uuid": "2344553b-dca2-4199-b6e1-a26bbc7c3209",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/2344553bdca24199b6e1a26bbc7c3209"
+    },
+    "seo_slug": "mitsubishi-asx",
+    "order": 6
+  },
+  {
+    "id": 821,
+    "brand_id": 128,
+    "title": "میراژ",
+    "title_en": "Mirage",
+    "image": {
+      "uuid": "08c3b2ef-4959-40cd-877f-bc4eb7ed3148",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/08c3b2ef495940cd877fbc4eb7ed3148"
+    },
+    "seo_slug": "mitsubishi-mirage",
+    "order": 5
+  },
+  {
+    "id": 1284,
+    "brand_id": 128,
+    "title": "اکلیپس کراس",
+    "title_en": "eclipsecross",
+    "image": {
+      "uuid": "71b22191-522f-4b9c-9738-4d2eea25438e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/71b22191522f4b9c97384d2eea25438e"
+    },
+    "seo_slug": "mitsubishi-eclipsecross",
+    "order": 4
+  },
+  {
+    "id": 895,
+    "brand_id": 128,
+    "title": "اوتلندر PHEV",
+    "title_en": "Outlander PHEV",
+    "image": {
+      "uuid": "696874f5-77b6-408f-9449-b79085f0d4bb",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/696874f577b6408f9449b79085f0d4bb"
+    },
+    "seo_slug": "mitsubishi-outlanderphev",
+    "order": 3
+  },
+  {
+    "id": 818,
+    "brand_id": 128,
+    "title": "پاجرو دو در",
+    "title_en": "Pajero 2Door",
+    "image": null,
+    "seo_slug": "mitsubishi-pajero2door",
+    "order": 2
+  },
+  {
+    "id": 817,
+    "brand_id": 128,
+    "title": "پاجرو چهار در",
+    "title_en": "Pajero 4Door",
+    "image": null,
+    "seo_slug": "mitsubishi-pajero4door",
+    "order": 1
+  },
+  {
+    "id": 1042,
+    "brand_id": 167,
+    "title": "کوپر",
+    "title_en": "Cooper",
+    "image": {
+      "uuid": "7a430fea-dda3-4600-af53-46d110a5d295",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/7a430feadda34600af5346d110a5d295"
+    },
+    "seo_slug": "mini-cooper",
+    "order": 3
+  },
+  {
+    "id": 1380,
+    "brand_id": 259,
+    "title": "A05",
+    "title_en": "A05",
+    "image": null,
+    "seo_slug": "nevo-a05",
+    "order": 0
+  },
+  {
+    "id": 1200,
+    "brand_id": 129,
+    "title": "سیلفی e-POWER",
+    "title_en": "Sylphy e-POWER",
+    "image": {
+      "uuid": "9409cb68-c53a-420d-bde7-d39b6889a808",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/9409cb68c53a420dbde7d39b6889a808"
+    },
+    "seo_slug": "nissan-sylphyepower",
+    "order": 18
+  },
+  {
+    "id": 829,
+    "brand_id": 129,
+    "title": "جوک",
+    "title_en": "Juke",
+    "image": {
+      "uuid": "53dcd7ef-fba2-4e04-afa4-693de042d865",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/53dcd7effba24e04afa4693de042d865"
+    },
+    "seo_slug": "nissan-juke",
+    "order": 17
+  },
+  {
+    "id": 928,
+    "brand_id": 129,
+    "title": "قشقایی",
+    "title_en": "Qashqai",
+    "image": {
+      "uuid": "0e0e7c98-857e-400b-bc6b-37ded28f00a0",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/0e0e7c98857e400bbc6b37ded28f00a0"
+    },
+    "seo_slug": "nissan-qashqai",
+    "order": 16
+  },
+  {
+    "id": 822,
+    "brand_id": 129,
+    "title": "ایکس تریل",
+    "title_en": "X-Trail",
+    "image": {
+      "uuid": "469df865-2a45-4413-a477-bd883f77f264",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/469df8652a454413a477bd883f77f264"
+    },
+    "seo_slug": "nissan-xtrail",
+    "order": 15
+  },
+  {
+    "id": 1287,
+    "brand_id": 129,
+    "title": "ایکس تریل e-POWER",
+    "title_en": "xtrail epower",
+    "image": {
+      "uuid": "7ace7690-c99d-4f72-8a7c-625a64a0ad24",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/7ace7690c99d4f728a7c625a64a0ad24"
+    },
+    "seo_slug": "nissan-xtrailepower",
+    "order": 14
+  },
+  {
+    "id": 1246,
+    "brand_id": 129,
+    "title": "ترا",
+    "title_en": "terra",
+    "image": {
+      "uuid": "f92d4e9a-8b5e-4e90-b2b1-36b2a29489f2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/f92d4e9a8b5e4e90b2b136b2a29489f2"
+    },
+    "seo_slug": "nissan-terra",
+    "order": 13
+  },
+  {
+    "id": 1247,
+    "brand_id": 129,
+    "title": "کیکس",
+    "title_en": "kicks",
+    "image": {
+      "uuid": "54b42c15-9f09-47e1-9c24-5ac90d1f5aff",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/54b42c159f0947e19c245ac90d1f5aff"
+    },
+    "seo_slug": "nissan-kicks",
+    "order": 12
+  },
+  {
+    "id": 828,
+    "brand_id": 129,
+    "title": "تی ینا (وارداتی)",
+    "title_en": "Teana-Imported",
+    "image": null,
+    "seo_slug": "nissan-teanaimported",
+    "order": 11
+  },
+  {
+    "id": 1271,
+    "brand_id": 129,
+    "title": "آلتیما",
+    "title_en": "Altima",
+    "image": {
+      "uuid": "0b0a2ff3-0396-40b1-a705-9d677772f92a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/0b0a2ff3039640b1a7059d677772f92a"
+    },
+    "seo_slug": "nissan-altima",
+    "order": 10
+  },
+  {
+    "id": 1201,
+    "brand_id": 129,
+    "title": "سانی",
+    "title_en": "Sunny",
+    "image": {
+      "uuid": "60e015a1-72ed-4a0f-ba04-5fef37a74287",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/60e015a172ed4a0fba045fef37a74287"
+    },
+    "seo_slug": "nissan-sunny",
+    "order": 9
+  },
+  {
+    "id": 834,
+    "brand_id": 129,
+    "title": "ماکسیما",
+    "title_en": "Maxima",
+    "image": {
+      "uuid": "f3f37e13-c58e-4f10-824e-ff5560053fbf",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/f3f37e13c58e4f10824eff5560053fbf"
+    },
+    "seo_slug": "nissan-maxima",
+    "order": 8
+  },
+  {
+    "id": 827,
+    "brand_id": 129,
+    "title": "تی ینا (مونتاژ)",
+    "title_en": "Teana",
+    "image": null,
+    "seo_slug": "nissan-teana",
+    "order": 5
+  },
+  {
+    "id": 835,
+    "brand_id": 129,
+    "title": "مورانو",
+    "title_en": "Murano",
+    "image": null,
+    "seo_slug": "nissan-murano",
+    "order": 4
+  },
+  {
+    "id": 830,
+    "brand_id": 129,
+    "title": "رونیز",
+    "title_en": "Roniz",
+    "image": null,
+    "seo_slug": "nissan-roniz",
+    "order": 2
+  },
+  {
+    "id": 1322,
+    "brand_id": 129,
+    "title": "سیلفی",
+    "title_en": "Sylphy",
+    "image": null,
+    "seo_slug": "nissan-slphy",
+    "order": 0
+  },
+  {
+    "id": 1357,
+    "brand_id": 129,
+    "title": "ترا پیکاپ",
+    "title_en": "Terra pickup",
+    "image": null,
+    "seo_slug": "nissan-terrapickup",
+    "order": 0
+  },
+  {
+    "id": 1102,
+    "brand_id": 184,
+    "title": "لوبو",
+    "title_en": "Lobo",
+    "image": null,
+    "seo_slug": "hafei-lobo",
+    "order": 1
+  },
+  {
+    "id": 934,
+    "brand_id": 147,
+    "title": "H6",
+    "title_en": "H6",
+    "image": {
+      "uuid": "bf63d7f8-a7cf-4562-b474-e6c906e3021f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/bf63d7f8a7cf4562b474e6c906e3021f"
+    },
+    "seo_slug": "haval-h6",
+    "order": 4
+  },
+  {
+    "id": 1084,
+    "brand_id": 147,
+    "title": "H6 (مونتاژ)",
+    "title_en": "H6-Assembled",
+    "image": null,
+    "seo_slug": "haval-h6assembled",
+    "order": 3
+  },
+  {
+    "id": 933,
+    "brand_id": 147,
+    "title": "H2 (مونتاژ)",
+    "title_en": "H2-Assembled",
+    "image": null,
+    "seo_slug": "haval-h2assembled",
+    "order": 2
+  },
+  {
+    "id": 935,
+    "brand_id": 147,
+    "title": "H9",
+    "title_en": "H9",
+    "image": null,
+    "seo_slug": "haval-h9",
+    "order": 1
+  },
+  {
+    "id": 1396,
+    "brand_id": 147,
+    "title": "H2",
+    "title_en": "H2",
+    "image": null,
+    "seo_slug": "haval-h2",
+    "order": 0
+  },
+  {
+    "id": 838,
+    "brand_id": 130,
+    "title": "S7",
+    "title_en": "S7",
+    "image": {
+      "uuid": "9491336b-ba0f-405e-90a7-42f5eb0a181c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/9491336bba0f405e90a742f5eb0a181c"
+    },
+    "seo_slug": "haima-s7",
+    "order": 5
+  },
+  {
+    "id": 837,
+    "brand_id": 130,
+    "title": "S5",
+    "title_en": "S5",
+    "image": {
+      "uuid": "313d9ded-0f9a-4b07-8ec4-67ab77932380",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/313d9ded0f9a4b078ec467ab77932380"
+    },
+    "seo_slug": "haima-s5",
+    "order": 4
+  },
+  {
+    "id": 1305,
+    "brand_id": 130,
+    "title": "S5 پرو",
+    "title_en": "S5 Pro",
+    "image": {
+      "uuid": "fd2a82c2-2b87-4866-a11f-b6d3de0dc40c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/fd2a82c22b874866a11fb6d3de0dc40c"
+    },
+    "seo_slug": "haima-s5pro",
+    "order": 3
+  },
+  {
+    "id": 1124,
+    "brand_id": 130,
+    "title": "8S",
+    "title_en": "8S",
+    "image": {
+      "uuid": "17cbad76-0f8f-4b54-995c-578d7c71979c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/17cbad760f8f4b54995c578d7c71979c"
+    },
+    "seo_slug": "haima-8s",
+    "order": 2
+  },
+  {
+    "id": 1146,
+    "brand_id": 130,
+    "title": "7X",
+    "title_en": "7X",
+    "image": {
+      "uuid": "92635cba-ddaf-4af1-9af3-8db816032dfd",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/92635cbaddaf4af19af38db816032dfd"
+    },
+    "seo_slug": "haima-x7",
+    "order": 1
+  },
+  {
+    "id": 937,
+    "brand_id": 148,
+    "title": "X7",
+    "title_en": "X7",
+    "image": {
+      "uuid": "eb5311cc-2750-4ce5-ab13-690cd4fa8179",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/eb5311cc27504ce5ab13690cd4fa8179"
+    },
+    "seo_slug": "hanteng-x7",
+    "order": 2
+  },
+  {
+    "id": 1069,
+    "brand_id": 148,
+    "title": "X5",
+    "title_en": "X5",
+    "image": null,
+    "seo_slug": "hanteng-x5",
+    "order": 1
+  },
+  {
+    "id": 1243,
+    "brand_id": 131,
+    "title": "وزل",
+    "title_en": "vesel",
+    "image": {
+      "uuid": "ef3574c3-4c0e-4e1f-ad74-e44782a9a839",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/ef3574c34c0e4e1fad74e44782a9a839"
+    },
+    "seo_slug": "honda-vesel",
+    "order": 9
+  },
+  {
+    "id": 1242,
+    "brand_id": 131,
+    "title": "سیتی",
+    "title_en": "city",
+    "image": {
+      "uuid": "a91aa2d5-3130-48f3-8ad4-0a16de0b235c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/a91aa2d5313048f38ad40a16de0b235c"
+    },
+    "seo_slug": "honda-city",
+    "order": 8
+  },
+  {
+    "id": 840,
+    "brand_id": 131,
+    "title": "آکورد",
+    "title_en": "Accord",
+    "image": null,
+    "seo_slug": "honda-accord",
+    "order": 7
+  },
+  {
+    "id": 841,
+    "brand_id": 131,
+    "title": "سیویک",
+    "title_en": "Civic",
+    "image": null,
+    "seo_slug": "honda-civic",
+    "order": 6
+  },
+  {
+    "id": 839,
+    "brand_id": 131,
+    "title": "CR-V",
+    "title_en": "CR-V",
+    "image": null,
+    "seo_slug": "honda-crv",
+    "order": 5
+  },
+  {
+    "id": 1283,
+    "brand_id": 131,
+    "title": "CR-V eHEV",
+    "title_en": "CR-V eHEV",
+    "image": {
+      "uuid": "e77ea298-c426-45ce-8b68-c4de3ac85e77",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/e77ea298c42645ce8b68c4de3ac85e77"
+    },
+    "seo_slug": "honda-crvehev",
+    "order": 4
+  },
+  {
+    "id": 1241,
+    "brand_id": 131,
+    "title": "ZR-V eHEV",
+    "title_en": "ZR-V eHEV",
+    "image": {
+      "uuid": "2651a25b-b162-4701-a349-a9a795d17d40",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/2651a25bb1624701a349a9a795d17d40"
+    },
+    "seo_slug": "honda-zrvehev",
+    "order": 3
+  },
+  {
+    "id": 1240,
+    "brand_id": 131,
+    "title": "HR-V eHEV",
+    "title_en": "HR-V eHEV",
+    "image": {
+      "uuid": "0fcd6c4c-d2ec-48f4-ac8b-11e8ae438fc0",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/0fcd6c4cd2ec48f4ac8b11e8ae438fc0"
+    },
+    "seo_slug": "honda-hrvehev",
+    "order": 2
+  },
+  {
+    "id": 1206,
+    "brand_id": 131,
+    "title": "eNS1",
+    "title_en": "eNS1",
+    "image": {
+      "uuid": "3488cbed-06f6-4dcc-8c0f-3a3a3032cc9a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/3488cbed06f64dcc8c0f3a3a3032cc9a"
+    },
+    "seo_slug": "honda-ens1",
+    "order": 1
+  },
+  {
+    "id": 1360,
+    "brand_id": 131,
+    "title": "سیویک تایپ R",
+    "title_en": "Civic type R",
+    "image": null,
+    "seo_slug": "honda-civictyper",
+    "order": 0
+  },
+  {
+    "id": 1205,
+    "brand_id": 192,
+    "title": "H5",
+    "title_en": "H5",
+    "image": {
+      "uuid": "51c94706-3aba-4679-9c12-11cf3bcaee95",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/51c947063aba46799c1211cf3bcaee95"
+    },
+    "seo_slug": "hongqi-h5",
+    "order": 2
+  },
+  {
+    "id": 1164,
+    "brand_id": 192,
+    "title": "E-QM5",
+    "title_en": "EQM5",
+    "image": {
+      "uuid": "6ea95b1e-3d4d-4242-9559-acd5c5428c90",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/6ea95b1e3d4d42429559acd5c5428c90"
+    },
+    "seo_slug": "hongqi-eqm5",
+    "order": 1
+  },
+  {
+    "id": 856,
+    "brand_id": 132,
+    "title": "سانتافه (ix45)",
+    "title_en": "SantaFe (ix45)",
+    "image": {
+      "uuid": "0331f595-5ec9-40f9-8d77-915f0d574a86",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/0331f5955ec940f98d77915f0d574a86"
+    },
+    "seo_slug": "hyundai-santafe",
+    "order": 26
+  },
+  {
+    "id": 858,
+    "brand_id": 132,
+    "title": "سوناتا",
+    "title_en": "Sonata",
+    "image": {
+      "uuid": "032d0533-4b44-4a7c-96cf-9334822b4043",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/032d05334b444a7c96cf9334822b4043"
+    },
+    "seo_slug": "hyundai-sonata",
+    "order": 25
+  },
+  {
+    "id": 853,
+    "brand_id": 132,
+    "title": "توسان (ix35)",
+    "title_en": "Tucson (ix35)",
+    "image": {
+      "uuid": "da7dd4f9-a6cf-4c8d-a37e-e5ad9936ffa1",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/da7dd4f9a6cf4c8da37ee5ad9936ffa1"
+    },
+    "seo_slug": "hyundai-tucson",
+    "order": 24
+  },
+  {
+    "id": 848,
+    "brand_id": 132,
+    "title": "آزرا گرنجور",
+    "title_en": "Azera (Grandeur)",
+    "image": {
+      "uuid": "f83c1c09-adfb-4b94-b39c-c7a612d487e5",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/f83c1c09adfb4b94b39cc7a612d487e5"
+    },
+    "seo_slug": "hyundai-azeragrandeur",
+    "order": 23
+  },
+  {
+    "id": 850,
+    "brand_id": 132,
+    "title": "النترا",
+    "title_en": "Elantra",
+    "image": {
+      "uuid": "9eb55b4e-86e3-4589-816a-c7b694adc025",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/9eb55b4e86e34589816ac7b694adc025"
+    },
+    "seo_slug": "hyundai-elantra",
+    "order": 22
+  },
+  {
+    "id": 849,
+    "brand_id": 132,
+    "title": "آوانته",
+    "title_en": "Avante",
+    "image": {
+      "uuid": "7079384e-1952-4d4e-be25-980b8897b641",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/7079384e19524d4ebe25980b8897b641"
+    },
+    "seo_slug": "hyundai-avante",
+    "order": 21
+  },
+  {
+    "id": 843,
+    "brand_id": 132,
+    "title": "i20",
+    "title_en": "i20",
+    "image": {
+      "uuid": "f5557b8e-b981-4385-ba9a-2889708c84dd",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/f5557b8eb9814385ba9a2889708c84dd"
+    },
+    "seo_slug": "hyundai-i20",
+    "order": 20
+  },
+  {
+    "id": 844,
+    "brand_id": 132,
+    "title": "i20 (مونتاژ)",
+    "title_en": "i20-Assembled",
+    "image": {
+      "uuid": "967c94ca-9233-4fb2-912a-8ed9e11ee090",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/967c94ca92334fb2912a8ed9e11ee090"
+    },
+    "seo_slug": "hyundai-i20assembled",
+    "order": 19
+  },
+  {
+    "id": 845,
+    "brand_id": 132,
+    "title": "i30",
+    "title_en": "i30",
+    "image": null,
+    "seo_slug": "hyundai-i30",
+    "order": 18
+  },
+  {
+    "id": 842,
+    "brand_id": 132,
+    "title": "i10 (مونتاژ)",
+    "title_en": "i10-Assembled",
+    "image": null,
+    "seo_slug": "hyundai-i10assembled",
+    "order": 17
+  },
+  {
+    "id": 859,
+    "brand_id": 132,
+    "title": "وراکروز (ix55)",
+    "title_en": "Veracruz (ix55)",
+    "image": {
+      "uuid": "5c479427-4051-4330-af3d-de8ea5e46357",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/5c47942740514330af3dde8ea5e46357"
+    },
+    "seo_slug": "hyundai-veracruzix55",
+    "order": 16
+  },
+  {
+    "id": 851,
+    "brand_id": 132,
+    "title": "اکسنت",
+    "title_en": "Accent",
+    "image": {
+      "uuid": "8ec516c2-9dfe-49ce-9d4d-25914b3ed015",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/8ec516c29dfe49ce9d4d25914b3ed015"
+    },
+    "seo_slug": "hyundai-accent",
+    "order": 15
+  },
+  {
+    "id": 854,
+    "brand_id": 132,
+    "title": "جنسیس",
+    "title_en": "Genesis",
+    "image": {
+      "uuid": "c7e15a05-da3f-461a-a4bc-4d03ffbf13b0",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/c7e15a05da3f461aa4bc4d03ffbf13b0"
+    },
+    "seo_slug": "hyundai-genesis",
+    "order": 14
+  },
+  {
+    "id": 943,
+    "brand_id": 132,
+    "title": "النترا (مونتاژ)",
+    "title_en": "Elantra-Assembled",
+    "image": {
+      "uuid": "b515c00c-74b7-4ae3-bf8c-ecb0f3970a78",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/b515c00c74b74ae3bf8cecb0f3970a78"
+    },
+    "seo_slug": "hyundai-elantraassembled",
+    "order": 13
+  },
+  {
+    "id": 861,
+    "brand_id": 132,
+    "title": "ولستر",
+    "title_en": "Veloster",
+    "image": {
+      "uuid": "6d386a5b-2c48-4e5f-9c09-6177169412fd",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/6d386a5b2c484e5f9c096177169412fd"
+    },
+    "seo_slug": "hyundai-veloster",
+    "order": 12
+  },
+  {
+    "id": 903,
+    "brand_id": 132,
+    "title": "اکسنت (مونتاژ)",
+    "title_en": "Accent Assembled",
+    "image": {
+      "uuid": "85942668-41b5-45af-bba3-ad852b5b13b2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/8594266841b545afbba3ad852b5b13b2"
+    },
+    "seo_slug": "hyundai-accentassembled",
+    "order": 11
+  },
+  {
+    "id": 855,
+    "brand_id": 132,
+    "title": "جنسیس کوپه",
+    "title_en": "Genesis-Coupe",
+    "image": {
+      "uuid": "9e3b3afa-4c64-4cef-ac2e-409394372178",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/jpeg",
+      "url": "https://media.khodro45.com/public/image/9e3b3afa4c644cefac2e409394372178"
+    },
+    "seo_slug": "hyundai-genesiscoupe",
+    "order": 10
+  },
+  {
+    "id": 897,
+    "brand_id": 132,
+    "title": "سوناتا هیبرید",
+    "title_en": "Sonata Hybrid",
+    "image": {
+      "uuid": "fee635c0-ac3c-45e0-a076-30bdc588511d",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/fee635c0ac3c45e0a07630bdc588511d"
+    },
+    "seo_slug": "hyundai-sonatahybrid",
+    "order": 9
+  },
+  {
+    "id": 1204,
+    "brand_id": 132,
+    "title": "کونا",
+    "title_en": "kona",
+    "image": {
+      "uuid": "38df1216-5ff8-4a28-b301-3bc2028a3145",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/38df12165ff84a28b3013bc2028a3145"
+    },
+    "seo_slug": "hyundai-kona",
+    "order": 8
+  },
+  {
+    "id": 1161,
+    "brand_id": 132,
+    "title": "کرتا",
+    "title_en": "Creta",
+    "image": {
+      "uuid": "e8db1988-0fa8-43cc-814e-054d44595255",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/e8db19880fa843cc814e054d44595255"
+    },
+    "seo_slug": "hyundai-creta",
+    "order": 7
+  },
+  {
+    "id": 1306,
+    "brand_id": 132,
+    "title": "ورنا",
+    "title_en": "Verna",
+    "image": null,
+    "seo_slug": "hyundai-verna",
+    "order": 6
+  },
+  {
+    "id": 847,
+    "brand_id": 132,
+    "title": "i40 استیشن",
+    "title_en": "i40-Wagon",
+    "image": null,
+    "seo_slug": "hyundai-i40wagon",
+    "order": 4
+  },
+  {
+    "id": 906,
+    "brand_id": 132,
+    "title": "i40",
+    "title_en": "i40",
+    "image": null,
+    "seo_slug": "hyundai-i40",
+    "order": 3
+  },
+  {
+    "id": 857,
+    "brand_id": 132,
+    "title": "سنتنیال",
+    "title_en": "Centennial",
+    "image": null,
+    "seo_slug": "hyundai-centennial",
+    "order": 2
+  },
+  {
+    "id": 862,
+    "brand_id": 132,
+    "title": "کوپه",
+    "title_en": "Coupe",
+    "image": null,
+    "seo_slug": "hyundai-coupe",
+    "order": 1
+  },
+  {
+    "id": 1378,
+    "brand_id": 132,
+    "title": "توسان L",
+    "title_en": "Tucson L",
+    "image": null,
+    "seo_slug": "hyundai-tucsonl",
+    "order": 0
+  },
+  {
+    "id": 867,
+    "brand_id": 133,
+    "title": "XC90",
+    "title_en": "XC90",
+    "image": {
+      "uuid": "5b6f694d-4d35-4bf6-885f-7d0d8e4a9c9b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/5b6f694d4d354bf6885f7d0d8e4a9c9b"
+    },
+    "seo_slug": "volvo-xc90",
+    "order": 5
+  },
+  {
+    "id": 866,
+    "brand_id": 133,
+    "title": "XC60",
+    "title_en": "XC60",
+    "image": null,
+    "seo_slug": "volvo-xc60",
+    "order": 4
+  },
+  {
+    "id": 865,
+    "brand_id": 133,
+    "title": "V40",
+    "title_en": "V40",
+    "image": null,
+    "seo_slug": "volvo-v40",
+    "order": 3
+  },
+  {
+    "id": 864,
+    "brand_id": 133,
+    "title": "C70 کروک",
+    "title_en": "C70-Convertible",
+    "image": {
+      "uuid": "6e184d5d-b813-49bd-8b9b-d7722dd39f32",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/6e184d5db81349bd8b9bd7722dd39f32"
+    },
+    "seo_slug": "volvo-c70convertible",
+    "order": 2
+  },
+  {
+    "id": 932,
+    "brand_id": 133,
+    "title": "C30",
+    "title_en": "C30",
+    "image": null,
+    "seo_slug": "volvo-c30",
+    "order": 1
+  },
+  {
+    "id": 1245,
+    "brand_id": 238,
+    "title": "وی آنلاین DDi",
+    "title_en": "V online DDI",
+    "image": {
+      "uuid": "362dd479-d9d1-4432-881a-4aef44214bc2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/362dd479d9d14432881a4aef44214bc2"
+    },
+    "seo_slug": "venucia-vonlineddi",
+    "order": 4
+  },
+  {
+    "id": 1293,
+    "brand_id": 238,
+    "title": "وی آنلاین",
+    "title_en": "Vonline",
+    "image": {
+      "uuid": "eb1251be-2395-47d0-b492-cb027b36b7fc",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/eb1251be239547d0b492cb027b36b7fc"
+    },
+    "seo_slug": "venucia-vonline",
+    "order": 3
+  },
+  {
+    "id": 1244,
+    "brand_id": 238,
+    "title": "D60 پلاس",
+    "title_en": "D60 plus",
+    "image": {
+      "uuid": "78152bc7-eed9-425b-885e-3ebbc821a5d0",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/78152bc7eed9425b885e3ebbc821a5d0"
+    },
+    "seo_slug": "venucia-d60plus",
+    "order": 2
+  },
+  {
+    "id": 1292,
+    "brand_id": 238,
+    "title": "استار",
+    "title_en": "star",
+    "image": {
+      "uuid": "ab0babb3-1d43-4dcf-b537-62fc8b6e7aea",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/ab0babb31d434dcfb53762fc8b6e7aea"
+    },
+    "seo_slug": "venucia-star",
+    "order": 1
+  },
+  {
+    "id": 1311,
+    "brand_id": 248,
+    "title": "فری",
+    "title_en": "free",
+    "image": null,
+    "seo_slug": "voyah-free",
+    "order": 1
+  },
+  {
+    "id": 1067,
+    "brand_id": 170,
+    "title": "پاتریوت",
+    "title_en": "Patriot",
+    "image": null,
+    "seo_slug": "uaz-patriot",
+    "order": 2
+  }
+]

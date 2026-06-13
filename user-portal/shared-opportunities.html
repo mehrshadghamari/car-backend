@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فرصت‌های خرید</title>
+  <link rel="stylesheet" href="/portal/css/app.css">
+</head>
+<body>
+  <main class="page">
+    <header class="page-header">
+      <h1 id="pageTitle">فرصت‌های خرید</h1>
+      <p id="pageSub" class="muted">در حال بارگذاری…</p>
+    </header>
+    <section id="content" class="card"></section>
+  </main>
+  <script src="/portal/js/config.js"></script>
+  <script src="/portal/js/api.js"></script>
+  <script>
+    function fmtNum(n) {
+      if (n == null) return '—';
+      return Number(n).toLocaleString('fa-IR');
+    }
+
+    function dealTagLabel(tag) {
+      const map = { best: 'عالی', good: 'خوب', normal: 'معمولی', fair: 'منصفانه' };
+      return map[tag] || tag || '—';
+    }
+
+    async function loadShare() {
+      const params = new URLSearchParams(window.location.search);
+      const token = params.get('token');
+      const content = document.getElementById('content');
+      if (!token) {
+        content.innerHTML = '<p class="error">لینک نامعتبر است</p>';
+        return;
+      }
+      try {
+        const data = await api(`/share/${token}`);
+        const car = data.car_model;
+        document.getElementById('pageTitle').textContent = 'فرصت‌های خرید برای شما';
+        document.getElementById('pageSub').textContent =
+          `${car.brand_name || ''} ${car.name || ''}`.trim();
+        if (!data.opportunities.length) {
+          content.innerHTML = '<p class="muted">فرصتی یافت نشد</p>';
+          return;
+        }
+        content.innerHTML = data.opportunities.map((o) => `
+          <article class="opp-card">
+            <div class="opp-tag">${dealTagLabel(o.deal_tag)}</div>
+            <h3>${o.listing_title || '—'}</h3>
+            <p>قیمت آگهی: ${fmtNum(o.listing_price)} تومان</p>
+            <p>تخفیف نسبت به سقف: ${fmtNum(o.discount_pct)}٪</p>
+            ${o.divar_url ? `<a class="btn-primary" href="${o.divar_url}" target="_blank" rel="noopener">مشاهده در دیوار</a>` : ''}
+          </article>
+        `).join('');
+      } catch (e) {
+        content.innerHTML = `<p class="error">${e.message}</p>`;
+      }
+    }
+
+    loadShare();
+  </script>
+</body>
+</html>

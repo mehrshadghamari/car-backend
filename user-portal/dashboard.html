@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فرصت خودرو — درخواست‌های من</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div class="topbar">
+      <div class="brand" style="margin:0">
+        <div class="brand-icon">خ</div>
+        <div>
+          <h1>درخواست‌های من</h1>
+          <p id="userPhone" class="sub" style="margin:0;color:var(--muted);font-size:0.85rem"></p>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button id="newPurchaseBtn" class="btn btn-primary" type="button" style="width:auto;margin:0">+ درخواست جدید</button>
+        <button id="logoutBtn" class="btn btn-secondary" type="button">خروج</button>
+      </div>
+    </div>
+
+    <div class="stats-row">
+      <div class="stat">
+        <div class="num" id="statTotal">۰</div>
+        <div class="lbl">درخواست</div>
+      </div>
+      <div class="stat">
+        <div class="num" id="statOpps">۰</div>
+        <div class="lbl">فرصت خرید</div>
+      </div>
+      <div class="stat">
+        <div class="num" id="statActive">۰</div>
+        <div class="lbl">فعال</div>
+      </div>
+    </div>
+
+    <div class="section-head">
+      <h2>لیست درخواست‌های خرید</h2>
+    </div>
+    <div id="purchaseList" class="purchase-list">
+      <div class="empty">در حال بارگذاری…</div>
+    </div>
+  </div>
+
+  <!-- جزئیات فرصت‌ها -->
+  <div id="detailModal" class="modal">
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h3 id="detailTitle">فرصت‌های خرید</h3>
+        <button class="btn btn-secondary" type="button" data-close>بستن</button>
+      </div>
+      <div id="detailBody"></div>
+    </div>
+  </div>
+
+  <!-- ثبت درخواست جدید -->
+  <div id="createModal" class="modal">
+    <div class="modal-backdrop" data-close-create></div>
+    <div class="modal-panel">
+      <div class="modal-header">
+        <h3>ثبت درخواست خرید جدید</h3>
+        <button class="btn btn-secondary" type="button" data-close-create>بستن</button>
+      </div>
+      <form id="createForm" class="form-grid">
+        <div class="full">
+          <label for="brandSelect">برند خودرو</label>
+          <select id="brandSelect" data-search-placeholder="جستجوی برند…"><option>در حال بارگذاری…</option></select>
+        </div>
+        <div class="full">
+          <label for="modelSelect">مدل خودرو</label>
+          <select id="modelSelect" data-search-placeholder="جستجوی مدل…"><option>ابتدا برند را انتخاب کنید</option></select>
+        </div>
+        <div class="full">
+          <label for="yearSelect">سال ساخت</label>
+          <select id="yearSelect" data-search-placeholder="جستجوی سال…"><option>ابتدا مدل را انتخاب کنید</option></select>
+        </div>
+        <div class="full">
+          <label for="trimSelect">تریم / آپشن</label>
+          <select id="trimSelect" data-search-placeholder="جستجوی تریم…"><option>ابتدا سال را انتخاب کنید</option></select>
+        </div>
+        <div>
+          <label for="pricingPlatform">پلتفرم قیمت‌گذاری</label>
+          <select id="pricingPlatform">
+            <option value="khodro45">خودرو۴۵</option>
+            <option value="hamrah_mechanic">همراه مکانیک</option>
+          </select>
+        </div>
+        <div>
+          <label for="city">شهر</label>
+          <select id="city">
+            <option value="tehran">تهران</option>
+            <option value="mashhad">مشهد</option>
+            <option value="isfahan">اصفهان</option>
+            <option value="shiraz">شیراز</option>
+          </select>
+        </div>
+        <div>
+          <label for="yearMinSelect">حداقل سال ساخت</label>
+          <select id="yearMinSelect"><option value="">ابتدا مدل را انتخاب کنید</option></select>
+        </div>
+        <div>
+          <label for="yearMaxSelect">حداکثر سال ساخت</label>
+          <select id="yearMaxSelect"><option value="">ابتدا مدل را انتخاب کنید</option></select>
+        </div>
+        <div>
+          <label for="usageMax">حداکثر کارکرد (کیلومتر)</label>
+          <input id="usageMax" class="ltr" type="number" value="80000" placeholder="80000">
+        </div>
+        <div class="full">
+          <label for="color">رنگ (اختیاری)</label>
+          <input id="color" placeholder="مثلاً سفید، مشکی">
+        </div>
+        <div class="full">
+          <button type="submit" class="btn btn-primary">ثبت درخواست</button>
+          <p id="createError" class="error-msg"></p>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/config.js"></script>
+  <script src="js/i18n.js"></script>
+  <script src="js/api.js"></script>
+  <script src="/static/searchable-select.js"></script>
+  <script>
+    if (!getToken()) window.location.href = 'index.html';
+
+    SearchableSelect.enhanceCatalog({
+      brandSelect: { placeholder: 'جستجوی برند…', noResultsText: 'برندی یافت نشد' },
+      modelSelect: { placeholder: 'جستجوی مدل…', noResultsText: 'مدلی یافت نشد' },
+      yearSelect: { placeholder: 'جستجوی سال…', noResultsText: 'سالی یافت نشد' },
+      trimSelect: { placeholder: 'جستجوی تریم…', noResultsText: 'تریمی یافت نشد' },
+    });
+
+    const user = getUser();
+    document.getElementById('userPhone').textContent = user?.phone
+      ? `شماره: ${user.phone}`
+      : '';
+
+    const DEAL_TAG_CLS = { best: 'tag-best', good: 'tag-good', normal: 'tag-fair', fair: 'tag-fair' };
+
+    function monitoringBadge(status) {
+      const map = {
+        active: { label: FA.status.active, cls: 'badge-active' },
+        pending: { label: FA.status.pending, cls: 'badge-pending' },
+        queued: { label: FA.status.queued, cls: 'badge-pending' },
+        monitoring: { label: FA.status.monitoring, cls: 'badge-monitoring' },
+        failed: { label: FA.status.failed, cls: 'badge-failed' },
+        inactive: { label: FA.status.inactive, cls: 'badge-inactive' },
+      };
+      const key = status && map[status] ? status : 'queued';
+      return map[key];
+    }
+
+    async function loadPurchases() {
+      const list = document.getElementById('purchaseList');
+      try {
+        const rows = await api('/me/purchase-requests');
+        document.getElementById('statTotal').textContent = fmtFaNum(rows.length);
+        document.getElementById('statOpps').textContent = fmtFaNum(
+          rows.reduce((s, r) => s + (r.opportunity_count || 0), 0)
+        );
+        document.getElementById('statActive').textContent = fmtFaNum(
+          rows.filter((r) => r.monitoring_status === 'active').length
+        );
+
+        if (!rows.length) {
+          list.innerHTML = '<div class="empty">هنوز درخواستی ثبت نکرده‌اید.<br>روی <strong>+ درخواست جدید</strong> بزنید.</div>';
+          return;
+        }
+
+        list.innerHTML = rows.map((r) => {
+          const titleParts = [r.car_brand_name, r.car_model_name, r.car_year_title, r.car_trim_name].filter(Boolean);
+          const title = titleParts.join(' ') || 'خودرو';
+          const badge = monitoringBadge(r.monitoring_status);
+          return `
+          <div class="purchase-item" data-id="${r.purchase_request_id}">
+            <div>
+              <div class="title">${title}</div>
+              <div class="meta">
+                ${faCity(r.city)}
+                · سال ${fmtFaNum(r.production_year_min)}
+                · حداکثر ${fmtFaNum(r.usage_max)} کیلومتر
+                · <span class="badge ${badge.cls}">${badge.label}</span>
+              </div>
+            </div>
+            <div class="opp-count" title="تعداد فرصت">
+              ${fmtFaNum(r.opportunity_count || 0)}
+              <span class="opp-count-label">فرصت</span>
+            </div>
+          </div>`;
+        }).join('');
+
+        list.querySelectorAll('.purchase-item').forEach((el) => {
+          el.addEventListener('click', () => openDetail(el.dataset.id));
+        });
+      } catch (e) {
+        if (e.status === 401) {
+          clearSession();
+          window.location.href = 'index.html';
+          return;
+        }
+        list.innerHTML = `<div class="empty error-msg">${e.message}</div>`;
+      }
+    }
+
+    async function openDetail(id) {
+      const modal = document.getElementById('detailModal');
+      const body = document.getElementById('detailBody');
+      document.getElementById('detailTitle').textContent = 'در حال بارگذاری…';
+      body.innerHTML = '';
+      modal.classList.add('open');
+      try {
+        const d = await api(`/me/purchase-requests/${id}`);
+        const pr = d.purchase_request;
+        const car = d.car_model;
+        const badge = monitoringBadge(d.monitoring_status);
+        document.getElementById('detailTitle').textContent =
+          `${car.brand_name || ''} ${car.name || ''}`.trim() || 'فرصت‌های خرید';
+
+        let html = `<p class="detail-meta">
+          <span class="badge ${badge.cls}">${badge.label}</span>
+          · شهر ${faCity(pr.city)}
+          · سال ${fmtFaNum(pr.production_year_min)}
+          · انقضا: ${fmtFaDate(pr.expires_at)}
+          · قیمت‌گذاری: ${faPricing(d.pricing_platform)}
+        </p>`;
+
+        const listings = d.listings || [];
+        if (listings.length) {
+          html += `<h3 class="detail-subtitle">آگهی‌های بررسی‌شده (${fmtFaNum(listings.length)})</h3>`;
+          html += `<div class="table-wrap"><table class="opp-table listing-table"><thead><tr>
+            <th>عنوان</th><th>سال</th><th>کارکرد</th><th>قیمت دیوار</th><th>کف</th><th>میانه</th><th>سقف</th><th>فرصت</th><th>لینک</th>
+          </tr></thead><tbody>`;
+          html += listings.map((l) => {
+            const mp = l.latest_market_price;
+            const tag = l.has_opportunity ? faDealTag(l.opportunity_deal_tag) : '—';
+            const cls = l.has_opportunity ? (DEAL_TAG_CLS[l.opportunity_deal_tag] || '') : '';
+            const links = [];
+            if (l.divar_url) links.push(`<a href="${l.divar_url}" target="_blank" rel="noopener">دیوار</a>`);
+            if (mp && mp.reference_url) {
+              const label = mp.pricing_provider === 'khodro45' ? 'خودرو۴۵' : 'همراه';
+              links.push(`<a href="${mp.reference_url}" target="_blank" rel="noopener">${label}</a>`);
+            }
+            return `<tr>
+              <td>${(l.title || '—').slice(0, 45)}</td>
+              <td class="num-cell">${l.production_year != null ? fmtFaNum(l.production_year) : '—'}</td>
+              <td class="num-cell">${l.kilometer != null ? fmtFaNum(l.kilometer) : '—'}</td>
+              <td class="num-cell">${fmtFaNum(l.price)}</td>
+              <td class="num-cell">${mp ? fmtFaNum(mp.price_down) : '—'}</td>
+              <td class="num-cell">${mp ? fmtFaNum(mp.price_mid) : '—'}</td>
+              <td class="num-cell">${mp ? fmtFaNum(mp.price_up) : '—'}</td>
+              <td class="${cls}">${tag}</td>
+              <td>${links.length ? links.join(' · ') : '—'}</td>
+            </tr>`;
+          }).join('');
+          html += '</tbody></table></div>';
+        } else {
+          html += '<div class="empty">هنوز آگهی‌ای برای این درخواست بررسی نشده است.</div>';
+        }
+
+        if (!d.opportunities.length) {
+          html += '<div class="empty">هنوز فرصتی برای این درخواست پیدا نشده است.<br>سیستم به‌صورت خودکار آگهی‌ها را بررسی می‌کند.</div>';
+        } else {
+          html += `<h3 class="detail-subtitle">فرصت‌های خرید (${fmtFaNum(d.opportunities.length)})</h3>`;
+          html += `<div class="table-wrap"><table class="opp-table"><thead><tr>
+            <th>برچسب</th><th>عنوان آگهی</th><th>قیمت</th><th>تخفیف</th><th>لینک</th>
+          </tr></thead><tbody>`;
+          html += d.opportunities.map((o) => {
+            const cls = DEAL_TAG_CLS[o.deal_tag] || '';
+            const tag = faDealTag(o.deal_tag);
+            const title = (o.listing_title || '—').slice(0, 55);
+            const pct = fmtFaNum(Math.round(o.discount_pct * 10) / 10);
+            return `<tr>
+              <td class="${cls}">${tag}</td>
+              <td>${title}</td>
+              <td class="num-cell">${fmtFaNum(o.listing_price)}</td>
+              <td class="num-cell">${pct}٪</td>
+              <td>${o.divar_url ? `<a href="${o.divar_url}" target="_blank" rel="noopener">دیوار</a>` : '—'}</td>
+            </tr>`;
+          }).join('');
+          html += '</tbody></table></div>';
+        }
+        body.innerHTML = html;
+      } catch (e) {
+        body.innerHTML = `<p class="error-msg">${e.message}</p>`;
+      }
+    }
+
+    document.querySelectorAll('[data-close]').forEach((el) => {
+      el.addEventListener('click', () => document.getElementById('detailModal').classList.remove('open'));
+    });
+
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+      clearSession();
+      window.location.href = 'index.html';
+    });
+
+    const createModal = document.getElementById('createModal');
+    document.getElementById('newPurchaseBtn').addEventListener('click', () => {
+      createModal.classList.add('open');
+      loadCatalog();
+    });
+    document.querySelectorAll('[data-close-create]').forEach((el) => {
+      el.addEventListener('click', () => createModal.classList.remove('open'));
+    });
+
+    let catalogYears = [];
+
+    function fillYearRangeSelects(years, selectedTitle) {
+      ['yearMinSelect', 'yearMaxSelect'].forEach((id) => {
+        const sel = document.getElementById(id);
+        sel.innerHTML = '<option value="">انتخاب سال</option>';
+        years.forEach((y) => {
+          const o = document.createElement('option');
+          o.value = y.jalali_year != null ? String(y.jalali_year) : y.title;
+          o.textContent = y.title;
+          sel.appendChild(o);
+        });
+        if (selectedTitle) sel.value = selectedTitle;
+      });
+    }
+
+    function parseYearTitle(title) {
+      if (!title) return null;
+      const n = parseInt(String(title).replace(/[^\d]/g, ''), 10);
+      return Number.isFinite(n) ? n : null;
+    }
+
+    async function loadCatalog() {
+      const brands = await api('/car-brands');
+      const sel = document.getElementById('brandSelect');
+      sel.innerHTML = '<option value="">انتخاب برند</option>';
+      brands.forEach((b) => {
+        const o = document.createElement('option');
+        o.value = b.id;
+        o.textContent = b.name;
+        sel.appendChild(o);
+      });
+    }
+
+    document.getElementById('brandSelect').addEventListener('change', async (e) => {
+      const q = e.target.value ? `?brand_id=${e.target.value}` : '';
+      const models = await api('/car-models' + q);
+      const sel = document.getElementById('modelSelect');
+      sel.innerHTML = '<option value="">انتخاب مدل</option>';
+      document.getElementById('yearSelect').innerHTML = '<option value="">انتخاب سال</option>';
+      document.getElementById('trimSelect').innerHTML = '<option value="">انتخاب تریم</option>';
+      fillYearRangeSelects([]);
+      models.forEach((m) => {
+        const o = document.createElement('option');
+        o.value = m.id;
+        o.textContent = `${m.brand_name || ''} ${m.name}`.trim();
+        sel.appendChild(o);
+      });
+    });
+
+    document.getElementById('modelSelect').addEventListener('change', async (e) => {
+      const modelId = e.target.value;
+      if (!modelId) return;
+      const years = await api(`/car-years?model_id=${modelId}`);
+      catalogYears = years;
+      const sel = document.getElementById('yearSelect');
+      sel.innerHTML = '<option value="">انتخاب سال</option>';
+      document.getElementById('trimSelect').innerHTML = '<option value="">انتخاب تریم</option>';
+      years.forEach((y) => {
+        const o = document.createElement('option');
+        o.value = y.id;
+        o.textContent = y.title;
+        sel.appendChild(o);
+      });
+      fillYearRangeSelects(years);
+    });
+
+    document.getElementById('yearSelect').addEventListener('change', async (e) => {
+      const modelId = document.getElementById('modelSelect').value;
+      const yearId = e.target.value;
+      if (!modelId) return;
+      let q = `?model_id=${modelId}`;
+      if (yearId) q += `&year_id=${yearId}`;
+      const trims = await api('/car-trims' + q);
+      const sel = document.getElementById('trimSelect');
+      sel.innerHTML = '<option value="">انتخاب تریم</option>';
+      trims.forEach((t) => {
+        const o = document.createElement('option');
+        o.value = t.id;
+        o.dataset.yearTitle = t.year_title || '';
+        o.textContent = `${t.year_title || ''} — ${t.name}`.trim();
+        sel.appendChild(o);
+      });
+    });
+
+    document.getElementById('trimSelect').addEventListener('change', (e) => {
+      const opt = e.target.selectedOptions[0];
+      const yearTitle = opt?.dataset?.yearTitle;
+      if (yearTitle) fillYearRangeSelects(catalogYears, yearTitle);
+    });
+
+    document.getElementById('createForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const err = document.getElementById('createError');
+      err.textContent = '';
+      const trimId = document.getElementById('trimSelect').value;
+      if (!trimId) {
+        err.textContent = 'لطفاً برند، مدل، سال و تریم را انتخاب کنید';
+        return;
+      }
+      const yearMin = parseYearTitle(document.getElementById('yearMinSelect').value);
+      const yearMax = parseYearTitle(document.getElementById('yearMaxSelect').value);
+      if (yearMin != null && yearMax != null && yearMin > yearMax) {
+        err.textContent = 'حداقل سال نمی‌تواند بیشتر از حداکثر سال باشد';
+        return;
+      }
+      const btn = e.target.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'در حال ثبت…';
+      try {
+        await api('/me/purchase-requests', {
+          method: 'POST',
+          body: JSON.stringify({
+            car_trim_id: trimId,
+            pricing_platform_slug: document.getElementById('pricingPlatform').value,
+            city: document.getElementById('city').value || 'tehran',
+            color: document.getElementById('color').value || null,
+            production_year_min: yearMin,
+            production_year_max: yearMax ?? yearMin,
+            usage_max: parseInt(document.getElementById('usageMax').value) || null,
+            run_crawl: false,
+          }),
+        });
+        createModal.classList.remove('open');
+        await loadPurchases();
+      } catch (ex) {
+        err.textContent = ex.message;
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'ثبت درخواست';
+      }
+    });
+
+    loadPurchases();
+  </script>
+</body>
+</html>

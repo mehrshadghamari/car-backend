@@ -1,0 +1,63 @@
+Product Requirements Document (PRD)
+Car Deal Opportunity Detection Platform
+1. Product Background
+Finding underpriced vehicles in online marketplaces is currently a manual and time-consuming
+process. Car dealers, resellers and individual buyers spend significant time monitoring websites
+such as Divar to identify vehicles listed below market value. The purpose of this product is to
+automate this process by continuously monitoring vehicle listings, comparing them against a trusted
+market pricing source, identifying valuable opportunities, and notifying interested users
+immediately.
+2. Product Vision
+Build a platform that automatically discovers attractive vehicle purchase opportunities and delivers
+them to interested buyers before those opportunities disappear from the market.
+3. Target Users
+Primary Users: - Car Dealers - Vehicle Traders Secondary Users: - Individual Buyers
+4. Core Product Concept
+The platform continuously scans predefined vehicle listing sources. When a vehicle is detected, the
+platform evaluates whether the listing represents a valuable purchase opportunity by comparing the
+listing price against a trusted market pricing reference.
+5. Product Requirements
+5.1 User Management
+The system must allow operators to create and manage users. For each user, the platform must
+support: - Phone number (required) - First name (optional) - Last name (optional) - Source channel
+(required)
+5.2 Purchase Request Management
+The system must allow operators to register one or more purchase requests for each user. A
+purchase request represents a user's interest in a particular vehicle category.
+5.3 Crawl Source Management
+The platform must provide a dedicated section where operators can define crawling targets. Each
+crawl target consists of: - Source website - Listing URL - Vehicle context The platform should
+support future sources beyond Divar, such as Bama and other marketplaces.
+5.4 Market Price Reference
+For every crawled listing, the platform must obtain a market reference price from Hamrah
+Mechanic. The platform dynamically generates the appropriate pricing request using vehicle
+attributes such as model, year, mileage, color and body condition.
+5.5 Opportunity Detection
+The platform continuously scans listings from configured crawl targets. Listings are compared
+against Hamrah Mechanic pricing. Only qualified opportunities are retained and distributed.
+5.6 Opportunity Matching
+Opportunities are matched against active purchase requests. A single opportunity may be delivered
+to multiple users if relevant.
+5.7 SMS Notification Flow
+Whenever a new opportunity is matched to a purchase request, the platform sends an SMS
+notification containing vehicle information, opportunity summary and opportunity link.
+5.8 Gateway TrackingAll outbound links must pass through a platform-controlled gateway. The platform must track: -
+Whether the user opened the opportunity - When the opportunity was opened - Time between SMS
+delivery and engagement
+6. End-to-End Product Flow
+1. Create User
+2. Create Purchase Request(s)
+3. Define Crawl Targets
+4. Crawl Listings
+5. Compare against Hamrah Mechanic
+6. Create Opportunities
+7. Match Opportunities to Requests
+8. Send SMS Notifications
+9. User Clicks Tracked Link
+10. Gateway Records Engagement and Redirects
+7. Success Metrics
+- Number of opportunities detected - Number of opportunities delivered - SMS click rate - Average
+time to click - Repeat engagement rate - Performance by acquisition channel
+8. Future Expansion
+- Additional crawling sources - Additional pricing references - User self-service requests -
+Subscription management - Advanced opportunity scoring - Automated user segmentation

@@ -1,0 +1,3152 @@
+[
+  {
+    "id": 152,
+    "title": "آئودی",
+    "title_en": "Audi",
+    "logo": {
+      "uuid": "d93d6edf-5722-4040-9f1e-a49c21d9dc0c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/d93d6edf572240409f1ea49c21d9dc0c"
+    },
+    "svg_logo": {
+      "uuid": "10ff9707-1011-4b98-8de4-22a630d65d37",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/10ff970710114b988de422a630d65d37"
+    },
+    "order": 70,
+    "seo_slug": "audi"
+  },
+  {
+    "id": 260,
+    "title": "آرتابان (ای ام جی)",
+    "title_en": "AMG",
+    "logo": {
+      "uuid": "51cb225e-7d6a-4db3-af36-b85ca14eab21",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/51cb225e7d6a4db3af36b85ca14eab21"
+    },
+    "svg_logo": {
+      "uuid": "29367384-3b41-487e-8e41-3dc670f52cfa",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/293673843b41487e8e413dc670f52cfa"
+    },
+    "order": 0,
+    "seo_slug": "amg"
+  },
+  {
+    "id": 263,
+    "title": "آریا",
+    "title_en": "Aria",
+    "logo": {
+      "uuid": "7c814586-067a-4d6f-a12d-26da174cded9",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/7c814586067a4d6fa12d26da174cded9"
+    },
+    "svg_logo": {
+      "uuid": "20494f3e-76b8-4186-8116-dea846ab2c00",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/20494f3e76b841868116dea846ab2c00"
+    },
+    "order": 0,
+    "seo_slug": "aria"
+  },
+  {
+    "id": 178,
+    "title": "آریسان",
+    "title_en": "Arisun",
+    "logo": {
+      "uuid": "5f6b2e9e-03f2-43fa-97e2-2109130706c0",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/5f6b2e9e03f243fa97e22109130706c0"
+    },
+    "svg_logo": {
+      "uuid": "d5e3164a-68e3-4ae6-b003-10ea7d992e3c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/d5e3164a68e34ae6b00310ea7d992e3c"
+    },
+    "order": 69,
+    "seo_slug": "arisun"
+  },
+  {
+    "id": 89,
+    "title": "آلفارومئو",
+    "title_en": "Alfa Romeo",
+    "logo": {
+      "uuid": "4f633ff4-c3ba-46cc-bd13-486aef12f0ee",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/4f633ff4c3ba46ccbd13486aef12f0ee"
+    },
+    "svg_logo": {
+      "uuid": "2989d79b-38d1-4daa-b6f3-3d300b18c963",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/2989d79b38d14daab6f33d300b18c963"
+    },
+    "order": 21,
+    "seo_slug": "alfaromeo"
+  },
+  {
+    "id": 151,
+    "title": "آمیکو",
+    "title_en": "AMICO",
+    "logo": {
+      "uuid": "89975247-f483-4be4-b86a-4fbcc8a06103",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/89975247f4834be4b86a4fbcc8a06103"
+    },
+    "svg_logo": {
+      "uuid": "4636642f-54a1-4927-9e35-fe90deb418cd",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/4636642f54a149279e35fe90deb418cd"
+    },
+    "order": 7,
+    "seo_slug": "amico"
+  },
+  {
+    "id": 244,
+    "title": "آواتر",
+    "title_en": "Avatr",
+    "logo": {
+      "uuid": "4e2e3220-76bc-431a-8531-4b3c8ce86737",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/4e2e322076bc431a85314b3c8ce86737"
+    },
+    "svg_logo": {
+      "uuid": "6c92f80e-2139-423f-9707-b78d44ed5641",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/6c92f80e2139423f9707b78d44ed5641"
+    },
+    "order": 65,
+    "seo_slug": "avatr"
+  },
+  {
+    "id": 266,
+    "title": "آی ام موتورز",
+    "title_en": "IM Motors",
+    "logo": {
+      "uuid": "ebc5714c-7918-4161-9b1c-ae1bacc06e49",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/ebc5714c791841619b1cae1bacc06e49"
+    },
+    "svg_logo": {
+      "uuid": "5fadfb83-44ed-417a-8be1-922b0bf964be",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/5fadfb8344ed417a8be1922b0bf964be"
+    },
+    "order": 0,
+    "seo_slug": "im"
+  },
+  {
+    "id": 246,
+    "title": "اُپل",
+    "title_en": "Opel",
+    "logo": {
+      "uuid": "178de2fa-7c03-48c6-ac10-b5e4294c9510",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/178de2fa7c0348c6ac10b5e4294c9510"
+    },
+    "svg_logo": {
+      "uuid": "5f4a10c6-d2bf-43b3-a950-e09255bd8cd3",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/5f4a10c6d2bf43b3a950e09255bd8cd3"
+    },
+    "order": 1,
+    "seo_slug": "opel"
+  },
+  {
+    "id": 177,
+    "title": "اس دبلیو ام",
+    "title_en": "SWM",
+    "logo": {
+      "uuid": "99397d2a-e3f9-4033-80b7-e843dc979c60",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/99397d2ae3f9403380b7e843dc979c60"
+    },
+    "svg_logo": {
+      "uuid": "dfef153e-6962-4379-b4b9-ac1d8cf48e52",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/dfef153e69624379b4b9ac1d8cf48e52"
+    },
+    "order": 20,
+    "seo_slug": "swm"
+  },
+  {
+    "id": 245,
+    "title": "اسکای ول",
+    "title_en": "Skywell",
+    "logo": {
+      "uuid": "ea8acb2d-af35-4b45-8cb3-e5feedca8841",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/ea8acb2daf354b458cb3e5feedca8841"
+    },
+    "svg_logo": {
+      "uuid": "36025987-c7f9-4525-b39c-917839a08c11",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/36025987c7f94525b39c917839a08c11"
+    },
+    "order": 68,
+    "seo_slug": "skywell"
+  },
+  {
+    "id": 237,
+    "title": "اشکودا",
+    "title_en": "Skoda",
+    "logo": {
+      "uuid": "8c0251aa-f5b7-4dc9-b56c-e49ff24748ff",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/8c0251aaf5b74dc9b56ce49ff24748ff"
+    },
+    "svg_logo": {
+      "uuid": "187d9da5-fd23-463c-a38a-546494f91fce",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/187d9da5fd23463ca38a546494f91fce"
+    },
+    "order": 67,
+    "seo_slug": "skoda"
+  },
+  {
+    "id": 191,
+    "title": "اطلس",
+    "title_en": "Atlas",
+    "logo": {
+      "uuid": "b85c5fda-3a51-47e7-b35a-e11a1fe8ff59",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/b85c5fda3a5147e7b35ae11a1fe8ff59"
+    },
+    "svg_logo": {
+      "uuid": "620cf2c0-1e57-4669-afdf-0ca4ffe5a9f8",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/620cf2c01e574669afdf0ca4ffe5a9f8"
+    },
+    "order": 32,
+    "seo_slug": "atlas"
+  },
+  {
+    "id": 199,
+    "title": "اکستریم",
+    "title_en": "Xtrim",
+    "logo": {
+      "uuid": "eed26e2e-a19e-4701-a68a-7b40354fe541",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/eed26e2ea19e4701a68a7b40354fe541"
+    },
+    "svg_logo": {
+      "uuid": "003a9870-3f1e-4310-be90-66c8ec16da33",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/003a98703f1e4310be9066c8ec16da33"
+    },
+    "order": 73,
+    "seo_slug": "xtrim"
+  },
+  {
+    "id": 91,
+    "title": "ام جی",
+    "title_en": "MG",
+    "logo": {
+      "uuid": "c73d7745-472a-4145-91df-d71800e2bfb5",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/c73d7745472a414591dfd71800e2bfb5"
+    },
+    "svg_logo": {
+      "uuid": "672f4288-3f46-4235-9819-73ba938a9e97",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/672f42883f464235981973ba938a9e97"
+    },
+    "order": 66,
+    "seo_slug": "mg"
+  },
+  {
+    "id": 134,
+    "title": "ام وی ام",
+    "title_en": "MVM",
+    "logo": {
+      "uuid": "aa72fd7a-b1f0-4826-b717-e09e97f4bb78",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/aa72fd7ab1f04826b717e09e97f4bb78"
+    },
+    "svg_logo": {
+      "uuid": "3a79dd45-5448-47d5-814e-cf9a1422de93",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/3a79dd45544847d5814ecf9a1422de93"
+    },
+    "order": 101,
+    "seo_slug": "mvm"
+  },
+  {
+    "id": 264,
+    "title": "اوشان",
+    "title_en": "Oshan",
+    "logo": {
+      "uuid": "7ba4f175-c69f-4876-b700-cc4763406eba",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/7ba4f175c69f4876b700cc4763406eba"
+    },
+    "svg_logo": {
+      "uuid": "bb3f841f-d02a-4dbf-ab57-c229bd5984c2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/bb3f841fd02a4dbfab57c229bd5984c2"
+    },
+    "order": 0,
+    "seo_slug": "oshan"
+  },
+  {
+    "id": 258,
+    "title": "اونترا",
+    "title_en": "Aventra",
+    "logo": {
+      "uuid": "d61b2968-a765-4241-9c35-63164e8635e1",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/d61b2968a76542419c3563164e8635e1"
+    },
+    "svg_logo": {
+      "uuid": "2d42b3e1-621d-4378-b33a-ad5b0b9b2946",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/2d42b3e1621d4378b33aad5b0b9b2946"
+    },
+    "order": 0,
+    "seo_slug": "aventra"
+  },
+  {
+    "id": 247,
+    "title": "ایرس",
+    "title_en": "Eres",
+    "logo": {
+      "uuid": "15929833-5db3-4733-874c-a99b5e287151",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/webp",
+      "url": "https://media.khodro45.com/public/image/159298335db34733874ca99b5e287151"
+    },
+    "svg_logo": {
+      "uuid": "1d2eac90-e928-42c8-967d-5dec73170429",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/1d2eac90e92842c8967d5dec73170429"
+    },
+    "order": 0,
+    "seo_slug": "eres"
+  },
+  {
+    "id": 252,
+    "title": "ایسوزو",
+    "title_en": "Isuzu",
+    "logo": {
+      "uuid": "5103d81e-b749-4789-96d5-030c6bae1d58",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/5103d81eb749478996d5030c6bae1d58"
+    },
+    "svg_logo": {
+      "uuid": "acf6d827-8b67-4c8b-a75d-04eb4d28e660",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/acf6d8278b674c8ba75d04eb4d28e660"
+    },
+    "order": 0,
+    "seo_slug": "isuzu"
+  },
+  {
+    "id": 262,
+    "title": "ایکس پنگ",
+    "title_en": "Xpeng",
+    "logo": {
+      "uuid": "2626f426-2e1d-435b-8efd-0d5482c3f1b6",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/2626f4262e1d435b8efd0d5482c3f1b6"
+    },
+    "svg_logo": {
+      "uuid": "239035f9-3cea-4bf4-973a-755b7f4f9035",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/239035f93cea4bf4973a755b7f4f9035"
+    },
+    "order": 0,
+    "seo_slug": "xpeng"
+  },
+  {
+    "id": 251,
+    "title": "اینفینیت",
+    "title_en": "Infinite",
+    "logo": {
+      "uuid": "e405e15b-081a-449b-8644-151947dc769a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/e405e15b081a449b8644151947dc769a"
+    },
+    "svg_logo": {
+      "uuid": "c1571516-6231-4bf0-9597-dcfd3582a64b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/c157151662314bf09597dcfd3582a64b"
+    },
+    "order": 0,
+    "seo_slug": "infinite"
+  },
+  {
+    "id": 268,
+    "title": "اینوی",
+    "title_en": "Envoy",
+    "logo": {
+      "uuid": "a34219ef-f390-4de4-bd4a-b84a9827ba54",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/a34219eff3904de4bd4ab84a9827ba54"
+    },
+    "svg_logo": {
+      "uuid": "a9427961-bb8a-4bcb-849f-b80bb101ca44",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/a9427961bb8a4bcb849fb80bb101ca44"
+    },
+    "order": 0,
+    "seo_slug": "envoy"
+  },
+  {
+    "id": 153,
+    "title": "بایک",
+    "title_en": "BAIC",
+    "logo": {
+      "uuid": "71b1b2fe-a068-4a6c-8b75-9d71418f9a8c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/71b1b2fea0684a6c8b759d71418f9a8c"
+    },
+    "svg_logo": {
+      "uuid": "590ed42d-2174-41fb-ae2e-1b2bdff6fd3e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/590ed42d217441fbae2e1b2bdff6fd3e"
+    },
+    "order": 2,
+    "seo_slug": "baic"
+  },
+  {
+    "id": 94,
+    "title": "برلیانس",
+    "title_en": "Brilliance",
+    "logo": {
+      "uuid": "d8224f4f-6fad-4231-b270-997edbe6a5a7",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/d8224f4f6fad4231b270997edbe6a5a7"
+    },
+    "svg_logo": {
+      "uuid": "7d521515-d486-462b-af74-21d36c1988a5",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/7d521515d486462baf7421d36c1988a5"
+    },
+    "order": 86,
+    "seo_slug": "brilliance"
+  },
+  {
+    "id": 154,
+    "title": "بسترن",
+    "title_en": "Besturn",
+    "logo": {
+      "uuid": "89ab962b-b54f-404b-9bb1-7f5485099b3d",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/89ab962bb54f404b9bb17f5485099b3d"
+    },
+    "svg_logo": {
+      "uuid": "e2359890-2df1-4436-9db2-1ff008008ae4",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/e23598902df144369db21ff008008ae4"
+    },
+    "order": 18,
+    "seo_slug": "besturn"
+  },
+  {
+    "id": 243,
+    "title": "بستیون",
+    "title_en": "Bestune",
+    "logo": {
+      "uuid": "275bfd57-046f-46c1-95ce-20b6fc3945aa",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/275bfd57046f46c195ce20b6fc3945aa"
+    },
+    "svg_logo": {
+      "uuid": "e6c552c6-0d28-4ff6-8ae0-1a6faefc0af2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/e6c552c60d284ff68ae01a6faefc0af2"
+    },
+    "order": 64,
+    "seo_slug": "bestune"
+  },
+  {
+    "id": 198,
+    "title": "بک (بی ای سی)",
+    "title_en": "BAC",
+    "logo": {
+      "uuid": "07d83c24-0a05-4b97-8c5f-0c6229b04845",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/07d83c240a054b978c5f0c6229b04845"
+    },
+    "svg_logo": {
+      "uuid": "8645fc62-cbf3-48f7-9982-9791e028ca0a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/8645fc62cbf348f799829791e028ca0a"
+    },
+    "order": 71,
+    "seo_slug": "bac"
+  },
+  {
+    "id": 155,
+    "title": "بورگوارد",
+    "title_en": "Borgward",
+    "logo": {
+      "uuid": "797931f0-c735-4cca-b3a8-ee0fba076ff3",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/797931f0c7354ccab3a8ee0fba076ff3"
+    },
+    "svg_logo": {
+      "uuid": "3e06a9f6-10e5-497b-be44-35ffc396e8f6",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/3e06a9f610e5497bbe4435ffc396e8f6"
+    },
+    "order": 8,
+    "seo_slug": "borgward"
+  },
+  {
+    "id": 96,
+    "title": "بی ام و",
+    "title_en": "BMW",
+    "logo": {
+      "uuid": "9d0f0c15-86d0-4b05-8631-61ce784c0b2c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/9d0f0c1586d04b05863161ce784c0b2c"
+    },
+    "svg_logo": {
+      "uuid": "30ed77b5-62e6-4d04-9bb5-60fdcf88805b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/30ed77b562e64d049bb560fdcf88805b"
+    },
+    "order": 62,
+    "seo_slug": "bmw"
+  },
+  {
+    "id": 261,
+    "title": "بی ای دبلیو",
+    "title_en": "BAW",
+    "logo": {
+      "uuid": "96f58d7f-48d4-4ae3-9ac0-6660093abe63",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/96f58d7f48d44ae39ac06660093abe63"
+    },
+    "svg_logo": {
+      "uuid": "f0cd17cc-c0a0-45ee-9f77-c1638267cfbc",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/f0cd17ccc0a045ee9f77c1638267cfbc"
+    },
+    "order": 0,
+    "seo_slug": "baw"
+  },
+  {
+    "id": 203,
+    "title": "بیجینگ",
+    "title_en": "‌Beijing",
+    "logo": {
+      "uuid": "71b1b2fe-a068-4a6c-8b75-9d71418f9a8c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/71b1b2fea0684a6c8b759d71418f9a8c"
+    },
+    "svg_logo": {
+      "uuid": "590ed42d-2174-41fb-ae2e-1b2bdff6fd3e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/590ed42d217441fbae2e1b2bdff6fd3e"
+    },
+    "order": 72,
+    "seo_slug": "beijing"
+  },
+  {
+    "id": 203,
+    "title": "بیجینگ",
+    "title_en": "‌Beijing",
+    "logo": {
+      "uuid": "71b1b2fe-a068-4a6c-8b75-9d71418f9a8c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/71b1b2fea0684a6c8b759d71418f9a8c"
+    },
+    "svg_logo": {
+      "uuid": "590ed42d-2174-41fb-ae2e-1b2bdff6fd3e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/590ed42d217441fbae2e1b2bdff6fd3e"
+    },
+    "order": 72,
+    "seo_slug": "beijing"
+  },
+  {
+    "id": 156,
+    "title": "بیسو",
+    "title_en": "Bisu",
+    "logo": {
+      "uuid": "979de8fe-41a9-429a-bce7-6a3e5f27d57e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/979de8fe41a9429abce76a3e5f27d57e"
+    },
+    "svg_logo": {
+      "uuid": "607e1533-36c6-4ce3-95e1-c9ae83bf0fd0",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/607e153336c64ce395e1c9ae83bf0fd0"
+    },
+    "order": 30,
+    "seo_slug": "bisu"
+  },
+  {
+    "id": 97,
+    "title": "بی وای دی",
+    "title_en": "BYD",
+    "logo": {
+      "uuid": "86d0d0dd-bd05-44a5-9f56-c0ebccc53437",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/86d0d0ddbd0544a59f56c0ebccc53437"
+    },
+    "svg_logo": {
+      "uuid": "70ca3402-9b6f-45fe-ac12-e14b377bc500",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/70ca34029b6f45feac12e14b377bc500"
+    },
+    "order": 33,
+    "seo_slug": "byd"
+  },
+  {
+    "id": 255,
+    "title": "پارس نوآ",
+    "title_en": "Parsnoa",
+    "logo": {
+      "uuid": "fa6b39e4-e0a5-4932-9df0-87cd9bcbd66a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/fa6b39e4e0a549329df087cd9bcbd66a"
+    },
+    "svg_logo": {
+      "uuid": "5f549af5-4b00-4ab0-b3a9-ebdcd26aea14",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/5f549af54b004ab0b3a9ebdcd26aea14"
+    },
+    "order": 0,
+    "seo_slug": "parsnoa"
+  },
+  {
+    "id": 257,
+    "title": "پاژن",
+    "title_en": "Pazhan",
+    "logo": {
+      "uuid": "fc0d4cef-43c5-4cff-bb4d-c21c0f7fe431",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/fc0d4cef43c54cffbb4dc21c0f7fe431"
+    },
+    "svg_logo": {
+      "uuid": "1d604f03-b319-4bd8-91d6-904cf3d46c1e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/1d604f03b3194bd891d6904cf3d46c1e"
+    },
+    "order": 0,
+    "seo_slug": "pazhan"
+  },
+  {
+    "id": 135,
+    "title": "پراید",
+    "title_en": "Pride",
+    "logo": {
+      "uuid": "35479b35-c9d5-42da-83fc-265fee5054c8",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/35479b35c9d542da83fc265fee5054c8"
+    },
+    "svg_logo": {
+      "uuid": "d35f3624-f9f5-447f-b504-6c1cadaa80dc",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/d35f3624f9f5447fb5046c1cadaa80dc"
+    },
+    "order": 61,
+    "seo_slug": "pride"
+  },
+  {
+    "id": 157,
+    "title": "پروتون",
+    "title_en": "Proton",
+    "logo": {
+      "uuid": "1d19ada0-0d52-47af-b7eb-f2dfc44b995a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/1d19ada00d5247afb7ebf2dfc44b995a"
+    },
+    "svg_logo": {
+      "uuid": "3b76b4c3-21c1-4dee-9006-269dd8487933",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/3b76b4c321c14dee9006269dd8487933"
+    },
+    "order": 25,
+    "seo_slug": "proton"
+  },
+  {
+    "id": 100,
+    "title": "پژو",
+    "title_en": "Peugeot",
+    "logo": {
+      "uuid": "593949ca-2b69-4948-a4bf-37aef5fcb925",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/593949ca2b694948a4bf37aef5fcb925"
+    },
+    "svg_logo": {
+      "uuid": "a9d5644b-8d45-4cae-879a-5d03134c87fa",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/a9d5644b8d454cae879a5d03134c87fa"
+    },
+    "order": 102,
+    "seo_slug": "peugeot"
+  },
+  {
+    "id": 101,
+    "title": "پورشه",
+    "title_en": "Porsche",
+    "logo": {
+      "uuid": "c404fa9b-f97a-4aee-a6e4-ce391d610898",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/c404fa9bf97a4aeea6e4ce391d610898"
+    },
+    "svg_logo": {
+      "uuid": "eda0ca1b-65e1-48cd-ae92-bfa485a5b621",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/eda0ca1b65e148cdae92bfa485a5b621"
+    },
+    "order": 15,
+    "seo_slug": "porsche"
+  },
+  {
+    "id": 175,
+    "title": "تارا",
+    "title_en": "Tara",
+    "logo": {
+      "uuid": "4c8bd606-c788-4503-8978-573c99615d93",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/4c8bd606c78845038978573c99615d93"
+    },
+    "svg_logo": {
+      "uuid": "c751236b-b6fe-4668-8384-2786e29a6275",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/c751236bb6fe466883842786e29a6275"
+    },
+    "order": 91,
+    "seo_slug": "tara"
+  },
+  {
+    "id": 201,
+    "title": "تانک",
+    "title_en": "Tank",
+    "logo": {
+      "uuid": "2421c3b1-14cd-4ba2-b82e-70b1f66faabe",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/2421c3b114cd4ba2b82e70b1f66faabe"
+    },
+    "svg_logo": {
+      "uuid": "44713384-2193-42a3-b666-78598a77de9c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/44713384219342a3b66678598a77de9c"
+    },
+    "order": 3,
+    "seo_slug": "tank"
+  },
+  {
+    "id": 102,
+    "title": "تویوتا",
+    "title_en": "Toyota",
+    "logo": {
+      "uuid": "11f94674-d459-45d3-b877-412111ec9fcc",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/11f94674d45945d3b877412111ec9fcc"
+    },
+    "svg_logo": {
+      "uuid": "3e6a4c3e-8486-42d2-9f9d-20451c6efa00",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/3e6a4c3e848642d29f9d20451c6efa00"
+    },
+    "order": 80,
+    "seo_slug": "toyota"
+  },
+  {
+    "id": 136,
+    "title": "تیبا",
+    "title_en": "Tiba",
+    "logo": {
+      "uuid": "5d30c2ce-74ea-488a-9fef-e1bc19150824",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/5d30c2ce74ea488a9fefe1bc19150824"
+    },
+    "svg_logo": {
+      "uuid": "1939faa9-f51d-4feb-a45f-5ba1a9a412b8",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/1939faa9f51d4feba45f5ba1a9a412b8"
+    },
+    "order": 95,
+    "seo_slug": "tiba"
+  },
+  {
+    "id": 189,
+    "title": "تیگارد",
+    "title_en": "Tigard",
+    "logo": {
+      "uuid": "f6d42aa9-cb6a-4b49-ade6-60458636a30b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/f6d42aa9cb6a4b49ade660458636a30b"
+    },
+    "svg_logo": {
+      "uuid": "95eb05e4-2cd5-4778-85c7-94cb29643c62",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/95eb05e42cd5477885c794cb29643c62"
+    },
+    "order": 59,
+    "seo_slug": "tigard"
+  },
+  {
+    "id": 190,
+    "title": "جتا",
+    "title_en": "Jetta",
+    "logo": {
+      "uuid": "babd3dc4-127f-4b18-bc2d-a694b8390ef0",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/babd3dc4127f4b18bc2da694b8390ef0"
+    },
+    "svg_logo": {
+      "uuid": "3bf248b1-8c29-447e-977c-d695bdb646a2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/3bf248b18c29447e977cd695bdb646a2"
+    },
+    "order": 58,
+    "seo_slug": "jetta"
+  },
+  {
+    "id": 103,
+    "title": "جک",
+    "title_en": "JAC",
+    "logo": {
+      "uuid": "54453b0c-3508-457b-b18f-43e65d14e1bb",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/54453b0c3508457bb18f43e65d14e1bb"
+    },
+    "svg_logo": {
+      "uuid": "8073476e-a666-4300-b2f2-3e559026ad88",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/8073476ea6664300b2f23e559026ad88"
+    },
+    "order": 100,
+    "seo_slug": "jac"
+  },
+  {
+    "id": 182,
+    "title": "جی ام سی",
+    "title_en": "JMC",
+    "logo": {
+      "uuid": "39568893-b116-4cd2-a7f3-5aa548038836",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/39568893b1164cd2a7f35aa548038836"
+    },
+    "svg_logo": {
+      "uuid": "c4003994-e3a1-4e29-9f91-19856a4d4546",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/c4003994e3a14e299f9119856a4d4546"
+    },
+    "order": 11,
+    "seo_slug": "jmc"
+  },
+  {
+    "id": 104,
+    "title": "جیلی",
+    "title_en": "Geely",
+    "logo": {
+      "uuid": "b19bf4db-a1c8-41a8-90a3-80af804d4e7f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/b19bf4dba1c841a890a380af804d4e7f"
+    },
+    "svg_logo": {
+      "uuid": "b825f08f-b9af-45e8-8f4f-c73a9f2b68dd",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/b825f08fb9af45e88f4fc73a9f2b68dd"
+    },
+    "order": 57,
+    "seo_slug": "geely"
+  },
+  {
+    "id": 105,
+    "title": "چانگان",
+    "title_en": "Changan",
+    "logo": {
+      "uuid": "945ac72d-0472-4a11-b3dc-37463597e0a2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/945ac72d04724a11b3dc37463597e0a2"
+    },
+    "svg_logo": {
+      "uuid": "0ad62095-95db-4d43-abfc-7f2733e860e1",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/0ad6209595db4d43abfc7f2733e860e1"
+    },
+    "order": 78,
+    "seo_slug": "changan"
+  },
+  {
+    "id": 137,
+    "title": "چری",
+    "title_en": "Chery",
+    "logo": {
+      "uuid": "245f867a-3f35-4f0c-9fb0-969418110dd1",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/245f867a3f354f0c9fb0969418110dd1"
+    },
+    "svg_logo": {
+      "uuid": "04bc366d-713b-4645-a596-7e6403bd9dbf",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/04bc366d713b4645a5967e6403bd9dbf"
+    },
+    "order": 88,
+    "seo_slug": "chery"
+  },
+  {
+    "id": 270,
+    "title": "داچیا",
+    "title_en": "Dacia",
+    "logo": {
+      "uuid": "8e95aea3-a57c-4413-aec8-32684db210a9",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/8e95aea3a57c4413aec832684db210a9"
+    },
+    "svg_logo": {
+      "uuid": "3b90bd3e-c06a-47b2-87b4-6044df373762",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/3b90bd3ec06a47b287b46044df373762"
+    },
+    "order": 0,
+    "seo_slug": "dacia"
+  },
+  {
+    "id": 158,
+    "title": "دامای",
+    "title_en": "Domy",
+    "logo": {
+      "uuid": "16007652-2a41-465d-9c4d-a01255454480",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/160076522a41465d9c4da01255454480"
+    },
+    "svg_logo": {
+      "uuid": "1c30c7fc-08cf-45f2-bce1-f05faf37e8fd",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/1c30c7fc08cf45f2bce1f05faf37e8fd"
+    },
+    "order": 27,
+    "seo_slug": "domy"
+  },
+  {
+    "id": 106,
+    "title": "دانگ فنگ",
+    "title_en": "Dongfeng",
+    "logo": {
+      "uuid": "18b4c6ab-b57c-40c6-ba9f-4874b26e6eb5",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/18b4c6abb57c40c6ba9f4874b26e6eb5"
+    },
+    "svg_logo": {
+      "uuid": "7d2623b6-f0d7-429d-82b6-06a3a5d42c42",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/7d2623b6f0d7429d82b606a3a5d42c42"
+    },
+    "order": 56,
+    "seo_slug": "dongfeng"
+  },
+  {
+    "id": 186,
+    "title": "دایون",
+    "title_en": "Dayun",
+    "logo": {
+      "uuid": "d9aa277a-20e8-4bd0-9b3e-0551e2920c5c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/d9aa277a20e84bd09b3e0551e2920c5c"
+    },
+    "svg_logo": {
+      "uuid": "a245ba34-dc22-4232-ba68-bd79bf04118f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/a245ba34dc224232ba68bd79bf04118f"
+    },
+    "order": 55,
+    "seo_slug": "dayun"
+  },
+  {
+    "id": 138,
+    "title": "دنا",
+    "title_en": "Dena",
+    "logo": {
+      "uuid": "849dd116-3b59-4a75-a17e-8fd3853992db",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/849dd1163b594a75a17e8fd3853992db"
+    },
+    "svg_logo": {
+      "uuid": "d2149612-ca15-4e92-ba9f-56e2c5274e58",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/d2149612ca154e92ba9f56e2c5274e58"
+    },
+    "order": 99,
+    "seo_slug": "dena"
+  },
+  {
+    "id": 267,
+    "title": "دوو",
+    "title_en": "Daewoo",
+    "logo": {
+      "uuid": "c5c4ea5b-12f4-422a-bfb4-80b5819c7380",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/c5c4ea5b12f4422abfb480b5819c7380"
+    },
+    "svg_logo": {
+      "uuid": "8695cb58-b110-4b3e-bd34-8bba294c94e2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/8695cb58b1104b3ebd348bba294c94e2"
+    },
+    "order": 0,
+    "seo_slug": "daewoo"
+  },
+  {
+    "id": 108,
+    "title": "دی اس",
+    "title_en": "DS",
+    "logo": {
+      "uuid": "ea3c67a9-9695-4ce1-8347-73dbf21cb397",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/ea3c67a996954ce1834773dbf21cb397"
+    },
+    "svg_logo": {
+      "uuid": "76dadccf-59f7-4bd9-b194-e2838ad622ef",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/76dadccf59f74bd9b194e2838ad622ef"
+    },
+    "order": 9,
+    "seo_slug": "ds"
+  },
+  {
+    "id": 168,
+    "title": "دیگنیتی",
+    "title_en": "Dignity",
+    "logo": {
+      "uuid": "9c3195d4-d740-4451-a686-72749ec106dd",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/9c3195d4d7404451a68672749ec106dd"
+    },
+    "svg_logo": {
+      "uuid": "9c99bb29-0345-4b81-a207-4343c41459ce",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/9c99bb2903454b81a2074343c41459ce"
+    },
+    "order": 74,
+    "seo_slug": "dignity"
+  },
+  {
+    "id": 139,
+    "title": "رانا",
+    "title_en": "Runna",
+    "logo": {
+      "uuid": "5fedfc5d-9b24-409d-97ad-07fded590f78",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/5fedfc5d9b24409d97ad07fded590f78"
+    },
+    "svg_logo": {
+      "uuid": "a308bef4-c4af-4f05-ad30-801d5556bca6",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/a308bef4c4af4f05ad30801d5556bca6"
+    },
+    "order": 90,
+    "seo_slug": "runna"
+  },
+  {
+    "id": 160,
+    "title": "راین",
+    "title_en": "Rayen",
+    "logo": {
+      "uuid": "436885c3-0ecd-4899-8633-818b0f566d20",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/436885c30ecd48998633818b0f566d20"
+    },
+    "svg_logo": {
+      "uuid": "8c00d01c-1fb8-4a4c-8f40-877f91a4ba8c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/8c00d01c1fb84a4c8f40877f91a4ba8c"
+    },
+    "order": 26,
+    "seo_slug": "rayen"
+  },
+  {
+    "id": 109,
+    "title": "رنو",
+    "title_en": "Renault",
+    "logo": {
+      "uuid": "b0fbad34-e1fc-4dfe-bc6a-194c8ffd4730",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/b0fbad34e1fc4dfebc6a194c8ffd4730"
+    },
+    "svg_logo": {
+      "uuid": "db3cdb02-fc58-4917-9375-0a0309a6bb62",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/db3cdb02fc58491793750a0309a6bb62"
+    },
+    "order": 92,
+    "seo_slug": "renault"
+  },
+  {
+    "id": 250,
+    "title": "روئوه",
+    "title_en": "Roewe",
+    "logo": {
+      "uuid": "8b40b51a-08db-41ff-aaee-7f924b3ee39d",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/8b40b51a08db41ffaaee7f924b3ee39d"
+    },
+    "svg_logo": {
+      "uuid": "8c9ae91d-98bf-42e4-87cb-d7c7a07c5285",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/8c9ae91d98bf42e487cbd7c7a07c5285"
+    },
+    "order": 0,
+    "seo_slug": "roewe"
+  },
+  {
+    "id": 197,
+    "title": "ری را",
+    "title_en": "Reera",
+    "logo": {
+      "uuid": "13ac20ac-cd72-40e9-9d29-38615ca6034f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/13ac20accd7240e99d2938615ca6034f"
+    },
+    "svg_logo": {
+      "uuid": "c5454060-115f-42b4-aab1-2cbc0ced3935",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/c5454060115f42b4aab12cbc0ced3935"
+    },
+    "order": 54,
+    "seo_slug": "reera"
+  },
+  {
+    "id": 188,
+    "title": "ریسپکت",
+    "title_en": "Respect",
+    "logo": {
+      "uuid": "de9c6ce9-a927-4fd8-8221-bb2967dfc7c1",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/de9c6ce9a9274fd88221bb2967dfc7c1"
+    },
+    "svg_logo": {
+      "uuid": "6293400b-72a3-478c-87bb-0af1dfc49c44",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/6293400b72a3478c87bb0af1dfc49c44"
+    },
+    "order": 52,
+    "seo_slug": "respect"
+  },
+  {
+    "id": 174,
+    "title": "ریگان",
+    "title_en": "Rigan",
+    "logo": {
+      "uuid": "5a116217-3e28-4b4a-8001-94efdb61b881",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/5a1162173e284b4a800194efdb61b881"
+    },
+    "svg_logo": {
+      "uuid": "67f7d6a9-a61b-4ec6-a984-d79683ff36b9",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/67f7d6a9a61b4ec6a984d79683ff36b9"
+    },
+    "order": 31,
+    "seo_slug": "rigan"
+  },
+  {
+    "id": 242,
+    "title": "زامیاد",
+    "title_en": "Zamyad",
+    "logo": {
+      "uuid": "d9e6fd37-19b1-426b-af48-29b5ddb3208a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/d9e6fd3719b1426baf4829b5ddb3208a"
+    },
+    "svg_logo": {
+      "uuid": "7f127a88-8e2a-4c84-ae91-947dfb1f2067",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/7f127a888e2a4c84ae91947dfb1f2067"
+    },
+    "order": 34,
+    "seo_slug": "zamyad"
+  },
+  {
+    "id": 195,
+    "title": "زد ایکس اتو",
+    "title_en": "ZX Auto",
+    "logo": {
+      "uuid": "bcc222e8-2f9d-4022-a990-e383dd182e19",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/bcc222e82f9d4022a990e383dd182e19"
+    },
+    "svg_logo": {
+      "uuid": "2ae657bd-1b23-41ff-80f9-15e184a32acc",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/2ae657bd1b2341ff80f915e184a32acc"
+    },
+    "order": 51,
+    "seo_slug": "zxauto"
+  },
+  {
+    "id": 161,
+    "title": "زوتی",
+    "title_en": "Zotye",
+    "logo": {
+      "uuid": "03e64d4c-ab1e-4d79-91f0-2c1fe16176d2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/03e64d4cab1e4d7991f02c1fe16176d2"
+    },
+    "svg_logo": {
+      "uuid": "f28fde4d-c905-4878-bff5-4cb580698a2d",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/f28fde4dc9054878bff54cb580698a2d"
+    },
+    "order": 50,
+    "seo_slug": "zotye"
+  },
+  {
+    "id": 253,
+    "title": "سئات",
+    "title_en": "Seat",
+    "logo": {
+      "uuid": "3f0620fa-8526-4208-a4a4-4d3479c32074",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/3f0620fa85264208a4a44d3479c32074"
+    },
+    "svg_logo": {
+      "uuid": "00511479-9ab9-4d10-a0b1-021a0eab7a94",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/005114799ab94d10a0b1021a0eab7a94"
+    },
+    "order": 0,
+    "seo_slug": "seat"
+  },
+  {
+    "id": 111,
+    "title": "سانگ یانگ (کی جی ام)",
+    "title_en": "KGM",
+    "logo": {
+      "uuid": "45e4b922-fa09-430b-8129-9ed9211cf03c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/45e4b922fa09430b81299ed9211cf03c"
+    },
+    "svg_logo": {
+      "uuid": "b8f60da2-0fca-4473-8b05-fa38068bf561",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/b8f60da20fca44738b05fa38068bf561"
+    },
+    "order": 29,
+    "seo_slug": "ssangyong"
+  },
+  {
+    "id": 140,
+    "title": "ساینا",
+    "title_en": "Saina",
+    "logo": {
+      "uuid": "4d09298d-fe9d-43dd-8922-17bcf3a7617e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/4d09298dfe9d43dd892217bcf3a7617e"
+    },
+    "svg_logo": {
+      "uuid": "a99449e7-d4d2-4031-b3c2-d755a62237ac",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/a99449e7d4d24031b3c2d755a62237ac"
+    },
+    "order": 94,
+    "seo_slug": "saina"
+  },
+  {
+    "id": 141,
+    "title": "سمند",
+    "title_en": "Samand",
+    "logo": {
+      "uuid": "8fb4efc4-1d7f-44ea-a2b6-8848be638ae4",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/8fb4efc41d7f44eaa2b68848be638ae4"
+    },
+    "svg_logo": {
+      "uuid": "0c56bfa8-70b2-4609-ad0f-bff80693f8f4",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/0c56bfa870b24609ad0fbff80693f8f4"
+    },
+    "order": 96,
+    "seo_slug": "samand"
+  },
+  {
+    "id": 193,
+    "title": "سهند",
+    "title_en": "Sahand",
+    "logo": {
+      "uuid": "617f17c1-548c-4c30-ba2d-4e9d518f19e2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/617f17c1548c4c30ba2d4e9d518f19e2"
+    },
+    "svg_logo": {
+      "uuid": "4385794d-f748-4efd-815b-45bd470721a2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/4385794df7484efd815b45bd470721a2"
+    },
+    "order": 77,
+    "seo_slug": "sahand"
+  },
+  {
+    "id": 180,
+    "title": "سوئیست",
+    "title_en": "Soueast",
+    "logo": {
+      "uuid": "1f1b7354-41be-4a72-9110-2a4018c19120",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/1f1b735441be4a7291102a4018c19120"
+    },
+    "svg_logo": {
+      "uuid": "3b039c55-1220-4f0e-a10b-4ad932ce3784",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/3b039c5512204f0ea10b4ad932ce3784"
+    },
+    "order": 16,
+    "seo_slug": "soueast"
+  },
+  {
+    "id": 162,
+    "title": "سوبارو",
+    "title_en": "Subaru",
+    "logo": {
+      "uuid": "45f97ac5-f40c-4e03-b0e8-2131e69f261b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/45f97ac5f40c4e03b0e82131e69f261b"
+    },
+    "svg_logo": {
+      "uuid": "a90f6a07-ea41-49ac-bacb-f251b46f2df4",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/a90f6a07ea4149acbacbf251b46f2df4"
+    },
+    "order": 28,
+    "seo_slug": "subaru"
+  },
+  {
+    "id": 114,
+    "title": "سوزوکی",
+    "title_en": "Suzuki",
+    "logo": {
+      "uuid": "0b31f34f-3fbe-4e88-b9a5-9db886d16ec5",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/0b31f34f3fbe4e88b9a59db886d16ec5"
+    },
+    "svg_logo": {
+      "uuid": "7af39eb0-6b21-495c-92a7-2acfc8acb53b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/7af39eb06b21495c92a72acfc8acb53b"
+    },
+    "order": 49,
+    "seo_slug": "suzuki"
+  },
+  {
+    "id": 115,
+    "title": "سیتروئن",
+    "title_en": "Citroen",
+    "logo": {
+      "uuid": "eebfaa7e-261d-4d6e-9dd1-f7a5af04c593",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/eebfaa7e261d4d6e9dd1f7a5af04c593"
+    },
+    "svg_logo": {
+      "uuid": "c5a42dff-f1a0-4326-a414-124257d66aa0",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/c5a42dfff1a04326a414124257d66aa0"
+    },
+    "order": 24,
+    "seo_slug": "citroen"
+  },
+  {
+    "id": 169,
+    "title": "شاهین",
+    "title_en": "Shahin",
+    "logo": {
+      "uuid": "de39fce4-2383-4258-b997-1b6a8ffafb69",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/de39fce423834258b9971b6a8ffafb69"
+    },
+    "svg_logo": {
+      "uuid": "3b52181d-488d-4e5b-9a60-d943b321de17",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/3b52181d488d4e5b9a60d943b321de17"
+    },
+    "order": 93,
+    "seo_slug": "shahin"
+  },
+  {
+    "id": 265,
+    "title": "شوال",
+    "title_en": "Cheval",
+    "logo": {
+      "uuid": "572813bf-694c-4655-a538-c38acf45e767",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/572813bf694c4655a538c38acf45e767"
+    },
+    "svg_logo": {
+      "uuid": "91bb5fd6-2722-4d7f-99b1-8f79b7483540",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/91bb5fd627224d7f99b18f79b7483540"
+    },
+    "order": 0,
+    "seo_slug": "cheval"
+  },
+  {
+    "id": 173,
+    "title": "فردا",
+    "title_en": "Farda",
+    "logo": {
+      "uuid": "bb534cbb-7881-4998-823f-48ada678cba2",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/bb534cbb78814998823f48ada678cba2"
+    },
+    "svg_logo": {
+      "uuid": "6f566da3-8d30-465e-acce-630d13f4e010",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/6f566da38d30465eacce630d13f4e010"
+    },
+    "order": 83,
+    "seo_slug": "farda"
+  },
+  {
+    "id": 163,
+    "title": "فوتون",
+    "title_en": "Foton",
+    "logo": {
+      "uuid": "933dd4e0-f9aa-4cfa-8a25-763323517633",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/933dd4e0f9aa4cfa8a25763323517633"
+    },
+    "svg_logo": {
+      "uuid": "de5bff21-b79e-46ee-9723-0e98fb6c2a1b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/de5bff21b79e46ee97230e98fb6c2a1b"
+    },
+    "order": 48,
+    "seo_slug": "foton"
+  },
+  {
+    "id": 117,
+    "title": "فولکس",
+    "title_en": "Volkswagen",
+    "logo": {
+      "uuid": "187dd495-b4ac-44b8-8011-25f6f6c87f24",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/187dd495b4ac44b8801125f6f6c87f24"
+    },
+    "svg_logo": {
+      "uuid": "d22be01b-c33f-49bd-8e3d-b6bbfa1d9dc5",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/d22be01bc33f49bd8e3db6bbfa1d9dc5"
+    },
+    "order": 47,
+    "seo_slug": "volkswagen"
+  },
+  {
+    "id": 187,
+    "title": "فونیکس",
+    "title_en": "Fownix",
+    "logo": {
+      "uuid": "972eefd0-7a92-47d3-95ac-4b65089d237a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/972eefd07a9247d395ac4b65089d237a"
+    },
+    "svg_logo": {
+      "uuid": "2c0a887a-ff63-4375-a8c0-e272157ea96d",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/2c0a887aff634375a8c0e272157ea96d"
+    },
+    "order": 89,
+    "seo_slug": "fownix"
+  },
+  {
+    "id": 164,
+    "title": "فیات",
+    "title_en": "Fiat",
+    "logo": {
+      "uuid": "f3fa0d1d-788c-4b49-8d31-1503dfa344ae",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/f3fa0d1d788c4b498d311503dfa344ae"
+    },
+    "svg_logo": {
+      "uuid": "8a5e7279-e7ac-469c-9e78-4c5342fb2c05",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/8a5e7279e7ac469c9e784c5342fb2c05"
+    },
+    "order": 46,
+    "seo_slug": "fiat"
+  },
+  {
+    "id": 172,
+    "title": "فیدلیتی",
+    "title_en": "Fidelity",
+    "logo": {
+      "uuid": "b5e28d6a-d0cb-4815-867b-4e97c3f952bc",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/b5e28d6ad0cb4815867b4e97c3f952bc"
+    },
+    "svg_logo": {
+      "uuid": "f58c5464-ce39-4638-a6a1-c9ac514f210e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/f58c5464ce394638a6a1c9ac514f210e"
+    },
+    "order": 53,
+    "seo_slug": "fidelity"
+  },
+  {
+    "id": 165,
+    "title": "کاپرا",
+    "title_en": "Capra",
+    "logo": {
+      "uuid": "976da25a-2a87-487e-91b2-dafe5f086f6e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/976da25a2a87487e91b2dafe5f086f6e"
+    },
+    "svg_logo": {
+      "uuid": "8d3f6492-0f4d-4663-94c2-a969e4697f07",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/8d3f64920f4d466394c2a969e4697f07"
+    },
+    "order": 45,
+    "seo_slug": "capra"
+  },
+  {
+    "id": 256,
+    "title": "کارا",
+    "title_en": "Cara",
+    "logo": {
+      "uuid": "8090940c-c3d1-467a-88c7-c2bb4d917633",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/8090940cc3d1467a88c7c2bb4d917633"
+    },
+    "svg_logo": {
+      "uuid": "59a8cd66-b5bd-4b27-8358-ff800d69a18f",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/59a8cd66b5bd4b278358ff800d69a18f"
+    },
+    "order": 0,
+    "seo_slug": "cara"
+  },
+  {
+    "id": 143,
+    "title": "کوییک",
+    "title_en": "Quik",
+    "logo": {
+      "uuid": "61e6f1d5-8080-41aa-9041-34688f4042ae",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/61e6f1d5808041aa904134688f4042ae"
+    },
+    "svg_logo": {
+      "uuid": "bedc25dd-665f-41f4-8a7b-9422869b359e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/bedc25dd665f41f48a7b9422869b359e"
+    },
+    "order": 97,
+    "seo_slug": "quick"
+  },
+  {
+    "id": 120,
+    "title": "کیا",
+    "title_en": "Kia",
+    "logo": {
+      "uuid": "630bc94b-78cc-422b-90be-bd15cca1bf08",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/630bc94b78cc422b90bebd15cca1bf08"
+    },
+    "svg_logo": {
+      "uuid": "88acddde-471b-4309-937f-611b59cf0c5e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/88acddde471b4309937f611b59cf0c5e"
+    },
+    "order": 79,
+    "seo_slug": "kia"
+  },
+  {
+    "id": 171,
+    "title": "کی ام سی",
+    "title_en": "KMC",
+    "logo": {
+      "uuid": "856caacc-f1b7-4b9c-9407-6be0cb07d1c6",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/856caaccf1b74b9c94076be0cb07d1c6"
+    },
+    "svg_logo": {
+      "uuid": "88e3b833-ba41-4705-a5f5-d049ac44e962",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/88e3b833ba414705a5f5d049ac44e962"
+    },
+    "order": 84,
+    "seo_slug": "kmc"
+  },
+  {
+    "id": 200,
+    "title": "کینگ لینگ",
+    "title_en": "Kingling",
+    "logo": {
+      "uuid": "e2cf58d0-320b-440f-815f-3e33d88d7587",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/e2cf58d0320b440f815f3e33d88d7587"
+    },
+    "svg_logo": {
+      "uuid": "6e86d2db-cccc-4b8b-81b1-0f80edd9635d",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/6e86d2dbcccc4b8b81b10f80edd9635d"
+    },
+    "order": 60,
+    "seo_slug": "kingling"
+  },
+  {
+    "id": 144,
+    "title": "گریت وال",
+    "title_en": "Great Wall",
+    "logo": {
+      "uuid": "b0bb2479-f134-46d0-9b17-bfa57b8ddb2a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/b0bb2479f13446d09b17bfa57b8ddb2a"
+    },
+    "svg_logo": {
+      "uuid": "765dd4ea-f242-4574-885f-5e3e5726bcfe",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/765dd4eaf2424574885f5e3e5726bcfe"
+    },
+    "order": 6,
+    "seo_slug": "greatwall"
+  },
+  {
+    "id": 196,
+    "title": "گک (جی ای سی)",
+    "title_en": "GAC",
+    "logo": {
+      "uuid": "80904942-49c5-48ad-8575-3ea6791408b6",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/8090494249c548ad85753ea6791408b6"
+    },
+    "svg_logo": {
+      "uuid": "20657153-1566-44dc-b0b0-03f23adc1fbe",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/20657153156644dcb0b003f23adc1fbe"
+    },
+    "order": 44,
+    "seo_slug": "gac"
+  },
+  {
+    "id": 185,
+    "title": "لاماری",
+    "title_en": "Lamari",
+    "logo": {
+      "uuid": "a193128f-b13f-4a4b-b6b4-c890abf58c44",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/a193128fb13f4a4bb6b4c890abf58c44"
+    },
+    "svg_logo": {
+      "uuid": "c2786ebc-5a56-4b70-85b0-358425975f97",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/c2786ebc5a564b7085b0358425975f97"
+    },
+    "order": 81,
+    "seo_slug": "lamari"
+  },
+  {
+    "id": 254,
+    "title": "لاماکو",
+    "title_en": "Lamaco",
+    "logo": {
+      "uuid": "204001ea-698c-479e-9902-4c7c2591562c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/204001ea698c479e99024c7c2591562c"
+    },
+    "svg_logo": {
+      "uuid": "04fe2551-378e-45fb-893e-9639bfbc909d",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/04fe2551378e45fb893e9639bfbc909d"
+    },
+    "order": 0,
+    "seo_slug": "lamaco"
+  },
+  {
+    "id": 123,
+    "title": "لکسوس",
+    "title_en": "Lexus",
+    "logo": {
+      "uuid": "9a782c1f-e10b-4326-aa30-789e6af4af64",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/9a782c1fe10b4326aa30789e6af4af64"
+    },
+    "svg_logo": {
+      "uuid": "4a6daf2a-a036-40be-982d-31ed74b3dac4",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/4a6daf2aa03640be982d31ed74b3dac4"
+    },
+    "order": 23,
+    "seo_slug": "lexus"
+  },
+  {
+    "id": 166,
+    "title": "لندرور",
+    "title_en": "Land Rover",
+    "logo": {
+      "uuid": "4507fff1-7687-452c-93cc-63d91f07bdad",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/4507fff17687452c93cc63d91f07bdad"
+    },
+    "svg_logo": {
+      "uuid": "1f6c8337-187a-4620-8aae-48c3993dd861",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/1f6c8337187a46208aae48c3993dd861"
+    },
+    "order": 12,
+    "seo_slug": "landrover"
+  },
+  {
+    "id": 249,
+    "title": "لندمارک",
+    "title_en": "Landmark",
+    "logo": {
+      "uuid": "3f66b732-e642-4247-bcef-da3b07dfd52c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/3f66b732e6424247bcefda3b07dfd52c"
+    },
+    "svg_logo": {
+      "uuid": "eff79e10-fecd-48a9-a011-a2921ada117a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/eff79e10fecd48a9a011a2921ada117a"
+    },
+    "order": 0,
+    "seo_slug": "landmark"
+  },
+  {
+    "id": 181,
+    "title": "لوتوس",
+    "title_en": "Lotus",
+    "logo": {
+      "uuid": "4fde7527-2409-4ead-bf59-d98a33bcf8b6",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/4fde752724094eadbf59d98a33bcf8b6"
+    },
+    "svg_logo": {
+      "uuid": "6d88edfe-f6b6-4c00-b25c-0109b3417aef",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/6d88edfef6b64c00b25c0109b3417aef"
+    },
+    "order": 13,
+    "seo_slug": "lotus"
+  },
+  {
+    "id": 204,
+    "title": "لوکانو",
+    "title_en": "Lucano",
+    "logo": {
+      "uuid": "569d03f6-3367-4370-9597-38fc0e9517a3",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/569d03f633674370959738fc0e9517a3"
+    },
+    "svg_logo": {
+      "uuid": "6633f140-ea50-4707-a816-7704e676b962",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/6633f140ea504707a8167704e676b962"
+    },
+    "order": 43,
+    "seo_slug": "lucano"
+  },
+  {
+    "id": 179,
+    "title": "لوکسژن",
+    "title_en": "Luxgen",
+    "logo": {
+      "uuid": "578fa30e-b0ad-40b9-9259-bd1dfa8ff540",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/578fa30eb0ad40b99259bd1dfa8ff540"
+    },
+    "svg_logo": {
+      "uuid": "77f6e977-36b4-40c1-9652-86f8b3cd5073",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/77f6e97736b440c1965286f8b3cd5073"
+    },
+    "order": 17,
+    "seo_slug": "luxgen"
+  },
+  {
+    "id": 241,
+    "title": "لونا",
+    "title_en": "Luna",
+    "logo": {
+      "uuid": "960a53b8-9057-44d8-aae4-1e9ef4356712",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/960a53b8905744d8aae41e9ef4356712"
+    },
+    "svg_logo": {
+      "uuid": "48c92e6a-2f69-47fd-a100-8594f9f2d07a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/48c92e6a2f6947fda1008594f9f2d07a"
+    },
+    "order": 42,
+    "seo_slug": "luna"
+  },
+  {
+    "id": 240,
+    "title": "لیپ موتور",
+    "title_en": "Leapmotor",
+    "logo": {
+      "uuid": "d82d5427-320b-4f66-a361-1d3542e746fc",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/d82d5427320b4f66a3611d3542e746fc"
+    },
+    "svg_logo": {
+      "uuid": "7dbf89e7-a4f8-4cee-b73a-80c7242ca616",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/7dbf89e7a4f84ceeb73a80c7242ca616"
+    },
+    "order": 41,
+    "seo_slug": "leapmotor"
+  },
+  {
+    "id": 124,
+    "title": "لیفان",
+    "title_en": "Lifan",
+    "logo": {
+      "uuid": "e7f812f2-c8fc-4194-8306-d6c1b85e68c6",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/e7f812f2c8fc41948306d6c1b85e68c6"
+    },
+    "svg_logo": {
+      "uuid": "21597834-dba0-4bee-9c3a-741fce4e7ad0",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/21597834dba04bee9c3a741fce4e7ad0"
+    },
+    "order": 85,
+    "seo_slug": "lifan"
+  },
+  {
+    "id": 125,
+    "title": "مازراتی",
+    "title_en": "Maserati",
+    "logo": {
+      "uuid": "9d539045-2784-4a15-b9fb-3cfacdfca1db",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/9d53904527844a15b9fb3cfacdfca1db"
+    },
+    "svg_logo": {
+      "uuid": "0583a59c-81b8-4c9e-a6f6-6f9648a2788c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/0583a59c81b84c9ea6f66f9648a2788c"
+    },
+    "order": 14,
+    "seo_slug": "maserati"
+  },
+  {
+    "id": 95,
+    "title": "مرسدس بنز",
+    "title_en": "Mercedes-Benz",
+    "logo": {
+      "uuid": "4be5dd54-b2b7-4ac2-b3ff-8120c091aaf4",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/4be5dd54b2b74ac2b3ff8120c091aaf4"
+    },
+    "svg_logo": {
+      "uuid": "587ff28b-d626-4809-8522-aa04a16d3a36",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/587ff28bd62648098522aa04a16d3a36"
+    },
+    "order": 63,
+    "seo_slug": "mercedesbenz"
+  },
+  {
+    "id": 127,
+    "title": "مزدا",
+    "title_en": "Mazda",
+    "logo": {
+      "uuid": "6cc5e95d-9bf2-475f-911f-af796c3d9fc8",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/6cc5e95d9bf2475f911faf796c3d9fc8"
+    },
+    "svg_logo": {
+      "uuid": "df259660-88e2-48c1-828e-d48cd2195dba",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/df25966088e248c1828ed48cd2195dba"
+    },
+    "order": 76,
+    "seo_slug": "mazda"
+  },
+  {
+    "id": 183,
+    "title": "مکث موتور",
+    "title_en": "Max Motor",
+    "logo": {
+      "uuid": "d4e11740-c366-427f-9d3c-99fb9bb68a42",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/d4e11740c366427f9d3c99fb9bb68a42"
+    },
+    "svg_logo": {
+      "uuid": "d9b89766-6406-481f-ba13-00cd17abaf23",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/d9b897666406481fba1300cd17abaf23"
+    },
+    "order": 75,
+    "seo_slug": "maxmotor"
+  },
+  {
+    "id": 239,
+    "title": "مکسوس",
+    "title_en": "Maxus",
+    "logo": {
+      "uuid": "1e3a4127-b491-40dc-b934-d361f75c1127",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/1e3a4127b49140dcb934d361f75c1127"
+    },
+    "svg_logo": {
+      "uuid": "a4b6d7fc-3f09-474d-a52a-86bd305b3766",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/a4b6d7fc3f09474da52a86bd305b3766"
+    },
+    "order": 39,
+    "seo_slug": "maxus"
+  },
+  {
+    "id": 128,
+    "title": "میتسوبیشی",
+    "title_en": "Mitsubishi",
+    "logo": {
+      "uuid": "358c4266-f0d2-40f3-a6ae-5a5e2ddf2385",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/358c4266f0d240f3a6ae5a5e2ddf2385"
+    },
+    "svg_logo": {
+      "uuid": "8abc0c52-3d7c-47b4-8260-81eb7ba24873",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/8abc0c523d7c47b4826081eb7ba24873"
+    },
+    "order": 38,
+    "seo_slug": "mitsubishi"
+  },
+  {
+    "id": 167,
+    "title": "مینی",
+    "title_en": "Mini",
+    "logo": {
+      "uuid": "81b57293-5276-4610-98ec-e80b13e691d3",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/81b572935276461098ece80b13e691d3"
+    },
+    "svg_logo": {
+      "uuid": "c3b73337-1a86-46b1-a9d6-2935a46f4206",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/c3b733371a8646b1a9d62935a46f4206"
+    },
+    "order": 22,
+    "seo_slug": "mini"
+  },
+  {
+    "id": 259,
+    "title": "نوو",
+    "title_en": "Nevo",
+    "logo": {
+      "uuid": "25cf364b-d826-41ae-99f1-02bf5b9e19ad",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/25cf364bd82641ae99f102bf5b9e19ad"
+    },
+    "svg_logo": {
+      "uuid": "5624869e-0177-470a-8940-56fc79e86e2e",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/5624869e0177470a894056fc79e86e2e"
+    },
+    "order": 0,
+    "seo_slug": "nevo"
+  },
+  {
+    "id": 129,
+    "title": "نیسان",
+    "title_en": "Nissan",
+    "logo": {
+      "uuid": "e756c90a-aef5-42e6-9bf7-56c28145be79",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/e756c90aaef542e69bf756c28145be79"
+    },
+    "svg_logo": {
+      "uuid": "c2fe5cd3-bfd5-4b35-ab42-7c0b755a1924",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/c2fe5cd3bfd54b35ab427c0b755a1924"
+    },
+    "order": 82,
+    "seo_slug": "nissan"
+  },
+  {
+    "id": 184,
+    "title": "هافی",
+    "title_en": "Hafei",
+    "logo": {
+      "uuid": "96a52716-a5e0-45e7-8d82-bfa719f37e62",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/96a52716a5e045e78d82bfa719f37e62"
+    },
+    "svg_logo": {
+      "uuid": "8451ee67-650d-4116-8add-8048a0821ad3",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/8451ee67650d41168add8048a0821ad3"
+    },
+    "order": 4,
+    "seo_slug": "hafei"
+  },
+  {
+    "id": 147,
+    "title": "هاوال",
+    "title_en": "Haval",
+    "logo": {
+      "uuid": "72eed6e4-af29-4078-960d-ba71d4526619",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/72eed6e4af294078960dba71d4526619"
+    },
+    "svg_logo": {
+      "uuid": "810b84f5-b55e-4fed-83bc-3406c3de005c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/810b84f5b55e4fed83bc3406c3de005c"
+    },
+    "order": 37,
+    "seo_slug": "haval"
+  },
+  {
+    "id": 130,
+    "title": "هایما",
+    "title_en": "Haima",
+    "logo": {
+      "uuid": "b24ddfe2-3ed7-47b1-9c96-050f58e1b721",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/b24ddfe23ed747b19c96050f58e1b721"
+    },
+    "svg_logo": {
+      "uuid": "4c47e873-cae1-4b62-90af-909192d7e62a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/4c47e873cae14b6290af909192d7e62a"
+    },
+    "order": 87,
+    "seo_slug": "haima"
+  },
+  {
+    "id": 148,
+    "title": "هن‌تنگ",
+    "title_en": "Hanteng",
+    "logo": {
+      "uuid": "ee7f4912-4e1a-4349-99c4-aba21d465e7a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/ee7f49124e1a434999c4aba21d465e7a"
+    },
+    "svg_logo": {
+      "uuid": "fe47d17f-55e3-449b-bed1-7065bd671c4b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/fe47d17f55e3449bbed17065bd671c4b"
+    },
+    "order": 5,
+    "seo_slug": "hanteng"
+  },
+  {
+    "id": 131,
+    "title": "هوندا",
+    "title_en": "Honda",
+    "logo": {
+      "uuid": "731f8dc7-292e-4fd8-9a4a-a0bc2cfb4f26",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/731f8dc7292e4fd89a4aa0bc2cfb4f26"
+    },
+    "svg_logo": {
+      "uuid": "bd7a1252-697d-44aa-9757-fe6a7aa8d48b",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/bd7a1252697d44aa9757fe6a7aa8d48b"
+    },
+    "order": 36,
+    "seo_slug": "honda"
+  },
+  {
+    "id": 192,
+    "title": "هونگچی",
+    "title_en": "Hongqi",
+    "logo": {
+      "uuid": "a944cc9e-7882-4d3a-aa36-84363084dfa7",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/a944cc9e78824d3aaa3684363084dfa7"
+    },
+    "svg_logo": {
+      "uuid": "8cfa5eec-413f-4879-80f7-8b4833418f38",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/8cfa5eec413f487980f78b4833418f38"
+    },
+    "order": 35,
+    "seo_slug": "hongqi"
+  },
+  {
+    "id": 132,
+    "title": "هیوندای",
+    "title_en": "Hyundai",
+    "logo": {
+      "uuid": "0f02c67b-a223-4b41-9b0e-7d8a3c970db7",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/0f02c67ba2234b419b0e7d8a3c970db7"
+    },
+    "svg_logo": {
+      "uuid": "7a9220c1-4dc7-45fb-8ec9-ccc8e3ebdfd5",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/7a9220c14dc745fb8ec9ccc8e3ebdfd5"
+    },
+    "order": 98,
+    "seo_slug": "hyundai"
+  },
+  {
+    "id": 133,
+    "title": "ولوو",
+    "title_en": "Volvo",
+    "logo": {
+      "uuid": "16cf8193-6566-41cf-9cab-da1c3cd69894",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/16cf8193656641cf9cabda1c3cd69894"
+    },
+    "svg_logo": {
+      "uuid": "d0478fbc-ad37-4999-8102-1299e7700ac1",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/d0478fbcad37499981021299e7700ac1"
+    },
+    "order": 10,
+    "seo_slug": "volvo"
+  },
+  {
+    "id": 238,
+    "title": "ونوسیا",
+    "title_en": "Venucia",
+    "logo": {
+      "uuid": "99448b91-c020-401c-9b82-c51ed2ac0caa",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/99448b91c020401c9b82c51ed2ac0caa"
+    },
+    "svg_logo": {
+      "uuid": "f0468cf3-ec34-4835-9f75-bf83a3ae9b3c",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/f0468cf3ec3448359f75bf83a3ae9b3c"
+    },
+    "order": 40,
+    "seo_slug": "venucia"
+  },
+  {
+    "id": 248,
+    "title": "وویا",
+    "title_en": "Voyah",
+    "logo": {
+      "uuid": "0a4dfa6b-a68b-451f-ba3b-467b4901ac9a",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/0a4dfa6ba68b451fba3b467b4901ac9a"
+    },
+    "svg_logo": {
+      "uuid": "d1fd0a81-1d7e-4fbf-9fe3-1908346b4180",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/d1fd0a811d7e4fbf9fe31908346b4180"
+    },
+    "order": 0,
+    "seo_slug": "voyah"
+  },
+  {
+    "id": 170,
+    "title": "یوآز",
+    "title_en": "UAZ",
+    "logo": {
+      "uuid": "69c0f4e9-2638-4954-aeb3-d0af10dc5424",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/png",
+      "url": "https://media.khodro45.com/public/image/69c0f4e926384954aeb3d0af10dc5424"
+    },
+    "svg_logo": {
+      "uuid": "74f025b6-9886-431b-9add-8d5b1050fe61",
+      "file_type": {
+        "id": 1,
+        "title": "image"
+      },
+      "mime_type": "image/svg+xml",
+      "url": "https://media.khodro45.com/public/image/74f025b69886431b9add8d5b1050fe61"
+    },
+    "order": 19,
+    "seo_slug": "uaz"
+  }
+]
