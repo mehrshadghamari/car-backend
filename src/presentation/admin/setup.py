@@ -9,6 +9,7 @@ from starlette.requests import Request
 from starlette.responses import Response
 
 from src.infrastructure.config import get_settings
+from src.presentation.routing_paths import portal_results_path, portal_user_prefix
 from src.infrastructure.persistence.models import (
     CarBrandModel,
     CarModelModel,
@@ -166,7 +167,7 @@ class AdminAuth(AuthProvider):
         return response
 
 
-def setup_admin(app) -> Admin:
+def setup_admin(app, admin_base_url: str = "/admin") -> Admin:
     settings = get_settings()
     url = settings.database_url
     if "sqlite" in url:
@@ -188,13 +189,14 @@ def setup_admin(app) -> Admin:
     admin = Admin(
         engine,
         title="Car Opportunity Admin",
+        base_url=admin_base_url,
         auth_provider=AdminAuth(),
         middlewares=[],
         templates_dir=templates_dir,
     )
 
-    admin.add_view(Link(label="Landing Page", icon="fa fa-home", url="/"))
-    admin.add_view(Link(label="Crawl Results", icon="fa fa-table", url="/results"))
+    admin.add_view(Link(label="User Portal", icon="fa fa-home", url=f"{portal_user_prefix()}/"))
+    admin.add_view(Link(label="Crawl Results", icon="fa fa-table", url=portal_results_path()))
     admin.add_view(
         DropDown(
             "Catalog",

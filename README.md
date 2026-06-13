@@ -38,11 +38,9 @@ bash scripts/local-down.sh
 
 | Page | URL |
 |------|-----|
-| Register purchase | http://127.0.0.1:8000/ |
-| **پنل کاربر (فارسی / OTP)** | http://127.0.0.1:8000/portal/ |
-| Crawl results | http://127.0.0.1:8000/results |
-| Admin | http://127.0.0.1:8000/admin/ (`admin` / `admin`) |
-| API docs | http://127.0.0.1:8000/docs |
+| Register / login (users) | http://127.0.0.1:8000/portal/ |
+| Staff admin (secret UUID path) | see `.env` `PORTAL_PATH_UUID_1/2` or local-first-run output |
+| Crawl results (staff) | `/portal/{uuid1}/{uuid2}/results` |
 
 پنل کاربر فارسی (RTL) — کد آزمایشی OTP: **11111** (see `user-portal/README.md`)
 

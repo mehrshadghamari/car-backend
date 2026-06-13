@@ -29,10 +29,13 @@ load_deploy_config() {
   ENABLE_SSL="${ENABLE_SSL:-true}"
   CERTBOT_EMAIL="${CERTBOT_EMAIL:-$(_read_deploy_config_var "$root" CERTBOT_EMAIL)}"
   METABASE_HOST="${METABASE_HOST:-meta.${DOMAIN}}"
-  METABASE_DB_USER="${METABASE_DB_USER:-metabase_readonly}"
-  METABASE_DB_PASS="${METABASE_DB_PASS:-CarAlertMetaDb2026}"
+  METABASE_USE_READONLY="${METABASE_USE_READONLY:-false}"
+  METABASE_DB_USER="${METABASE_DB_USER:-$DB_USER}"
+  METABASE_DB_PASS="${METABASE_DB_PASS:-$(_read_deploy_config_var "$root" DB_PASS)}"
   METABASE_ADMIN_EMAIL="${METABASE_ADMIN_EMAIL:-mehrshad.sodoor2003@gmail.com}"
   METABASE_ADMIN_PASSWORD="${METABASE_ADMIN_PASSWORD:-CarAlertMeta2026}"
+  OTP_SANDBOX="${OTP_SANDBOX:-true}"
+  OTP_SANDBOX_CODE="${OTP_SANDBOX_CODE:-11111}"
   PYTHON="${PYTHON:-python3}"
 }
 
@@ -168,10 +171,17 @@ generate_secret_key() {
   openssl rand -hex 32
 }
 
+generate_uuid() {
+  python3 -c "import uuid; print(uuid.uuid4())"
+}
+
 write_production_env() {
-  local auth_secret redis_url db_url app_host cors_origins
+  local auth_secret redis_url db_url app_host cors_origins portal_uuid1 portal_uuid2 staff_base
 
   auth_secret="$(generate_secret_key)"
+  portal_uuid1="${PORTAL_PATH_UUID_1:-$(generate_uuid)}"
+  portal_uuid2="${PORTAL_PATH_UUID_2:-$(generate_uuid)}"
+  staff_base="/portal/${portal_uuid1}/${portal_uuid2}"
 
   if [[ "$USE_POSTGRES" == "true" ]]; then
     db_url="postgresql+asyncpg://${DB_USER}:${DB_PASS}@localhost:5432/${DB_NAME}"
@@ -196,8 +206,12 @@ APP_ENV=production
 LOG_LEVEL=INFO
 
 AUTH_SECRET_KEY=${auth_secret}
-OTP_SANDBOX=false
+OTP_SANDBOX=${OTP_SANDBOX}
+OTP_SANDBOX_CODE=${OTP_SANDBOX_CODE}
 CORS_ORIGINS=${cors_origins}
+
+PORTAL_PATH_UUID_1=${portal_uuid1}
+PORTAL_PATH_UUID_2=${portal_uuid2}
 
 DATABASE_URL=${db_url}
 
@@ -236,7 +250,20 @@ EOF
 Car Backend deploy credentials — $(date -Iseconds)
 Domain: ${DOMAIN}
 App dir: ${APP_DIR}
-Admin panel: https://${DOMAIN}/admin/  (default login: admin / admin — change in code for production)
+
+User portal (public):
+  https://${DOMAIN}/portal/
+
+Staff URLs (private UUID path):
+  Admin:         https://${DOMAIN}${staff_base}/admin/
+  API docs:      https://${DOMAIN}${staff_base}/docs
+  Crawl results: https://${DOMAIN}${staff_base}/results
+
+OTP sandbox (no SMS yet):
+  OTP_SANDBOX=true
+  Test code: ${OTP_SANDBOX_CODE}
+
+Default admin login: admin / admin
 
 PostgreSQL:
   database: ${DB_NAME}

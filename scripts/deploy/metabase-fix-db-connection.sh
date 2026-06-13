@@ -17,8 +17,12 @@ load_deploy_config
 METABASE_PORT="${METABASE_PORT:-3000}"
 METABASE_DATA="/var/lib/metabase"
 
-echo "==> Metabase DB connection (app credentials)"
+echo "==> Metabase DB connection (main app database)"
 echo "    Host: 127.0.0.1  DB: ${DB_NAME}  User: ${DB_USER}"
+
+# shellcheck disable=SC1091
+source "$ROOT/scripts/deploy/lib/metabase-postgres.sh"
+ensure_metabase_pg_access "$DB_NAME" "$DB_USER"
 
 if ! PGPASSWORD="$DB_PASS" psql -h 127.0.0.1 -U "$DB_USER" -d "$DB_NAME" -c "SELECT 1" >/dev/null 2>&1; then
   echo "ERROR: App DB login failed — check DB_USER/DB_PASS in config.env"

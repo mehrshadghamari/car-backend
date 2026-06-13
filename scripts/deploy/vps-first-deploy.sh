@@ -88,14 +88,12 @@ echo "=========================================="
 echo " Deploy complete"
 echo "=========================================="
 if $SSL_OK; then
-  echo " Site:   https://${DOMAIN}/"
-  echo " Admin:  https://${DOMAIN}/admin/  (admin / admin)"
-  echo " API:    https://${DOMAIN}/docs"
+  echo " Users:  https://${DOMAIN}/portal/"
+  echo " Staff:  see ${APP_DIR}/.deploy-credentials.txt (UUID path)"
   echo " Health: https://${DOMAIN}/health"
 else
-  echo " Site:   http://${DOMAIN}/"
-  echo " Admin:  http://${DOMAIN}/admin/  (admin / admin)"
-  echo " API:    http://${DOMAIN}/docs"
+  echo " Users:  http://${DOMAIN}/portal/"
+  echo " Staff:  see ${APP_DIR}/.deploy-credentials.txt (UUID path)"
   echo " Health: http://${DOMAIN}/health"
 fi
 echo ""

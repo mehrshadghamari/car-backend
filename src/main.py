@@ -1,10 +1,11 @@
 import logging
 from pathlib import Path
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, RedirectResponse
 from fastapi.staticfiles import StaticFiles
+from starlette.responses import Response
 from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
 
 from src.domain.exceptions import DomainError, EntityNotFoundError, ValidationError
@@ -28,18 +29,39 @@ from src.presentation.api.routers import (
     share,
     users,
 )
+from src.presentation.routing_paths import (
+    is_wrong_portal_secret_path,
+    portal_admin_path,
+    portal_results_path,
+    portal_secret_prefix,
+    portal_trim_mapping_path,
+    portal_user_prefix,
+)
 
 settings = get_settings()
+_secret_prefix = portal_secret_prefix()
 logging.basicConfig(level=settings.log_level)
 
 app = FastAPI(
     title="Car Deal Opportunity Detection Platform",
     description="Vehicle opportunity detection with pluggable listing and pricing platforms",
     version="0.3.0",
+    docs_url=f"{_secret_prefix}/docs",
+    redoc_url=f"{_secret_prefix}/redoc",
+    openapi_url=f"{_secret_prefix}/openapi.json",
 )
 
 # Trust X-Forwarded-* from nginx so /admin static assets use https:// URLs.
 app.add_middleware(ProxyHeadersMiddleware, trusted_hosts="*")
+
+
+@app.middleware("http")
+async def block_guessed_portal_secret_paths(request: Request, call_next) -> Response:
+    """Return 404 for /portal/{uuid}/{uuid}/… when UUIDs are not the configured pair."""
+    if is_wrong_portal_secret_path(request.url.path):
+        return JSONResponse(status_code=404, content={"detail": "Not found"})
+    return await call_next(request)
+
 
 _origins = settings.cors_origins
 if _origins == "*":
@@ -77,39 +99,53 @@ app.include_router(flow.router, prefix="/api/v1")
 app.include_router(gateway.router)
 
 static_dir = Path(__file__).resolve().parent.parent / "static"
+portal_dir = Path(__file__).resolve().parent.parent / "user-portal"
+
 if static_dir.exists():
     app.mount("/static", StaticFiles(directory=str(static_dir)), name="static")
 
-setup_admin(app)
+# Staff routes (secret UUID prefix) must register before the public /portal static mount.
+setup_admin(app, admin_base_url=portal_admin_path())
 
 
 @app.get("/")
-async def landing_page():
-    index = static_dir / "index.html"
-    if index.exists():
-        return FileResponse(index)
-    return {"message": "Car Opportunity API", "docs": "/docs", "admin": "/admin"}
+async def root_redirect():
+    return RedirectResponse(url=f"{portal_user_prefix()}/", status_code=302)
 
 
-@app.get("/results")
+@app.get(portal_results_path())
 async def results_page():
     page = static_dir / "results.html"
     if page.exists():
         return FileResponse(page)
-    return {"message": "Results page not found"}
+    raise HTTPException(status_code=404, detail="Results page not found")
 
 
-@app.get("/trim-mapping")
+@app.get(portal_trim_mapping_path())
 async def trim_mapping_page():
     page = static_dir / "trim-mapping.html"
     if page.exists():
         return FileResponse(page)
-    return {"message": "Trim mapping page not found"}
+    raise HTTPException(status_code=404, detail="Trim mapping page not found")
 
 
-portal_dir = Path(__file__).resolve().parent.parent / "user-portal"
+@app.get("/results", include_in_schema=False)
+@app.get("/trim-mapping", include_in_schema=False)
+@app.get("/admin", include_in_schema=False)
+@app.get("/admin/{path:path}", include_in_schema=False)
+@app.get("/docs", include_in_schema=False)
+@app.get("/redoc", include_in_schema=False)
+@app.get("/openapi.json", include_in_schema=False)
+async def legacy_staff_paths_blocked():
+    raise HTTPException(status_code=404, detail="Not found")
+
+
 if portal_dir.exists():
-    app.mount("/portal", StaticFiles(directory=str(portal_dir), html=True), name="user-portal")
+    app.mount(
+        portal_user_prefix(),
+        StaticFiles(directory=str(portal_dir), html=True),
+        name="user-portal",
+    )
 
 
 @app.exception_handler(EntityNotFoundError)

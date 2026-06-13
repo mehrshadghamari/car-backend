@@ -42,11 +42,6 @@ ${LISTEN_LINES}
         add_header Cache-Control "public, immutable";
     }
 
-    location /portal/ {
-        alias ${APP_DIR}/user-portal/;
-        try_files \$uri \$uri/ /portal/index.html;
-    }
-
     location / {
         proxy_set_header Host \$host;
         proxy_set_header X-Real-IP \$remote_addr;

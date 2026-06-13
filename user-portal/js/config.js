@@ -1,4 +1,4 @@
-// Point to your car-backend API (no trailing slash)
+// API base — same host as the portal (works locally and on VPS).
 window.APP_CONFIG = {
-  API_BASE: 'http://127.0.0.1:8000/api/v1',
+  API_BASE: `${window.location.origin}/api/v1`,
 };

@@ -15,7 +15,7 @@ ensure_metabase_pg_access() {
   if ! grep -q "car-backend-metabase" "$pg_hba"; then
     cat >>"$pg_hba" <<EOF
 
-# car-backend-metabase — read-only analytics user
+# car-backend-metabase — allow Metabase (Docker/host) to reach PostgreSQL
 host    ${db_name}    ${db_user}    127.0.0.1/32       scram-sha-256
 host    ${db_name}    ${db_user}    ::1/128            scram-sha-256
 host    ${db_name}    ${db_user}    172.16.0.0/12      scram-sha-256

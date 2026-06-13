@@ -9,15 +9,28 @@
 # Usage (from project root):
 #   bash scripts/load_all_catalog_data.sh
 #   bash scripts/load_all_catalog_data.sh --merge
+# On VPS (recommended):
+#   sudo -u deploy bash scripts/deploy/09-import-catalog.sh
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
-PYTHON="${PYTHON:-python3}"
 MERGE_FLAG=()
 if [[ "${1:-}" == "--merge" ]]; then
   MERGE_FLAG=(--merge)
 fi
+
+# Use project venv when present (required on VPS — system python has no deps).
+if [[ -f "$ROOT/venv/bin/activate" ]]; then
+  # shellcheck disable=SC1091
+  source "$ROOT/venv/bin/activate"
+  PYTHON="${PYTHON:-python}"
+elif [[ -n "${VIRTUAL_ENV:-}" ]]; then
+  PYTHON="${PYTHON:-python}"
+else
+  PYTHON="${PYTHON:-python3}"
+fi
+export PYTHONPATH="$ROOT"
 
 echo "=========================================="
 echo " Load all catalog data"

@@ -1,4 +1,6 @@
--- Read-only PostgreSQL user for Metabase (run as postgres superuser).
+-- OPTIONAL: read-only PostgreSQL user for Metabase.
+-- Default install uses the main app DB user (DB_USER in config.env).
+-- Only run this when METABASE_USE_READONLY=true in config.env.
 -- Replace YOUR_STRONG_PASSWORD before running.
 
 DO $$

@@ -98,9 +98,7 @@ else
   echo "API started but /health check failed — see .logs/api.log"
 fi
 
-echo "  Landing:       http://127.0.0.1:${API_PORT}/"
-echo "  Crawl results: http://127.0.0.1:${API_PORT}/results"
-echo "  Trim mapping:  http://127.0.0.1:${API_PORT}/trim-mapping"
-echo "  Admin:         http://127.0.0.1:${API_PORT}/admin/  (admin / admin)"
+echo "  User portal:   http://127.0.0.1:${API_PORT}/portal/"
+echo "  Staff URLs:    http://127.0.0.1:${API_PORT}/portal/<uuid1>/<uuid2>/… (see .env)"
 echo ""
 echo "Stop: bash scripts/local-down.sh"

@@ -1,9 +1,15 @@
 import json
+import re
 from functools import lru_cache
 from pathlib import Path
 
 from pydantic import field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+_UUID_RE = re.compile(
+    r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+    re.IGNORECASE,
+)
 
 from src.domain.services.url_builder import normalize_hamrah_base_url
 
@@ -60,6 +66,17 @@ class Settings(BaseSettings):
     otp_code_length: int = 5
     otp_ttl_sec: int = 300
     cors_origins: str = "*"
+
+    # Secret staff paths: /portal/{uuid1}/{uuid2}/admin|docs|results
+    portal_path_uuid_1: str = "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+    portal_path_uuid_2: str = "b2c3d4e5-f6a7-8901-bcde-f12345678901"
+
+    @field_validator("portal_path_uuid_1", "portal_path_uuid_2")
+    @classmethod
+    def _validate_portal_uuid(cls, value: str) -> str:
+        if not _UUID_RE.match(value.strip()):
+            raise ValueError("portal path UUID must be a valid UUID (with hyphens)")
+        return value.strip().lower()
 
     @field_validator("database_url")
     @classmethod
