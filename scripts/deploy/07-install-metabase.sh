@@ -95,31 +95,18 @@ PostgreSQL connection (use in Metabase setup wizard):
   Password: ${METABASE_DB_PASS}
 
 SSL (after DNS for ${METABASE_HOST} points to server):
-  certbot --nginx -d ${METABASE_HOST}
+  sudo bash ${APP_DIR}/scripts/deploy/08-install-metabase-ssl.sh
 EOF
 chmod 600 "$CREDS"
 
-if [[ -n "${CERTBOT_EMAIL:-}" ]] && command -v certbot >/dev/null 2>&1; then
-  echo "==> SSL for ${METABASE_HOST} (certbot)..."
-  if certbot --nginx \
-    -d "${METABASE_HOST}" \
-    --non-interactive \
-    --agree-tos \
-    --email "${CERTBOT_EMAIL}" \
-    --redirect \
-    --no-eff-email 2>/dev/null; then
-    sed -i "s|^URL: http://|URL: https://|" "$CREDS"
-    nginx -t && systemctl reload nginx
-    echo "    HTTPS: https://${METABASE_HOST}/"
-  else
-    echo "    SSL skipped (DNS may not be ready). Run later:"
-    echo "    certbot --nginx -d ${METABASE_HOST}"
-  fi
-fi
-
 echo ""
 echo "Metabase installed."
-echo "  Open: http://${METABASE_HOST}/"
+if [[ -f /etc/letsencrypt/live/${METABASE_HOST}/fullchain.pem ]]; then
+  echo "  Open: https://${METABASE_HOST}/"
+else
+  echo "  Open: http://${METABASE_HOST}/"
+  echo "  HTTPS:  sudo bash ${APP_DIR}/scripts/deploy/08-install-metabase-ssl.sh"
+fi
 echo "  Credentials saved: ${CREDS}"
 echo ""
 echo "First visit: create Metabase admin account, then add PostgreSQL database with settings above."
