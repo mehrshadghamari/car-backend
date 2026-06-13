@@ -24,7 +24,11 @@ echo "==> Seeding database (this may take a few minutes)..."
 cd "$APP_DIR"
 python3 scripts/init_db.py
 python3 scripts/migrate_db.py
-alembic upgrade head
+
+# init_db creates the full schema from SQLAlchemy models; do not run alembic upgrade
+# here or it tries to CREATE TABLE again. Stamp head so future updates use alembic.
+echo "==> Stamping Alembic revision (schema already applied)..."
+alembic stamp head
 
 python3 scripts/import_divar_reference_data.py
 python3 scripts/seed_catalog.py
