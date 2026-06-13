@@ -53,13 +53,33 @@ if ! command -v certbot >/dev/null 2>&1; then
   exit 1
 fi
 
-echo "==> Requesting SSL certificate for ${DOMAIN} and www.${DOMAIN}..."
+domain_has_dns() {
+  local host="$1"
+  local answer
+  if command -v dig >/dev/null 2>&1; then
+    answer="$(dig +short A "$host" 2>/dev/null | grep -E '^[0-9.]+$' | head -1 || true)"
+    [[ -n "$answer" ]] && return 0
+    answer="$(dig +short AAAA "$host" 2>/dev/null | head -1 || true)"
+    [[ -n "$answer" ]]
+    return
+  fi
+  getent ahosts "$host" >/dev/null 2>&1
+}
+
+CERTBOT_INCLUDE_WWW="${CERTBOT_INCLUDE_WWW:-$(read_cfg CERTBOT_INCLUDE_WWW false)}"
+certbot_domains=(-d "$DOMAIN")
+if [[ "$CERTBOT_INCLUDE_WWW" == "true" ]] && domain_has_dns "www.${DOMAIN}"; then
+  certbot_domains+=(-d "www.${DOMAIN}")
+elif [[ "$CERTBOT_INCLUDE_WWW" == "true" ]]; then
+  echo "    Skipping www.${DOMAIN} — no DNS A/AAAA record (set CERTBOT_INCLUDE_WWW=false or add DNS)"
+fi
+
+echo "==> Requesting SSL certificate for: ${certbot_domains[*]}"
 echo "    Config: ${CONFIG_ENV}"
 echo "    Email:  ${CERTBOT_EMAIL}"
 
 certbot --nginx \
-  -d "${DOMAIN}" \
-  -d "www.${DOMAIN}" \
+  "${certbot_domains[@]}" \
   --non-interactive \
   --agree-tos \
   --email "${CERTBOT_EMAIL}" \
