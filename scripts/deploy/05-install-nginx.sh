@@ -11,6 +11,8 @@ fi
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 # shellcheck disable=SC1091
 source "$ROOT/scripts/deploy/lib/common.sh"
+# shellcheck disable=SC1091
+source "$ROOT/scripts/deploy/lib/nginx.sh"
 load_deploy_config
 
 SOCKET_PATH="/run/car-backend/car-backend.sock"
@@ -18,14 +20,15 @@ SITE="/etc/nginx/sites-available/car-backend"
 
 echo "==> Installing Nginx site for ${DOMAIN}..."
 
+LISTEN_LINES="$(nginx_listen_http)"
+
 cat >"$SITE" <<EOF
 upstream car_backend_app {
     server unix:${SOCKET_PATH};
 }
 
 server {
-    listen 80;
-    listen [::]:80;
+${LISTEN_LINES}
     server_name ${DOMAIN} www.${DOMAIN};
 
     client_max_body_size 20M;
@@ -58,11 +61,11 @@ server {
 }
 EOF
 
-ln -sf "$SITE" /etc/nginx/sites-enabled/car-backend
 rm -f /etc/nginx/sites-enabled/default
+rm -f /etc/nginx/sites-enabled/000-car-backend-baseline
+ln -sf "$SITE" /etc/nginx/sites-enabled/car-backend
 
-nginx -t
-systemctl reload nginx
+nginx_test_and_start reload
 
 echo ""
 echo "Nginx configured for http://${DOMAIN}"

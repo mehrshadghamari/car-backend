@@ -12,6 +12,8 @@ fi
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 # shellcheck disable=SC1091
 source "$ROOT/scripts/deploy/lib/common.sh"
+# shellcheck disable=SC1091
+source "$ROOT/scripts/deploy/lib/nginx.sh"
 load_deploy_config
 
 METABASE_PORT="${METABASE_PORT:-3000}"
@@ -55,10 +57,10 @@ docker run -d \
   metabase/metabase:latest
 
 SITE="/etc/nginx/sites-available/metabase"
+LISTEN_LINES="$(nginx_listen_http)"
 cat >"$SITE" <<EOF
 server {
-    listen 80;
-    listen [::]:80;
+${LISTEN_LINES}
     server_name ${METABASE_HOST};
 
     location / {
@@ -76,8 +78,7 @@ server {
 EOF
 
 ln -sf "$SITE" /etc/nginx/sites-enabled/metabase
-nginx -t
-systemctl reload nginx
+nginx_test_and_start reload
 
 CREDS="${APP_DIR}/.metabase-credentials.txt"
 cat >"$CREDS" <<EOF

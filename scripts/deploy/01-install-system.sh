@@ -46,12 +46,14 @@ fi
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 # shellcheck disable=SC1091
 source "$ROOT/scripts/deploy/lib/common.sh"
+# shellcheck disable=SC1091
+source "$ROOT/scripts/deploy/lib/nginx.sh"
 ensure_python310_debian
 
-echo "==> Enabling Redis + PostgreSQL + Nginx + Certbot timer..."
+echo "==> Enabling Redis + PostgreSQL + Certbot timer..."
 systemctl enable --now redis-server
 systemctl enable --now postgresql
-systemctl enable --now nginx
+ensure_nginx_baseline
 systemctl enable --now certbot.timer 2>/dev/null || true
 
 if command -v ufw >/dev/null 2>&1; then
