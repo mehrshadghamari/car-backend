@@ -176,7 +176,13 @@ def setup_admin(app) -> Admin:
     connect_args = {"check_same_thread": False} if "sqlite" in sync_url else {}
     engine = create_engine(sync_url, connect_args=connect_args)
 
-    app.add_middleware(SessionMiddleware, secret_key="car-admin-secret-change-in-prod")
+    https_only = settings.app_env == "production"
+    app.add_middleware(
+        SessionMiddleware,
+        secret_key="car-admin-secret-change-in-prod",
+        https_only=https_only,
+        same_site="lax",
+    )
 
     templates_dir = str(_ADMIN_TEMPLATES) if _ADMIN_TEMPLATES.exists() else "templates"
     admin = Admin(

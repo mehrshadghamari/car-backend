@@ -47,6 +47,7 @@ UMask=0007
 ExecStart=${VENV}/bin/gunicorn src.main:app \\
   --workers ${GUNICORN_WORKERS} \\
   --worker-class uvicorn.workers.UvicornWorker \\
+  --forwarded-allow-ips='*' \\
   --bind unix:${SOCKET_PATH} \\
   --access-logfile - \\
   --error-logfile - \\

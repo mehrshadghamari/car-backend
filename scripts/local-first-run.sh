@@ -24,11 +24,8 @@ $PYTHON scripts/init_db.py
 echo "==> Applying schema migrations..."
 $PYTHON scripts/migrate_db.py
 
-echo "==> Importing Divar cities and car models..."
-$PYTHON scripts/import_divar_reference_data.py
-
-echo "==> Seeding car catalog (Peugeot 207, Divar + Khodro45 + Hamrah)..."
-$PYTHON scripts/seed_catalog.py
+echo "==> Loading catalog data (Khodro45 4-layer + Divar + platforms)..."
+bash scripts/load_all_catalog_data.sh --merge
 
 echo ""
 echo "Local first-run complete."

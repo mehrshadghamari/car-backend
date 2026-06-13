@@ -5,6 +5,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse, JSONResponse
 from fastapi.staticfiles import StaticFiles
+from uvicorn.middleware.proxy_headers import ProxyHeadersMiddleware
 
 from src.domain.exceptions import DomainError, EntityNotFoundError, ValidationError
 from src.infrastructure.config import get_settings
@@ -36,6 +37,9 @@ app = FastAPI(
     description="Vehicle opportunity detection with pluggable listing and pricing platforms",
     version="0.3.0",
 )
+
+# Trust X-Forwarded-* from nginx so /admin static assets use https:// URLs.
+app.add_middleware(ProxyHeadersMiddleware, trusted_hosts="*")
 
 _origins = settings.cors_origins
 if _origins == "*":
