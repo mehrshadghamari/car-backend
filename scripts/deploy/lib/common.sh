@@ -29,6 +29,10 @@ load_deploy_config() {
   ENABLE_SSL="${ENABLE_SSL:-true}"
   CERTBOT_EMAIL="${CERTBOT_EMAIL:-$(_read_deploy_config_var "$root" CERTBOT_EMAIL)}"
   METABASE_HOST="${METABASE_HOST:-meta.${DOMAIN}}"
+  METABASE_DB_USER="${METABASE_DB_USER:-metabase_readonly}"
+  METABASE_DB_PASS="${METABASE_DB_PASS:-CarAlertMetaDb2026}"
+  METABASE_ADMIN_EMAIL="${METABASE_ADMIN_EMAIL:-mehrshad.sodoor2003@gmail.com}"
+  METABASE_ADMIN_PASSWORD="${METABASE_ADMIN_PASSWORD:-CarAlertMeta2026}"
   PYTHON="${PYTHON:-python3}"
 }
 

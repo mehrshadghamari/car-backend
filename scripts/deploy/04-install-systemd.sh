@@ -9,6 +9,7 @@ if [[ "${EUID:-$(id -u)}" -ne 0 ]]; then
 fi
 
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+export DEPLOY_ROOT="$ROOT"
 # shellcheck disable=SC1091
 source "$ROOT/scripts/deploy/lib/common.sh"
 load_deploy_config
@@ -23,35 +24,26 @@ fi
 
 echo "==> Installing systemd units (user=$APP_USER, workers=$GUNICORN_WORKERS)..."
 
-cat >/etc/systemd/system/car-backend.socket <<EOF
-[Unit]
-Description=Car Backend Gunicorn socket
-
-[Socket]
-ListenStream=${SOCKET_PATH}
-SocketUser=${APP_USER}
-SocketGroup=www-data
-SocketMode=0660
-
-[Install]
-WantedBy=sockets.target
-EOF
+# Single service (no socket activation) — gunicorn creates the unix socket directly.
+systemctl disable car-backend.socket 2>/dev/null || true
+systemctl stop car-backend.socket 2>/dev/null || true
 
 cat >/etc/systemd/system/car-backend.service <<EOF
 [Unit]
 Description=Car Backend API (Gunicorn + Uvicorn)
-Requires=car-backend.socket
 After=network.target postgresql.service redis-server.service
+StartLimitIntervalSec=0
 
 [Service]
-Type=notify
+Type=simple
 User=${APP_USER}
 Group=www-data
 WorkingDirectory=${APP_DIR}
 Environment=PYTHONPATH=${APP_DIR}
 EnvironmentFile=${APP_DIR}/.env
 RuntimeDirectory=car-backend
-RuntimeDirectoryMode=0755
+RuntimeDirectoryMode=0750
+UMask=0007
 ExecStart=${VENV}/bin/gunicorn src.main:app \\
   --workers ${GUNICORN_WORKERS} \\
   --worker-class uvicorn.workers.UvicornWorker \\
@@ -59,10 +51,12 @@ ExecStart=${VENV}/bin/gunicorn src.main:app \\
   --access-logfile - \\
   --error-logfile - \\
   --timeout 120
+ExecStartPost=/bin/chgrp www-data ${SOCKET_PATH}
+ExecStartPost=/bin/chmod 660 ${SOCKET_PATH}
 ExecReload=/bin/kill -s HUP \$MAINPID
 KillMode=mixed
-Restart=on-failure
-RestartSec=5
+Restart=always
+RestartSec=3
 
 [Install]
 WantedBy=multi-user.target
@@ -81,7 +75,7 @@ WorkingDirectory=${APP_DIR}
 Environment=PYTHONPATH=${APP_DIR}
 EnvironmentFile=${APP_DIR}/.env
 ExecStart=${VENV}/bin/celery -A src.infrastructure.tasks.celery_app worker --loglevel=info --concurrency=1
-Restart=on-failure
+Restart=always
 RestartSec=10
 
 [Install]
@@ -101,7 +95,7 @@ WorkingDirectory=${APP_DIR}
 Environment=PYTHONPATH=${APP_DIR}
 EnvironmentFile=${APP_DIR}/.env
 ExecStart=${VENV}/bin/celery -A src.infrastructure.tasks.celery_app beat --loglevel=info
-Restart=on-failure
+Restart=always
 RestartSec=10
 
 [Install]
@@ -111,8 +105,6 @@ EOF
 usermod -aG www-data "$APP_USER" 2>/dev/null || true
 
 systemctl daemon-reload
-systemctl enable car-backend.socket
-systemctl restart car-backend.socket
 systemctl enable car-backend.service
 systemctl restart car-backend.service
 
@@ -123,9 +115,18 @@ else
   systemctl disable car-backend-celery-worker.service car-backend-celery-beat.service 2>/dev/null || true
 fi
 
+sleep 2
+
 echo ""
 echo "==> Service status:"
-systemctl --no-pager status car-backend.socket car-backend.service --lines=5 || true
+systemctl --no-pager status car-backend.service --lines=8 || true
+if [[ -S "${SOCKET_PATH}" ]]; then
+  echo ""
+  echo "Socket OK: ${SOCKET_PATH}"
+  curl -sf --unix-socket "${SOCKET_PATH}" http://localhost/health && echo "  /health OK"
+else
+  echo ""
+  echo "WARNING: socket missing — check: journalctl -u car-backend.service -n 50"
+fi
 echo ""
-echo "Test socket: curl --unix-socket ${SOCKET_PATH} http://localhost/health"
 echo "Next: sudo bash scripts/deploy/05-install-nginx.sh"
