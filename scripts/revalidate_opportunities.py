@@ -1,4 +1,10 @@
-"""Expire invalid opportunities and refresh discount vs reference ceiling."""
+"""Expire invalid opportunities and refresh discount vs reference ceiling.
+
+Usage (project venv required):
+  bash scripts/run_revalidate_opportunities.sh
+  # VPS:
+  sudo -u deploy bash scripts/run_revalidate_opportunities.sh
+"""
 import asyncio
 import sys
 from collections import defaultdict
