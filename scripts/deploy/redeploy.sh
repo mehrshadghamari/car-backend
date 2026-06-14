@@ -85,6 +85,7 @@ fi
 
 echo ""
 echo "==> [4/5] Nginx + systemd..."
+patch_divar_api_key
 if [[ "${SKIP_NGINX:-0}" != "1" ]]; then
   bash "$APP_DIR/scripts/deploy/05-install-nginx.sh"
 else

@@ -36,6 +36,10 @@ load_deploy_config() {
   METABASE_ADMIN_PASSWORD="${METABASE_ADMIN_PASSWORD:-CarAlertMeta2026}"
   OTP_SANDBOX="${OTP_SANDBOX:-true}"
   OTP_SANDBOX_CODE="${OTP_SANDBOX_CODE:-11111}"
+  DIVAR_OPEN_API_KEY="${DIVAR_OPEN_API_KEY:-$(_read_deploy_config_var "$root" DIVAR_OPEN_API_KEY)}"
+  if [[ -z "${DIVAR_OPEN_API_KEY:-}" ]]; then
+    DIVAR_OPEN_API_KEY="$(_read_local_env_var "$root" DIVAR_OPEN_API_KEY)"
+  fi
   PYTHON="${PYTHON:-python3}"
 }
 
@@ -49,6 +53,62 @@ _source_deploy_config() {
   set -a
   source "$file"
   set +a
+}
+
+_read_local_env_var() {
+  local root="$1"
+  local key="$2"
+  local file="$root/.env"
+  local line
+  if [[ ! -f "$file" ]]; then
+    return 0
+  fi
+  line="$(grep -E "^${key}=" "$file" | tail -1 || true)"
+  line="${line#${key}=}"
+  line="${line%\"}"
+  line="${line#\"}"
+  line="${line//$'\r'/}"
+  printf '%s' "$line"
+}
+
+patch_env_var() {
+  local key="$1"
+  local value="$2"
+  local file="${3:-$APP_DIR/.env}"
+  if [[ -z "$value" ]] || [[ ! -f "$file" ]]; then
+    return 0
+  fi
+  EXPORT_KEY="$key" EXPORT_VALUE="$value" EXPORT_FILE="$file" python3 -c '
+import os
+import pathlib
+
+path = pathlib.Path(os.environ["EXPORT_FILE"])
+key = os.environ["EXPORT_KEY"]
+value = os.environ["EXPORT_VALUE"]
+lines = path.read_text(encoding="utf-8").splitlines() if path.exists() else []
+out = []
+found = False
+for line in lines:
+    if line.startswith(key + "="):
+        out.append(f"{key}={value}")
+        found = True
+    else:
+        out.append(line)
+if not found:
+    out.append(f"{key}={value}")
+path.write_text("\n".join(out) + "\n", encoding="utf-8")
+'
+  chown "${APP_USER}:${APP_USER}" "$file" 2>/dev/null || true
+  chmod 600 "$file" 2>/dev/null || true
+}
+
+patch_divar_api_key() {
+  if [[ -z "${DIVAR_OPEN_API_KEY:-}" ]]; then
+    echo "    DIVAR_OPEN_API_KEY not set (skip — add to scripts/deploy/config.env or .env)"
+    return 0
+  fi
+  patch_env_var DIVAR_OPEN_API_KEY "$DIVAR_OPEN_API_KEY" "$APP_DIR/.env"
+  echo "    DIVAR_OPEN_API_KEY updated in ${APP_DIR}/.env"
 }
 
 _read_deploy_config_var() {
@@ -223,7 +283,7 @@ DIVAR_REQUEST_DELAY_MS=300
 DIVAR_MAX_CONCURRENT_DETAILS=5
 DIVAR_EXTRA_HEADERS_JSON={}
 DIVAR_OPEN_API_BASE_URL=https://open-api.divar.ir
-DIVAR_OPEN_API_KEY=
+DIVAR_OPEN_API_KEY=${DIVAR_OPEN_API_KEY}
 
 HAMRAH_MECHANIC_BASE_URL=https://www.hamrah-mechanic.com
 HAMRAH_PRICE_CACHE_TTL_SEC=3600
