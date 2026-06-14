@@ -52,7 +52,7 @@ class Settings(BaseSettings):
     crawl_result_valid_days: int = 2
     crawl_result_deactivate_days: int = 5
     pricing_cache_ttl_hours: int = 12
-    default_pricing_platform: str = "khodro45"
+    default_pricing_platform: str = "hamrah_mechanic"
 
     divar_open_api_base_url: str = "https://open-api.divar.ir"
     divar_open_api_key: str = ""

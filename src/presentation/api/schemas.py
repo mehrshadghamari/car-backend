@@ -117,7 +117,7 @@ class PlatformResponse(BaseModel):
 
 class PreviewUrlsRequest(BaseModel):
     car_trim_id: UUID
-    pricing_platform_slug: str = "khodro45"
+    pricing_platform_slug: str = "hamrah_mechanic"
     city: str = "tehran"
     production_year_min: int | None = None
     production_year_max: int | None = None
@@ -440,7 +440,7 @@ class OtpVerifyResponse(BaseModel):
 class UserPurchaseCreate(BaseModel):
     car_trim_id: UUID
     car_model_id: UUID | None = None
-    pricing_platform_slug: str | None = "khodro45"
+    pricing_platform_slug: str | None = "hamrah_mechanic"
     city: str = "tehran"
     color: str | None = None
     production_year_min: int | None = None

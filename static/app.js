@@ -150,11 +150,11 @@ document.getElementById('previewBtn').addEventListener('click', async () => {
     const result = await api('/preview-urls', { method: 'POST', body: JSON.stringify(f) });
     document.getElementById('divarUrl').href = result.divar_url;
     document.getElementById('divarUrl').textContent = result.divar_url;
-    const pricingUrl = result.pricing_url || result.khodro45_url;
+    const pricingUrl = result.pricing_url || result.hamrah_url || result.khodro45_url;
     document.getElementById('pricingUrl').href = pricingUrl;
     document.getElementById('pricingUrl').textContent = pricingUrl;
     document.getElementById('urlMeta').textContent =
-      `Platform: ${result.pricing_platform_slug}\nTrim: ${result.trim_name || '—'}\nYear: ${result.year_title || '—'}\nDivar path: ${result.divar_path}\nKhodro45 slug: ${result.khodro45_slug || '—'}`;
+      `Platform: ${result.pricing_platform_slug}\nTrim: ${result.trim_name || '—'}\nYear: ${result.year_title || '—'}\nDivar path: ${result.divar_path}\nHamrah type: ${result.hamrah_url ? 'configured' : '—'}\nKhodro45 slug: ${result.khodro45_slug || '—'}`;
     log(result);
   } catch (e) { log({ error: e.message }); }
 });

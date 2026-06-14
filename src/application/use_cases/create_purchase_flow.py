@@ -15,7 +15,7 @@ from src.application.ports.repositories import (
 )
 from src.application.services.ensure_trim_mappings import ensure_pricing_mapping
 from src.application.services.purchase_crawl_targets import resolve_crawl_targets_for_trim
-from src.application.services.pricing_config_builder import merge_khodro45_pricing_config
+from src.application.services.pricing_config_builder import merge_pricing_config
 from src.application.use_cases.evaluate_purchase_requests import EvaluatePurchaseRequestsUseCase
 from src.domain.compat import utc_now
 from src.domain.entities.crawl_target import CrawlTarget
@@ -23,7 +23,7 @@ from src.domain.entities.purchase_request import PurchaseRequest
 from src.domain.enums.platform_fetch_strategy import PlatformFetchStrategy
 from src.domain.exceptions import EntityNotFoundError, ValidationError
 from src.domain.services.trim_production_year import resolve_production_year_range
-from src.domain.services.url_builder import build_khodro45_price_url
+from src.domain.services.url_builder import build_hamrah_price_url, build_khodro45_price_url
 from src.infrastructure.adapters.pricing_factory import PricingServiceFactory
 from src.infrastructure.config import Settings
 from src.infrastructure.persistence.platform_repositories import SqlAlchemyPlatformRepository
@@ -100,6 +100,10 @@ class CreatePurchaseFlowUseCase:
         if not car_model or not car_model.is_active:
             raise ValidationError("مدل خودرو فعال نیست")
 
+        brand = await self._car_brand_repo.get_by_id(car_model.brand_id)
+        if not brand:
+            raise ValidationError("برند خودرو پیدا نشد")
+
         pricing_slug = input_dto.pricing_platform_slug or self._settings.default_pricing_platform
         pricing_platform = await self._platform_repo.get_pricing_platform_by_slug(pricing_slug)
         if not pricing_platform:
@@ -109,11 +113,9 @@ class CreatePurchaseFlowUseCase:
             self._platform_repo,
             trim=trim,
             pricing_platform_id=pricing_platform.id,
+            brand=brand,
+            car_model=car_model,
         )
-
-        brand = await self._car_brand_repo.get_by_id(car_model.brand_id)
-        if not brand:
-            raise ValidationError("برند خودرو پیدا نشد")
 
         listing_slugs = input_dto.listing_platform_slugs or ["divar"]
 
@@ -214,10 +216,25 @@ class CreatePurchaseFlowUseCase:
         self, pricing_slug: str, pricing_mapping, year: int, km: int, color: str | None
     ) -> str:
         if pricing_slug == "khodro45":
-            config = merge_khodro45_pricing_config(pricing_mapping)
+            config = merge_pricing_config(pricing_mapping, pricing_slug)
             slug = config.get("slug", pricing_mapping.slug)
             color_id = config.get("default_color", "Black")
             if color and config.get("color_map"):
                 color_id = config["color_map"].get(color, color_id)
             return build_khodro45_price_url(slug, year, km, color_id, self._settings.khodro45_base_url)
+        if pricing_slug == "hamrah_mechanic":
+            config = merge_pricing_config(pricing_mapping, pricing_slug)
+            mapped_color = config.get("default_color", "ColorWhite")
+            if color and config.get("color_map"):
+                mapped_color = config["color_map"].get(color, mapped_color)
+            return build_hamrah_price_url(
+                hamrah_brand=config["brand"],
+                hamrah_model=config["model"],
+                hamrah_type_id=str(config["type_id"]),
+                production_year=year,
+                kilometer=km,
+                color=mapped_color,
+                body_condition=config.get("default_body_condition", "WithoutColor"),
+                base_url=self._settings.hamrah_mechanic_base_url,
+            )
         return ""

@@ -30,7 +30,7 @@ python3 scripts/migrate_db.py
 echo "==> Stamping Alembic revision (schema already applied)..."
 alembic stamp head
 
-echo "==> Loading catalog data (Khodro45 4-layer + Divar + platforms)..."
+echo "==> Loading catalog data (Hamrah 4-layer + Divar + platforms)..."
 bash scripts/load_all_catalog_data.sh --merge
 
 echo ""

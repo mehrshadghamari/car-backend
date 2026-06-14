@@ -2,14 +2,18 @@ from dataclasses import dataclass
 from uuid import UUID
 
 from src.application.ports.car_catalog import CarBrandRepository, CarModelRepository, CarTrimRepository
-from src.application.services.pricing_config_builder import merge_khodro45_pricing_config
+from src.application.services.pricing_config_builder import merge_pricing_config
 from src.application.services.ensure_trim_mappings import (
     ensure_listing_mappings_for_trim,
     ensure_pricing_mapping,
 )
 from src.domain.exceptions import EntityNotFoundError, ValidationError
 from src.domain.services.trim_production_year import resolve_production_year_range
-from src.domain.services.url_builder import build_divar_search_url, build_khodro45_price_url
+from src.domain.services.url_builder import (
+    build_divar_search_url,
+    build_hamrah_price_url,
+    build_khodro45_price_url,
+)
 from src.infrastructure.config import Settings
 from src.infrastructure.persistence.platform_repositories import SqlAlchemyPlatformRepository
 
@@ -17,7 +21,7 @@ from src.infrastructure.persistence.platform_repositories import SqlAlchemyPlatf
 @dataclass
 class PreviewUrlsInput:
     car_trim_id: UUID
-    pricing_platform_slug: str = "khodro45"
+    pricing_platform_slug: str = "hamrah_mechanic"
     city: str = "tehran"
     production_year_min: int | None = None
     production_year_max: int | None = None
@@ -100,18 +104,23 @@ class PreviewUrlsUseCase:
 
         khodro45_url = None
         khodro45_slug = None
+        hamrah_url = ""
         pricing_url = ""
 
+        platform = await self._platform_repo.get_pricing_platform_by_slug(pricing_slug)
+        if not platform:
+            raise ValidationError(f"Pricing platform {pricing_slug} not configured")
+
+        mapping = await ensure_pricing_mapping(
+            self._platform_repo,
+            trim=trim,
+            pricing_platform_id=platform.id,
+            brand=brand,
+            car_model=car_model,
+        )
+        config = merge_pricing_config(mapping, pricing_slug)
+
         if pricing_slug == "khodro45":
-            platform = await self._platform_repo.get_pricing_platform_by_slug("khodro45")
-            if not platform:
-                raise ValidationError("Khodro45 platform not configured")
-            mapping = await ensure_pricing_mapping(
-                self._platform_repo,
-                trim=trim,
-                pricing_platform_id=platform.id,
-            )
-            config = merge_khodro45_pricing_config(mapping)
             slug = config.get("slug", mapping.slug)
             color_id = config.get("default_color", "Black")
             if input_dto.color and config.get("color_map"):
@@ -121,14 +130,29 @@ class PreviewUrlsUseCase:
                 slug, year, km, color_id, self._settings.khodro45_base_url
             )
             pricing_url = khodro45_url
+        elif pricing_slug == "hamrah_mechanic":
+            mapped_color = config.get("default_color", "ColorWhite")
+            if input_dto.color and config.get("color_map"):
+                mapped_color = config["color_map"].get(input_dto.color, mapped_color)
+            hamrah_url = build_hamrah_price_url(
+                hamrah_brand=config["brand"],
+                hamrah_model=config["model"],
+                hamrah_type_id=str(config["type_id"]),
+                production_year=year,
+                kilometer=km,
+                color=mapped_color,
+                body_condition=config.get("default_body_condition", "WithoutColor"),
+                base_url=self._settings.hamrah_mechanic_base_url,
+            )
+            pricing_url = hamrah_url
         else:
-            raise ValidationError("Only Khodro45 preview is supported in 4-layer catalog")
+            raise ValidationError(f"Unsupported pricing platform: {pricing_slug}")
 
         return PreviewUrlsResult(
             divar_url=divar_url,
             pricing_url=pricing_url,
             pricing_platform_slug=pricing_slug,
-            hamrah_url="",
+            hamrah_url=hamrah_url,
             khodro45_url=khodro45_url,
             divar_path=listing_mapping.path,
             khodro45_slug=khodro45_slug,

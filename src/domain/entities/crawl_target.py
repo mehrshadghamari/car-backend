@@ -6,7 +6,7 @@ from uuid import UUID
 
 @dataclass
 class VehicleContext:
-    pricing_platform: str = "khodro45"
+    pricing_platform: str = "hamrah_mechanic"
     pricing_config: dict[str, Any] | None = None
     hamrah_brand: str = ""
     hamrah_model: str = ""

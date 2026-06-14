@@ -11,7 +11,7 @@ from src.application.ports.repositories import (
     PurchaseRequestRepository,
 )
 from src.application.ports.car_catalog import CarTrimRepository
-from src.application.services.pricing_config_builder import merge_khodro45_pricing_config
+from src.application.services.pricing_config_builder import merge_pricing_config
 from src.domain.entities.market_price import MarketPrice
 from src.infrastructure.adapters.pricing_factory import PricingServiceFactory
 from src.domain.compat import utc_now
@@ -337,13 +337,18 @@ class EvaluatePurchaseRequestsUseCase:
         if not mapping:
             return None
 
-        pricing_config = merge_khodro45_pricing_config(mapping)
+        pricing_config = merge_pricing_config(mapping, pricing_platform)
         color = purchase.color
         if color and pricing_config.get("color_map"):
             pricing_config = dict(pricing_config)
-            pricing_config["default_color"] = pricing_config["color_map"].get(
-                color, pricing_config.get("default_color", "Black")
-            )
+            if pricing_platform == "hamrah_mechanic":
+                pricing_config["default_color"] = pricing_config["color_map"].get(
+                    color, pricing_config.get("default_color", "ColorWhite")
+                )
+            else:
+                pricing_config["default_color"] = pricing_config["color_map"].get(
+                    color, pricing_config.get("default_color", "Black")
+                )
 
         try:
             port = self._pricing_factory.get(pricing_platform)

@@ -1,4 +1,4 @@
-"""Seed listing/pricing platforms. Car catalog comes from Khodro45 import."""
+"""Seed listing/pricing platforms. Car catalog comes from Hamrah Mechanic import."""
 import asyncio
 import sys
 import uuid
@@ -43,12 +43,12 @@ async def seed():
                 slug="khodro45",
                 name="خودرو۴۵",
                 fetch_strategy="crawl",
-                is_active=True,
+                is_active=False,
             )
         )
 
         await session.commit()
-        print("Seeded listing/pricing platforms (divar, hamrah_mechanic, khodro45).")
+        print("Seeded listing/pricing platforms (divar, hamrah_mechanic; khodro45 inactive).")
 
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Production: load Khodro45 4-layer catalog + Divar cities/models + platforms.
+# Production: load Hamrah 4-layer catalog + Divar cities/models + platforms.
 # Run on VPS: sudo -u deploy bash scripts/deploy/09-import-catalog.sh
 set -euo pipefail
 

@@ -24,7 +24,7 @@ $PYTHON scripts/init_db.py
 echo "==> Applying schema migrations..."
 $PYTHON scripts/migrate_db.py
 
-echo "==> Loading catalog data (Khodro45 4-layer + Divar + platforms)..."
+echo "==> Loading catalog data (Hamrah 4-layer + Divar + platforms)..."
 bash scripts/load_all_catalog_data.sh --merge
 
 echo ""

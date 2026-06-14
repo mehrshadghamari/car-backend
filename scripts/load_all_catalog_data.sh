@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # Load all catalog/reference data into the database:
-#   1. Platforms (Divar, Khodro45, Hamrah) — seed_catalog.py
-#   2. Divar cities + Divar car models — import_divar_reference_data.py
-#   3. 4-layer car catalog (brand → model → year → trim) — Khodro45 JSON
+#   1. 4-layer schema migration
+#   2. Hamrah Mechanic catalog (brand → model → year → trim) from data.zip / hamrahdata/
+#   3. Divar cities + Divar car models
+#   4. Listing/pricing platforms (default pricing: hamrah_mechanic)
 #
 # Safe to re-run (--merge upserts without wiping existing rows).
 #
@@ -15,7 +16,6 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 cd "$ROOT"
-MERGE_FLAG=()
 if [[ "${1:-}" == "--merge" ]]; then
   MERGE_FLAG=(--merge)
 fi
@@ -47,12 +47,18 @@ echo "==> [1/4] 4-layer schema (car_brands, car_models, car_years, car_trims)...
 $PYTHON scripts/migrate_catalog_4layer.py
 
 echo ""
-echo "==> [2/4] Khodro45 catalog (brands → models → years → trims)..."
-if [[ ! -f khodro45data/brands.json ]]; then
-  echo "ERROR: missing khodro45data/brands.json — run git pull"
-  exit 1
+echo "==> [2/4] Hamrah Mechanic catalog (brands → models → years → trims)..."
+if [[ ! -f hamrahdata/data/hamrahmechanic_brands.ndjson ]]; then
+  if [[ -f data.zip ]]; then
+    echo "    Extracting data.zip → hamrahdata/"
+    unzip -o -q data.zip -d hamrahdata
+  else
+    echo "ERROR: missing hamrahdata/data/hamrahmechanic_brands.ndjson (or data.zip)"
+    exit 1
+  fi
 fi
-$PYTHON scripts/import_khodro45_catalog.py --merge
+# Full replace (default): wipes Khodro45 catalog + purchase/crawl data. Pass --merge to upsert only.
+$PYTHON scripts/import_hamrah_catalog.py "${MERGE_FLAG[@]}"
 
 echo ""
 echo "==> [3/4] Divar reference (cities + Divar car models)..."
@@ -60,7 +66,7 @@ echo "    Uses data/divar/*.json or fallback RTF files in repo root"
 $PYTHON scripts/import_divar_reference_data.py "${MERGE_FLAG[@]}"
 
 echo ""
-echo "==> [4/4] Listing/pricing platforms (divar, khodro45, hamrah_mechanic)..."
+echo "==> [4/4] Listing/pricing platforms (divar, hamrah_mechanic)..."
 $PYTHON scripts/seed_catalog.py
 
 echo ""
