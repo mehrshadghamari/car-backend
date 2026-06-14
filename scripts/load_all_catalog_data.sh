@@ -51,7 +51,7 @@ echo "==> [2/4] Hamrah Mechanic catalog (brands → models → years → trims).
 if [[ ! -f hamrahdata/data/hamrahmechanic_brands.ndjson ]]; then
   if [[ -f data.zip ]]; then
     echo "    Extracting data.zip → hamrahdata/"
-    unzip -o -q data.zip -d hamrahdata
+    $PYTHON scripts/extract_hamrah_data.py
   else
     echo "ERROR: missing hamrahdata/data/hamrahmechanic_brands.ndjson (or data.zip)"
     exit 1
