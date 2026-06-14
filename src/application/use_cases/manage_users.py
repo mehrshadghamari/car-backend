@@ -1,6 +1,8 @@
 from dataclasses import dataclass
 from uuid import UUID, uuid4
 
+from sqlalchemy.exc import IntegrityError
+
 from src.application.ports.repositories import UserRepository
 from src.domain.entities.user import User
 from src.domain.exceptions import EntityNotFoundError, ValidationError
@@ -60,13 +62,20 @@ class ManageUsersUseCase:
         existing = await self._user_repo.get_by_phone(phone)
         if existing:
             return existing
-        return await self.create(
-            CreateUserInput(
-                phone=phone,
-                source_channel=source_channel,
-                first_name=first_name,
+        try:
+            return await self.create(
+                CreateUserInput(
+                    phone=phone,
+                    source_channel=source_channel,
+                    first_name=first_name,
+                )
             )
-        )
+        except IntegrityError:
+            await self._user_repo.rollback()
+            existing = await self._user_repo.get_by_phone(phone)
+            if existing:
+                return existing
+            raise
 
     async def list(self, skip: int = 0, limit: int = 100) -> list[User]:
         return await self._user_repo.list_all(skip=skip, limit=limit)

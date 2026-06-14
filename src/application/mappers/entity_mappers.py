@@ -27,8 +27,8 @@ def user_to_domain(model: UserModel) -> User:
         phone=model.phone,
         first_name=model.first_name,
         last_name=model.last_name,
-        source_channel=model.source_channel,
-        is_active=model.is_active,
+        source_channel=model.source_channel or "user_app",
+        is_active=True if model.is_active is None else model.is_active,
         created_at=model.created_at,
         updated_at=model.updated_at,
     )

@@ -54,6 +54,9 @@ class SqlAlchemyUserRepository(UserRepository):
     def __init__(self, session: AsyncSession):
         self._session = session
 
+    async def rollback(self) -> None:
+        await self._session.rollback()
+
     async def save(self, user: User) -> User:
         model = await self._session.get(UserModel, user.id)
         if model is None:
@@ -81,8 +84,10 @@ class SqlAlchemyUserRepository(UserRepository):
         return user_to_domain(model) if model else None
 
     async def get_by_phone(self, phone: str) -> User | None:
-        result = await self._session.execute(select(UserModel).where(UserModel.phone == phone))
-        model = result.scalar_one_or_none()
+        result = await self._session.execute(
+            select(UserModel).where(UserModel.phone == phone).limit(1)
+        )
+        model = result.scalars().first()
         return user_to_domain(model) if model else None
 
     async def list_all(self, skip: int = 0, limit: int = 100) -> list[User]:

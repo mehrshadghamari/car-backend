@@ -144,7 +144,20 @@ async def legacy_staff_paths_blocked():
 
 @app.get("/health")
 async def health():
-    return {"status": "ok"}
+    from src.presentation.dependencies import get_redis
+
+    payload: dict = {"status": "ok"}
+    try:
+        redis = get_redis()
+        if await redis.ping():
+            payload["redis"] = "ok"
+        else:
+            payload["redis"] = "error"
+            payload["status"] = "degraded"
+    except Exception:
+        payload["redis"] = "error"
+        payload["status"] = "degraded"
+    return payload
 
 
 def _portal_page(filename: str) -> FileResponse:
@@ -157,6 +170,7 @@ def _portal_page(filename: str) -> FileResponse:
 if portal_dir.exists():
     app.mount("/css", StaticFiles(directory=str(portal_dir / "css")), name="portal-css")
     app.mount("/js", StaticFiles(directory=str(portal_dir / "js")), name="portal-js")
+    app.mount("/img", StaticFiles(directory=str(portal_dir / "img")), name="portal-img")
 
     @app.get("/")
     async def user_portal_home():

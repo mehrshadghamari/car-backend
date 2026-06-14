@@ -50,7 +50,11 @@ class OtpAuthUseCase:
         else:
             code = generate_otp_code(self._settings.otp_code_length)
 
-        await self._otp_store.save(normalized, code, self._settings.otp_ttl_sec)
+        try:
+            await self._otp_store.save(normalized, code, self._settings.otp_ttl_sec)
+        except Exception:
+            if not self._settings.otp_sandbox:
+                raise
 
         if self._settings.otp_sandbox:
             message = "حالت آزمایشی — پیامک ارسال نمی‌شود. کد ورود: 11111"
@@ -76,11 +80,23 @@ class OtpAuthUseCase:
         if not submitted:
             raise ValidationError("کد تأیید را وارد کنید")
 
-        stored = await self._otp_store.get(normalized)
-        if not stored or stored != submitted:
-            raise ValidationError("کد تأیید نامعتبر یا منقضی شده است")
-
-        await self._otp_store.delete(normalized)
+        sandbox_ok = (
+            self._settings.otp_sandbox
+            and submitted == self._settings.otp_sandbox_code
+        )
+        if not sandbox_ok:
+            try:
+                stored = await self._otp_store.get(normalized)
+            except Exception as exc:
+                raise ValidationError(
+                    "سرویس تأیید موقتاً در دسترس نیست — لطفاً چند لحظه بعد دوباره تلاش کنید"
+                ) from exc
+            if not stored or stored != submitted:
+                raise ValidationError("کد تأیید نامعتبر یا منقضی شده است")
+            try:
+                await self._otp_store.delete(normalized)
+            except Exception:
+                pass
 
         user = await self._users.get_or_create_by_phone(
             phone=normalized,

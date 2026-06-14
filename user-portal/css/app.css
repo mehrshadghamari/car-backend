@@ -46,16 +46,44 @@ a:hover { text-decoration: underline; }
   gap: 0.75rem;
   margin-bottom: 1.5rem;
 }
-.brand-icon {
-  width: 44px;
-  height: 44px;
+.brand-icon,
+.brand-logo {
+  width: 52px;
+  height: 52px;
   border-radius: 12px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.brand-icon {
   background: linear-gradient(135deg, var(--accent), #b83232);
   display: grid;
   place-items: center;
   font-weight: 800;
   font-size: 1.15rem;
-  flex-shrink: 0;
+}
+.brand-logo {
+  display: block;
+  object-fit: contain;
+  background: transparent;
+}
+.brand-login {
+  justify-content: center;
+  margin-bottom: 1.25rem;
+}
+.brand-login .brand-logo {
+  width: min(200px, 72vw);
+  height: auto;
+  max-height: 150px;
+}
+.topbar .brand-logo {
+  width: 44px;
+  height: 44px;
+}
+.page-logo {
+  width: min(120px, 40vw);
+  height: auto;
+  max-height: 80px;
+  margin-bottom: 0.75rem;
 }
 .brand h1 {
   margin: 0;
