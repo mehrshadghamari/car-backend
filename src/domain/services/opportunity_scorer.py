@@ -164,6 +164,76 @@ def evaluate_urgent_sale_opportunity(
     return [_build_urgent_sale_match(listing_price, price_down, price_mid, price_up)]
 
 
+def deal_tag_for_hamrah_tier(basis: str) -> str:
+    """Hamrah Mechanic: tag by nearest tier; ceiling for discount is always mid."""
+    return {
+        "down": DealTag.BEST.value,
+        "mid": DealTag.GOOD.value,
+    }[basis]
+
+
+def _closest_hamrah_tier(
+    listing_price: int,
+    price_down: int,
+    price_mid: int,
+) -> tuple[str, int]:
+    """Pick nearest Hamrah anchor (floor / mid). Ties prefer floor."""
+    tier_order = {"down": 0, "mid": 1}
+    tiers = (("down", price_down), ("mid", price_mid))
+    basis, reference = min(
+        tiers,
+        key=lambda item: (abs(listing_price - item[1]), tier_order[item[0]]),
+    )
+    return basis, reference
+
+
+def _build_hamrah_match(
+    listing_price: int,
+    price_down: int,
+    price_mid: int,
+) -> PriceTierMatch:
+    """Discount and ceiling reference always use Hamrah mid price (not max)."""
+    basis, _ = _closest_hamrah_tier(listing_price, price_down, price_mid)
+    discount_amount = price_mid - listing_price
+    discount_pct = (
+        Decimal(str(round((discount_amount / price_mid) * 100, 2))) if price_mid else Decimal("0")
+    )
+    return PriceTierMatch(
+        basis=basis,
+        reference_price=price_mid,
+        is_below=listing_price <= price_mid,
+        discount_amount=discount_amount,
+        discount_pct=discount_pct,
+        score=Decimal(str(max(0, discount_amount))),
+        deal_tag=deal_tag_for_hamrah_tier(basis),
+    )
+
+
+def evaluate_hamrah_mechanic_opportunity(
+    listing_price: int,
+    price_down: int | None,
+    price_mid: int | None,
+    price_up: int | None = None,
+    near_threshold_pct: float = 0.02,
+) -> list[PriceTierMatch]:
+    """
+    Hamrah Mechanic opportunity rules:
+
+    - Mid price is the ceiling reference (price_up/max is not used).
+    - Valid only when floor <= listing <= mid (inclusive).
+    - Below floor or above mid → no opportunity.
+    - Exactly one opportunity per listing; discount always vs mid.
+    """
+    del price_up, near_threshold_pct
+    if not price_down or not price_mid:
+        return []
+    if not (price_mid > price_down > 0):
+        return []
+    if listing_price < price_down or listing_price > price_mid:
+        return []
+    return [_build_hamrah_match(listing_price, price_down, price_mid)]
+
+
 def evaluate_opportunity_tiers(
     listing_price: int,
     price_down: int | None,

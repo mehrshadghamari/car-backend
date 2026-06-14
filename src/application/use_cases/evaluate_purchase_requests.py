@@ -21,7 +21,7 @@ from src.domain.services.listing_matcher import listing_matches_purchase_request
 from src.domain.services.listing_retention import is_listing_crawl_valid
 from src.domain.services.purchase_detail_filters import effective_purchase_request
 from src.domain.services.opportunity_scorer import (
-    evaluate_opportunity_tiers,
+    evaluate_hamrah_mechanic_opportunity,
     evaluate_urgent_sale_opportunity,
 )
 from src.infrastructure.config import Settings
@@ -146,18 +146,15 @@ class EvaluatePurchaseRequestsUseCase:
                     price_up=market.price_up,
                 )
             else:
-                ctx = target.vehicle_context
-                near_pct = float(
-                    purchase.near_threshold_pct
-                    if purchase.near_threshold_pct is not None
-                    else ctx.near_threshold_pct
-                )
-                tier_matches = evaluate_opportunity_tiers(
+                if listing.price > market.price_mid:
+                    above_max += 1
+                elif listing.price < market.price_down:
+                    below_floor += 1
+                tier_matches = evaluate_hamrah_mechanic_opportunity(
                     listing_price=listing.price,
                     price_down=market.price_down,
                     price_mid=market.price_mid,
                     price_up=market.price_up,
-                    near_threshold_pct=near_pct,
                 )
 
             existing = await self._opportunity_repo.get_by_listing_and_purchase(
@@ -177,74 +174,44 @@ class EvaluatePurchaseRequestsUseCase:
                     )
                 continue
 
-            if pricing_platform == "khodro45":
-                match = tier_matches[0]
-                if existing:
-                    if existing.status == OpportunityStatus.EXPIRED:
-                        continue
-                    self._apply_match(existing, listing, market, match)
-                    await self._opportunity_repo.save(existing)
+            match = tier_matches[0]
+            if existing:
+                if existing.status == OpportunityStatus.EXPIRED:
                     continue
-                opportunity = Opportunity(
-                    id=uuid4(),
-                    listing_id=listing.id,
-                    purchase_request_id=purchase.id,
-                    crawl_target_id=target.id,
-                    listing_price=listing.price,
-                    market_price_down=market.price_down,
-                    market_price_up=market.price_up,
-                    market_price_mid=market.price_mid,
-                    price_basis=match.basis,
-                    deal_tag=match.deal_tag,
-                    reference_price=match.reference_price,
-                    discount_amount=match.discount_amount,
-                    discount_pct=match.discount_pct,
-                    score=match.score,
-                    status=OpportunityStatus.NEW,
-                    is_below_floor=match.is_below,
-                    created_at=utc_now(),
-                )
-                saved = await self._opportunity_repo.save(opportunity)
-                new_ids.append(str(saved.id))
-                diag.add(
-                    "opportunity",
-                    f"Created {match.deal_tag} opportunity for purchase request",
-                    purchase_request_id=str(purchase.id),
-                    deal_tag=match.deal_tag,
-                    listing_price=listing.price,
-                    reference_price=match.reference_price,
-                    discount_pct=float(match.discount_pct),
-                    divar_url=listing.divar_url,
-                )
-            else:
-                for match in tier_matches:
-                    existing_basis = await self._opportunity_repo.get_by_listing_and_basis(
-                        listing.id, match.basis
-                    )
-                    if existing_basis and existing_basis.purchase_request_id == purchase.id:
-                        if existing_basis.status != OpportunityStatus.EXPIRED:
-                            continue
-                    opportunity = Opportunity(
-                        id=uuid4(),
-                        listing_id=listing.id,
-                        purchase_request_id=purchase.id,
-                        crawl_target_id=target.id,
-                        listing_price=listing.price,
-                        market_price_down=market.price_down,
-                        market_price_up=market.price_up,
-                        market_price_mid=market.price_mid,
-                        price_basis=match.basis,
-                        deal_tag=match.deal_tag,
-                        reference_price=match.reference_price,
-                        discount_amount=match.discount_amount,
-                        discount_pct=match.discount_pct,
-                        score=match.score,
-                        status=OpportunityStatus.NEW,
-                        is_below_floor=match.is_below,
-                        created_at=utc_now(),
-                    )
-                    saved = await self._opportunity_repo.save(opportunity)
-                    new_ids.append(str(saved.id))
+                self._apply_match(existing, listing, market, match)
+                await self._opportunity_repo.save(existing)
+                continue
+            opportunity = Opportunity(
+                id=uuid4(),
+                listing_id=listing.id,
+                purchase_request_id=purchase.id,
+                crawl_target_id=target.id,
+                listing_price=listing.price,
+                market_price_down=market.price_down,
+                market_price_up=market.price_up,
+                market_price_mid=market.price_mid,
+                price_basis=match.basis,
+                deal_tag=match.deal_tag,
+                reference_price=match.reference_price,
+                discount_amount=match.discount_amount,
+                discount_pct=match.discount_pct,
+                score=match.score,
+                status=OpportunityStatus.NEW,
+                is_below_floor=match.is_below,
+                created_at=utc_now(),
+            )
+            saved = await self._opportunity_repo.save(opportunity)
+            new_ids.append(str(saved.id))
+            diag.add(
+                "opportunity",
+                f"Created {match.deal_tag} opportunity for purchase request",
+                purchase_request_id=str(purchase.id),
+                deal_tag=match.deal_tag,
+                listing_price=listing.price,
+                reference_price=match.reference_price,
+                discount_pct=float(match.discount_pct),
+                divar_url=listing.divar_url,
+            )
 
         diag.add(
             "info",

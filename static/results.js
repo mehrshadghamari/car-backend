@@ -287,7 +287,7 @@ function renderDetail(d, purchaseId) {
         <span id="smsMsg" class="cell-sub"></span>
       </div>
       <table class="inner-table">
-        <thead><tr><th></th><th>Tag</th><th>Listing</th><th>Price</th><th>Max ref</th><th>Discount vs max</th><th>Status</th><th>Link</th></tr></thead>
+        <thead><tr><th></th><th>Tag</th><th>Listing</th><th>Price</th><th>Reference</th><th>Discount %</th><th>Status</th><th>Link</th></tr></thead>
         <tbody>
           ${d.opportunities.map(o => `
             <tr>

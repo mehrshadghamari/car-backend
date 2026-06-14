@@ -1,7 +1,11 @@
+from decimal import Decimal
+
 from src.domain.entities.opportunity import DealTag
 from src.domain.services.opportunity_scorer import (
+    deal_tag_for_hamrah_tier,
     deal_tag_for_match,
     deal_tag_for_urgent_sale_tier,
+    evaluate_hamrah_mechanic_opportunity,
     evaluate_opportunity,
     evaluate_opportunity_tiers,
     evaluate_urgent_sale_opportunity,
@@ -99,6 +103,46 @@ def test_below_floor_is_not_opportunity_legacy():
     assert is_below is False
     assert discount == 0
     assert score == 0
+
+
+def test_hamrah_above_mid_is_rejected():
+    assert evaluate_hamrah_mechanic_opportunity(2_100_000_000, 1_828_000_000, 1_950_000_000, 2_100_000_000) == []
+
+
+def test_hamrah_below_floor_is_rejected():
+    assert evaluate_hamrah_mechanic_opportunity(1_800_000_000, 1_828_000_000, 1_950_000_000, 2_100_000_000) == []
+
+
+def test_hamrah_discount_uses_mid_not_max():
+    matches = evaluate_hamrah_mechanic_opportunity(1_900_000_000, 1_828_000_000, 1_950_000_000, 2_100_000_000)
+    assert len(matches) == 1
+    assert matches[0].reference_price == 1_950_000_000
+    assert matches[0].discount_amount == 50_000_000
+    assert matches[0].discount_pct == Decimal("2.56")
+
+
+def test_hamrah_at_mid_is_good():
+    matches = evaluate_hamrah_mechanic_opportunity(1_950_000_000, 1_828_000_000, 1_950_000_000, 2_100_000_000)
+    assert len(matches) == 1
+    assert matches[0].basis == "mid"
+    assert matches[0].deal_tag == DealTag.GOOD.value
+    assert matches[0].discount_amount == 0
+
+
+def test_hamrah_near_floor_is_best():
+    matches = evaluate_hamrah_mechanic_opportunity(1_830_000_000, 1_828_000_000, 1_950_000_000, 2_100_000_000)
+    assert matches[0].deal_tag == DealTag.BEST.value
+    assert matches[0].basis == "down"
+
+
+def test_hamrah_returns_single_match_only():
+    matches = evaluate_hamrah_mechanic_opportunity(1_900_000_000, 1_828_000_000, 1_950_000_000, 2_100_000_000)
+    assert len(matches) == 1
+
+
+def test_deal_tag_for_hamrah_tier():
+    assert deal_tag_for_hamrah_tier("down") == DealTag.BEST.value
+    assert deal_tag_for_hamrah_tier("mid") == DealTag.GOOD.value
 
 
 def test_hamrah_mid_tier_creates_separate_match():

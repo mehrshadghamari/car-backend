@@ -1,4 +1,4 @@
-"""Expire invalid Khodro45 opportunities and refresh discount vs ceiling (max)."""
+"""Expire invalid opportunities and refresh discount vs reference ceiling."""
 import asyncio
 import sys
 from collections import defaultdict
@@ -10,7 +10,10 @@ from sqlalchemy import select
 
 from src.application.mappers.entity_mappers import opportunity_to_domain
 from src.domain.entities.opportunity import OpportunityStatus
-from src.domain.services.opportunity_scorer import evaluate_urgent_sale_opportunity
+from src.domain.services.opportunity_scorer import (
+    evaluate_hamrah_mechanic_opportunity,
+    evaluate_urgent_sale_opportunity,
+)
 from src.infrastructure.persistence.database import async_session_factory
 from src.infrastructure.persistence.models import ListingModel, MarketPriceModel, OpportunityModel
 from src.infrastructure.persistence.repositories import SqlAlchemyOpportunityRepository
@@ -51,12 +54,20 @@ async def revalidate() -> None:
             if mp is None:
                 continue
 
-            tier_matches = evaluate_urgent_sale_opportunity(
-                listing.price,
-                mp.price_down,
-                mp.price_mid,
-                mp.price_up,
-            )
+            if (mp.pricing_provider or "hamrah_mechanic") == "khodro45":
+                tier_matches = evaluate_urgent_sale_opportunity(
+                    listing.price,
+                    mp.price_down,
+                    mp.price_mid,
+                    mp.price_up,
+                )
+            else:
+                tier_matches = evaluate_hamrah_mechanic_opportunity(
+                    listing.price,
+                    mp.price_down,
+                    mp.price_mid,
+                    mp.price_up,
+                )
             if not tier_matches:
                 for model in models:
                     opp = opportunity_to_domain(model)

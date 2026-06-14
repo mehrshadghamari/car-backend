@@ -9,7 +9,10 @@ from src.domain.entities.listing import Listing
 from src.domain.entities.purchase_request import PurchaseRequest
 from src.domain.services.listing_matcher import listing_matches_purchase_request
 from src.domain.services.listing_retention import is_listing_crawl_valid
-from src.domain.services.opportunity_scorer import evaluate_urgent_sale_opportunity
+from src.domain.services.opportunity_scorer import (
+    evaluate_hamrah_mechanic_opportunity,
+    evaluate_urgent_sale_opportunity,
+)
 from src.domain.services.purchase_detail_filters import (
     effective_purchase_request,
     filter_diagnostics_for_purchase,
@@ -283,16 +286,22 @@ class SqlAlchemyCrawlResultsRepository:
                 reverse=True,
             )
             best_opp = opps[0] if opps else None
-            tier_matches = (
-                evaluate_urgent_sale_opportunity(
-                    listing_model.price,
-                    mp.price_down,
-                    mp.price_mid,
-                    mp.price_up,
-                )
-                if mp
-                else []
-            )
+            tier_matches = []
+            if mp:
+                if (mp.pricing_provider or "hamrah_mechanic") == "khodro45":
+                    tier_matches = evaluate_urgent_sale_opportunity(
+                        listing_model.price,
+                        mp.price_down,
+                        mp.price_mid,
+                        mp.price_up,
+                    )
+                else:
+                    tier_matches = evaluate_hamrah_mechanic_opportunity(
+                        listing_model.price,
+                        mp.price_down,
+                        mp.price_mid,
+                        mp.price_up,
+                    )
             still_valid = bool(best_opp and best_opp.status != "expired") or (
                 bool(tier_matches)
                 and is_listing_crawl_valid(listing, valid_days=valid_days, now=now)
