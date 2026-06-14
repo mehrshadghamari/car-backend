@@ -42,7 +42,7 @@ from src.infrastructure.adapters.divar.divar_adapter import DivarListingAdapter
 from src.infrastructure.adapters.hamrah_mechanic.hamrah_adapter import HamrahMechanicPricingAdapter
 from src.infrastructure.adapters.sms.sms_ir_adapter import SmsIrAdapter
 from src.application.use_cases.otp_auth import OtpAuthUseCase
-from src.infrastructure.auth.otp_store import MemoryOtpStore, RedisOtpStore
+from src.infrastructure.auth.otp_store import RedisOtpStore
 from src.infrastructure.auth.tokens import AuthTokenService
 from src.infrastructure.config import Settings, get_settings
 from src.infrastructure.persistence.database import async_session_factory
@@ -65,7 +65,6 @@ from src.infrastructure.persistence.repositories import (
 
 _redis_client: aioredis.Redis | None = None
 _httpx_client: httpx.AsyncClient | None = None
-_memory_otp_store = MemoryOtpStore()
 
 
 async def get_db_session() -> AsyncGenerator[AsyncSession, None]:
@@ -320,8 +319,7 @@ def get_otp_store(
     settings: Settings = Depends(get_settings),
     redis: aioredis.Redis = Depends(get_redis),
 ):
-    if settings.otp_sandbox:
-        return _memory_otp_store
+    # Redis is required so OTP works across multiple Gunicorn workers (even in sandbox).
     return RedisOtpStore(redis)
 
 

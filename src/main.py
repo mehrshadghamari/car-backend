@@ -33,6 +33,7 @@ from src.presentation.routing_paths import (
     is_wrong_portal_secret_path,
     legacy_portal_redirect_target,
     portal_admin_path,
+    portal_register_path,
     portal_results_path,
     portal_secret_prefix,
     portal_trim_mapping_path,
@@ -122,6 +123,14 @@ async def trim_mapping_page():
     raise HTTPException(status_code=404, detail="Trim mapping page not found")
 
 
+@app.get(portal_register_path())
+async def register_purchase_page():
+    page = static_dir / "index.html"
+    if page.exists():
+        return FileResponse(page)
+    raise HTTPException(status_code=404, detail="Register purchase page not found")
+
+
 @app.get("/results", include_in_schema=False)
 @app.get("/trim-mapping", include_in_schema=False)
 @app.get("/admin", include_in_schema=False)
@@ -152,6 +161,10 @@ if portal_dir.exists():
     @app.get("/")
     async def user_portal_home():
         return _portal_page("index.html")
+
+    @app.get("/index.html", include_in_schema=False)
+    async def user_portal_home_alias():
+        return RedirectResponse("/", status_code=302)
 
     @app.get("/dashboard.html")
     async def user_portal_dashboard():

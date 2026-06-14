@@ -15,6 +15,7 @@
 
   window.APP_PATHS = {
     portal: '/',
+    register: secretBase ? `${secretBase}/register` : '/',
     results: secretBase ? `${secretBase}/results` : '/',
     admin: secretBase ? `${secretBase}/admin/` : '/',
     docs: secretBase ? `${secretBase}/docs` : '/',

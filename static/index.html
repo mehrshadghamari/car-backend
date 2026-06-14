@@ -8,11 +8,12 @@
 </head>
 <body>
   <nav class="top-nav">
-    <a href="/" class="active">Register Purchase</a>
-    <a href="/results">Crawl Results</a>
-    <a href="/trim-mapping">Trim Mapping</a>
-    <a href="/admin/">Admin</a>
-    <a href="/docs">API Docs</a>
+    <a href="/" data-nav="portal">User Portal</a>
+    <a href="#" data-nav="register" class="active">Register Purchase</a>
+    <a href="#" data-nav="results">Crawl Results</a>
+    <a href="#" data-nav="trimMapping">Trim Mapping</a>
+    <a href="#" data-nav="admin">Admin</a>
+    <a href="#" data-nav="docs">API Docs</a>
   </nav>
 
   <header>
@@ -79,10 +80,11 @@
     <section class="card full">
       <h2>4. Response</h2>
       <pre id="output">Ready...</pre>
-      <p class="hint">After registering, view all crawl activity on the <a href="/results">Results page</a>.</p>
+      <p class="hint">After registering, view all crawl activity on the <a href="#" data-nav="results">Results page</a>.</p>
     </section>
   </main>
 
+  <script src="/static/paths.js"></script>
   <script src="/static/searchable-select.js"></script>
   <script src="/static/app.js"></script>
 </body>

@@ -2,7 +2,7 @@ from uuid import UUID
 
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.orm import joinedload
+from sqlalchemy.orm import joinedload, selectinload
 
 from src.domain.entities.car_catalog import CarTrim
 from src.domain.entities.listing import Listing
@@ -346,17 +346,17 @@ class SqlAlchemyCrawlResultsRepository:
         stmt = (
             select(PurchaseRequestModel)
             .options(
-                joinedload(PurchaseRequestModel.car_trim)
-                .joinedload(CarTrimModel.year)
-                .joinedload(CarYearModel.model)
-                .joinedload(CarModelModel.brand),
-                joinedload(PurchaseRequestModel.pricing_platform),
+                selectinload(PurchaseRequestModel.car_trim)
+                .selectinload(CarTrimModel.year)
+                .selectinload(CarYearModel.model)
+                .selectinload(CarModelModel.brand),
+                selectinload(PurchaseRequestModel.pricing_platform),
             )
             .where(PurchaseRequestModel.user_id == user_id)
             .order_by(PurchaseRequestModel.created_at.desc())
         )
         result = await self._session.execute(stmt)
-        purchases = result.scalars().unique().all()
+        purchases = result.scalars().all()
         rows: list[dict] = []
 
         for pr in purchases:
@@ -461,21 +461,31 @@ class SqlAlchemyCrawlResultsRepository:
         }
 
     async def list_overview(self, limit: int = 100) -> list[dict]:
-        stmt = (
-            select(PurchaseRequestModel)
-            .options(
-                joinedload(PurchaseRequestModel.user),
-                joinedload(PurchaseRequestModel.car_trim)
-                .joinedload(CarTrimModel.year)
-                .joinedload(CarYearModel.model)
-                .joinedload(CarModelModel.brand),
-                joinedload(PurchaseRequestModel.pricing_platform),
-            )
+        id_stmt = (
+            select(PurchaseRequestModel.id)
             .order_by(PurchaseRequestModel.created_at.desc())
             .limit(limit)
         )
+        id_result = await self._session.execute(id_stmt)
+        purchase_ids = [row[0] for row in id_result.all()]
+        if not purchase_ids:
+            return []
+
+        stmt = (
+            select(PurchaseRequestModel)
+            .where(PurchaseRequestModel.id.in_(purchase_ids))
+            .options(
+                selectinload(PurchaseRequestModel.user),
+                selectinload(PurchaseRequestModel.car_trim)
+                .selectinload(CarTrimModel.year)
+                .selectinload(CarYearModel.model)
+                .selectinload(CarModelModel.brand),
+                selectinload(PurchaseRequestModel.pricing_platform),
+            )
+            .order_by(PurchaseRequestModel.created_at.desc())
+        )
         result = await self._session.execute(stmt)
-        purchases = result.scalars().unique().all()
+        purchases = result.scalars().all()
         rows: list[dict] = []
 
         for pr in purchases:

@@ -51,6 +51,10 @@ def portal_trim_mapping_path() -> str:
     return f"{portal_secret_prefix()}/trim-mapping"
 
 
+def portal_register_path() -> str:
+    return f"{portal_secret_prefix()}/register"
+
+
 def is_portal_uuid_shaped_path(path: str) -> bool:
     """True for /portal/{uuid}/{uuid}/… (staff area shape)."""
     return _UUID_PATH_RE.match(path) is not None

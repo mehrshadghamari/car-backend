@@ -127,7 +127,7 @@
   <script src="/js/api.js"></script>
   <script src="/static/searchable-select.js"></script>
   <script>
-    if (!getToken()) window.location.href = 'index.html';
+    if (!getToken()) window.location.href = '/';
 
     SearchableSelect.enhanceCatalog({
       brandSelect: { placeholder: 'جستجوی برند…', noResultsText: 'برندی یافت نشد' },
@@ -201,7 +201,7 @@
       } catch (e) {
         if (e.status === 401) {
           clearSession();
-          window.location.href = 'index.html';
+          window.location.href = '/';
           return;
         }
         list.innerHTML = `<div class="empty error-msg">${e.message}</div>`;
@@ -297,7 +297,7 @@
 
     document.getElementById('logoutBtn').addEventListener('click', () => {
       clearSession();
-      window.location.href = 'index.html';
+      window.location.href = '/';
     });
 
     const createModal = document.getElementById('createModal');

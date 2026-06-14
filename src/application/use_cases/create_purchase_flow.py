@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from datetime import timedelta
 from decimal import Decimal
+import logging
 from typing import Any
 from uuid import UUID, uuid4
 
@@ -26,6 +27,8 @@ from src.domain.services.url_builder import build_khodro45_price_url
 from src.infrastructure.adapters.pricing_factory import PricingServiceFactory
 from src.infrastructure.config import Settings
 from src.infrastructure.persistence.platform_repositories import SqlAlchemyPlatformRepository
+
+logger = logging.getLogger(__name__)
 
 
 @dataclass
@@ -178,18 +181,23 @@ class CreatePurchaseFlowUseCase:
 
         immediate_opps: list[str] = []
         if crawl_targets:
-            evaluator = EvaluatePurchaseRequestsUseCase(
-                crawl_target_repo=self._crawl_target_repo,
-                purchase_request_repo=self._purchase_request_repo,
-                listing_repo=self._listing_repo,
-                market_price_repo=self._market_price_repo,
-                opportunity_repo=self._opportunity_repo,
-                platform_repo=self._platform_repo,
-                car_trim_repo=self._car_trim_repo,
-                pricing_factory=self._pricing_factory,
-                settings=self._settings,
-            )
-            immediate_opps = await evaluator.for_purchase_request(purchase_request.id)
+            try:
+                evaluator = EvaluatePurchaseRequestsUseCase(
+                    crawl_target_repo=self._crawl_target_repo,
+                    purchase_request_repo=self._purchase_request_repo,
+                    listing_repo=self._listing_repo,
+                    market_price_repo=self._market_price_repo,
+                    opportunity_repo=self._opportunity_repo,
+                    platform_repo=self._platform_repo,
+                    car_trim_repo=self._car_trim_repo,
+                    pricing_factory=self._pricing_factory,
+                    settings=self._settings,
+                )
+                immediate_opps = await evaluator.for_purchase_request(purchase_request.id)
+            except Exception:
+                logger.exception(
+                    "Immediate evaluation failed for purchase %s", purchase_request.id
+                )
 
         return PurchaseFlowResult(
             purchase_request=purchase_request,
@@ -212,4 +220,4 @@ class CreatePurchaseFlowUseCase:
             if color and config.get("color_map"):
                 color_id = config["color_map"].get(color, color_id)
             return build_khodro45_price_url(slug, year, km, color_id, self._settings.khodro45_base_url)
-        raise ValidationError("فقط خودرو۴۵ برای پیش‌نمایش قیمت پشتیبانی می‌شود")
+        return ""

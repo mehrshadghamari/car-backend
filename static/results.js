@@ -1,5 +1,9 @@
 const API = '/api/v1';
 
+function trimMappingHref() {
+  return (window.APP_PATHS && window.APP_PATHS.trimMapping) || '/';
+}
+
 function escapeHtml(value) {
   if (value == null) return '';
   return String(value)
@@ -227,7 +231,7 @@ function renderDetail(d, purchaseId) {
       <dt>Year range</dt><dd>${pr.production_year_min || '—'} – ${pr.production_year_max || '—'}</dd>
       <dt>Usage max</dt><dd>${fmtNum(pr.usage_max)} km</dd>
       <dt>Pricing</dt><dd>${escapeHtml(d.pricing_platform || '—')}</dd>
-      <dt>Listing mapping</dt><dd>${pr.listing_mapping_configured ? 'configured' : 'not configured — add at /trim-mapping'}</dd>
+      <dt>Listing mapping</dt><dd>${pr.listing_mapping_configured ? 'configured' : `not configured — add at ${escapeHtml(trimMappingHref())}`}</dd>
       <dt>Active</dt><dd>${pr.is_active ? 'yes' : 'no'}</dd>
       <dt>Expires</dt><dd>${fmtDate(pr.expires_at)}</dd>
       <dt>Divar URL</dt><dd>${pr.generated_divar_url ? `<a href="${escapeHtml(pr.generated_divar_url)}" target="_blank">${escapeHtml(pr.generated_divar_url)}</a>` : '— (no listing mapping for this trim)'}</dd>
@@ -235,7 +239,7 @@ function renderDetail(d, purchaseId) {
   `);
 
   if (!d.crawl_targets.length) {
-    html += section('Crawl targets', '<p class="empty-inline">No Divar listing mapping for this trim — configure at <a href="/trim-mapping">/trim-mapping</a></p>');
+    html += section('Crawl targets', `<p class="empty-inline">No Divar listing mapping for this trim — configure at <a href="${escapeHtml(trimMappingHref())}">${escapeHtml(trimMappingHref())}</a></p>`);
   } else if (d.crawl_targets.length) {
     html += section('Crawl targets', `
       <ul class="detail-list">
