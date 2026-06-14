@@ -1,11 +1,11 @@
 from uuid import UUID
 
 from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
+from sqlalchemy.exc import SQLAlchemyError
 
 from src.application.use_cases.create_purchase_flow import CreatePurchaseFlowInput
-from src.application.use_cases.manage_users import CreateUserInput
 from src.domain.exceptions import EntityNotFoundError, ValidationError
-from src.infrastructure.tasks.crawl_tasks import run_crawl_and_notify
+from src.infrastructure.tasks.crawl_tasks import schedule_crawl
 from src.presentation.api.schemas import ScenarioRunRequest, ScenarioRunResponse
 from src.presentation.dependencies import (
     get_create_purchase_flow_use_case,
@@ -28,27 +28,18 @@ async def run_scenario(
     2. Create purchase flow (car model + filters -> Divar URL + crawl target)
     3. Optionally trigger crawl immediately
     """
-    if body.user_id:
-        user = await users_uc.get(body.user_id)
-        user_id = user.id
-    else:
-        import time
-
-        phone = body.phone
-        existing = await users_uc.get_by_phone(phone)
-        if existing:
-            phone = f"09{int(time.time()) % 1000000000:09d}"[-11:]
-        user = await users_uc.create(
-            CreateUserInput(
-                phone=phone,
+    try:
+        if body.user_id:
+            user = await users_uc.get(body.user_id)
+            user_id = user.id
+        else:
+            user = await users_uc.get_or_create_by_phone(
+                phone=body.phone,
                 source_channel=body.source_channel,
                 first_name=body.first_name,
-                last_name=body.last_name,
             )
-        )
-        user_id = user.id
+            user_id = user.id
 
-    try:
         result = await use_case.execute(
             CreatePurchaseFlowInput(
                 user_id=user_id,
@@ -67,12 +58,19 @@ async def run_scenario(
         raise HTTPException(status_code=404, detail=str(exc)) from exc
     except ValidationError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
+    except SQLAlchemyError as exc:
+        raise HTTPException(
+            status_code=503,
+            detail="خطا در ذخیره‌سازی — لطفاً دوباره تلاش کنید",
+        ) from exc
 
     crawl_result = None
     if body.run_crawl and result.crawl_targets:
         for target in result.crawl_targets:
-            background_tasks.add_task(run_crawl_and_notify, str(target.id))
-        crawl_result = "crawl_started"
+            mode = schedule_crawl(str(target.id), background_tasks, force=True)
+            crawl_result = f"crawl_started_{mode}"
+    elif body.run_crawl and not result.crawl_targets:
+        crawl_result = "no_crawl_targets_configured"
 
     return ScenarioRunResponse(
         user_id=user_id,

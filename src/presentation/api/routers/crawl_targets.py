@@ -8,7 +8,7 @@ from src.application.use_cases.manage_crawl_targets import (
     UpdateCrawlTargetInput,
 )
 from src.domain.exceptions import EntityNotFoundError, ValidationError
-from src.infrastructure.tasks.crawl_tasks import run_crawl_and_notify
+from src.infrastructure.tasks.crawl_tasks import schedule_crawl
 from src.presentation.api.schemas import (
     CrawlRunResponse,
     CrawlTargetCreate,
@@ -133,7 +133,7 @@ async def crawl_now(
     target_id: UUID,
     background_tasks: BackgroundTasks,
 ):
-    background_tasks.add_task(run_crawl_and_notify, str(target_id))
+    schedule_crawl(str(target_id), background_tasks, force=True)
     return {"status": "accepted", "crawl_target_id": str(target_id)}
 
 

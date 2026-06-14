@@ -6,7 +6,7 @@ from src.application.use_cases.create_purchase_flow import CreatePurchaseFlowInp
 from src.domain.entities.user import User
 from src.domain.exceptions import EntityNotFoundError, ValidationError
 from src.infrastructure.persistence.crawl_results_repository import SqlAlchemyCrawlResultsRepository
-from src.infrastructure.tasks.crawl_tasks import run_crawl_and_notify
+from src.infrastructure.tasks.crawl_tasks import schedule_crawl
 from src.presentation.api.deps_auth import get_current_user
 from src.presentation.api.schemas import (
     MyPurchaseDetailResponse,
@@ -71,7 +71,7 @@ async def create_my_purchase(
 
     if body.run_crawl and result.crawl_targets:
         for target in result.crawl_targets:
-            background_tasks.add_task(run_crawl_and_notify, str(target.id))
+            schedule_crawl(str(target.id), background_tasks, force=True)
 
     return PurchaseFlowResponse(
         purchase_request_id=result.purchase_request.id,

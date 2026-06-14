@@ -2,7 +2,7 @@ from uuid import UUID
 
 from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 
-from src.infrastructure.tasks.crawl_tasks import run_crawl_and_notify
+from src.infrastructure.tasks.crawl_tasks import schedule_crawl
 from src.domain.exceptions import EntityNotFoundError, ValidationError
 from src.presentation.api.schemas import CrawlTaskStatusResponse
 from src.presentation.dependencies import get_crawl_run_repo, get_db_session, get_run_purchase_crawl_use_case
@@ -96,12 +96,23 @@ async def run_crawl_for_purchase(
     except ValidationError as exc:
         raise HTTPException(status_code=400, detail=str(exc)) from exc
 
+    if not target_ids:
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                "برای این تریم نگاشت Divar تنظیم نشده — "
+                "ابتدا در Trim Mapping پیکربندی کنید"
+            ),
+        )
+
+    modes: list[str] = []
     for target_id in target_ids:
-        background_tasks.add_task(run_crawl_and_notify, target_id)
+        modes.append(schedule_crawl(target_id, background_tasks, force=True))
 
     return {
         "status": "accepted",
         "purchase_request_id": str(purchase_request_id),
         "crawl_target_ids": target_ids,
+        "schedule_modes": modes,
         "message": "Crawl started in background — refresh detail in ~30s to see diagnostics",
     }

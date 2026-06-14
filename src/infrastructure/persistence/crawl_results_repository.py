@@ -592,7 +592,11 @@ class SqlAlchemyCrawlResultsRepository:
         if not pr:
             return None
 
-        target_ids = await self._target_ids_for_trim(pr.car_trim_id, pr.id) if pr.car_trim_id else []
+        trim_targets = (
+            await self._target_ids_for_trim(pr.car_trim_id, pr.id) if pr.car_trim_id else []
+        )
+        purchase_targets = await self._target_ids_for_purchase(pr.id)
+        target_ids = list(dict.fromkeys([*trim_targets, *purchase_targets]))
         listing_mapping_configured = bool(
             await self._listing_mapping_ids_for_trim(pr.car_trim_id) if pr.car_trim_id else set()
         )

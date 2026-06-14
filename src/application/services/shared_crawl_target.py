@@ -39,7 +39,7 @@ async def find_or_create_shared_crawl_target(
         listing_fetch_strategy=listing_fetch_strategy,
         pricing_fetch_strategy=pricing_fetch_strategy,
         listing_category=listing_category,
-        divar_brand_model=listing_mapping.divar_brand_model.strip(),
+        divar_brand_model=(listing_mapping.divar_brand_model or "").strip(),
         max_pages_per_run=pool_pages,
         max_listings_per_check=pool_listings,
         production_year_min=production_year_min,

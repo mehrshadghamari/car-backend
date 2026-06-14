@@ -360,11 +360,46 @@ async function runCrawlForPurchase(id) {
   if (msg) msg.textContent = 'Starting...';
   try {
     const r = await api(`/crawl-tasks/purchase/${id}/run-now`, { method: 'POST' });
-    if (msg) msg.textContent = r.message || 'Crawl started';
-    setTimeout(() => openDetail(id), 8000);
+    const count = (r.crawl_target_ids || []).length;
+    if (!count) {
+      if (msg) msg.textContent = 'No crawl targets — configure Trim Mapping for this trim first';
+      return;
+    }
+    if (msg) {
+      msg.textContent = `${r.message || 'Crawl started'} (${count} target${count === 1 ? '' : 's'})`;
+    }
+    pollDetailAfterCrawl(id, msg);
   } catch (e) {
     if (msg) msg.textContent = e.message;
   }
+}
+
+function pollDetailAfterCrawl(id, msgEl) {
+  let attempts = 0;
+  const maxAttempts = 12;
+  const timer = setInterval(async () => {
+    attempts += 1;
+    try {
+      const d = await api(`/crawl-results/${id}`);
+      const runs = d.crawl_runs || [];
+      const latest = runs[0];
+      if (latest && latest.status !== 'running') {
+        clearInterval(timer);
+        if (msgEl) {
+          msgEl.textContent = `Crawl ${latest.status} — ${latest.posts_found ?? 0} posts, ${latest.opportunities_found ?? 0} opportunities`;
+        }
+        await openDetail(id);
+        return;
+      }
+      if (attempts >= maxAttempts) {
+        clearInterval(timer);
+        if (msgEl) msgEl.textContent += ' — still running, click Refresh';
+        await openDetail(id);
+      }
+    } catch {
+      if (attempts >= maxAttempts) clearInterval(timer);
+    }
+  }, 5000);
 }
 
 async function openDetail(id) {

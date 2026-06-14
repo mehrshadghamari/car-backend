@@ -15,7 +15,7 @@ from src.domain.compat import utc_now
 from src.infrastructure.adapters.divar.divar_adapter import DivarListingAdapter
 from src.infrastructure.adapters.pricing_factory import PricingServiceFactory
 from src.infrastructure.config import get_settings
-from src.infrastructure.persistence.database import async_session_factory
+from src.infrastructure.persistence.task_database import task_db_session
 from src.infrastructure.persistence.car_catalog_repositories import SqlAlchemyCarTrimRepository
 from src.infrastructure.persistence.platform_repositories import SqlAlchemyPlatformRepository
 from src.infrastructure.persistence.repositories import (
@@ -40,13 +40,13 @@ def _run_async(coro):
         loop.close()
 
 
-async def _crawl_and_notify_async(crawl_target_id: str) -> dict:
+async def _crawl_and_notify_async(crawl_target_id: str, *, force: bool = False) -> dict:
     redis_client = aioredis.from_url(settings.redis_url, decode_responses=False)
     divar = DivarListingAdapter(settings)
     pricing_factory = PricingServiceFactory(settings, redis_client)
 
     try:
-        async with async_session_factory() as session:
+        async with task_db_session() as session:
             crawl_use_case = CrawlAndEvaluateUseCase(
                 crawl_target_repo=SqlAlchemyCrawlTargetRepository(session),
                 listing_repo=SqlAlchemyListingRepository(session),
@@ -61,7 +61,7 @@ async def _crawl_and_notify_async(crawl_target_id: str) -> dict:
                 settings=settings,
                 max_concurrent_details=settings.divar_max_concurrent_details,
             )
-            crawl_run = await crawl_use_case.execute(crawl_target_id)
+            crawl_run = await crawl_use_case.execute(crawl_target_id, force=force)
             new_opp_ids = getattr(crawl_run, "new_opportunity_ids", [])
 
             return {
@@ -79,14 +79,57 @@ async def _crawl_and_notify_async(crawl_target_id: str) -> dict:
 
 
 @celery_app.task(name="src.infrastructure.tasks.crawl_tasks.crawl_target_job")
-def crawl_target_job(crawl_target_id: str) -> dict:
-    logger.info("Starting crawl for target %s", crawl_target_id)
-    return _run_async(_crawl_and_notify_async(crawl_target_id))
+def crawl_target_job(crawl_target_id: str, force: bool = False) -> dict:
+    logger.info("Starting crawl for target %s (force=%s)", crawl_target_id, force)
+    return _run_async(_crawl_and_notify_async(crawl_target_id, force=force))
 
 
-def run_crawl_and_notify(crawl_target_id: str) -> dict:
+def run_crawl_and_notify(crawl_target_id: str, *, force: bool = False) -> dict:
     """Synchronous helper for FastAPI background tasks."""
-    return _run_async(_crawl_and_notify_async(crawl_target_id))
+    return _run_async(_crawl_and_notify_async(crawl_target_id, force=force))
+
+
+def _safe_run_crawl(crawl_target_id: str) -> None:
+    try:
+        result = run_crawl_and_notify(crawl_target_id, force=True)
+        logger.info(
+            "Manual crawl finished for %s — status=%s posts=%s",
+            crawl_target_id,
+            result.get("status"),
+            result.get("posts_found"),
+        )
+    except Exception:
+        logger.exception("Manual crawl failed for %s", crawl_target_id)
+
+
+def schedule_crawl(
+    crawl_target_id: str,
+    background_tasks=None,
+    *,
+    force: bool = False,
+) -> str:
+    """Queue crawl via Celery when available, else run in-process after response."""
+    target_id = str(crawl_target_id)
+    if force:
+        if background_tasks is not None:
+            background_tasks.add_task(_safe_run_crawl, target_id)
+            return "background_forced"
+        run_crawl_and_notify(target_id, force=True)
+        return "sync_forced"
+    try:
+        crawl_target_job.delay(target_id, force=False)
+        return "celery"
+    except Exception:
+        logger.warning(
+            "Celery unavailable — running crawl in-process for target %s",
+            target_id,
+            exc_info=True,
+        )
+    if background_tasks is not None:
+        background_tasks.add_task(run_crawl_and_notify, target_id)
+        return "background"
+    run_crawl_and_notify(target_id)
+    return "sync"
 
 
 @celery_app.task(name="src.infrastructure.tasks.crawl_tasks.schedule_active_crawls")
@@ -97,7 +140,7 @@ def schedule_active_crawls() -> dict:
     """
 
     async def _schedule():
-        async with async_session_factory() as session:
+        async with task_db_session() as session:
             target_repo = SqlAlchemyCrawlTargetRepository(session)
             purchase_repo = SqlAlchemyPurchaseRequestRepository(session)
             crawl_run_repo = SqlAlchemyCrawlRunRepository(session)
@@ -167,7 +210,7 @@ def schedule_active_crawls() -> dict:
 
 
 async def _purge_stale_crawl_data_async() -> dict:
-    async with async_session_factory() as session:
+    async with task_db_session() as session:
         use_case = CrawlRetentionUseCase(
             listing_repo=SqlAlchemyListingRepository(session),
             purchase_request_repo=SqlAlchemyPurchaseRequestRepository(session),

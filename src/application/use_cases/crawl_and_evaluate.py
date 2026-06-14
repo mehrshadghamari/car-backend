@@ -63,7 +63,7 @@ class CrawlAndEvaluateUseCase:
         self._settings = settings
         self._max_concurrent_details = max_concurrent_details
 
-    async def execute(self, crawl_target_id) -> CrawlRun:
+    async def execute(self, crawl_target_id, *, force: bool = False) -> CrawlRun:
         diag = CrawlDiagnostics()
         stale = await self._crawl_run_repo.recover_stale_runs()
         if stale:
@@ -73,12 +73,17 @@ class CrawlAndEvaluateUseCase:
         if not target:
             raise ValueError(f"Crawl target not found: {crawl_target_id}")
 
+        if force and not target.is_active:
+            target.is_active = True
+            target = await self._crawl_target_repo.save(target)
+            diag.add("info", "Reactivated crawl target for manual run", crawl_target_id=str(target.id))
+
         active_purchases = await self._purchase_request_repo.list_active_non_expired()
         active_trim_ids = {p.car_trim_id for p in active_purchases if p.car_trim_id}
         active_mapping_ids = await self._platform_repo.list_active_listing_mapping_ids_for_trims(
             active_trim_ids
         )
-        if not pool_needs_crawl(target, active_listing_mapping_ids=active_mapping_ids):
+        if not force and not pool_needs_crawl(target, active_listing_mapping_ids=active_mapping_ids):
             diag.add(
                 "skip",
                 "No active purchase request for this listing pool — skipping Divar fetch",
@@ -102,6 +107,9 @@ class CrawlAndEvaluateUseCase:
         ctx = target.vehicle_context
         max_listings = ctx.max_listings_per_check
         max_pages = ctx.max_pages_per_run
+
+        if force:
+            diag.add("info", "Manual crawl — scheduler gate bypassed", crawl_target_id=str(target.id))
 
         listing_platform = await self._platform_repo.get_listing_platform_by_slug(
             ctx.listing_platform or target.source
