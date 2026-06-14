@@ -13,7 +13,7 @@
 #   sudo bash scripts/deploy/vps-first-deploy.sh
 #
 # Updates (after code changes):
-#   sudo bash scripts/deploy/vps-update.sh
+#   sudo bash scripts/deploy/redeploy.sh
 set -euo pipefail
 
 if [[ "${EUID:-$(id -u)}" -ne 0 ]]; then
