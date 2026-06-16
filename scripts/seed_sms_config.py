@@ -22,8 +22,10 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from sqlalchemy import select
+from sqlalchemy import inspect, select
+from sqlalchemy.ext.asyncio import create_async_engine
 
+from src.infrastructure.config import get_settings
 from src.infrastructure.persistence.database import async_session_factory
 from src.infrastructure.persistence.models import SmsProviderModel, SmsTemplateModel
 from src.infrastructure.persistence.sms_defaults import (
@@ -120,7 +122,27 @@ def _template_rows(provider_id: uuid.UUID) -> list[dict]:
     ]
 
 
+async def ensure_sms_tables() -> None:
+    settings = get_settings()
+    engine = create_async_engine(settings.database_url, echo=False)
+
+    def _create(sync_conn):
+        inspector = inspect(sync_conn)
+        tables = set(inspector.get_table_names())
+        if "sms_providers" not in tables:
+            SmsProviderModel.__table__.create(sync_conn)
+            print("Created table sms_providers")
+        if "sms_templates" not in tables:
+            SmsTemplateModel.__table__.create(sync_conn)
+            print("Created table sms_templates")
+
+    async with engine.begin() as conn:
+        await conn.run_sync(_create)
+    await engine.dispose()
+
+
 async def seed_sms_config(api_key: str, sender: str) -> None:
+    await ensure_sms_tables()
     use_webservice = bool(api_key.strip())
     default_provider_id = PROVIDER_SMS_WEBSERVICE_ID if use_webservice else PROVIDER_DRY_RUN_ID
 

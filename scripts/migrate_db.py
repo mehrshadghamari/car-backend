@@ -10,6 +10,17 @@ from sqlalchemy import inspect, text
 from sqlalchemy.ext.asyncio import create_async_engine
 
 from src.infrastructure.config import get_settings
+from src.infrastructure.persistence.models import SmsProviderModel, SmsTemplateModel
+
+
+def _ensure_sms_tables(inspector, sync_conn) -> None:
+    tables = set(inspector.get_table_names())
+    if "sms_providers" not in tables:
+        SmsProviderModel.__table__.create(sync_conn)
+        print("Created table sms_providers")
+    if "sms_templates" not in tables:
+        SmsTemplateModel.__table__.create(sync_conn)
+        print("Created table sms_templates")
 
 
 def _column_exists(inspector, table: str, column: str) -> bool:
@@ -21,6 +32,10 @@ async def migrate() -> None:
     engine = create_async_engine(settings.database_url, echo=False)
     async with engine.begin() as conn:
         def _migrate(sync_conn):
+            inspector = inspect(sync_conn)
+            tables = inspector.get_table_names()
+
+            _ensure_sms_tables(inspector, sync_conn)
             inspector = inspect(sync_conn)
             tables = inspector.get_table_names()
 
