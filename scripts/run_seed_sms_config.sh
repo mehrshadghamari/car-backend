@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 # Seed SMS providers + templates. Loads credentials from sms.seed.env or .env.
+# Run on VPS:
+#   sudo -u deploy bash scripts/run_seed_sms_config.sh
 set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
@@ -17,5 +19,13 @@ elif [[ -f "$ROOT/.env" ]]; then
   set +a
 fi
 
-export PYTHONPATH="${PYTHONPATH:-$ROOT}"
-python3 "$ROOT/scripts/seed_sms_config.py" "$@"
+if [[ -f "$ROOT/venv/bin/activate" ]]; then
+  # shellcheck disable=SC1091
+  source "$ROOT/venv/bin/activate"
+  PYTHON="${PYTHON:-python}"
+else
+  PYTHON="${PYTHON:-python3}"
+fi
+
+export PYTHONPATH="$ROOT"
+exec "$PYTHON" "$ROOT/scripts/seed_sms_config.py" "$@"
