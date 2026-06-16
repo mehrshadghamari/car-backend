@@ -41,6 +41,9 @@ docker compose run --rm api python3 scripts/migrate_db.py
 echo "==> Seeding car catalog..."
 docker compose run --rm api python3 scripts/seed_catalog.py
 
+echo "==> Seeding SMS providers and templates..."
+docker compose run --rm api bash scripts/run_seed_sms_config.sh
+
 echo ""
 echo "Docker first-run complete."
 echo ""

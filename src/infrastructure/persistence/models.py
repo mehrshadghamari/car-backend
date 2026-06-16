@@ -460,3 +460,43 @@ class OpportunityShareBatchModel(Base):
     opportunity_ids: Mapped[list] = mapped_column(JSON, nullable=False)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     expires_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), nullable=False)
+
+
+class SmsProviderModel(Base):
+    __tablename__ = "sms_providers"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True, default=uuid.uuid4)
+    slug: Mapped[str] = mapped_column(String(50), unique=True, nullable=False)
+    name: Mapped[str] = mapped_column(String(100), nullable=False)
+    driver: Mapped[str] = mapped_column(String(50), nullable=False)
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True)
+    config: Mapped[dict] = mapped_column(JSON, nullable=False, default=dict)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )
+
+    templates: Mapped[list["SmsTemplateModel"]] = relationship(back_populates="provider")
+
+
+class SmsTemplateModel(Base):
+    __tablename__ = "sms_templates"
+
+    id: Mapped[uuid.UUID] = mapped_column(Uuid, primary_key=True, default=uuid.uuid4)
+    action: Mapped[str] = mapped_column(String(50), unique=True, nullable=False, index=True)
+    name: Mapped[str] = mapped_column(String(120), nullable=False)
+    send_mode: Mapped[str] = mapped_column(String(20), nullable=False, default="text")
+    text_body: Mapped[str | None] = mapped_column(Text)
+    pattern_key: Mapped[str | None] = mapped_column(String(120))
+    pattern_slots: Mapped[list | None] = mapped_column(JSON)
+    pattern_params: Mapped[list | None] = mapped_column(JSON)
+    provider_id: Mapped[uuid.UUID] = mapped_column(
+        ForeignKey("sms_providers.id"), nullable=False, index=True
+    )
+    is_active: Mapped[bool] = mapped_column(Boolean, default=True)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
+    updated_at: Mapped[datetime] = mapped_column(
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
+    )
+
+    provider: Mapped[SmsProviderModel] = relationship(back_populates="templates")

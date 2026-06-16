@@ -40,6 +40,23 @@ class Settings(BaseSettings):
     sms_ir_line_number: str = ""
     sms_ir_template_id: str = ""
     sms_ir_base_url: str = "https://api.sms.ir/v1"
+    sms_ir_pattern_param_names: str = "discount_label,title,price,gateway_url"
+
+    sms_provider: str = "dry_run"
+    sms_send_mode: str = "text"
+
+    sms_webservice_api_key: str = ""
+    sms_webservice_sender: str = ""
+    sms_webservice_base_url: str = "https://api.sms-webservice.com/api/V3"
+    sms_webservice_pattern_template_key: str = ""
+    sms_webservice_pattern_p1: str = "discount_label"
+    sms_webservice_pattern_p2: str = "title"
+    sms_webservice_pattern_p3: str = "price_and_gateway"
+
+    sms_gateway_text_template: str = (
+        "{discount_label} زیر قیمت بازار {title} قیمت : {price} تومان  "
+        "مشاهده آگهی در دیوار : {gateway_url}"
+    )
 
     default_near_threshold_pct: float = 0.02
     default_max_pages_per_run: int = 5

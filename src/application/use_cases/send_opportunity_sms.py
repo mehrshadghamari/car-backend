@@ -4,7 +4,7 @@ from dataclasses import dataclass
 from datetime import timedelta
 from uuid import UUID, uuid4
 
-from src.application.ports.external import NotificationPort
+from src.application.services.sms_service import SmsService
 from src.application.ports.repositories import (
     DeliveryRepository,
     ListingRepository,
@@ -15,8 +15,10 @@ from src.application.ports.repositories import (
 from src.domain.compat import utc_now
 from src.domain.entities.delivery import OpportunityDelivery, SmsStatus
 from src.domain.constants.opportunity_visibility import STAFF_SMS_ELIGIBLE_OPPORTUNITY_STATUSES
-from src.domain.entities.opportunity import DEAL_TAG_LABELS, OpportunityStatus
+from src.domain.entities.opportunity import OpportunityStatus
+from src.domain.constants.sms_actions import SmsAction
 from src.domain.exceptions import EntityNotFoundError, ValidationError
+from src.domain.services.sms_param_builder import gateway_link_params, portal_link_params
 from src.infrastructure.config import Settings
 
 logger = logging.getLogger(__name__)
@@ -45,7 +47,7 @@ class SendOpportunitySmsUseCase:
         user_repo: UserRepository,
         listing_repo: ListingRepository,
         delivery_repo: DeliveryRepository,
-        notification_port: NotificationPort,
+        sms_service: SmsService,
         settings: Settings,
         share_batch_repo=None,
     ):
@@ -54,7 +56,7 @@ class SendOpportunitySmsUseCase:
         self._user_repo = user_repo
         self._listing_repo = listing_repo
         self._delivery_repo = delivery_repo
-        self._notification_port = notification_port
+        self._sms_service = sms_service
         self._settings = settings
         self._share_batch_repo = share_batch_repo
 
@@ -92,16 +94,15 @@ class SendOpportunitySmsUseCase:
 
     async def _send_gateway_links(self, purchase, user, opportunities) -> SendOpportunitySmsResult:
         deliveries = 0
-        gateway_lines: list[str] = ["فرصت‌های خرید خودرو:"]
+        sent = 0
+        pending: list[tuple[OpportunityDelivery, dict[str, str]]] = []
 
         for opp in opportunities:
             listing = await self._listing_repo.get_by_id(opp.listing_id)
             if not listing:
                 continue
             gateway_token = secrets.token_urlsafe(16)
-            gateway_url = f"{self._settings.app_host}/g/{gateway_token}"
-            tag_label = DEAL_TAG_LABELS.get(opp.deal_tag, {}).get("fa", opp.deal_tag)
-            gateway_lines.append(f"• [{tag_label}] {listing.title} — {gateway_url}")
+            params = gateway_link_params(opp, listing, gateway_token, self._settings.app_host)
 
             delivery = OpportunityDelivery(
                 id=uuid4(),
@@ -113,19 +114,28 @@ class SendOpportunitySmsUseCase:
             )
             await self._delivery_repo.save(delivery)
             deliveries += 1
+            pending.append((delivery, params))
             opp.status = OpportunityStatus.NOTIFIED
             await self._opportunity_repo.save(opp)
 
-        if len(gateway_lines) <= 1:
+        if not pending:
             raise ValidationError("آگهی معتبری برای ارسال یافت نشد")
 
-        sent = 0
-        try:
-            await self._notification_port.send_opportunity_sms(user.phone, "\n".join(gateway_lines))
-            sent = 1
-        except Exception as exc:
-            logger.warning("SMS failed: %s", exc)
-            raise ValidationError(f"ارسال پیامک ناموفق: {exc}") from exc
+        for delivery, params in pending:
+            try:
+                provider_id = await self._sms_service.send(SmsAction.GATEWAY_LINK, user.phone, params)
+                delivery.sms_status = SmsStatus.SENT
+                delivery.sms_sent_at = utc_now()
+                delivery.sms_provider_id = provider_id
+                sent += 1
+            except Exception as exc:
+                logger.warning("SMS failed for delivery %s: %s", delivery.id, exc)
+                delivery.sms_status = SmsStatus.FAILED
+                delivery.sms_error = str(exc)
+            await self._delivery_repo.save(delivery)
+
+        if sent == 0:
+            raise ValidationError("ارسال پیامک ناموفق بود")
 
         return SendOpportunitySmsResult(sms_sent=sent, deliveries_created=deliveries)
 
@@ -143,11 +153,14 @@ class SendOpportunitySmsUseCase:
             expires_at=expires_at,
         )
         share_url = f"{self._settings.app_host}/shared-opportunities.html?token={token}"
-        message = f"فرصت‌های خرید خودرو برای شما:\n{share_url}"
 
         sent = 0
         try:
-            await self._notification_port.send_opportunity_sms(user.phone, message)
+            await self._sms_service.send(
+                SmsAction.PORTAL_LINK,
+                user.phone,
+                portal_link_params(share_url),
+            )
             sent = 1
         except Exception as exc:
             logger.warning("Portal SMS failed: %s", exc)

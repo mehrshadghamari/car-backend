@@ -2,7 +2,7 @@ import logging
 import secrets
 from uuid import UUID, uuid4
 
-from src.application.ports.external import NotificationPort
+from src.application.services.sms_service import SmsService
 from src.application.ports.repositories import (
     DeliveryRepository,
     ListingRepository,
@@ -12,7 +12,9 @@ from src.application.ports.repositories import (
 )
 from src.domain.compat import utc_now
 from src.domain.entities.delivery import OpportunityDelivery, SmsStatus
-from src.domain.entities.opportunity import DEAL_TAG_LABELS, OpportunityStatus
+from src.domain.constants.sms_actions import SmsAction
+from src.domain.entities.opportunity import OpportunityStatus
+from src.domain.services.sms_param_builder import gateway_link_params
 from src.infrastructure.config import Settings
 
 logger = logging.getLogger(__name__)
@@ -26,7 +28,7 @@ class MatchAndNotifyUseCase:
         user_repo: UserRepository,
         listing_repo: ListingRepository,
         delivery_repo: DeliveryRepository,
-        notification_port: NotificationPort,
+        sms_service: SmsService,
         settings: Settings,
     ):
         self._opportunity_repo = opportunity_repo
@@ -34,7 +36,7 @@ class MatchAndNotifyUseCase:
         self._user_repo = user_repo
         self._listing_repo = listing_repo
         self._delivery_repo = delivery_repo
-        self._notification_port = notification_port
+        self._sms_service = sms_service
         self._settings = settings
 
     async def execute(self, opportunity_ids: list[str]) -> int:
@@ -69,26 +71,6 @@ class MatchAndNotifyUseCase:
                 continue
 
             gateway_token = secrets.token_urlsafe(16)
-            gateway_url = f"{self._settings.app_host}/g/{gateway_token}"
-
-            km_text = f"{listing.kilometer:,}" if listing.kilometer else "N/A"
-            basis_labels = {
-                "down": "کف فروش فوری",
-                "mid": "قیمت میانه فروش فوری",
-                "up": "سقف فروش فوری",
-            }
-            basis_label = basis_labels.get(opportunity.price_basis, "قیمت مرجع")
-            ref_price = opportunity.reference_price or opportunity.market_price_down
-            tag_label = DEAL_TAG_LABELS.get(opportunity.deal_tag, {}).get("fa", opportunity.deal_tag)
-            message = (
-                f"فرصت خرید خودرو [{tag_label}]\n"
-                f"{listing.title}\n"
-                f"سال: {listing.production_year} | کارکرد: {km_text} km\n"
-                f"قیمت آگهی: {listing.price:,} تومان\n"
-                f"{basis_label}: {ref_price:,} تومان\n"
-                f"تخفیف: {opportunity.discount_pct}%\n"
-                f"لینک: {gateway_url}"
-            )
 
             delivery = OpportunityDelivery(
                 id=uuid4(),
@@ -99,9 +81,13 @@ class MatchAndNotifyUseCase:
                 sms_status=SmsStatus.PENDING,
             )
 
+            params = gateway_link_params(
+                opportunity, listing, gateway_token, self._settings.app_host
+            )
+
             try:
-                provider_id = await self._notification_port.send_opportunity_sms(
-                    user.phone, message
+                provider_id = await self._sms_service.send(
+                    SmsAction.GATEWAY_LINK, user.phone, params
                 )
                 delivery.sms_status = SmsStatus.SENT
                 delivery.sms_sent_at = utc_now()

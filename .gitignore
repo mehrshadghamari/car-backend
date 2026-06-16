@@ -5,6 +5,7 @@ __pycache__/
 venv/
 .env
 scripts/deploy/config.env
+scripts/deploy/sms.seed.env
 data/
 .pids/
 .logs/

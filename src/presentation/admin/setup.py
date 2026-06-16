@@ -31,6 +31,8 @@ from src.infrastructure.persistence.models import (
     PricingPlatformModel,
     PurchaseRequestCrawlTargetModel,
     PurchaseRequestModel,
+    SmsProviderModel,
+    SmsTemplateModel,
     TrimPricingMappingModel,
     UserModel,
 )
@@ -65,6 +67,44 @@ class PurchaseRequestAdmin(ModelView):
         "updated_at",
     ]
     exclude_fields_from_list = ["generated_divar_url"]
+
+
+class SmsProviderAdmin(ModelView):
+    label = "SMS Providers"
+    name = "SMS Provider"
+    icon = "fa fa-server"
+    fields = [
+        "id",
+        "slug",
+        "name",
+        "driver",
+        "is_active",
+        "config",
+        "created_at",
+        "updated_at",
+    ]
+    searchable_fields = ["slug", "name", "driver"]
+
+
+class SmsTemplateAdmin(ModelView):
+    label = "SMS Templates"
+    name = "SMS Template"
+    icon = "fa fa-file-text"
+    fields = [
+        "id",
+        "action",
+        "name",
+        "send_mode",
+        "text_body",
+        "pattern_key",
+        "pattern_slots",
+        "pattern_params",
+        "provider",
+        "is_active",
+        "created_at",
+        "updated_at",
+    ]
+    searchable_fields = ["action", "name"]
 
 
 class CrawlTargetAdmin(ModelView):
@@ -253,6 +293,8 @@ def setup_admin(app, admin_base_url: str = "/admin") -> Admin:
             icon="fa fa-bell",
             always_open=False,
             views=[
+                SmsProviderAdmin(SmsProviderModel),
+                SmsTemplateAdmin(SmsTemplateModel),
                 OpportunityAdmin(OpportunityModel),
                 ModelView(OpportunityDeliveryModel, label="SMS Deliveries", icon="fa fa-paper-plane"),
                 ModelView(OpportunityPageViewModel, label="Page Views", icon="fa fa-eye"),

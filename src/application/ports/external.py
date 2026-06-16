@@ -1,5 +1,7 @@
 from abc import ABC, abstractmethod
 
+from src.domain.value_objects.sms import SmsPayload
+
 from src.domain.entities.crawl_target import VehicleContext
 from src.domain.value_objects.divar_listing import DivarListingCard, DivarListingDetail, DivarSearchPage
 from src.domain.value_objects.market_reference import MarketReferencePrice
@@ -70,8 +72,7 @@ class HamrahMechanicPricingPort(ABC):
 
 class NotificationPort(ABC):
     @abstractmethod
-    async def send_opportunity_sms(
-        self,
-        phone: str,
-        message: str,
-    ) -> str: ...
+    async def send_sms(self, phone: str, payload: SmsPayload) -> str: ...
+
+    async def send_opportunity_sms(self, phone: str, message: str) -> str:
+        return await self.send_sms(phone, SmsPayload(mode="text", text=message))

@@ -1,9 +1,11 @@
 from dataclasses import dataclass
 
-from src.application.ports.external import NotificationPort
+from src.application.services.sms_service import SmsService
 from src.application.use_cases.manage_users import ManageUsersUseCase
+from src.domain.constants.sms_actions import SmsAction
 from src.domain.entities.user import User
 from src.domain.exceptions import ValidationError
+from src.domain.services.sms_param_builder import otp_code_params
 from src.infrastructure.auth.otp_store import OtpStore, generate_otp_code
 from src.infrastructure.auth.phone import normalize_phone
 from src.infrastructure.auth.tokens import AuthTokenService
@@ -31,13 +33,13 @@ class OtpAuthUseCase:
         otp_store: OtpStore,
         token_service: AuthTokenService,
         users: ManageUsersUseCase,
-        notification: NotificationPort,
+        sms_service: SmsService,
     ):
         self._settings = settings
         self._otp_store = otp_store
         self._token_service = token_service
         self._users = users
-        self._notification = notification
+        self._sms_service = sms_service
 
     async def create_otp(self, phone: str) -> OtpCreateResult:
         try:
@@ -59,8 +61,7 @@ class OtpAuthUseCase:
         if self._settings.otp_sandbox:
             message = "حالت آزمایشی — پیامک ارسال نمی‌شود. کد ورود: 11111"
         else:
-            sms_text = f"کد ورود شما: {code}"
-            await self._notification.send_opportunity_sms(normalized, sms_text)
+            await self._sms_service.send(SmsAction.OTP_CODE, normalized, otp_code_params(code))
             message = "کد تأیید با پیامک ارسال شد"
 
         return OtpCreateResult(

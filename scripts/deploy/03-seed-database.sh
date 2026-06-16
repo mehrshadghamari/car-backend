@@ -33,6 +33,9 @@ alembic stamp head
 echo "==> Loading catalog data (Hamrah 4-layer + Divar + platforms)..."
 bash scripts/load_all_catalog_data.sh --merge
 
+echo "==> Seeding SMS providers and templates..."
+bash scripts/run_seed_sms_config.sh
+
 echo ""
 echo "Database ready."
 echo "Next: sudo bash scripts/deploy/04-install-systemd.sh"

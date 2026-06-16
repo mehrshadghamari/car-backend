@@ -5,7 +5,7 @@ import redis.asyncio as aioredis
 from fastapi import Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from src.application.ports.external import DivarListingPort, HamrahMechanicPricingPort, NotificationPort
+from src.application.ports.external import DivarListingPort, HamrahMechanicPricingPort
 from src.application.ports.repositories import (
     CrawlRunRepository,
     CrawlTargetRepository,
@@ -34,6 +34,7 @@ from src.application.use_cases.gateway_redirect import GatewayRedirectUseCase
 from src.infrastructure.adapters.pricing_factory import PricingServiceFactory
 from src.infrastructure.persistence.crawl_results_repository import SqlAlchemyCrawlResultsRepository
 from src.infrastructure.persistence.platform_repositories import SqlAlchemyPlatformRepository
+from src.infrastructure.persistence.sms_config_repository import SqlAlchemySmsConfigRepository
 from src.infrastructure.persistence.share_batch_repository import SqlAlchemyShareBatchRepository
 from src.application.use_cases.manage_crawl_targets import ManageCrawlTargetsUseCase
 from src.application.use_cases.manage_purchase_requests import ManagePurchaseRequestsUseCase
@@ -42,7 +43,7 @@ from src.application.use_cases.match_and_notify import MatchAndNotifyUseCase
 from src.application.use_cases.metrics import MetricsUseCase
 from src.infrastructure.adapters.divar.divar_adapter import DivarListingAdapter
 from src.infrastructure.adapters.hamrah_mechanic.hamrah_adapter import HamrahMechanicPricingAdapter
-from src.infrastructure.adapters.sms.sms_ir_adapter import SmsIrAdapter
+from src.application.services.sms_service import SmsService
 from src.application.use_cases.otp_auth import OtpAuthUseCase
 from src.infrastructure.auth.otp_store import RedisOtpStore
 from src.infrastructure.auth.tokens import AuthTokenService
@@ -102,8 +103,11 @@ def get_hamrah_port(
     return HamrahMechanicPricingAdapter(settings, redis)
 
 
-def get_notification_port(settings: Settings = Depends(get_settings)) -> NotificationPort:
-    return SmsIrAdapter(settings)
+def get_sms_service(
+    session: AsyncSession = Depends(get_db_session),
+    settings: Settings = Depends(get_settings),
+) -> SmsService:
+    return SmsService(SqlAlchemySmsConfigRepository(session), settings)
 
 
 def get_users_use_case(session: AsyncSession = Depends(get_db_session)) -> ManageUsersUseCase:
@@ -154,7 +158,7 @@ def get_crawl_evaluate_use_case(
 def get_match_notify_use_case(
     session: AsyncSession = Depends(get_db_session),
     settings: Settings = Depends(get_settings),
-    notification: NotificationPort = Depends(get_notification_port),
+    sms_service: SmsService = Depends(get_sms_service),
 ) -> MatchAndNotifyUseCase:
     return MatchAndNotifyUseCase(
         opportunity_repo=SqlAlchemyOpportunityRepository(session),
@@ -162,7 +166,7 @@ def get_match_notify_use_case(
         user_repo=SqlAlchemyUserRepository(session),
         listing_repo=SqlAlchemyListingRepository(session),
         delivery_repo=SqlAlchemyDeliveryRepository(session),
-        notification_port=notification,
+        sms_service=sms_service,
         settings=settings,
     )
 
@@ -290,7 +294,7 @@ def get_share_batch_repo(session: AsyncSession = Depends(get_db_session)) -> Sql
 def get_send_opportunity_sms_use_case(
     session: AsyncSession = Depends(get_db_session),
     settings: Settings = Depends(get_settings),
-    notification: NotificationPort = Depends(get_notification_port),
+    sms_service: SmsService = Depends(get_sms_service),
 ) -> SendOpportunitySmsUseCase:
     return SendOpportunitySmsUseCase(
         opportunity_repo=SqlAlchemyOpportunityRepository(session),
@@ -298,7 +302,7 @@ def get_send_opportunity_sms_use_case(
         user_repo=SqlAlchemyUserRepository(session),
         listing_repo=SqlAlchemyListingRepository(session),
         delivery_repo=SqlAlchemyDeliveryRepository(session),
-        notification_port=notification,
+        sms_service=sms_service,
         settings=settings,
         share_batch_repo=SqlAlchemyShareBatchRepository(session),
     )
@@ -349,11 +353,12 @@ def get_otp_auth_use_case(
     settings: Settings = Depends(get_settings),
     otp_store=Depends(get_otp_store),
     session: AsyncSession = Depends(get_db_session),
+    sms_service: SmsService = Depends(get_sms_service),
 ) -> OtpAuthUseCase:
     return OtpAuthUseCase(
         settings=settings,
         otp_store=otp_store,
         token_service=AuthTokenService(settings.auth_secret_key, settings.auth_token_max_age_sec),
         users=ManageUsersUseCase(SqlAlchemyUserRepository(session)),
-        notification=SmsIrAdapter(settings),
+        sms_service=sms_service,
     )
