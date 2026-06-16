@@ -6,9 +6,11 @@ from uuid import UUID
 
 
 class OpportunityStatus(StrEnum):
-    NEW = "new"
+    NEW = "new"  # pending staff review
+    APPROVED = "approved"  # visible to client
+    REJECTED = "rejected"  # hidden from client
     MATCHED = "matched"
-    NOTIFIED = "notified"
+    NOTIFIED = "notified"  # visible to client (after SMS)
     EXPIRED = "expired"
 
 

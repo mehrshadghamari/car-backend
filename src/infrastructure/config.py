@@ -43,7 +43,7 @@ class Settings(BaseSettings):
 
     default_near_threshold_pct: float = 0.02
     default_max_pages_per_run: int = 5
-    crawl_pool_refresh_minutes: int = 30
+    crawl_pool_refresh_minutes: int = 120
     purchase_active_days: int = 2
     purchase_ttl_hours: int = 48
     crawl_listings_per_check: int = 10

@@ -10,6 +10,10 @@ from src.application.ports.repositories import (
     OpportunityRepository,
     PurchaseRequestRepository,
 )
+from src.domain.services.crawl_schedule_window import (
+    crawl_quiet_hours_message,
+    is_crawl_allowed_in_tehran,
+)
 from src.application.services.crawl_scheduler import pool_needs_crawl
 from src.application.services.listing_fetch import fetch_shared_pool_listings
 from src.domain.enums.platform_fetch_strategy import PlatformFetchStrategy
@@ -78,12 +82,28 @@ class CrawlAndEvaluateUseCase:
             target = await self._crawl_target_repo.save(target)
             diag.add("info", "Reactivated crawl target for manual run", crawl_target_id=str(target.id))
 
+        if not is_crawl_allowed_in_tehran():
+            diag.add("skip", crawl_quiet_hours_message(), crawl_target_id=str(target.id))
+            crawl_run = CrawlRun(
+                id=uuid4(),
+                crawl_target_id=target.id,
+                status=CrawlRunStatus.COMPLETED,
+                started_at=utc_now(),
+                finished_at=utc_now(),
+                posts_found=0,
+                opportunities_found=0,
+                diagnostics=diag.to_list(),
+            )
+            saved = await self._crawl_run_repo.save(crawl_run)
+            saved.new_opportunity_ids = []  # type: ignore[attr-defined]
+            return saved
+
         active_purchases = await self._purchase_request_repo.list_active_non_expired()
         active_trim_ids = {p.car_trim_id for p in active_purchases if p.car_trim_id}
         active_mapping_ids = await self._platform_repo.list_active_listing_mapping_ids_for_trims(
             active_trim_ids
         )
-        if not force and not pool_needs_crawl(target, active_listing_mapping_ids=active_mapping_ids):
+        if not pool_needs_crawl(target, active_listing_mapping_ids=active_mapping_ids):
             diag.add(
                 "skip",
                 "No active purchase request for this listing pool — skipping Divar fetch",

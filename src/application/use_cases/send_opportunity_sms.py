@@ -77,6 +77,10 @@ class SendOpportunitySmsUseCase:
                 raise ValidationError(f"فرصت {opp_id} برای این درخواست معتبر نیست")
             if opp.status == OpportunityStatus.EXPIRED:
                 raise ValidationError("فرصت منقضی‌شده قابل ارسال نیست")
+            if opp.status == OpportunityStatus.REJECTED:
+                raise ValidationError("فرصت رد‌شده قابل ارسال نیست")
+            if opp.status == OpportunityStatus.NEW:
+                raise ValidationError("فرصت باید ابتدا توسط کارشناس تایید شود")
             opportunities.append(opp)
 
         if input_dto.mode == "portal":

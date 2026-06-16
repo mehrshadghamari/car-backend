@@ -324,8 +324,17 @@ class CrawlRunSummary(BaseModel):
     finished_at: str | None = None
     posts_found: int
     opportunities_found: int
+    listings_count: int = 0
     error_message: str | None = None
     diagnostics: list[dict] = Field(default_factory=list)
+
+
+class ListingsPagination(BaseModel):
+    page: int
+    per_page: int
+    total: int
+    total_pages: int
+    crawl_run_id: UUID | None = None
 
 
 class CrawlTaskStatusResponse(BaseModel):
@@ -409,6 +418,7 @@ class CrawlResultDetailResponse(BaseModel):
     crawl_targets: list[CrawlTargetSummary]
     crawl_runs: list[CrawlRunSummary]
     listings: list[ListingSummary] = Field(default_factory=list)
+    listings_pagination: ListingsPagination | None = None
     opportunities: list[OpportunitySummary]
     deliveries: list[DeliverySummary]
 
@@ -523,6 +533,16 @@ class SendOpportunitySmsResponse(BaseModel):
     deliveries_created: int
     share_token: str | None = None
     share_url: str | None = None
+
+
+class ReviewOpportunitiesRequest(BaseModel):
+    opportunity_ids: list[UUID]
+    action: str  # approve | reject
+
+
+class ReviewOpportunitiesResponse(BaseModel):
+    updated: int
+    action: str
 
 
 class ShareBatchDetailResponse(BaseModel):

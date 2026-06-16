@@ -345,3 +345,17 @@ tr:hover td { background: #fafbfc; }
   padding: 0.25rem 0;
   font-size: 0.9rem;
 }
+.pagination-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  margin: 0.5rem 0 0.75rem;
+}
+.inner-table tr.row-selected td {
+  background: #eff6ff;
+}
+.cancel-btn {
+  margin-left: 0.35rem;
+  color: #b91c1c;
+}

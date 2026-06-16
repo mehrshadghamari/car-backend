@@ -7,7 +7,7 @@ from src.application.use_cases.manage_purchase_requests import (
     ManagePurchaseRequestsUseCase,
     UpdatePurchaseRequestInput,
 )
-from src.domain.exceptions import EntityNotFoundError
+from src.domain.exceptions import EntityNotFoundError, ValidationError
 from src.presentation.api.schemas import (
     PurchaseFlowResponse,
     PurchaseRequestCreate,
@@ -15,6 +15,7 @@ from src.presentation.api.schemas import (
     PurchaseRequestUpdate,
 )
 from src.presentation.dependencies import (
+    get_cancel_purchase_request_use_case,
     get_create_purchase_flow_use_case,
     get_purchase_requests_use_case,
 )
@@ -101,8 +102,17 @@ async def update_purchase_request(
     request_id: UUID,
     body: PurchaseRequestUpdate,
     use_case: ManagePurchaseRequestsUseCase = Depends(get_purchase_requests_use_case),
+    cancel_use_case=Depends(get_cancel_purchase_request_use_case),
 ):
     try:
+        if body.is_active is False:
+            request = await cancel_use_case.execute(request_id)
+            if body.near_threshold_pct is not None:
+                request = await use_case.update(
+                    request_id,
+                    UpdatePurchaseRequestInput(near_threshold_pct=body.near_threshold_pct),
+                )
+            return _to_response(request)
         request = await use_case.update(
             request_id,
             UpdatePurchaseRequestInput(
@@ -113,3 +123,5 @@ async def update_purchase_request(
         return _to_response(request)
     except EntityNotFoundError as exc:
         raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except ValidationError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc

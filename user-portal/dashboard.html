@@ -229,6 +229,9 @@
           · انقضا: ${fmtFaDate(pr.expires_at)}
           · قیمت‌گذاری: ${faPricing(d.pricing_platform)}
         </p>`;
+        if (pr.is_active) {
+          html += `<p><button type="button" class="btn btn-secondary" id="cancelPurchaseBtn" data-id="${id}">لغو درخواست و توقف کرال</button></p>`;
+        }
 
         const listings = d.listings || [];
         if (listings.length) {
@@ -264,7 +267,7 @@
         }
 
         if (!d.opportunities.length) {
-          html += '<div class="empty">هنوز فرصتی برای این درخواست پیدا نشده است.<br>سیستم به‌صورت خودکار آگهی‌ها را بررسی می‌کند.</div>';
+          html += '<div class="empty">هنوز فرصت تایید‌شده‌ای برای نمایش وجود ندارد.<br>پس از بررسی کارشناس، فرصت‌های مناسب اینجا نمایش داده می‌شوند.</div>';
         } else {
           html += `<h3 class="detail-subtitle">فرصت‌های خرید (${fmtFaNum(d.opportunities.length)})</h3>`;
           html += `<div class="table-wrap"><table class="opp-table"><thead><tr>
@@ -286,6 +289,19 @@
           html += '</tbody></table></div>';
         }
         body.innerHTML = html;
+        const cancelBtn = document.getElementById('cancelPurchaseBtn');
+        if (cancelBtn) {
+          cancelBtn.addEventListener('click', async () => {
+            if (!confirm('درخواست لغو شود و کرال متوقف گردد؟')) return;
+            try {
+              await api(`/me/purchase-requests/${id}/cancel`, { method: 'POST' });
+              document.getElementById('detailModal').classList.remove('open');
+              loadPurchases();
+            } catch (e) {
+              alert(e.message || 'خطا در لغو درخواست');
+            }
+          });
+        }
       } catch (e) {
         body.innerHTML = `<p class="error-msg">${e.message}</p>`;
       }

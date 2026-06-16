@@ -13,12 +13,13 @@ from src.domain.services.opportunity_scorer import (
     evaluate_hamrah_mechanic_opportunity,
     evaluate_urgent_sale_opportunity,
 )
+from src.domain.services.crawl_run_listings import listings_for_crawl_run
 from src.domain.services.purchase_detail_filters import (
     effective_purchase_request,
     filter_diagnostics_for_purchase,
-    latest_crawl_run_per_target,
 )
 from src.domain.compat import utc_now
+from src.domain.constants.opportunity_visibility import CLIENT_VISIBLE_OPPORTUNITY_STATUSES
 from src.infrastructure.config import get_settings
 from src.infrastructure.persistence.models import (
     CarModelModel,
@@ -209,6 +210,7 @@ class SqlAlchemyCrawlResultsRepository:
         purchase_request_id: UUID | None = None,
         trim_id: UUID | None = None,
         require_trim_pricing: bool = False,
+        client_visible_opportunities_only: bool = False,
     ) -> list[dict]:
         if not target_ids:
             return []
@@ -254,6 +256,10 @@ class SqlAlchemyCrawlResultsRepository:
         opportunities_by_listing: dict[UUID, list[OpportunityModel]] = {}
         for opp in opps_result.scalars().all():
             if opp.status == "expired":
+                continue
+            if opp.status == "rejected":
+                continue
+            if client_visible_opportunities_only and opp.status not in CLIENT_VISIBLE_OPPORTUNITY_STATUSES:
                 continue
             opportunities_by_listing.setdefault(opp.listing_id, []).append(opp)
 
@@ -302,14 +308,27 @@ class SqlAlchemyCrawlResultsRepository:
                         mp.price_mid,
                         mp.price_up,
                     )
-            still_valid = bool(best_opp and best_opp.status != "expired") or (
+            still_valid = bool(
+                best_opp
+                and best_opp.status != "expired"
+                and (
+                    not client_visible_opportunities_only
+                    or best_opp.status in CLIENT_VISIBLE_OPPORTUNITY_STATUSES
+                )
+            ) or (
                 bool(tier_matches)
                 and is_listing_crawl_valid(listing, valid_days=valid_days, now=now)
+                and not client_visible_opportunities_only
             )
             live_tag = (
                 best_opp.deal_tag
-                if best_opp and best_opp.status != "expired"
-                else (tier_matches[0].deal_tag if tier_matches else None)
+                if best_opp
+                and best_opp.status != "expired"
+                and (
+                    not client_visible_opportunities_only
+                    or best_opp.status in CLIENT_VISIBLE_OPPORTUNITY_STATUSES
+                )
+                else (tier_matches[0].deal_tag if tier_matches and not client_visible_opportunities_only else None)
             )
             rows.append(
                 {
@@ -340,7 +359,14 @@ class SqlAlchemyCrawlResultsRepository:
                     }
                     if mp
                     else None,
-                    "has_opportunity": bool(best_opp and best_opp.status != "expired"),
+                    "has_opportunity": bool(
+                        best_opp
+                        and best_opp.status != "expired"
+                        and (
+                            not client_visible_opportunities_only
+                            or best_opp.status in CLIENT_VISIBLE_OPPORTUNITY_STATUSES
+                        )
+                    ),
                     "opportunity_still_valid": still_valid,
                     "crawl_still_valid": is_listing_crawl_valid(
                         listing, valid_days=valid_days, now=now
@@ -392,7 +418,7 @@ class SqlAlchemyCrawlResultsRepository:
                 .select_from(OpportunityModel)
                 .where(
                     OpportunityModel.purchase_request_id == pr.id,
-                    OpportunityModel.status != "expired",
+                    OpportunityModel.status.in_(CLIENT_VISIBLE_OPPORTUNITY_STATUSES),
                 )
             )
             opportunity_count = opp_count.scalar() or 0
@@ -436,6 +462,11 @@ class SqlAlchemyCrawlResultsRepository:
             return None
         if detail["user"]["id"] != str(user_id):
             return None
+        detail["opportunities"] = [
+            o
+            for o in detail.get("opportunities", [])
+            if o.get("status") in CLIENT_VISIBLE_OPPORTUNITY_STATUSES
+        ]
         latest_crawl_status = None
         latest_crawl_started_at = None
         crawl_runs = detail.get("crawl_runs") or []
@@ -443,15 +474,17 @@ class SqlAlchemyCrawlResultsRepository:
             latest_crawl_status = crawl_runs[0].get("status")
             latest_crawl_started_at = crawl_runs[0].get("started_at")
         pr_data = detail["purchase_request"]
-        opp_count_result = await self._session.execute(
-            select(func.count())
-            .select_from(OpportunityModel)
-            .where(
-                OpportunityModel.purchase_request_id == purchase_request_id,
-                OpportunityModel.status != "expired",
+        opp_count = len(detail["opportunities"])
+        pr_model = await self._session.get(PurchaseRequestModel, purchase_request_id)
+        if pr_model and pr_model.car_trim_id:
+            detail["listings"] = await self._listings_for_target_ids(
+                await self._target_ids_for_trim(pr_model.car_trim_id, purchase_request_id),
+                purchase=await self._purchase_request_domain(pr_model),
+                purchase_request_id=purchase_request_id,
+                trim_id=pr_model.car_trim_id,
+                require_trim_pricing=True,
+                client_visible_opportunities_only=True,
             )
-        )
-        opp_count = opp_count_result.scalar() or 0
         return {
             "purchase_request": pr_data,
             "car_model": detail["car_model"],
@@ -521,7 +554,7 @@ class SqlAlchemyCrawlResultsRepository:
                 .select_from(OpportunityModel)
                 .where(
                     OpportunityModel.purchase_request_id == pr.id,
-                    OpportunityModel.status != "expired",
+                    OpportunityModel.status.not_in(("expired", "rejected")),
                 )
             )
             total_opportunities = opp_count.scalar() or 0
@@ -578,7 +611,14 @@ class SqlAlchemyCrawlResultsRepository:
             )
         return rows
 
-    async def get_detail(self, purchase_request_id: UUID) -> dict | None:
+    async def get_detail(
+        self,
+        purchase_request_id: UUID,
+        *,
+        listings_page: int = 1,
+        listings_per_page: int = 20,
+        crawl_run_id: UUID | None = None,
+    ) -> dict | None:
         stmt = (
             select(PurchaseRequestModel)
             .options(
@@ -636,7 +676,6 @@ class SqlAlchemyCrawlResultsRepository:
                     select(CrawlRunModel)
                     .where(CrawlRunModel.crawl_target_id == target_id)
                     .order_by(CrawlRunModel.started_at.desc())
-                    .limit(20)
                 )
                 for run in runs_result.scalars().all():
                     if pr.created_at and run.started_at and run.started_at < pr.created_at:
@@ -659,7 +698,7 @@ class SqlAlchemyCrawlResultsRepository:
                         }
                     )
 
-            crawl_runs = latest_crawl_run_per_target(crawl_runs)
+            crawl_runs.sort(key=lambda r: r.get("started_at") or "", reverse=True)
 
         opps_result = await self._session.execute(
             select(OpportunityModel)
@@ -667,7 +706,7 @@ class SqlAlchemyCrawlResultsRepository:
             .join(ListingModel, ListingModel.id == OpportunityModel.listing_id)
             .where(
                 OpportunityModel.purchase_request_id == pr.id,
-                OpportunityModel.status != "expired",
+                OpportunityModel.status.not_in(("expired", "rejected")),
             )
             .order_by(OpportunityModel.created_at.desc())
         )
@@ -680,6 +719,7 @@ class SqlAlchemyCrawlResultsRepository:
             opportunities.append(
                 {
                     "id": str(opp.id),
+                    "listing_id": str(listing.id) if listing else None,
                     "listing_title": listing.title if listing else None,
                     "listing_price": listing.price,
                     "market_price_down": opp.market_price_down,
@@ -721,13 +761,36 @@ class SqlAlchemyCrawlResultsRepository:
                 }
             )
 
-        listings = await self._listings_for_target_ids(
+        all_listings = await self._listings_for_target_ids(
             target_ids,
             purchase=purchase_domain,
             purchase_request_id=pr.id,
             trim_id=pr.car_trim_id,
             require_trim_pricing=True,
         )
+
+        selected_run = None
+        if crawl_run_id:
+            selected_run = next((r for r in crawl_runs if r.get("id") == str(crawl_run_id)), None)
+        listings_pool = (
+            listings_for_crawl_run(selected_run, all_listings)
+            if selected_run
+            else all_listings
+        )
+
+        for run in crawl_runs:
+            run_listings = listings_for_crawl_run(run, all_listings)
+            run["listings_count"] = len(run_listings)
+
+        page = max(1, listings_page)
+        per_page = max(1, min(listings_per_page, 100))
+        total_listings = len(listings_pool)
+        total_pages = max(1, (total_listings + per_page - 1) // per_page) if total_listings else 1
+        if page > total_pages:
+            page = total_pages
+        start = (page - 1) * per_page
+        listings = listings_pool[start : start + per_page]
+
         divar_url = pr.generated_divar_url if listing_mapping_configured else None
         return {
             "purchase_request": {
@@ -758,6 +821,13 @@ class SqlAlchemyCrawlResultsRepository:
             "crawl_targets": crawl_targets,
             "crawl_runs": crawl_runs,
             "listings": listings,
+            "listings_pagination": {
+                "page": page,
+                "per_page": per_page,
+                "total": total_listings,
+                "total_pages": total_pages,
+                "crawl_run_id": str(crawl_run_id) if crawl_run_id else None,
+            },
             "opportunities": opportunities,
             "deliveries": deliveries,
         }

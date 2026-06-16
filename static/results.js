@@ -79,7 +79,7 @@ function statusBadge(monitoringStatus) {
 function renderTable(rows) {
   const tbody = document.getElementById('resultsBody');
   if (!rows.length) {
-    tbody.innerHTML = '<tr><td colspan="11" class="empty">No purchase requests yet</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="12" class="empty">No purchase requests yet</td></tr>';
     return;
   }
   tbody.innerHTML = rows.map(r => `
@@ -94,20 +94,42 @@ function renderTable(rows) {
       </td>
       <td>${escapeHtml(r.city)}</td>
       <td>${escapeHtml(r.pricing_platform || '—')}</td>
-      <td>${statusBadge(r.monitoring_status)}</td>
+      <td>${statusBadge(r.monitoring_status)}${r.is_active ? '' : ' <span class="cell-sub">(cancelled)</span>'}</td>
       <td>${fmtDate(r.latest_crawl_at)}</td>
       <td>${r.latest_posts_found}</td>
       <td>${r.total_opportunities}</td>
       <td>${r.sms_sent_count}</td>
       <td>${fmtDate(r.created_at)}</td>
-      <td><button class="link-btn" data-id="${r.purchase_request_id}">Detail</button></td>
+      <td>${fmtDate(r.expires_at)}</td>
+      <td class="link-cell">
+        <button class="link-btn" data-id="${r.purchase_request_id}">Detail</button>
+        ${r.is_active ? `<button class="link-btn cancel-btn" data-id="${r.purchase_request_id}">Cancel</button>` : ''}
+      </td>
     </tr>
   `).join('');
 
-  tbody.querySelectorAll('.link-btn').forEach(btn => {
-    btn.addEventListener('click', () => openDetail(btn.dataset.id));
+  tbody.querySelectorAll('.link-btn:not(.cancel-btn)').forEach(btn => {
+    btn.addEventListener('click', () => openDetail(btn.dataset.id, { reset: true }));
+  });
+  tbody.querySelectorAll('.cancel-btn').forEach(btn => {
+    btn.addEventListener('click', () => cancelPurchase(btn.dataset.id));
   });
 }
+
+async function cancelPurchase(purchaseId) {
+  if (!confirm('Cancel this purchase request and stop crawling?')) return;
+  try {
+    await api(`/purchase-requests/${purchaseId}`, {
+      method: 'PATCH',
+      body: JSON.stringify({ is_active: false }),
+    });
+    loadResults();
+  } catch (e) {
+    alert(e.message || 'Cancel failed');
+  }
+}
+
+let detailState = { purchaseId: null, listingsPage: 1, crawlRunId: null };
 
 function section(title, html) {
   return `<section class="detail-section"><h3>${title}</h3>${html}</section>`;
@@ -154,11 +176,30 @@ function pricingLinkLabel(provider) {
   return provider || 'Price';
 }
 
-function renderListings(listings) {
+function renderListingsPagination(purchaseId, pagination) {
+  if (!pagination || pagination.total_pages <= 1) return '';
+  const page = pagination.page;
+  const total = pagination.total_pages;
+  const runNote = pagination.crawl_run_id ? ' (filtered by crawl run)' : '';
+  return `
+    <div class="pagination-bar">
+      <button class="btn-secondary" data-page-action="prev" ${page <= 1 ? 'disabled' : ''}>Previous</button>
+      <span class="cell-sub">Page ${page} / ${total} · ${fmtNum(pagination.total)} listings${runNote}</span>
+      <button class="btn-secondary" data-page-action="next" ${page >= total ? 'disabled' : ''}>Next</button>
+      ${pagination.crawl_run_id ? `<button class="btn-secondary" data-page-action="clear-run">All listings</button>` : ''}
+    </div>
+  `;
+}
+
+function renderListings(listings, pagination, purchaseId) {
   if (!listings.length) {
-    return '<p class="empty-inline">No listings crawled yet — run a crawl to fetch Divar posts and market prices</p>';
+    const emptyMsg = pagination && pagination.crawl_run_id
+      ? 'No listings recorded for this crawl run'
+      : 'No listings crawled yet — run a crawl to fetch Divar posts and market prices';
+    return `<p class="empty-inline">${emptyMsg}</p>${renderListingsPagination(purchaseId, pagination)}`;
   }
   return `
+    ${renderListingsPagination(purchaseId, pagination)}
     <table class="inner-table listings-table">
       <thead>
         <tr>
@@ -232,7 +273,7 @@ function renderDetail(d, purchaseId) {
       <dt>Usage max</dt><dd>${fmtNum(pr.usage_max)} km</dd>
       <dt>Pricing</dt><dd>${escapeHtml(d.pricing_platform || '—')}</dd>
       <dt>Listing mapping</dt><dd>${pr.listing_mapping_configured ? 'configured' : `not configured — add at ${escapeHtml(trimMappingHref())}`}</dd>
-      <dt>Active</dt><dd>${pr.is_active ? 'yes' : 'no'}</dd>
+      <dt>Active</dt><dd>${pr.is_active ? 'yes (valid 2 days from create)' : 'no — cancelled or expired'}</dd>
       <dt>Expires</dt><dd>${fmtDate(pr.expires_at)}</dd>
       <dt>Divar URL</dt><dd>${pr.generated_divar_url ? `<a href="${escapeHtml(pr.generated_divar_url)}" target="_blank">${escapeHtml(pr.generated_divar_url)}</a>` : '— (no listing mapping for this trim)'}</dd>
     </dl>
@@ -254,17 +295,21 @@ function renderDetail(d, purchaseId) {
   }
 
   if (d.crawl_runs.length) {
-    html += section('Crawl runs', `
+    const selectedRun = detailState.crawlRunId;
+    html += section('Crawl runs (all)', `
+      <p class="cell-sub">Click a run to show its listings below (20 per page).</p>
       <table class="inner-table">
-        <thead><tr><th>Started</th><th>Status</th><th>Posts</th><th>Opps</th><th>Error</th></tr></thead>
+        <thead><tr><th>Started</th><th>Status</th><th>Posts</th><th>Opps</th><th>Listings</th><th>Error</th><th></th></tr></thead>
         <tbody>
           ${d.crawl_runs.map(r => `
-            <tr>
+            <tr class="${selectedRun === r.id ? 'row-selected' : ''}">
               <td>${fmtDate(r.started_at)}</td>
               <td>${escapeHtml(r.status)}</td>
               <td>${r.posts_found}</td>
               <td>${r.opportunities_found}</td>
+              <td>${fmtNum(r.listings_count ?? 0)}</td>
               <td>${escapeHtml(r.error_message || '—')}</td>
+              <td><button type="button" class="link-btn crawl-run-filter-btn" data-run-id="${r.id}">Show listings</button></td>
             </tr>
           `).join('')}
         </tbody>
@@ -276,12 +321,17 @@ function renderDetail(d, purchaseId) {
 
   html += section('Crawl diagnostics (why no opportunity?)', renderDiagnostics(d.crawl_runs || []));
 
-  html += section('Found listings (Divar + market price)', renderListings(d.listings || []));
+  const listingsTitle = detailState.crawlRunId
+    ? 'Found listings for selected crawl run'
+    : 'Found listings (all crawl runs)';
+  html += section(listingsTitle, renderListings(d.listings || [], d.listings_pagination, purchaseId));
 
   if (d.opportunities.length) {
     html += section('Opportunities', `
       <div class="sms-toolbar">
         <label><input type="checkbox" id="selectAllOpps"> Select all</label>
+        <button class="btn-secondary" id="approveOppsBtn" data-id="${purchaseId}">Approve</button>
+        <button class="btn-secondary" id="rejectOppsBtn" data-id="${purchaseId}">Reject</button>
         <button class="btn-secondary" id="sendGatewaySmsBtn" data-id="${purchaseId}">Send gateway links SMS</button>
         <button class="btn-secondary" id="sendPortalSmsBtn" data-id="${purchaseId}">Send portal share SMS</button>
         <span id="smsMsg" class="cell-sub"></span>
@@ -295,7 +345,7 @@ function renderDetail(d, purchaseId) {
               <td>${dealTagBadge(o.deal_tag)}</td>
               <td>${escapeHtml(o.listing_title || '—')}</td>
               <td>${fmtNum(o.listing_price)}</td>
-              <td>${fmtNum(o.reference_price || o.market_price_up)}</td>
+              <td>${fmtNum(o.reference_price || o.market_price_mid || o.market_price_up)}</td>
               <td>${fmtNum(o.discount_pct)}%</td>
               <td>${escapeHtml(o.status)}</td>
               <td>${o.divar_url ? `<a href="${escapeHtml(o.divar_url)}" target="_blank">Divar</a>` : '—'}</td>
@@ -329,6 +379,27 @@ function renderDetail(d, purchaseId) {
   }
 
   return html;
+}
+
+async function reviewOpportunities(purchaseId, action) {
+  const checks = document.querySelectorAll('.opp-check:checked');
+  const ids = Array.from(checks).map((c) => c.value);
+  const msg = document.getElementById('smsMsg');
+  if (!ids.length) {
+    if (msg) msg.textContent = 'Select at least one opportunity';
+    return;
+  }
+  if (msg) msg.textContent = action === 'approve' ? 'Approving...' : 'Rejecting...';
+  try {
+    const r = await api(`/crawl-results/${purchaseId}/review-opportunities`, {
+      method: 'POST',
+      body: JSON.stringify({ opportunity_ids: ids, action }),
+    });
+    if (msg) msg.textContent = `${action === 'approve' ? 'Approved' : 'Rejected'} ${r.updated} opportunity(s)`;
+    setTimeout(() => openDetail(purchaseId), 800);
+  } catch (e) {
+    if (msg) msg.textContent = e.message;
+  }
 }
 
 async function sendOpportunitySms(purchaseId, mode) {
@@ -402,13 +473,26 @@ function pollDetailAfterCrawl(id, msgEl) {
   }, 5000);
 }
 
-async function openDetail(id) {
+async function openDetail(id, options = {}) {
+  if (options.reset) {
+    detailState = { purchaseId: id, listingsPage: 1, crawlRunId: null };
+  } else if (detailState.purchaseId !== id) {
+    detailState = { purchaseId: id, listingsPage: 1, crawlRunId: null };
+  }
+  if (options.listingsPage != null) detailState.listingsPage = options.listingsPage;
+  if (options.crawlRunId !== undefined) detailState.crawlRunId = options.crawlRunId;
+
   const modal = document.getElementById('detailModal');
   const content = document.getElementById('detailContent');
   modal.classList.remove('hidden');
   content.textContent = 'Loading...';
+  const params = new URLSearchParams({
+    listings_page: String(detailState.listingsPage),
+    listings_per_page: '20',
+  });
+  if (detailState.crawlRunId) params.set('crawl_run_id', detailState.crawlRunId);
   try {
-    const detail = await api(`/crawl-results/${id}`);
+    const detail = await api(`/crawl-results/${id}?${params.toString()}`);
     content.innerHTML = renderDetail(detail, id);
     const btn = document.getElementById('runCrawlBtn');
     if (btn) btn.addEventListener('click', () => runCrawlForPurchase(id));
@@ -424,6 +508,29 @@ async function openDetail(id) {
     if (gwBtn) gwBtn.addEventListener('click', () => sendOpportunitySms(id, 'gateway'));
     const portalBtn = document.getElementById('sendPortalSmsBtn');
     if (portalBtn) portalBtn.addEventListener('click', () => sendOpportunitySms(id, 'portal'));
+    const approveBtn = document.getElementById('approveOppsBtn');
+    if (approveBtn) approveBtn.addEventListener('click', () => reviewOpportunities(id, 'approve'));
+    const rejectBtn = document.getElementById('rejectOppsBtn');
+    if (rejectBtn) rejectBtn.addEventListener('click', () => reviewOpportunities(id, 'reject'));
+    document.querySelectorAll('.crawl-run-filter-btn').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        openDetail(id, { crawlRunId: btn.dataset.runId, listingsPage: 1 });
+      });
+    });
+    document.querySelectorAll('[data-page-action]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const action = btn.dataset.pageAction;
+        const pg = detailState.listingsPage;
+        const pag = detail.listings_pagination || {};
+        if (action === 'prev' && pg > 1) {
+          openDetail(id, { listingsPage: pg - 1 });
+        } else if (action === 'next' && pg < (pag.total_pages || 1)) {
+          openDetail(id, { listingsPage: pg + 1 });
+        } else if (action === 'clear-run') {
+          openDetail(id, { crawlRunId: null, listingsPage: 1 });
+        }
+      });
+    });
   } catch (e) {
     content.innerHTML = `<p class="error">${escapeHtml(e.message)}</p>`;
   }
@@ -462,7 +569,7 @@ async function loadResults() {
     status.textContent = `${rows.length} purchase request(s)`;
   } catch (e) {
     document.getElementById('resultsBody').innerHTML =
-      `<tr><td colspan="11" class="empty error">${e.message}</td></tr>`;
+      `<tr><td colspan="12" class="empty error">${e.message}</td></tr>`;
     status.textContent = 'Error';
   }
 }

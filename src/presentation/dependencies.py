@@ -22,10 +22,12 @@ from src.application.ports.car_catalog import (
     CarTrimRepository,
     CarYearRepository,
 )
+from src.application.use_cases.cancel_purchase_request import CancelPurchaseRequestUseCase
 from src.application.use_cases.create_purchase_flow import CreatePurchaseFlowUseCase
 from src.application.use_cases.run_purchase_crawl import RunPurchaseCrawlUseCase
 from src.application.use_cases.crawl_and_evaluate import CrawlAndEvaluateUseCase
 from src.application.use_cases.preview_urls import PreviewUrlsUseCase
+from src.application.use_cases.review_opportunities import ReviewOpportunitiesUseCase
 from src.application.use_cases.send_opportunity_sms import SendOpportunitySmsUseCase
 from src.application.use_cases.gateway_preview import GatewayPreviewUseCase
 from src.application.use_cases.gateway_redirect import GatewayRedirectUseCase
@@ -299,6 +301,26 @@ def get_send_opportunity_sms_use_case(
         notification_port=notification,
         settings=settings,
         share_batch_repo=SqlAlchemyShareBatchRepository(session),
+    )
+
+
+def get_cancel_purchase_request_use_case(
+    session: AsyncSession = Depends(get_db_session),
+) -> CancelPurchaseRequestUseCase:
+    return CancelPurchaseRequestUseCase(
+        purchase_request_repo=SqlAlchemyPurchaseRequestRepository(session),
+        crawl_target_repo=SqlAlchemyCrawlTargetRepository(session),
+        opportunity_repo=SqlAlchemyOpportunityRepository(session),
+        platform_repo=SqlAlchemyPlatformRepository(session),
+    )
+
+
+def get_review_opportunities_use_case(
+    session: AsyncSession = Depends(get_db_session),
+) -> ReviewOpportunitiesUseCase:
+    return ReviewOpportunitiesUseCase(
+        opportunity_repo=SqlAlchemyOpportunityRepository(session),
+        purchase_request_repo=SqlAlchemyPurchaseRequestRepository(session),
     )
 
 

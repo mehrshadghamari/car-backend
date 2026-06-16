@@ -2,6 +2,7 @@ from uuid import UUID
 
 from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException
 
+from src.application.use_cases.cancel_purchase_request import CancelPurchaseRequestUseCase
 from src.application.use_cases.create_purchase_flow import CreatePurchaseFlowInput
 from src.domain.entities.user import User
 from src.domain.exceptions import EntityNotFoundError, ValidationError
@@ -15,6 +16,7 @@ from src.presentation.api.schemas import (
     UserPurchaseCreate,
 )
 from src.presentation.dependencies import (
+    get_cancel_purchase_request_use_case,
     get_create_purchase_flow_use_case,
     get_crawl_results_repo,
 )
@@ -88,3 +90,18 @@ async def create_my_purchase(
         usage_max=result.purchase_request.usage_max,
         listing_mapping_configured=result.listing_mapping_configured,
     )
+
+
+@router.post("/purchase-requests/{purchase_request_id}/cancel", status_code=200)
+async def cancel_my_purchase(
+    purchase_request_id: UUID,
+    user: User = Depends(get_current_user),
+    use_case: CancelPurchaseRequestUseCase = Depends(get_cancel_purchase_request_use_case),
+):
+    try:
+        purchase = await use_case.execute(purchase_request_id, user_id=user.id)
+    except EntityNotFoundError as exc:
+        raise HTTPException(status_code=404, detail=str(exc)) from exc
+    except ValidationError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+    return {"purchase_request_id": str(purchase.id), "is_active": purchase.is_active}

@@ -18,6 +18,10 @@ async def crawl_task_status(
 ):
     from sqlalchemy import func, select
 
+    from src.domain.services.crawl_schedule_window import (
+        crawl_quiet_hours_message,
+        is_crawl_allowed_in_tehran,
+    )
     from src.infrastructure.config import get_settings
     from src.infrastructure.persistence.models import PurchaseRequestModel
 
@@ -59,6 +63,8 @@ async def crawl_task_status(
             "Run: celery -A src.infrastructure.tasks.celery_app worker "
             "and celery -A src.infrastructure.tasks.celery_app beat"
         )
+    if not is_crawl_allowed_in_tehran():
+        hints.append(crawl_quiet_hours_message())
     if stale_recovered:
         hints.append(
             f"Recovered {stale_recovered} interrupted crawl(s) — use 'Run crawl now' to retry"

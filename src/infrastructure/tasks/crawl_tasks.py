@@ -12,6 +12,7 @@ from src.application.services.crawl_scheduler import (
 from src.application.use_cases.crawl_and_evaluate import CrawlAndEvaluateUseCase
 from src.application.use_cases.crawl_retention import CrawlRetentionUseCase
 from src.domain.compat import utc_now
+from src.domain.services.crawl_schedule_window import is_crawl_allowed_in_tehran
 from src.infrastructure.adapters.divar.divar_adapter import DivarListingAdapter
 from src.infrastructure.adapters.pricing_factory import PricingServiceFactory
 from src.infrastructure.config import get_settings
@@ -140,6 +141,10 @@ def schedule_active_crawls() -> dict:
     """
 
     async def _schedule():
+        if not is_crawl_allowed_in_tehran():
+            logger.info("Outside Tehran crawl hours (08:00–22:00) — skipping schedule")
+            return {"scheduled": 0, "skipped_quiet_hours": 1, "skipped_recent": 0}
+
         async with task_db_session() as session:
             target_repo = SqlAlchemyCrawlTargetRepository(session)
             purchase_repo = SqlAlchemyPurchaseRequestRepository(session)
@@ -156,7 +161,6 @@ def schedule_active_crawls() -> dict:
                 active_trim_ids
             )
             pool_ids = collect_pool_ids_for_active_purchases(active_purchases)
-            refresh_sec = settings.crawl_pool_refresh_sec
             now = utc_now()
 
             scheduled = 0
@@ -186,6 +190,7 @@ def schedule_active_crawls() -> dict:
                     continue
 
                 last_run = await crawl_run_repo.get_latest_for_target(pool_id)
+                refresh_sec = pool.poll_interval_sec or settings.crawl_pool_refresh_sec
                 if pool_recently_crawled(last_run, refresh_sec=refresh_sec, now=now):
                     skipped_recent += 1
                     continue
