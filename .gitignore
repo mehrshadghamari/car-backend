@@ -16,3 +16,5 @@ htmlcov/
 .coverage
 dist/
 build/
+celerybeat-schedule
+celerybeat-schedule-*
