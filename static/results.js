@@ -1,5 +1,5 @@
 const API = '/api/v1';
-const UI_VERSION = '20250616';
+const UI_VERSION = '20250618';
 const LISTINGS_PER_PAGE = 20;
 
 function trimMappingHref() {
@@ -103,14 +103,18 @@ function renderTable(rows) {
       <td>${r.sms_sent_count}</td>
       <td>${fmtDate(r.created_at)}</td>
       <td>${fmtDate(r.expires_at)}</td>
-      <td class="link-cell">
-        <button class="link-btn" data-id="${r.purchase_request_id}">Detail</button>
-        ${r.is_active ? `<button class="link-btn cancel-btn" data-id="${r.purchase_request_id}">Cancel</button>` : ''}
+      <td class="actions-cell">
+        <div class="row-actions">
+          <button type="button" class="primary btn-sm" data-id="${r.purchase_request_id}">Detail</button>
+          ${r.is_active
+    ? `<button type="button" class="btn-danger btn-sm cancel-btn" data-id="${r.purchase_request_id}">Cancel</button>`
+    : '<span class="badge badge-gray">Cancelled</span>'}
+        </div>
       </td>
     </tr>
   `).join('');
 
-  tbody.querySelectorAll('.link-btn:not(.cancel-btn)').forEach(btn => {
+  tbody.querySelectorAll('.row-actions .primary').forEach(btn => {
     btn.addEventListener('click', () => openDetail(btn.dataset.id, { reset: true }));
   });
   tbody.querySelectorAll('.cancel-btn').forEach(btn => {
@@ -119,7 +123,7 @@ function renderTable(rows) {
 }
 
 async function cancelPurchase(purchaseId) {
-  if (!confirm('Cancel this purchase request and stop crawling?')) return;
+  if (!confirm('Cancel this purchase request? Crawling will stop when no other active request uses the same pool.')) return;
   try {
     await api(`/purchase-requests/${purchaseId}`, {
       method: 'PATCH',
@@ -216,31 +220,49 @@ function canGoToNextListingsPage(pag, listings) {
 }
 
 function createListingsPaginationBar(pag, listings, meta) {
-  const frag = cloneTemplate('tplListingsPagination');
-  if (!frag) return null;
-  const nav = frag.querySelector('.listings-pagination');
+  const nav = document.createElement('nav');
+  nav.className = 'pagination-bar listings-pagination';
+  nav.setAttribute('role', 'navigation');
+  nav.setAttribute('aria-label', 'Listings pages');
+
+  const prevBtn = document.createElement('button');
+  prevBtn.type = 'button';
+  prevBtn.className = 'primary listings-page-btn';
+  prevBtn.dataset.pageAction = 'prev';
+  prevBtn.textContent = '← Previous';
+
+  const metaEl = document.createElement('span');
+  metaEl.className = 'pagination-meta';
+  metaEl.dataset.role = 'meta';
+
+  const nextBtn = document.createElement('button');
+  nextBtn.type = 'button';
+  nextBtn.className = 'primary listings-page-btn';
+  nextBtn.dataset.pageAction = 'next';
+  nextBtn.textContent = 'Next →';
+
+  const clearBtn = document.createElement('button');
+  clearBtn.type = 'button';
+  clearBtn.className = 'btn-secondary listings-clear-run-btn hidden';
+  clearBtn.dataset.pageAction = 'clear-run';
+  clearBtn.textContent = 'All listings';
+
+  nav.append(prevBtn, metaEl, nextBtn, clearBtn);
+
   const page = pag.page;
   const from = pag.total ? (page - 1) * pag.per_page + 1 : 0;
   const to = (page - 1) * pag.per_page + listings.length;
-  const totalLabel = fmtNum(pag.total);
   const runNote = pag.crawl_run_id ? ' · filtered by crawl run' : '';
   const poolNote = meta && meta.pool_priced_total != null && meta.matching_total != null
     ? ` · ${fmtNum(meta.matching_total)} match purchase (of ${fmtNum(meta.pool_priced_total)} priced in pool)`
     : '';
-  const metaEl = nav.querySelector('[data-role="meta"]');
-  if (metaEl) {
-    metaEl.textContent =
-      `Showing ${fmtNum(from)}–${fmtNum(to)} of ${totalLabel} · page ${page} / ${pag.total_pages}${runNote}${poolNote}`;
-  }
-  const prevBtn = nav.querySelector('[data-page-action="prev"]');
-  const nextBtn = nav.querySelector('[data-page-action="next"]');
-  if (prevBtn) prevBtn.disabled = page <= 1;
-  if (nextBtn) nextBtn.disabled = !canGoToNextListingsPage(pag, listings);
-  const clearBtn = nav.querySelector('.listings-clear-run-btn');
-  if (clearBtn) {
-    if (pag.crawl_run_id) clearBtn.classList.remove('hidden');
-    else clearBtn.classList.add('hidden');
-  }
+  metaEl.textContent =
+    `Showing ${fmtNum(from)}–${fmtNum(to)} of ${fmtNum(pag.total)} · page ${page} / ${pag.total_pages}${runNote}${poolNote}`;
+
+  prevBtn.disabled = page <= 1;
+  nextBtn.disabled = !canGoToNextListingsPage(pag, listings);
+  if (pag.crawl_run_id) clearBtn.classList.remove('hidden');
+
   return nav;
 }
 
@@ -287,7 +309,7 @@ function mountListingsSection(mountEl, listings, pagination, meta) {
   }
 
   const topNav = createListingsPaginationBar(pag, listings, meta);
-  if (topNav) mountEl.appendChild(topNav);
+  mountEl.appendChild(topNav);
 
   const tableWrap = document.createElement('div');
   tableWrap.className = 'table-wrap listings-table-wrap';
@@ -304,17 +326,35 @@ function mountListingsSection(mountEl, listings, pagination, meta) {
   `;
   const tbody = table.querySelector('[data-role="listings-tbody"]');
   listings.forEach((listing) => {
-    const rowFrag = cloneTemplate('tplListingsRow');
-    if (!rowFrag) return;
-    const row = rowFrag.querySelector('tr');
-    fillListingsRow(row, listing);
+    const row = document.createElement('tr');
+    row.innerHTML = `
+      <td>
+        <div class="cell-main">${escapeHtml((listing.title || '—').slice(0, 70))}</div>
+        <div class="cell-sub">${escapeHtml([listing.district || '', listing.color ? ` · ${listing.color}` : ''].join(''))}</div>
+      </td>
+      <td>${listing.production_year ?? '—'}</td>
+      <td class="num-cell">${fmtNum(listing.kilometer)}</td>
+      <td class="num-cell">${fmtNum(listing.price)}</td>
+      <td class="num-cell">${listing.latest_market_price ? fmtNum(listing.latest_market_price.price_down) : '—'}</td>
+      <td class="num-cell">${listing.latest_market_price ? fmtNum(listing.latest_market_price.price_mid) : '—'}</td>
+      <td class="num-cell">${listing.latest_market_price ? fmtNum(listing.latest_market_price.price_up) : '—'}</td>
+      <td>${listing.latest_market_price ? fmtDate(listing.latest_market_price.fetched_at) : '—'}</td>
+      <td>${listing.opportunity_still_valid && listing.opportunity_deal_tag ? dealTagBadge(listing.opportunity_deal_tag) : '—'}</td>
+      <td class="link-cell">${(() => {
+        const mp = listing.latest_market_price;
+        const links = [];
+        if (listing.divar_url) links.push(`<a href="${escapeHtml(listing.divar_url)}" target="_blank" rel="noopener">Divar</a>`);
+        if (mp && mp.reference_url) links.push(`<a href="${escapeHtml(mp.reference_url)}" target="_blank" rel="noopener">${escapeHtml(pricingLinkLabel(mp.pricing_provider))}</a>`);
+        return links.length ? links.join(' · ') : '—';
+      })()}</td>
+    `;
     tbody.appendChild(row);
   });
   tableWrap.appendChild(table);
   mountEl.appendChild(tableWrap);
 
   const bottomNav = createListingsPaginationBar(pag, listings, meta);
-  if (bottomNav) mountEl.appendChild(bottomNav);
+  mountEl.appendChild(bottomNav);
 }
 
 function bindListingsInteractions(mountEl, purchaseId) {
@@ -363,36 +403,60 @@ function cloneTemplate(id) {
   return tpl ? tpl.content.cloneNode(true) : null;
 }
 
-function fillOpportunityRow(row, opportunity, mode) {
-  const check = row.querySelector('input[type="checkbox"]');
-  if (check) check.value = opportunity.id;
-  const set = (role, html) => {
-    const el = row.querySelector(`[data-role="${role}"]`);
-    if (el) el.innerHTML = html;
-  };
-  set('tag', dealTagBadge(opportunity.deal_tag));
-  set('title', escapeHtml(opportunity.listing_title || '—'));
-  set('price', fmtNum(opportunity.listing_price));
-  set('max-ref', fmtNum(opportunity.reference_price || opportunity.market_price_up || opportunity.market_price_mid));
-  set('discount', `${fmtNum(opportunity.discount_pct)}%`);
-  set('status', opportunityStatusBadge(opportunity.status));
-  set('links', opportunityLinks(opportunity));
-  if (mode === 'initial') {
-    row.querySelectorAll('[data-action="approve-one"], [data-action="reject-one"]').forEach((btn) => {
-      btn.dataset.oppId = opportunity.id;
-    });
-  }
-}
+function buildOpportunityPanel(opportunities, mode, purchaseId) {
+  const isInitial = mode === 'initial';
+  const panel = document.createElement('section');
+  panel.className = `opp-panel ${isInitial ? 'opp-panel-initial' : 'opp-panel-valid'}`;
 
-function mountOpportunityRows(tbody, opportunities, mode) {
-  const rowTplId = mode === 'initial' ? 'tplOppRowInitial' : 'tplOppRowValid';
-  opportunities.forEach((opp) => {
-    const rowFrag = cloneTemplate(rowTplId);
-    if (!rowFrag) return;
-    const row = rowFrag.querySelector('tr');
-    fillOpportunityRow(row, opp, mode);
-    tbody.appendChild(row);
+  const head = document.createElement('div');
+  head.className = 'opp-panel-head';
+  head.innerHTML = `
+    <h4 class="opp-panel-title">
+      <span class="opp-badge ${isInitial ? 'opp-badge-initial' : 'opp-badge-valid'}">${isInitial ? 'Initial' : 'Validated'}</span>
+      <span>${isInitial ? `Initial opportunities (${opportunities.length})` : `Validated opportunities (${opportunities.length}) — SMS enabled`}</span>
+    </h4>
+    <p class="opp-panel-desc">${isInitial
+    ? 'Auto-created by crawl (status: new). Review Divar / Hamrah links. <strong>No SMS here.</strong>'
+    : 'Staff-approved only. Select rows and send gateway or portal SMS.'}</p>
+  `;
+  panel.appendChild(head);
+
+  const toolbar = document.createElement('div');
+  toolbar.className = `opp-toolbar ${isInitial ? 'opp-toolbar-review' : 'opp-toolbar-sms'}`;
+  toolbar.innerHTML = `
+    <label class="opp-select-all"><input type="checkbox" data-role="select-all"> Select all</label>
+    ${isInitial
+    ? `<button type="button" class="btn-secondary" data-action="approve-selected">Mark selected valid</button>
+       <button type="button" class="btn-secondary" data-action="reject-selected">Reject selected</button>
+       <span class="opp-toolbar-msg" data-role="review-msg"></span>`
+    : `<button type="button" class="btn-secondary" data-action="sms-gateway">Send gateway links SMS</button>
+       <button type="button" class="btn-secondary" data-action="sms-portal">Send portal share SMS</button>
+       <span class="opp-toolbar-msg" data-role="sms-msg"></span>`}
+  `;
+  panel.appendChild(toolbar);
+
+  const tableWrap = document.createElement('div');
+  tableWrap.className = 'table-wrap opp-table-wrap';
+  tableWrap.innerHTML = `
+    <table class="inner-table ${isInitial ? 'opp-table-initial' : 'opp-table-valid'}">
+      <thead>
+        <tr>
+          <th class="col-check"></th><th>Tag</th><th>Listing</th><th>Price</th><th>Max ref</th>
+          <th>Discount vs max</th><th>Status</th><th>Links</th>${isInitial ? '<th>Actions</th>' : ''}
+        </tr>
+      </thead>
+      <tbody data-role="tbody"></tbody>
+    </table>
+  `;
+  const tbody = tableWrap.querySelector('[data-role="tbody"]');
+  tbody.innerHTML = renderOpportunityTableRows(opportunities, {
+    checkboxClass: isInitial ? 'opp-check-review' : 'opp-check-sms',
+    showRowActions: isInitial,
+    purchaseId,
+    rowClass: isInitial ? 'opp-row-initial' : 'opp-row-valid',
   });
+  panel.appendChild(tableWrap);
+  return panel;
 }
 
 function mountOpportunitiesWorkflow(mountEl, opportunities, purchaseId) {
@@ -409,42 +473,36 @@ function mountOpportunitiesWorkflow(mountEl, opportunities, purchaseId) {
     return;
   }
 
-  const workflowFrag = cloneTemplate('tplOppWorkflow');
-  if (!workflowFrag) {
-    mountEl.innerHTML = renderOpportunitiesSectionsFallback(opportunities, purchaseId);
-    return;
-  }
-
-  const workflow = workflowFrag.querySelector('.opp-workflow');
-  const initialMount = workflow.querySelector('[data-role="initial-mount"]');
-  const validMount = workflow.querySelector('[data-role="valid-mount"]');
+  const workflow = document.createElement('div');
+  workflow.className = 'opp-workflow';
+  workflow.innerHTML = `
+    <div class="opp-workflow-intro cell-sub">
+      Two-step workflow: review <strong>Initial</strong> (new) — mark valid — then <strong>Validated</strong> for SMS only.
+    </div>
+  `;
 
   if (initialOpps.length) {
-    const initialFrag = cloneTemplate('tplOppInitial');
-    const initialPanel = initialFrag.querySelector('.opp-panel');
-    initialPanel.querySelector('[data-role="title-count"]').textContent =
-      `Initial opportunities (${initialOpps.length})`;
-    mountOpportunityRows(initialPanel.querySelector('[data-role="tbody"]'), initialOpps, 'initial');
-    initialMount.appendChild(initialPanel);
+    workflow.appendChild(buildOpportunityPanel(initialOpps, 'initial', purchaseId));
   }
 
   if (validOpps.length) {
-    const validFrag = cloneTemplate('tplOppValid');
-    const validPanel = validFrag.querySelector('.opp-panel');
-    validPanel.querySelector('[data-role="title-count"]').textContent =
-      `Validated opportunities (${validOpps.length}) — SMS enabled`;
-    mountOpportunityRows(validPanel.querySelector('[data-role="tbody"]'), validOpps, 'valid');
-    validMount.appendChild(validPanel);
+    workflow.appendChild(buildOpportunityPanel(validOpps, 'valid', purchaseId));
   } else {
-    const emptyFrag = cloneTemplate('tplOppValidEmpty');
-    if (emptyFrag) validMount.appendChild(emptyFrag.querySelector('.opp-panel'));
+    const empty = document.createElement('section');
+    empty.className = 'opp-panel opp-panel-valid opp-panel-empty';
+    empty.innerHTML = `
+      <div class="opp-panel-head">
+        <h4 class="opp-panel-title">
+          <span class="opp-badge opp-badge-valid">Validated</span>
+          <span>Validated opportunities — SMS enabled</span>
+        </h4>
+      </div>
+      <p class="empty-inline">No validated opportunities yet. Mark initial rows as valid above to enable SMS.</p>
+    `;
+    workflow.appendChild(empty);
   }
 
   mountEl.appendChild(workflow);
-}
-
-function renderOpportunitiesSectionsFallback(opportunities, purchaseId) {
-  return renderOpportunitiesSections(opportunities, purchaseId);
 }
 
 function bindOpportunitiesInteractions(container, purchaseId) {
@@ -520,8 +578,8 @@ function renderOpportunityTableRows(opportunities, options = {}) {
       <td class="link-cell">${opportunityLinks(o)}</td>
       ${showRowActions ? `
         <td class="link-cell">
-          <button type="button" class="link-btn opp-validate-one-btn" data-purchase-id="${purchaseId}" data-opp-id="${o.id}">Mark valid</button>
-          <button type="button" class="link-btn opp-reject-one-btn" data-purchase-id="${purchaseId}" data-opp-id="${o.id}">Reject</button>
+          <button type="button" class="link-btn" data-action="approve-one" data-opp-id="${o.id}">Mark valid</button>
+          <button type="button" class="link-btn" data-action="reject-one" data-opp-id="${o.id}">Reject</button>
         </td>
       ` : ''}
     </tr>
@@ -600,8 +658,11 @@ function renderDetail(d, purchaseId) {
   const user = d.user;
   const car = d.car_model;
 
-  let html = `<div style="margin-bottom:1rem">
-    <button class="btn-secondary" id="runCrawlBtn" data-id="${purchaseId}">Run crawl now</button>
+  let html = `<div class="detail-toolbar">
+    ${pr.is_active
+    ? `<button type="button" class="btn-secondary" id="runCrawlBtn" data-id="${purchaseId}">Run crawl now</button>
+       <button type="button" class="btn-danger" id="cancelPurchaseBtn" data-id="${purchaseId}">Cancel purchase</button>`
+    : `<p class="inactive-notice">This purchase is <strong>cancelled or expired</strong> — automatic crawls are disabled. Run crawl is not available.</p>`}
     <span id="runCrawlMsg" class="cell-sub"></span>
   </div>`;
 
@@ -635,7 +696,7 @@ function renderDetail(d, purchaseId) {
       <ul class="detail-list">
         ${d.crawl_targets.map(t => `
           <li>
-            <strong>${escapeHtml(t.source)}</strong> · poll ${t.poll_interval_sec}s · ${t.is_active ? 'active' : 'inactive'}<br>
+            <strong>${escapeHtml(t.source)}</strong> · poll every ${Math.round((t.poll_interval_sec || 0) / 60)} min (${t.poll_interval_sec}s) · ${t.is_active ? 'active' : 'inactive'}<br>
             <a href="${escapeHtml(t.listing_url)}" target="_blank">${escapeHtml(t.listing_url)}</a>
           </li>
         `).join('')}
@@ -842,6 +903,13 @@ async function openDetail(id, options = {}) {
 
     const btn = document.getElementById('runCrawlBtn');
     if (btn) btn.addEventListener('click', () => runCrawlForPurchase(id));
+    const cancelBtn = document.getElementById('cancelPurchaseBtn');
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', async () => {
+        await cancelPurchase(id);
+        await openDetail(id, { reset: true });
+      });
+    }
     document.querySelectorAll('.crawl-run-filter-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         openDetail(id, { crawlRunId: btn.dataset.runId, listingsPage: 1 });
@@ -893,5 +961,14 @@ async function loadResults() {
 document.getElementById('refreshBtn').addEventListener('click', loadResults);
 document.getElementById('closeModalBtn').addEventListener('click', closeModal);
 document.getElementById('modalBackdrop').addEventListener('click', closeModal);
+
+const serverUiVersion = document.querySelector('meta[name="car-staff-ui-version"]')?.content;
+if (serverUiVersion && serverUiVersion !== UI_VERSION) {
+  const status = document.getElementById('statusText');
+  if (status) {
+    status.textContent = `UI cache outdated — hard refresh (Ctrl+Shift+R). HTML ${serverUiVersion} / JS ${UI_VERSION}`;
+    status.classList.add('error');
+  }
+}
 
 loadResults();

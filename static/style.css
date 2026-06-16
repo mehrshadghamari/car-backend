@@ -406,8 +406,47 @@ tr:hover td { background: #fafbfc; }
   background: #eff6ff;
 }
 .cancel-btn {
-  margin-left: 0.35rem;
-  color: #b91c1c;
+  margin-left: 0;
+}
+.actions-cell {
+  min-width: 11rem;
+}
+.row-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
+}
+.btn-sm {
+  padding: 0.35rem 0.65rem;
+  font-size: 0.82rem;
+}
+.btn-danger {
+  background: #dc2626;
+  color: #fff;
+  border: 1px solid #b91c1c;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.btn-danger:hover {
+  background: #b91c1c;
+}
+.detail-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+.inactive-notice {
+  margin: 0;
+  padding: 0.6rem 0.75rem;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #475569;
+  font-size: 0.9rem;
 }
 .opp-section {
   border-radius: 10px;

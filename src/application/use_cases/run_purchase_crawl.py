@@ -36,7 +36,9 @@ class RunPurchaseCrawlUseCase:
         if not purchase:
             raise EntityNotFoundError("Purchase request not found")
         if not purchase.is_active:
-            raise ValidationError("Purchase request is not active")
+            raise ValidationError(
+                "درخواست خرید غیرفعال است — ابتدا باید فعال باشد یا لغو شده است"
+            )
         if purchase.expires_at and purchase.expires_at <= utc_now():
             raise ValidationError(
                 f"Purchase request expired after {self._settings.purchase_active_days} day(s)"
