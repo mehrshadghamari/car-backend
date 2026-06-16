@@ -14,6 +14,7 @@ from src.application.ports.repositories import (
 )
 from src.domain.compat import utc_now
 from src.domain.entities.delivery import OpportunityDelivery, SmsStatus
+from src.domain.constants.opportunity_visibility import STAFF_SMS_ELIGIBLE_OPPORTUNITY_STATUSES
 from src.domain.entities.opportunity import DEAL_TAG_LABELS, OpportunityStatus
 from src.domain.exceptions import EntityNotFoundError, ValidationError
 from src.infrastructure.config import Settings
@@ -80,7 +81,9 @@ class SendOpportunitySmsUseCase:
             if opp.status == OpportunityStatus.REJECTED:
                 raise ValidationError("فرصت رد‌شده قابل ارسال نیست")
             if opp.status == OpportunityStatus.NEW:
-                raise ValidationError("فرصت باید ابتدا توسط کارشناس تایید شود")
+                raise ValidationError("فرصت در وضعیت اولیه است — ابتدا توسط کارشناس تایید شود")
+            if opp.status not in STAFF_SMS_ELIGIBLE_OPPORTUNITY_STATUSES:
+                raise ValidationError("فقط فرصت‌های تایید‌شده قابل ارسال پیامک هستند")
             opportunities.append(opp)
 
         if input_dto.mode == "portal":

@@ -365,6 +365,8 @@ class OpportunitySummary(BaseModel):
     status: str
     is_below_floor: bool
     divar_url: str | None = None
+    reference_url: str | None = None
+    pricing_provider: str | None = None
     kilometer: int | None = None
     production_year: int | None = None
     created_at: str | None = None

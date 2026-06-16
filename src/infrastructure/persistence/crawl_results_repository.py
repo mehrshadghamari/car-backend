@@ -377,6 +377,27 @@ class SqlAlchemyCrawlResultsRepository:
             )
         return rows
 
+    async def _latest_market_refs_for_listings(
+        self,
+        listing_ids: list[UUID],
+        trim_id: UUID | None,
+    ) -> dict[UUID, dict]:
+        if not listing_ids:
+            return {}
+        mp_stmt = select(MarketPriceModel).where(MarketPriceModel.listing_id.in_(listing_ids))
+        if trim_id:
+            mp_stmt = mp_stmt.where(MarketPriceModel.trim_id == trim_id)
+        mp_stmt = mp_stmt.order_by(MarketPriceModel.fetched_at.desc())
+        market_prices_result = await self._session.execute(mp_stmt)
+        refs: dict[UUID, dict] = {}
+        for mp in market_prices_result.scalars().all():
+            if mp.listing_id not in refs:
+                refs[mp.listing_id] = {
+                    "reference_url": mp.reference_url,
+                    "pricing_provider": mp.pricing_provider,
+                }
+        return refs
+
     async def list_for_user(self, user_id: UUID) -> list[dict]:
         stmt = (
             select(PurchaseRequestModel)
@@ -711,11 +732,22 @@ class SqlAlchemyCrawlResultsRepository:
             .order_by(OpportunityModel.created_at.desc())
         )
         seen_opp_listings: set[UUID] = set()
+        opp_models = []
         for opp in opps_result.scalars().unique().all():
             listing = opp.listing
             if not listing or listing.id in seen_opp_listings:
                 continue
             seen_opp_listings.add(listing.id)
+            opp_models.append(opp)
+
+        market_refs = await self._latest_market_refs_for_listings(
+            [opp.listing.id for opp in opp_models if opp.listing],
+            pr.car_trim_id,
+        )
+
+        for opp in opp_models:
+            listing = opp.listing
+            market_ref = market_refs.get(listing.id, {}) if listing else {}
             opportunities.append(
                 {
                     "id": str(opp.id),
@@ -733,6 +765,8 @@ class SqlAlchemyCrawlResultsRepository:
                     "status": opp.status,
                     "is_below_floor": opp.is_below_floor,
                     "divar_url": listing.divar_url if listing else None,
+                    "reference_url": market_ref.get("reference_url"),
+                    "pricing_provider": market_ref.get("pricing_provider"),
                     "kilometer": listing.kilometer if listing else None,
                     "production_year": listing.production_year if listing else None,
                     "created_at": opp.created_at.isoformat() if opp.created_at else None,

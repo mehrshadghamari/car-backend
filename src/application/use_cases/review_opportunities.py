@@ -4,7 +4,6 @@ from dataclasses import dataclass
 from uuid import UUID
 
 from src.application.ports.repositories import OpportunityRepository, PurchaseRequestRepository
-from src.domain.constants.opportunity_visibility import STAFF_REVIEWABLE_OPPORTUNITY_STATUSES
 from src.domain.entities.opportunity import OpportunityStatus
 from src.domain.exceptions import EntityNotFoundError, ValidationError
 
@@ -53,9 +52,10 @@ class ReviewOpportunitiesUseCase:
                 continue
             if opp.status == OpportunityStatus.EXPIRED:
                 continue
-            if input_dto.action == "approve" and opp.status not in STAFF_REVIEWABLE_OPPORTUNITY_STATUSES:
-                continue
-            if input_dto.action == "reject" and opp.status == OpportunityStatus.REJECTED:
+            if input_dto.action == "approve":
+                if opp.status != OpportunityStatus.NEW:
+                    continue
+            elif opp.status in (OpportunityStatus.REJECTED, OpportunityStatus.EXPIRED, OpportunityStatus.NOTIFIED):
                 continue
             opp.status = target_status
             await self._opportunity_repo.save(opp)

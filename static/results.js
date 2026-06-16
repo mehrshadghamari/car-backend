@@ -282,6 +282,94 @@ function renderListings(listings, pagination, purchaseId) {
   `;
 }
 
+const OPP_STATUS_META = {
+  new: { label: 'Initial', className: 'badge-yellow' },
+  approved: { label: 'Valid', className: 'badge-green' },
+  notified: { label: 'SMS sent', className: 'badge-blue' },
+};
+
+function opportunityStatusBadge(status) {
+  const meta = OPP_STATUS_META[status] || { label: status || '—', className: 'badge-gray' };
+  return `<span class="badge ${meta.className}">${meta.label}</span>`;
+}
+
+function opportunityLinks(o) {
+  const links = [];
+  if (o.divar_url) {
+    links.push(`<a href="${escapeHtml(o.divar_url)}" target="_blank" rel="noopener">Divar</a>`);
+  }
+  if (o.reference_url) {
+    links.push(
+      `<a href="${escapeHtml(o.reference_url)}" target="_blank" rel="noopener">${escapeHtml(pricingLinkLabel(o.pricing_provider))}</a>`
+    );
+  }
+  return links.length ? links.join(' · ') : '—';
+}
+
+function renderOpportunityTableRows(opportunities, checkboxClass) {
+  return opportunities.map((o) => `
+    <tr>
+      <td><input type="checkbox" class="${checkboxClass}" value="${o.id}"></td>
+      <td>${dealTagBadge(o.deal_tag)}</td>
+      <td>${escapeHtml(o.listing_title || '—')}</td>
+      <td>${fmtNum(o.listing_price)}</td>
+      <td>${fmtNum(o.reference_price || o.market_price_mid || o.market_price_up)}</td>
+      <td>${fmtNum(o.discount_pct)}%</td>
+      <td>${opportunityStatusBadge(o.status)}</td>
+      <td class="link-cell">${opportunityLinks(o)}</td>
+    </tr>
+  `).join('');
+}
+
+function renderOpportunitiesSections(opportunities) {
+  const initialOpps = opportunities.filter((o) => o.status === 'new');
+  const validOpps = opportunities.filter((o) => o.status === 'approved' || o.status === 'notified');
+
+  if (!initialOpps.length && !validOpps.length) {
+    return section('Opportunities', '<p class="empty-inline">No opportunities found</p>');
+  }
+
+  let html = '';
+
+  if (initialOpps.length) {
+    html += section('Initial opportunities (pending validation)', `
+      <p class="cell-sub">Auto-detected by crawl. Review links, then approve to make valid for SMS — SMS is not available yet.</p>
+      <div class="sms-toolbar">
+        <label><input type="checkbox" id="selectAllInitialOpps"> Select all</label>
+        <button class="btn-secondary" id="approveOppsBtn">Mark valid</button>
+        <button class="btn-secondary" id="rejectOppsBtn">Reject</button>
+        <span id="reviewMsg" class="cell-sub"></span>
+      </div>
+      <table class="inner-table">
+        <thead><tr><th></th><th>Tag</th><th>Listing</th><th>Price</th><th>Reference</th><th>Discount %</th><th>Status</th><th>Links</th></tr></thead>
+        <tbody>${renderOpportunityTableRows(initialOpps, 'opp-check-review')}</tbody>
+      </table>
+    `);
+  }
+
+  if (validOpps.length) {
+    html += section('Validated opportunities (SMS enabled)', `
+      <p class="cell-sub">Approved by staff. Select one or more, then send gateway links or portal share SMS.</p>
+      <div class="sms-toolbar">
+        <label><input type="checkbox" id="selectAllValidOpps"> Select all</label>
+        <button class="btn-secondary" id="sendGatewaySmsBtn">Send gateway links SMS</button>
+        <button class="btn-secondary" id="sendPortalSmsBtn">Send portal share SMS</button>
+        <span id="smsMsg" class="cell-sub"></span>
+      </div>
+      <table class="inner-table">
+        <thead><tr><th></th><th>Tag</th><th>Listing</th><th>Price</th><th>Reference</th><th>Discount %</th><th>Status</th><th>Links</th></tr></thead>
+        <tbody>${renderOpportunityTableRows(validOpps, 'opp-check-sms')}</tbody>
+      </table>
+    `);
+  } else if (initialOpps.length) {
+    html += section('Validated opportunities (SMS enabled)', `
+      <p class="empty-inline">No validated opportunities yet — approve initial rows above to enable SMS.</p>
+    `);
+  }
+
+  return html;
+}
+
 function renderDetail(d, purchaseId) {
   const pr = d.purchase_request;
   const user = d.user;
@@ -364,37 +452,7 @@ function renderDetail(d, purchaseId) {
   const listingsCountNote = pag.total != null ? ` <span class="cell-sub">(${fmtNum(pag.total)} total · 20 per page)</span>` : '';
   html += section(`${listingsTitle}${listingsCountNote}`, renderListings(d.listings || [], d.listings_pagination, purchaseId));
 
-  if (d.opportunities.length) {
-    html += section('Opportunities', `
-      <div class="sms-toolbar">
-        <label><input type="checkbox" id="selectAllOpps"> Select all</label>
-        <button class="btn-secondary" id="approveOppsBtn" data-id="${purchaseId}">Approve</button>
-        <button class="btn-secondary" id="rejectOppsBtn" data-id="${purchaseId}">Reject</button>
-        <button class="btn-secondary" id="sendGatewaySmsBtn" data-id="${purchaseId}">Send gateway links SMS</button>
-        <button class="btn-secondary" id="sendPortalSmsBtn" data-id="${purchaseId}">Send portal share SMS</button>
-        <span id="smsMsg" class="cell-sub"></span>
-      </div>
-      <table class="inner-table">
-        <thead><tr><th></th><th>Tag</th><th>Listing</th><th>Price</th><th>Reference</th><th>Discount %</th><th>Status</th><th>Link</th></tr></thead>
-        <tbody>
-          ${d.opportunities.map(o => `
-            <tr>
-              <td><input type="checkbox" class="opp-check" value="${o.id}"></td>
-              <td>${dealTagBadge(o.deal_tag)}</td>
-              <td>${escapeHtml(o.listing_title || '—')}</td>
-              <td>${fmtNum(o.listing_price)}</td>
-              <td>${fmtNum(o.reference_price || o.market_price_mid || o.market_price_up)}</td>
-              <td>${fmtNum(o.discount_pct)}%</td>
-              <td>${escapeHtml(o.status)}</td>
-              <td>${o.divar_url ? `<a href="${escapeHtml(o.divar_url)}" target="_blank">Divar</a>` : '—'}</td>
-            </tr>
-          `).join('')}
-        </tbody>
-      </table>
-    `);
-  } else {
-    html += section('Opportunities', '<p class="empty-inline">No opportunities found</p>');
-  }
+  html += renderOpportunitiesSections(d.opportunities || []);
 
   if (d.deliveries.length) {
     html += section('SMS deliveries', `
@@ -420,20 +478,20 @@ function renderDetail(d, purchaseId) {
 }
 
 async function reviewOpportunities(purchaseId, action) {
-  const checks = document.querySelectorAll('.opp-check:checked');
+  const checks = document.querySelectorAll('.opp-check-review:checked');
   const ids = Array.from(checks).map((c) => c.value);
-  const msg = document.getElementById('smsMsg');
+  const msg = document.getElementById('reviewMsg');
   if (!ids.length) {
-    if (msg) msg.textContent = 'Select at least one opportunity';
+    if (msg) msg.textContent = 'Select at least one initial opportunity';
     return;
   }
-  if (msg) msg.textContent = action === 'approve' ? 'Approving...' : 'Rejecting...';
+  if (msg) msg.textContent = action === 'approve' ? 'Validating...' : 'Rejecting...';
   try {
     const r = await api(`/crawl-results/${purchaseId}/review-opportunities`, {
       method: 'POST',
       body: JSON.stringify({ opportunity_ids: ids, action }),
     });
-    if (msg) msg.textContent = `${action === 'approve' ? 'Approved' : 'Rejected'} ${r.updated} opportunity(s)`;
+    if (msg) msg.textContent = `${action === 'approve' ? 'Validated' : 'Rejected'} ${r.updated} opportunity(s)`;
     setTimeout(() => openDetail(purchaseId), 800);
   } catch (e) {
     if (msg) msg.textContent = e.message;
@@ -441,11 +499,11 @@ async function reviewOpportunities(purchaseId, action) {
 }
 
 async function sendOpportunitySms(purchaseId, mode) {
-  const checks = document.querySelectorAll('.opp-check:checked');
+  const checks = document.querySelectorAll('.opp-check-sms:checked');
   const ids = Array.from(checks).map((c) => c.value);
   const msg = document.getElementById('smsMsg');
   if (!ids.length) {
-    if (msg) msg.textContent = 'Select at least one opportunity';
+    if (msg) msg.textContent = 'Select at least one validated opportunity';
     return;
   }
   if (msg) msg.textContent = 'Sending...';
@@ -534,11 +592,19 @@ async function openDetail(id, options = {}) {
     content.innerHTML = renderDetail(detail, id);
     const btn = document.getElementById('runCrawlBtn');
     if (btn) btn.addEventListener('click', () => runCrawlForPurchase(id));
-    const selectAll = document.getElementById('selectAllOpps');
-    if (selectAll) {
-      selectAll.addEventListener('change', () => {
-        document.querySelectorAll('.opp-check').forEach((c) => {
-          c.checked = selectAll.checked;
+    const selectAllInitial = document.getElementById('selectAllInitialOpps');
+    if (selectAllInitial) {
+      selectAllInitial.addEventListener('change', () => {
+        document.querySelectorAll('.opp-check-review').forEach((c) => {
+          c.checked = selectAllInitial.checked;
+        });
+      });
+    }
+    const selectAllValid = document.getElementById('selectAllValidOpps');
+    if (selectAllValid) {
+      selectAllValid.addEventListener('change', () => {
+        document.querySelectorAll('.opp-check-sms').forEach((c) => {
+          c.checked = selectAllValid.checked;
         });
       });
     }
