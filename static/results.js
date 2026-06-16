@@ -176,30 +176,65 @@ function pricingLinkLabel(provider) {
   return provider || 'Price';
 }
 
-function renderListingsPagination(purchaseId, pagination) {
-  if (!pagination || pagination.total_pages <= 1) return '';
-  const page = pagination.page;
-  const total = pagination.total_pages;
-  const runNote = pagination.crawl_run_id ? ' (filtered by crawl run)' : '';
+function shouldShowListingsPagination(pagination, listings) {
+  const perPage = (pagination && pagination.per_page) || 20;
+  const page = (pagination && pagination.page) || 1;
+  if (pagination && pagination.total != null) {
+    const totalPages = pagination.total_pages != null
+      ? pagination.total_pages
+      : Math.max(1, Math.ceil(pagination.total / perPage));
+    return pagination.total > perPage || totalPages > 1 || page > 1;
+  }
+  return listings.length >= perPage || page > 1;
+}
+
+function normalizeListingsPagination(pagination, listings, page) {
+  const perPage = 20;
+  if (pagination && pagination.total != null) {
+    const totalPages = pagination.total_pages != null
+      ? pagination.total_pages
+      : Math.max(1, Math.ceil(pagination.total / (pagination.per_page || perPage)));
+    return { ...pagination, per_page: pagination.per_page || perPage, total_pages: totalPages };
+  }
+  return {
+    page: page || 1,
+    per_page: perPage,
+    total: listings.length,
+    total_pages: 1,
+    crawl_run_id: detailState.crawlRunId,
+  };
+}
+
+function renderListingsPagination(purchaseId, pagination, listings) {
+  const pag = normalizeListingsPagination(pagination, listings, detailState.listingsPage);
+  if (!shouldShowListingsPagination(pag, listings)) return '';
+  const page = pag.page;
+  const totalPages = pag.total_pages;
+  const perPage = pag.per_page;
+  const total = pag.total;
+  const from = total ? (page - 1) * perPage + 1 : 0;
+  const to = Math.min(page * perPage, total);
+  const runNote = pag.crawl_run_id ? ' · filtered by crawl run' : '';
   return `
-    <div class="pagination-bar">
-      <button class="btn-secondary" data-page-action="prev" ${page <= 1 ? 'disabled' : ''}>Previous</button>
-      <span class="cell-sub">Page ${page} / ${total} · ${fmtNum(pagination.total)} listings${runNote}</span>
-      <button class="btn-secondary" data-page-action="next" ${page >= total ? 'disabled' : ''}>Next</button>
-      ${pagination.crawl_run_id ? `<button class="btn-secondary" data-page-action="clear-run">All listings</button>` : ''}
+    <div class="pagination-bar listings-pagination">
+      <button type="button" class="btn-secondary" data-page-action="prev" ${page <= 1 ? 'disabled' : ''}>← Previous</button>
+      <span class="pagination-meta">Showing ${fmtNum(from)}–${fmtNum(to)} of ${fmtNum(total)} · page ${page} / ${totalPages}${runNote}</span>
+      <button type="button" class="btn-secondary" data-page-action="next" ${page >= totalPages ? 'disabled' : ''}>Next →</button>
+      ${pag.crawl_run_id ? `<button type="button" class="btn-secondary" data-page-action="clear-run">All listings</button>` : ''}
     </div>
   `;
 }
 
 function renderListings(listings, pagination, purchaseId) {
+  const paginationHtml = renderListingsPagination(purchaseId, pagination, listings);
   if (!listings.length) {
     const emptyMsg = pagination && pagination.crawl_run_id
       ? 'No listings recorded for this crawl run'
       : 'No listings crawled yet — run a crawl to fetch Divar posts and market prices';
-    return `<p class="empty-inline">${emptyMsg}</p>${renderListingsPagination(purchaseId, pagination)}`;
+    return `<p class="empty-inline">${emptyMsg}</p>${paginationHtml}`;
   }
   return `
-    ${renderListingsPagination(purchaseId, pagination)}
+    ${paginationHtml}
     <table class="inner-table listings-table">
       <thead>
         <tr>
@@ -243,6 +278,7 @@ function renderListings(listings, pagination, purchaseId) {
         }).join('')}
       </tbody>
     </table>
+    ${paginationHtml}
   `;
 }
 
@@ -322,9 +358,11 @@ function renderDetail(d, purchaseId) {
   html += section('Crawl diagnostics (why no opportunity?)', renderDiagnostics(d.crawl_runs || []));
 
   const listingsTitle = detailState.crawlRunId
-    ? 'Found listings for selected crawl run'
-    : 'Found listings (all crawl runs)';
-  html += section(listingsTitle, renderListings(d.listings || [], d.listings_pagination, purchaseId));
+    ? 'Found listings for selected crawl run (Divar + market price)'
+    : 'Found listings (Divar + market price)';
+  const pag = d.listings_pagination || {};
+  const listingsCountNote = pag.total != null ? ` <span class="cell-sub">(${fmtNum(pag.total)} total · 20 per page)</span>` : '';
+  html += section(`${listingsTitle}${listingsCountNote}`, renderListings(d.listings || [], d.listings_pagination, purchaseId));
 
   if (d.opportunities.length) {
     html += section('Opportunities', `
@@ -521,10 +559,10 @@ async function openDetail(id, options = {}) {
       btn.addEventListener('click', () => {
         const action = btn.dataset.pageAction;
         const pg = detailState.listingsPage;
-        const pag = detail.listings_pagination || {};
+        const pag = normalizeListingsPagination(detail.listings_pagination, detail.listings || [], pg);
         if (action === 'prev' && pg > 1) {
           openDetail(id, { listingsPage: pg - 1 });
-        } else if (action === 'next' && pg < (pag.total_pages || 1)) {
+        } else if (action === 'next' && pg < pag.total_pages) {
           openDetail(id, { listingsPage: pg + 1 });
         } else if (action === 'clear-run') {
           openDetail(id, { crawlRunId: null, listingsPage: 1 });
