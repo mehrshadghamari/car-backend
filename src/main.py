@@ -111,7 +111,10 @@ setup_admin(app, admin_base_url=portal_admin_path())
 async def results_page():
     page = static_dir / "results.html"
     if page.exists():
-        return FileResponse(page)
+        return FileResponse(
+            page,
+            headers={"Cache-Control": "no-cache, no-store, must-revalidate", "Pragma": "no-cache"},
+        )
     raise HTTPException(status_code=404, detail="Results page not found")
 
 

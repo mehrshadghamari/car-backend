@@ -334,7 +334,15 @@ class ListingsPagination(BaseModel):
     per_page: int
     total: int
     total_pages: int
+    has_more: bool = False
     crawl_run_id: UUID | None = None
+
+
+class ListingsMeta(BaseModel):
+    matching_total: int = 0
+    pool_priced_total: int = 0
+    per_page: int = 20
+    latest_crawl_posts: int = 0
 
 
 class CrawlTaskStatusResponse(BaseModel):
@@ -421,6 +429,7 @@ class CrawlResultDetailResponse(BaseModel):
     crawl_runs: list[CrawlRunSummary]
     listings: list[ListingSummary] = Field(default_factory=list)
     listings_pagination: ListingsPagination | None = None
+    listings_meta: ListingsMeta | None = None
     opportunities: list[OpportunitySummary]
     deliveries: list[DeliverySummary]
 

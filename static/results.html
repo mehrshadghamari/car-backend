@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="car-staff-ui-version" content="20250616">
   <title>Car Opportunity — Crawl Results</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/style.css?v=20250616">
 </head>
 <body>
   <nav class="top-nav">
@@ -27,6 +28,7 @@
       <div class="toolbar">
         <button id="refreshBtn" class="primary">Refresh</button>
         <span id="statusText" class="status-text">Loading...</span>
+        <span id="uiVersionBadge" class="ui-version-badge" title="Staff UI build">UI v20250616</span>
       </div>
       <div class="table-wrap">
         <table id="resultsTable">
@@ -56,16 +58,171 @@
 
   <div id="detailModal" class="modal hidden">
     <div class="modal-backdrop" id="modalBackdrop"></div>
-    <div class="modal-panel">
+    <div class="modal-panel modal-panel-wide">
       <div class="modal-header">
-        <h2>Purchase detail</h2>
+        <div>
+          <h2>Purchase detail</h2>
+          <span class="modal-ui-version">Staff UI v20250616</span>
+        </div>
         <button id="closeModalBtn" class="icon-btn" aria-label="Close">&times;</button>
       </div>
       <div id="detailContent" class="modal-body">Loading...</div>
     </div>
   </div>
 
-  <script src="/static/paths.js"></script>
-  <script src="/static/results.js?v=20250614b"></script>
+  <!-- Opportunity UI templates (initial vs validated — SMS only on validated) -->
+  <template id="tplOppWorkflow">
+    <div class="opp-workflow">
+      <div class="opp-workflow-intro cell-sub">
+        Two-step workflow: review <strong>Initial</strong> opportunities (links only), mark valid, then send SMS from <strong>Validated</strong>.
+      </div>
+      <div data-role="initial-mount"></div>
+      <div data-role="valid-mount"></div>
+    </div>
+  </template>
+
+  <template id="tplOppInitial">
+    <section class="opp-panel opp-panel-initial">
+      <div class="opp-panel-head">
+        <h4 class="opp-panel-title">
+          <span class="opp-badge opp-badge-initial">Initial</span>
+          <span data-role="title-count">Initial opportunities</span>
+        </h4>
+        <p class="opp-panel-desc">Auto-created by crawl. Review Divar / Hamrah links. <strong>No SMS here.</strong></p>
+      </div>
+      <div class="opp-toolbar opp-toolbar-review">
+        <label class="opp-select-all"><input type="checkbox" data-role="select-all"> Select all</label>
+        <button type="button" class="btn-secondary" data-action="approve-selected">Mark selected valid</button>
+        <button type="button" class="btn-secondary" data-action="reject-selected">Reject selected</button>
+        <span class="opp-toolbar-msg" data-role="review-msg"></span>
+      </div>
+      <div class="table-wrap opp-table-wrap">
+        <table class="inner-table opp-table-initial">
+          <thead>
+            <tr>
+              <th class="col-check"></th>
+              <th>Tag</th>
+              <th>Listing</th>
+              <th>Price</th>
+              <th>Max ref</th>
+              <th>Discount vs max</th>
+              <th>Status</th>
+              <th>Links</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody data-role="tbody"></tbody>
+        </table>
+      </div>
+    </section>
+  </template>
+
+  <template id="tplOppValid">
+    <section class="opp-panel opp-panel-valid">
+      <div class="opp-panel-head">
+        <h4 class="opp-panel-title">
+          <span class="opp-badge opp-badge-valid">Validated</span>
+          <span data-role="title-count">Validated opportunities — SMS enabled</span>
+        </h4>
+        <p class="opp-panel-desc">Staff-approved rows only. Select and send gateway or portal share SMS.</p>
+      </div>
+      <div class="opp-toolbar opp-toolbar-sms">
+        <label class="opp-select-all"><input type="checkbox" data-role="select-all"> Select all</label>
+        <button type="button" class="btn-secondary" data-action="sms-gateway">Send gateway links SMS</button>
+        <button type="button" class="btn-secondary" data-action="sms-portal">Send portal share SMS</button>
+        <span class="opp-toolbar-msg" data-role="sms-msg"></span>
+      </div>
+      <div class="table-wrap opp-table-wrap">
+        <table class="inner-table opp-table-valid">
+          <thead>
+            <tr>
+              <th class="col-check"></th>
+              <th>Tag</th>
+              <th>Listing</th>
+              <th>Price</th>
+              <th>Max ref</th>
+              <th>Discount vs max</th>
+              <th>Status</th>
+              <th>Links</th>
+            </tr>
+          </thead>
+          <tbody data-role="tbody"></tbody>
+        </table>
+      </div>
+    </section>
+  </template>
+
+  <template id="tplOppValidEmpty">
+    <section class="opp-panel opp-panel-valid opp-panel-empty">
+      <div class="opp-panel-head">
+        <h4 class="opp-panel-title">
+          <span class="opp-badge opp-badge-valid">Validated</span>
+          <span>Validated opportunities — SMS enabled</span>
+        </h4>
+      </div>
+      <p class="empty-inline">No validated opportunities yet. Mark initial rows as valid above to enable SMS.</p>
+    </section>
+  </template>
+
+  <template id="tplOppRowInitial">
+    <tr class="opp-row-initial">
+      <td class="col-check"><input type="checkbox" class="opp-check-review" value=""></td>
+      <td data-role="tag"></td>
+      <td data-role="title"></td>
+      <td data-role="price" class="num-cell"></td>
+      <td data-role="max-ref" class="num-cell"></td>
+      <td data-role="discount" class="num-cell"></td>
+      <td data-role="status"></td>
+      <td data-role="links" class="link-cell"></td>
+      <td class="link-cell opp-row-actions">
+        <button type="button" class="link-btn opp-btn-valid" data-action="approve-one">Mark valid</button>
+        <button type="button" class="link-btn opp-btn-reject" data-action="reject-one">Reject</button>
+      </td>
+    </tr>
+  </template>
+
+  <template id="tplOppRowValid">
+    <tr class="opp-row-valid">
+      <td class="col-check"><input type="checkbox" class="opp-check-sms" value=""></td>
+      <td data-role="tag"></td>
+      <td data-role="title"></td>
+      <td data-role="price" class="num-cell"></td>
+      <td data-role="max-ref" class="num-cell"></td>
+      <td data-role="discount" class="num-cell"></td>
+      <td data-role="status"></td>
+      <td data-role="links" class="link-cell"></td>
+    </tr>
+  </template>
+
+  <!-- Found listings pagination (always mounted by JS) -->
+  <template id="tplListingsPagination">
+    <nav class="pagination-bar listings-pagination" role="navigation" aria-label="Listings pages">
+      <button type="button" class="primary listings-page-btn" data-page-action="prev">← Previous</button>
+      <span class="pagination-meta" data-role="meta"></span>
+      <button type="button" class="primary listings-page-btn" data-page-action="next">Next →</button>
+      <button type="button" class="btn-secondary listings-clear-run-btn hidden" data-page-action="clear-run">All listings</button>
+    </nav>
+  </template>
+
+  <template id="tplListingsRow">
+    <tr>
+      <td>
+        <div class="cell-main" data-role="title"></div>
+        <div class="cell-sub" data-role="subtitle"></div>
+      </td>
+      <td data-role="year"></td>
+      <td data-role="km" class="num-cell"></td>
+      <td data-role="price" class="num-cell"></td>
+      <td data-role="floor" class="num-cell"></td>
+      <td data-role="mid" class="num-cell"></td>
+      <td data-role="max" class="num-cell"></td>
+      <td data-role="priced-at"></td>
+      <td data-role="opp"></td>
+      <td data-role="links" class="link-cell"></td>
+    </tr>
+  </template>
+
+  <script src="/static/paths.js?v=20250616"></script>
+  <script src="/static/results.js?v=20250616"></script>
 </body>
 </html>

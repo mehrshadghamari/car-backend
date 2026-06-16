@@ -802,6 +802,13 @@ class SqlAlchemyCrawlResultsRepository:
             trim_id=pr.car_trim_id,
             require_trim_pricing=True,
         )
+        pool_priced_listings = await self._listings_for_target_ids(
+            target_ids,
+            purchase=None,
+            purchase_request_id=pr.id,
+            trim_id=pr.car_trim_id,
+            require_trim_pricing=True,
+        )
 
         selected_run = None
         if crawl_run_id:
@@ -860,7 +867,14 @@ class SqlAlchemyCrawlResultsRepository:
                 "per_page": per_page,
                 "total": total_listings,
                 "total_pages": total_pages,
+                "has_more": page < total_pages,
                 "crawl_run_id": str(crawl_run_id) if crawl_run_id else None,
+            },
+            "listings_meta": {
+                "matching_total": total_listings,
+                "pool_priced_total": len(pool_priced_listings),
+                "per_page": per_page,
+                "latest_crawl_posts": crawl_runs[0].get("posts_found") if crawl_runs else 0,
             },
             "opportunities": opportunities,
             "deliveries": deliveries,

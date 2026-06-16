@@ -1,4 +1,6 @@
 const API = '/api/v1';
+const UI_VERSION = '20250616';
+const LISTINGS_PER_PAGE = 20;
 
 function trimMappingHref() {
   return (window.APP_PATHS && window.APP_PATHS.trimMapping) || '/';
@@ -176,110 +178,160 @@ function pricingLinkLabel(provider) {
   return provider || 'Price';
 }
 
-function shouldShowListingsPagination(pagination, listings) {
-  const perPage = (pagination && pagination.per_page) || 20;
-  const page = (pagination && pagination.page) || 1;
-  if (pagination && pagination.total != null) {
-    const totalPages = pagination.total_pages != null
-      ? pagination.total_pages
-      : Math.max(1, Math.ceil(pagination.total / perPage));
-    return pagination.total > perPage || totalPages > 1 || page > 1;
-  }
-  return listings.length >= perPage || page > 1;
-}
-
-function normalizeListingsPagination(pagination, listings, page) {
-  const perPage = 20;
+function buildListingsPaginationState(pagination, listings, page) {
+  const perPage = LISTINGS_PER_PAGE;
+  const currentPage = page || detailState.listingsPage || 1;
   if (pagination && pagination.total != null) {
     const totalPages = pagination.total_pages != null
       ? pagination.total_pages
       : Math.max(1, Math.ceil(pagination.total / (pagination.per_page || perPage)));
-    return { ...pagination, per_page: pagination.per_page || perPage, total_pages: totalPages };
+    const hasMore = pagination.has_more != null
+      ? pagination.has_more
+      : currentPage < totalPages;
+    return {
+      page: pagination.page || currentPage,
+      per_page: pagination.per_page || perPage,
+      total: pagination.total,
+      total_pages: totalPages,
+      has_more: hasMore,
+      crawl_run_id: pagination.crawl_run_id || detailState.crawlRunId || null,
+    };
   }
+  const fullPage = listings.length >= perPage;
   return {
-    page: page || 1,
+    page: currentPage,
     per_page: perPage,
     total: listings.length,
-    total_pages: 1,
-    crawl_run_id: detailState.crawlRunId,
+    total_pages: fullPage ? currentPage + 1 : Math.max(1, currentPage),
+    has_more: fullPage,
+    crawl_run_id: detailState.crawlRunId || null,
   };
 }
 
-function renderListingsPagination(purchaseId, pagination, listings) {
-  const pag = normalizeListingsPagination(pagination, listings, detailState.listingsPage);
-  if (!shouldShowListingsPagination(pag, listings)) return '';
-  const page = pag.page;
-  const totalPages = pag.total_pages;
-  const perPage = pag.per_page;
-  const total = pag.total;
-  const from = total ? (page - 1) * perPage + 1 : 0;
-  const to = Math.min(page * perPage, total);
-  const runNote = pag.crawl_run_id ? ' · filtered by crawl run' : '';
-  return `
-    <div class="pagination-bar listings-pagination">
-      <button type="button" class="btn-secondary" data-page-action="prev" ${page <= 1 ? 'disabled' : ''}>← Previous</button>
-      <span class="pagination-meta">Showing ${fmtNum(from)}–${fmtNum(to)} of ${fmtNum(total)} · page ${page} / ${totalPages}${runNote}</span>
-      <button type="button" class="btn-secondary" data-page-action="next" ${page >= totalPages ? 'disabled' : ''}>Next →</button>
-      ${pag.crawl_run_id ? `<button type="button" class="btn-secondary" data-page-action="clear-run">All listings</button>` : ''}
-    </div>
-  `;
+function canGoToNextListingsPage(pag, listings) {
+  if (pag.has_more) return true;
+  if (pag.total_pages != null && pag.page < pag.total_pages) return true;
+  if (pag.total != null && pag.page * pag.per_page < pag.total) return true;
+  return listings.length >= LISTINGS_PER_PAGE;
 }
 
-function renderListings(listings, pagination, purchaseId) {
-  const paginationHtml = renderListingsPagination(purchaseId, pagination, listings);
-  if (!listings.length) {
-    const emptyMsg = pagination && pagination.crawl_run_id
+function createListingsPaginationBar(pag, listings, meta) {
+  const frag = cloneTemplate('tplListingsPagination');
+  if (!frag) return null;
+  const nav = frag.querySelector('.listings-pagination');
+  const page = pag.page;
+  const from = pag.total ? (page - 1) * pag.per_page + 1 : 0;
+  const to = (page - 1) * pag.per_page + listings.length;
+  const totalLabel = fmtNum(pag.total);
+  const runNote = pag.crawl_run_id ? ' · filtered by crawl run' : '';
+  const poolNote = meta && meta.pool_priced_total != null && meta.matching_total != null
+    ? ` · ${fmtNum(meta.matching_total)} match purchase (of ${fmtNum(meta.pool_priced_total)} priced in pool)`
+    : '';
+  const metaEl = nav.querySelector('[data-role="meta"]');
+  if (metaEl) {
+    metaEl.textContent =
+      `Showing ${fmtNum(from)}–${fmtNum(to)} of ${totalLabel} · page ${page} / ${pag.total_pages}${runNote}${poolNote}`;
+  }
+  const prevBtn = nav.querySelector('[data-page-action="prev"]');
+  const nextBtn = nav.querySelector('[data-page-action="next"]');
+  if (prevBtn) prevBtn.disabled = page <= 1;
+  if (nextBtn) nextBtn.disabled = !canGoToNextListingsPage(pag, listings);
+  const clearBtn = nav.querySelector('.listings-clear-run-btn');
+  if (clearBtn) {
+    if (pag.crawl_run_id) clearBtn.classList.remove('hidden');
+    else clearBtn.classList.add('hidden');
+  }
+  return nav;
+}
+
+function fillListingsRow(row, listing) {
+  const mp = listing.latest_market_price;
+  const links = [];
+  if (listing.divar_url) {
+    links.push(`<a href="${escapeHtml(listing.divar_url)}" target="_blank" rel="noopener">Divar</a>`);
+  }
+  if (mp && mp.reference_url) {
+    links.push(`<a href="${escapeHtml(mp.reference_url)}" target="_blank" rel="noopener">${escapeHtml(pricingLinkLabel(mp.pricing_provider))}</a>`);
+  }
+  const set = (role, value) => {
+    const el = row.querySelector(`[data-role="${role}"]`);
+    if (el) el.innerHTML = value;
+  };
+  set('title', escapeHtml((listing.title || '—').slice(0, 70)));
+  const subtitle = [listing.district || '', listing.color ? ` · ${listing.color}` : ''].join('');
+  set('subtitle', escapeHtml(subtitle));
+  set('year', listing.production_year ?? '—');
+  set('km', fmtNum(listing.kilometer));
+  set('price', fmtNum(listing.price));
+  set('floor', mp ? fmtNum(mp.price_down) : '—');
+  set('mid', mp ? fmtNum(mp.price_mid) : '—');
+  set('max', mp ? fmtNum(mp.price_up) : '—');
+  set('priced-at', mp ? fmtDate(mp.fetched_at) : '—');
+  set('opp', listing.opportunity_still_valid && listing.opportunity_deal_tag
+    ? dealTagBadge(listing.opportunity_deal_tag)
+    : '—');
+  set('links', links.length ? links.join(' · ') : '—');
+}
+
+function mountListingsSection(mountEl, listings, pagination, meta) {
+  if (!mountEl) return;
+  mountEl.innerHTML = '';
+  const pag = buildListingsPaginationState(pagination, listings, detailState.listingsPage);
+
+  if (!listings.length && pag.page <= 1) {
+    const emptyMsg = pag.crawl_run_id
       ? 'No listings recorded for this crawl run'
       : 'No listings crawled yet — run a crawl to fetch Divar posts and market prices';
-    return `<p class="empty-inline">${emptyMsg}</p>${paginationHtml}`;
+    mountEl.innerHTML = `<p class="empty-inline">${emptyMsg}</p>`;
+    return;
   }
-  return `
-    ${paginationHtml}
-    <table class="inner-table listings-table">
-      <thead>
-        <tr>
-          <th>Listing</th>
-          <th>Year</th>
-          <th>Km</th>
-          <th>Divar price</th>
-          <th>Floor</th>
-          <th>Mid</th>
-          <th>Max</th>
-          <th>Priced at</th>
-          <th>Opp</th>
-          <th>Links</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${listings.map((l) => {
-          const mp = l.latest_market_price;
-          const links = [];
-          if (l.divar_url) links.push(`<a href="${escapeHtml(l.divar_url)}" target="_blank" rel="noopener">Divar</a>`);
-          if (mp && mp.reference_url) {
-            links.push(`<a href="${escapeHtml(mp.reference_url)}" target="_blank" rel="noopener">${escapeHtml(pricingLinkLabel(mp.pricing_provider))}</a>`);
-          }
-          return `
-            <tr>
-              <td>
-                <div class="cell-main">${escapeHtml((l.title || '—').slice(0, 70))}</div>
-                <div class="cell-sub">${escapeHtml(l.district || '')}${l.color ? ` · ${escapeHtml(l.color)}` : ''}</div>
-              </td>
-              <td>${l.production_year ?? '—'}</td>
-              <td>${fmtNum(l.kilometer)}</td>
-              <td>${fmtNum(l.price)}</td>
-              <td>${mp ? fmtNum(mp.price_down) : '—'}</td>
-              <td>${mp ? fmtNum(mp.price_mid) : '—'}</td>
-              <td>${mp ? fmtNum(mp.price_up) : '—'}</td>
-              <td>${mp ? fmtDate(mp.fetched_at) : '—'}</td>
-              <td>${l.opportunity_still_valid && l.opportunity_deal_tag ? dealTagBadge(l.opportunity_deal_tag) : '—'}</td>
-              <td class="link-cell">${links.length ? links.join(' · ') : '—'}</td>
-            </tr>
-          `;
-        }).join('')}
-      </tbody>
-    </table>
-    ${paginationHtml}
+
+  const topNav = createListingsPaginationBar(pag, listings, meta);
+  if (topNav) mountEl.appendChild(topNav);
+
+  const tableWrap = document.createElement('div');
+  tableWrap.className = 'table-wrap listings-table-wrap';
+  const table = document.createElement('table');
+  table.className = 'inner-table listings-table';
+  table.innerHTML = `
+    <thead>
+      <tr>
+        <th>Listing</th><th>Year</th><th>Km</th><th>Divar price</th>
+        <th>Floor</th><th>Mid</th><th>Max</th><th>Priced at</th><th>Opp</th><th>Links</th>
+      </tr>
+    </thead>
+    <tbody data-role="listings-tbody"></tbody>
   `;
+  const tbody = table.querySelector('[data-role="listings-tbody"]');
+  listings.forEach((listing) => {
+    const rowFrag = cloneTemplate('tplListingsRow');
+    if (!rowFrag) return;
+    const row = rowFrag.querySelector('tr');
+    fillListingsRow(row, listing);
+    tbody.appendChild(row);
+  });
+  tableWrap.appendChild(table);
+  mountEl.appendChild(tableWrap);
+
+  const bottomNav = createListingsPaginationBar(pag, listings, meta);
+  if (bottomNav) mountEl.appendChild(bottomNav);
+}
+
+function bindListingsInteractions(mountEl, purchaseId) {
+  if (!mountEl) return;
+  mountEl.addEventListener('click', (event) => {
+    const btn = event.target.closest('[data-page-action]');
+    if (!btn || !mountEl.contains(btn)) return;
+    const action = btn.dataset.pageAction;
+    const pg = detailState.listingsPage;
+    if (action === 'prev' && pg > 1) {
+      openDetail(purchaseId, { listingsPage: pg - 1 });
+    } else if (action === 'next') {
+      openDetail(purchaseId, { listingsPage: pg + 1 });
+    } else if (action === 'clear-run') {
+      openDetail(purchaseId, { crawlRunId: null, listingsPage: 1 });
+    }
+  });
 }
 
 const OPP_STATUS_META = {
@@ -306,22 +358,177 @@ function opportunityLinks(o) {
   return links.length ? links.join(' · ') : '—';
 }
 
-function renderOpportunityTableRows(opportunities, checkboxClass) {
+function cloneTemplate(id) {
+  const tpl = document.getElementById(id);
+  return tpl ? tpl.content.cloneNode(true) : null;
+}
+
+function fillOpportunityRow(row, opportunity, mode) {
+  const check = row.querySelector('input[type="checkbox"]');
+  if (check) check.value = opportunity.id;
+  const set = (role, html) => {
+    const el = row.querySelector(`[data-role="${role}"]`);
+    if (el) el.innerHTML = html;
+  };
+  set('tag', dealTagBadge(opportunity.deal_tag));
+  set('title', escapeHtml(opportunity.listing_title || '—'));
+  set('price', fmtNum(opportunity.listing_price));
+  set('max-ref', fmtNum(opportunity.reference_price || opportunity.market_price_up || opportunity.market_price_mid));
+  set('discount', `${fmtNum(opportunity.discount_pct)}%`);
+  set('status', opportunityStatusBadge(opportunity.status));
+  set('links', opportunityLinks(opportunity));
+  if (mode === 'initial') {
+    row.querySelectorAll('[data-action="approve-one"], [data-action="reject-one"]').forEach((btn) => {
+      btn.dataset.oppId = opportunity.id;
+    });
+  }
+}
+
+function mountOpportunityRows(tbody, opportunities, mode) {
+  const rowTplId = mode === 'initial' ? 'tplOppRowInitial' : 'tplOppRowValid';
+  opportunities.forEach((opp) => {
+    const rowFrag = cloneTemplate(rowTplId);
+    if (!rowFrag) return;
+    const row = rowFrag.querySelector('tr');
+    fillOpportunityRow(row, opp, mode);
+    tbody.appendChild(row);
+  });
+}
+
+function mountOpportunitiesWorkflow(mountEl, opportunities, purchaseId) {
+  if (!mountEl) return;
+
+  const initialOpps = (opportunities || []).filter((o) => o.status === 'new');
+  const validOpps = (opportunities || []).filter((o) => o.status === 'approved' || o.status === 'notified');
+
+  mountEl.innerHTML = '';
+  mountEl.dataset.purchaseId = purchaseId;
+
+  if (!initialOpps.length && !validOpps.length) {
+    mountEl.innerHTML = '<p class="empty-inline">No opportunities found</p>';
+    return;
+  }
+
+  const workflowFrag = cloneTemplate('tplOppWorkflow');
+  if (!workflowFrag) {
+    mountEl.innerHTML = renderOpportunitiesSectionsFallback(opportunities, purchaseId);
+    return;
+  }
+
+  const workflow = workflowFrag.querySelector('.opp-workflow');
+  const initialMount = workflow.querySelector('[data-role="initial-mount"]');
+  const validMount = workflow.querySelector('[data-role="valid-mount"]');
+
+  if (initialOpps.length) {
+    const initialFrag = cloneTemplate('tplOppInitial');
+    const initialPanel = initialFrag.querySelector('.opp-panel');
+    initialPanel.querySelector('[data-role="title-count"]').textContent =
+      `Initial opportunities (${initialOpps.length})`;
+    mountOpportunityRows(initialPanel.querySelector('[data-role="tbody"]'), initialOpps, 'initial');
+    initialMount.appendChild(initialPanel);
+  }
+
+  if (validOpps.length) {
+    const validFrag = cloneTemplate('tplOppValid');
+    const validPanel = validFrag.querySelector('.opp-panel');
+    validPanel.querySelector('[data-role="title-count"]').textContent =
+      `Validated opportunities (${validOpps.length}) — SMS enabled`;
+    mountOpportunityRows(validPanel.querySelector('[data-role="tbody"]'), validOpps, 'valid');
+    validMount.appendChild(validPanel);
+  } else {
+    const emptyFrag = cloneTemplate('tplOppValidEmpty');
+    if (emptyFrag) validMount.appendChild(emptyFrag.querySelector('.opp-panel'));
+  }
+
+  mountEl.appendChild(workflow);
+}
+
+function renderOpportunitiesSectionsFallback(opportunities, purchaseId) {
+  return renderOpportunitiesSections(opportunities, purchaseId);
+}
+
+function bindOpportunitiesInteractions(container, purchaseId) {
+  if (!container) return;
+
+  container.addEventListener('change', (event) => {
+    const target = event.target;
+    if (!(target instanceof HTMLInputElement)) return;
+    if (target.matches('[data-role="select-all"]')) {
+      const panel = target.closest('.opp-panel');
+      if (!panel) return;
+      const isInitial = panel.classList.contains('opp-panel-initial');
+      const selector = isInitial ? '.opp-check-review' : '.opp-check-sms';
+      panel.querySelectorAll(selector).forEach((cb) => {
+        cb.checked = target.checked;
+      });
+    }
+  });
+
+  container.addEventListener('click', (event) => {
+    const btn = event.target.closest('[data-action]');
+    if (!btn || !container.contains(btn)) return;
+
+    const action = btn.dataset.action;
+    const panel = btn.closest('.opp-panel');
+    const reviewMsg = container.querySelector('[data-role="review-msg"]');
+    const smsMsg = container.querySelector('[data-role="sms-msg"]');
+
+    if (action === 'approve-selected') {
+      const ids = Array.from(container.querySelectorAll('.opp-check-review:checked')).map((c) => c.value);
+      reviewOpportunities(purchaseId, 'approve', ids, reviewMsg);
+      return;
+    }
+    if (action === 'reject-selected') {
+      const ids = Array.from(container.querySelectorAll('.opp-check-review:checked')).map((c) => c.value);
+      reviewOpportunities(purchaseId, 'reject', ids, reviewMsg);
+      return;
+    }
+    if (action === 'approve-one' && btn.dataset.oppId) {
+      reviewOpportunities(purchaseId, 'approve', [btn.dataset.oppId], reviewMsg);
+      return;
+    }
+    if (action === 'reject-one' && btn.dataset.oppId) {
+      reviewOpportunities(purchaseId, 'reject', [btn.dataset.oppId], reviewMsg);
+      return;
+    }
+    if (action === 'sms-gateway') {
+      const ids = Array.from(container.querySelectorAll('.opp-check-sms:checked')).map((c) => c.value);
+      sendOpportunitySms(purchaseId, 'gateway', ids, smsMsg);
+      return;
+    }
+    if (action === 'sms-portal') {
+      const ids = Array.from(container.querySelectorAll('.opp-check-sms:checked')).map((c) => c.value);
+      sendOpportunitySms(purchaseId, 'portal', ids, smsMsg);
+    }
+  });
+}
+
+function renderOpportunityTableRows(opportunities, options = {}) {
+  const checkboxClass = options.checkboxClass || '';
+  const showRowActions = options.showRowActions === true;
+  const purchaseId = options.purchaseId || '';
+
   return opportunities.map((o) => `
-    <tr>
+    <tr class="${options.rowClass || ''}">
       <td><input type="checkbox" class="${checkboxClass}" value="${o.id}"></td>
       <td>${dealTagBadge(o.deal_tag)}</td>
       <td>${escapeHtml(o.listing_title || '—')}</td>
       <td>${fmtNum(o.listing_price)}</td>
-      <td>${fmtNum(o.reference_price || o.market_price_mid || o.market_price_up)}</td>
+      <td>${fmtNum(o.reference_price || o.market_price_up || o.market_price_mid)}</td>
       <td>${fmtNum(o.discount_pct)}%</td>
       <td>${opportunityStatusBadge(o.status)}</td>
       <td class="link-cell">${opportunityLinks(o)}</td>
+      ${showRowActions ? `
+        <td class="link-cell">
+          <button type="button" class="link-btn opp-validate-one-btn" data-purchase-id="${purchaseId}" data-opp-id="${o.id}">Mark valid</button>
+          <button type="button" class="link-btn opp-reject-one-btn" data-purchase-id="${purchaseId}" data-opp-id="${o.id}">Reject</button>
+        </td>
+      ` : ''}
     </tr>
   `).join('');
 }
 
-function renderOpportunitiesSections(opportunities) {
+function renderOpportunitiesSections(opportunities, purchaseId) {
   const initialOpps = opportunities.filter((o) => o.status === 'new');
   const validOpps = opportunities.filter((o) => o.status === 'approved' || o.status === 'notified');
 
@@ -332,38 +539,56 @@ function renderOpportunitiesSections(opportunities) {
   let html = '';
 
   if (initialOpps.length) {
-    html += section('Initial opportunities (pending validation)', `
-      <p class="cell-sub">Auto-detected by crawl. Review links, then approve to make valid for SMS — SMS is not available yet.</p>
-      <div class="sms-toolbar">
-        <label><input type="checkbox" id="selectAllInitialOpps"> Select all</label>
-        <button class="btn-secondary" id="approveOppsBtn">Mark valid</button>
-        <button class="btn-secondary" id="rejectOppsBtn">Reject</button>
-        <span id="reviewMsg" class="cell-sub"></span>
+    html += section(`Initial opportunities (${initialOpps.length})`, `
+      <div class="opp-section opp-section-initial">
+        <p class="cell-sub">Auto-created by crawl. Open Divar / Hamrah links to review. Use <strong>Mark valid</strong> (single or bulk) — <em>SMS is not available here</em>.</p>
+        <div class="sms-toolbar">
+          <label><input type="checkbox" id="selectAllInitialOpps"> Select all</label>
+          <button type="button" class="btn-secondary" id="approveOppsBtn">Mark selected valid</button>
+          <button type="button" class="btn-secondary" id="rejectOppsBtn">Reject selected</button>
+          <span id="reviewMsg" class="cell-sub"></span>
+        </div>
+        <table class="inner-table opp-table-initial">
+          <thead><tr>
+            <th></th><th>Tag</th><th>Listing</th><th>Price</th><th>Max ref</th><th>Discount vs max</th><th>Status</th><th>Links</th><th>Actions</th>
+          </tr></thead>
+          <tbody>${renderOpportunityTableRows(initialOpps, {
+            checkboxClass: 'opp-check-review',
+            showRowActions: true,
+            purchaseId,
+            rowClass: 'opp-row-initial',
+          })}</tbody>
+        </table>
       </div>
-      <table class="inner-table">
-        <thead><tr><th></th><th>Tag</th><th>Listing</th><th>Price</th><th>Reference</th><th>Discount %</th><th>Status</th><th>Links</th></tr></thead>
-        <tbody>${renderOpportunityTableRows(initialOpps, 'opp-check-review')}</tbody>
-      </table>
     `);
   }
 
   if (validOpps.length) {
-    html += section('Validated opportunities (SMS enabled)', `
-      <p class="cell-sub">Approved by staff. Select one or more, then send gateway links or portal share SMS.</p>
-      <div class="sms-toolbar">
-        <label><input type="checkbox" id="selectAllValidOpps"> Select all</label>
-        <button class="btn-secondary" id="sendGatewaySmsBtn">Send gateway links SMS</button>
-        <button class="btn-secondary" id="sendPortalSmsBtn">Send portal share SMS</button>
-        <span id="smsMsg" class="cell-sub"></span>
+    html += section(`Validated opportunities (${validOpps.length}) — SMS enabled`, `
+      <div class="opp-section opp-section-valid">
+        <p class="cell-sub">Staff-approved. Select one or more rows, then send gateway links or portal share SMS.</p>
+        <div class="sms-toolbar">
+          <label><input type="checkbox" id="selectAllValidOpps"> Select all</label>
+          <button type="button" class="btn-secondary" id="sendGatewaySmsBtn">Send gateway links SMS</button>
+          <button type="button" class="btn-secondary" id="sendPortalSmsBtn">Send portal share SMS</button>
+          <span id="smsMsg" class="cell-sub"></span>
+        </div>
+        <table class="inner-table opp-table-valid">
+          <thead><tr>
+            <th></th><th>Tag</th><th>Listing</th><th>Price</th><th>Max ref</th><th>Discount vs max</th><th>Status</th><th>Links</th>
+          </tr></thead>
+          <tbody>${renderOpportunityTableRows(validOpps, {
+            checkboxClass: 'opp-check-sms',
+            rowClass: 'opp-row-valid',
+          })}</tbody>
+        </table>
       </div>
-      <table class="inner-table">
-        <thead><tr><th></th><th>Tag</th><th>Listing</th><th>Price</th><th>Reference</th><th>Discount %</th><th>Status</th><th>Links</th></tr></thead>
-        <tbody>${renderOpportunityTableRows(validOpps, 'opp-check-sms')}</tbody>
-      </table>
     `);
-  } else if (initialOpps.length) {
-    html += section('Validated opportunities (SMS enabled)', `
-      <p class="empty-inline">No validated opportunities yet — approve initial rows above to enable SMS.</p>
+  } else {
+    html += section('Validated opportunities — SMS enabled', `
+      <div class="opp-section opp-section-valid empty">
+        <p class="empty-inline">No validated opportunities yet. Mark initial rows as valid above to enable SMS.</p>
+      </div>
     `);
   }
 
@@ -448,11 +673,18 @@ function renderDetail(d, purchaseId) {
   const listingsTitle = detailState.crawlRunId
     ? 'Found listings for selected crawl run (Divar + market price)'
     : 'Found listings (Divar + market price)';
-  const pag = d.listings_pagination || {};
-  const listingsCountNote = pag.total != null ? ` <span class="cell-sub">(${fmtNum(pag.total)} total · 20 per page)</span>` : '';
-  html += section(`${listingsTitle}${listingsCountNote}`, renderListings(d.listings || [], d.listings_pagination, purchaseId));
+  const pag = buildListingsPaginationState(d.listings_pagination, d.listings || [], detailState.listingsPage);
+  const meta = d.listings_meta || {};
+  const latestPosts = d.crawl_runs && d.crawl_runs[0] ? d.crawl_runs[0].posts_found : null;
+  let listingsCountNote = '';
+  if (pag.total != null) {
+    listingsCountNote = ` <span class="cell-sub">(${fmtNum(pag.total)} matching · ${pag.per_page} per page`;
+    if (latestPosts != null) listingsCountNote += ` · latest crawl fetched ${fmtNum(latestPosts)} posts`;
+    listingsCountNote += ')</span>';
+  }
+  html += section(`${listingsTitle}${listingsCountNote}`, '<div id="listingsMount" class="listings-mount"></div>');
 
-  html += renderOpportunitiesSections(d.opportunities || []);
+  html += section('Opportunities workflow', '<div id="opportunitiesMount" class="opportunities-mount"></div>');
 
   if (d.deliveries.length) {
     html += section('SMS deliveries', `
@@ -477,10 +709,12 @@ function renderDetail(d, purchaseId) {
   return html;
 }
 
-async function reviewOpportunities(purchaseId, action) {
-  const checks = document.querySelectorAll('.opp-check-review:checked');
-  const ids = Array.from(checks).map((c) => c.value);
-  const msg = document.getElementById('reviewMsg');
+async function reviewOpportunities(purchaseId, action, opportunityIds = null, msgEl = null) {
+  const checks = opportunityIds
+    ? null
+    : document.querySelectorAll('.opp-check-review:checked');
+  const ids = opportunityIds || Array.from(checks).map((c) => c.value);
+  const msg = msgEl || document.querySelector('[data-role="review-msg"]');
   if (!ids.length) {
     if (msg) msg.textContent = 'Select at least one initial opportunity';
     return;
@@ -498,10 +732,12 @@ async function reviewOpportunities(purchaseId, action) {
   }
 }
 
-async function sendOpportunitySms(purchaseId, mode) {
-  const checks = document.querySelectorAll('.opp-check-sms:checked');
-  const ids = Array.from(checks).map((c) => c.value);
-  const msg = document.getElementById('smsMsg');
+async function sendOpportunitySms(purchaseId, mode, opportunityIds = null, msgEl = null) {
+  const checks = opportunityIds
+    ? null
+    : document.querySelectorAll('.opp-check-sms:checked');
+  const ids = opportunityIds || Array.from(checks).map((c) => c.value);
+  const msg = msgEl || document.querySelector('[data-role="sms-msg"]');
   if (!ids.length) {
     if (msg) msg.textContent = 'Select at least one validated opportunity';
     return;
@@ -584,55 +820,31 @@ async function openDetail(id, options = {}) {
   content.textContent = 'Loading...';
   const params = new URLSearchParams({
     listings_page: String(detailState.listingsPage),
-    listings_per_page: '20',
+    listings_per_page: String(LISTINGS_PER_PAGE),
   });
   if (detailState.crawlRunId) params.set('crawl_run_id', detailState.crawlRunId);
   try {
     const detail = await api(`/crawl-results/${id}?${params.toString()}`);
     content.innerHTML = renderDetail(detail, id);
+
+    const listingsMount = document.getElementById('listingsMount');
+    mountListingsSection(
+      listingsMount,
+      detail.listings || [],
+      detail.listings_pagination,
+      detail.listings_meta,
+    );
+    bindListingsInteractions(listingsMount, id);
+
+    const oppMount = document.getElementById('opportunitiesMount');
+    mountOpportunitiesWorkflow(oppMount, detail.opportunities || [], id);
+    bindOpportunitiesInteractions(oppMount, id);
+
     const btn = document.getElementById('runCrawlBtn');
     if (btn) btn.addEventListener('click', () => runCrawlForPurchase(id));
-    const selectAllInitial = document.getElementById('selectAllInitialOpps');
-    if (selectAllInitial) {
-      selectAllInitial.addEventListener('change', () => {
-        document.querySelectorAll('.opp-check-review').forEach((c) => {
-          c.checked = selectAllInitial.checked;
-        });
-      });
-    }
-    const selectAllValid = document.getElementById('selectAllValidOpps');
-    if (selectAllValid) {
-      selectAllValid.addEventListener('change', () => {
-        document.querySelectorAll('.opp-check-sms').forEach((c) => {
-          c.checked = selectAllValid.checked;
-        });
-      });
-    }
-    const gwBtn = document.getElementById('sendGatewaySmsBtn');
-    if (gwBtn) gwBtn.addEventListener('click', () => sendOpportunitySms(id, 'gateway'));
-    const portalBtn = document.getElementById('sendPortalSmsBtn');
-    if (portalBtn) portalBtn.addEventListener('click', () => sendOpportunitySms(id, 'portal'));
-    const approveBtn = document.getElementById('approveOppsBtn');
-    if (approveBtn) approveBtn.addEventListener('click', () => reviewOpportunities(id, 'approve'));
-    const rejectBtn = document.getElementById('rejectOppsBtn');
-    if (rejectBtn) rejectBtn.addEventListener('click', () => reviewOpportunities(id, 'reject'));
     document.querySelectorAll('.crawl-run-filter-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
         openDetail(id, { crawlRunId: btn.dataset.runId, listingsPage: 1 });
-      });
-    });
-    document.querySelectorAll('[data-page-action]').forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const action = btn.dataset.pageAction;
-        const pg = detailState.listingsPage;
-        const pag = normalizeListingsPagination(detail.listings_pagination, detail.listings || [], pg);
-        if (action === 'prev' && pg > 1) {
-          openDetail(id, { listingsPage: pg - 1 });
-        } else if (action === 'next' && pg < pag.total_pages) {
-          openDetail(id, { listingsPage: pg + 1 });
-        } else if (action === 'clear-run') {
-          openDetail(id, { crawlRunId: null, listingsPage: 1 });
-        }
       });
     });
   } catch (e) {
